@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SEDES-DF 2026 · Cargo 409 · Psicologia</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    /* ===== GLOBAL ===== */
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f4f0;color:#1a1a1a;line-height:1.6}
+
+    /* ===== TOP HEADER ===== */
+    .site-header{background:linear-gradient(135deg,#1e3a5f,#2d1f69);padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .site-header h1{color:#fff;font-size:1.1rem;font-weight:800;flex:1;min-width:200px}
+    .site-header .badge-prova{background:#ef4444;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap}
+
+    /* ===== MAIN TAB NAV ===== */
+    .main-nav{background:#fff;border-bottom:2px solid #e5e5e5;display:flex;overflow-x:auto;position:sticky;top:0;z-index:200;padding:0 8px}
+    .main-tab{flex:1;min-width:100px;padding:14px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:700;color:#666;border-bottom:3px solid transparent;transition:.2s;text-align:center;white-space:nowrap}
+    .main-tab:hover{color:#2d1f69}
+    .main-tab.active{color:#2d1f69;border-bottom-color:#2d1f69}
+
+    /* ===== TAB SECTIONS ===== */
+    .tab-section{display:none}
+    .tab-section.active{display:block}
+
+    /* ===== PLANO GERAL — LIGHT ===== */
+    .plano-container{max-width:800px;margin:0 auto;padding:28px 16px 60px}
+    .plano-h2{font-size:18px;font-weight:800;color:#111;margin:32px 0 12px;padding-bottom:6px;border-bottom:2px solid #e5e5e5}
+    .plano-h2:first-child{margin-top:0}
+    .plano-h3{font-size:15px;font-weight:700;color:#2d1f69;margin:20px 0 8px}
+    .plano-p{font-size:14px;color:#444;margin-bottom:10px}
+    .plano-ul{padding-left:20px;margin-bottom:12px}
+    .plano-ul li{font-size:14px;color:#444;margin-bottom:4px}
+
+    .diag-table,.semana-table,.ciclo-table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+    .diag-table th,.semana-table th,.ciclo-table th{background:#2d1f69;color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+    .diag-table td,.semana-table td,.ciclo-table td{padding:9px 12px;border-bottom:1px solid #e5e5e5;vertical-align:top;color:#333}
+    .diag-table tr:last-child td,.semana-table tr:last-child td,.ciclo-table tr:last-child td{border-bottom:none}
+    .diag-table tr:nth-child(even) td,.semana-table tr:nth-child(even) td,.ciclo-table tr:nth-child(even) td{background:#f9f8ff}
+
+    .info-box{background:#e8e4ff;border-left:4px solid #5b3fd9;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:14px;color:#2d1f69}
+    .warn-box{background:#fff7ed;border-left:4px solid #f59e0b;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:14px;color:#92400e}
+    .success-box{background:#f0fdf4;border-left:4px solid #22c55e;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:14px;color:#166534}
+    .danger-box{background:#fef2f2;border-left:4px solid #ef4444;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:14px;color:#991b1b}
+
+    .semana-card{background:#fff;border-radius:12px;padding:18px;margin-bottom:12px;border-left:5px solid #5b3fd9;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+    .semana-card.bloco-critico{border-left-color:#ef4444}
+    .semana-card.bloco-reserva{border-left-color:#f59e0b}
+    .semana-card.bloco-revisao{border-left-color:#10b981}
+    .semana-card h4{font-size:14px;font-weight:700;color:#111;margin-bottom:6px}
+    .semana-card p{font-size:13px;color:#555}
+    .semana-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:10px;margin-bottom:6px;background:#e8e4ff;color:#5b3fd9}
+    .semana-badge.vermelho{background:#fee2e2;color:#991b1b}
+    .semana-badge.amarelo{background:#fef9c3;color:#854d0e}
+    .semana-badge.verde{background:#dcfce7;color:#166534}
+
+    .visao-geral{background:#1a1a2e;color:#e0e0ff;border-radius:12px;padding:20px;font-family:'Courier New',monospace;font-size:13px;line-height:2;margin:16px 0}
+
+    /* ===== SEMANA 1 — LIGHT (herdado de dia-01.html) ===== */
+    .day-nav{background:#fff;border-bottom:1px solid #e5e5e5;display:flex;overflow-x:auto;position:sticky;top:48px;z-index:100;padding:0 8px}
+    .day-btn{flex:1;min-width:80px;padding:12px 6px;border:none;background:none;cursor:pointer;font-size:12px;font-weight:600;color:#888;border-bottom:3px solid transparent;transition:.2s;text-align:center;line-height:1.3}
+    .day-btn small{display:block;font-size:10px;font-weight:400;color:#aaa}
+    .day-btn.active{color:#5b3fd9;border-bottom-color:#5b3fd9}
+    .day-btn:hover{color:#5b3fd9}
+    .bonus-btn.active{color:#f59e0b;border-bottom-color:#f59e0b}
+    .bonus-btn:hover{color:#f59e0b}
+
+    .day-content{display:none;padding:24px 16px 48px;max-width:720px;margin:0 auto}
+    .day-content.active{display:block}
+
+    .day-header{margin-bottom:20px}
+    .dbadge{display:inline-block;background:#e8e4ff;color:#5b3fd9;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:8px}
+    .dbadge.bonus{background:#fff3cd;color:#b45309}
+    .day-header h1{font-size:22px;font-weight:800;color:#111}
+    .day-header p{font-size:14px;color:#666;margin-top:4px}
+
+    .slot{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px;border-left:5px solid #ccc}
+    .slot.carro-manha{border-color:#f59e0b}
+    .slot.carro-volta{border-color:#3b82f6}
+    .slot.pomodoro-1{border-color:#10b981}
+    .slot.pomodoro-2{border-color:#ef4444}
+    .slot.revisao{border-color:#8b5cf6}
+    .slot.bonus-slot{border-color:#f59e0b;background:#fffbf0}
+    .slot-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .slot-icon{font-size:18px}
+    .slot-title{font-size:14px;font-weight:700;color:#111}
+    .slot-time{font-size:11px;font-weight:600;color:#888;margin-top:2px}
+    .slot p{font-size:14px;color:#444;margin-bottom:8px}
+    .slot p:last-child{margin-bottom:0}
+    .tip{background:#fef9ec;border:1px solid #f6d860;border-radius:8px;padding:8px 12px;font-size:13px;color:#7a5c00;margin-top:8px}
+
+    .recall-card{background:#1a1a2e;color:#e0e0ff;border-radius:12px;padding:18px 20px;font-family:'Courier New',monospace;font-size:13px;line-height:2.1;margin-top:12px}
+    .recall-title{font-weight:700;color:#a78bfa;font-size:12px;margin-bottom:10px;font-family:'Segoe UI',system-ui,sans-serif;letter-spacing:1px;text-transform:uppercase}
+    .cl{border-bottom:1px solid #2d2d4e;display:block;width:100%;margin:2px 0 5px 0}
+
+    .ref-box{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px}
+    .ref-box h2{font-size:12px;font-weight:700;color:#999;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+    .artigo{margin-bottom:14px}
+    .art-num{display:inline-block;background:#5b3fd9;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:6px}
+    .artigo p{font-size:14px;color:#444;margin-bottom:4px}
+    .artigo ol,.artigo ul{padding-left:18px;font-size:14px;color:#444}
+    .artigo li{margin-bottom:4px}
+    .ancora{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:10px 14px;font-size:14px;color:#166534;margin-top:12px}
+    .atencao{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:10px 14px;font-size:14px;color:#9a3412;margin-top:12px}
+
+    .checklist{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px}
+    .checklist h2{font-size:12px;font-weight:700;color:#999;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+    .check-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #f0f0f0;font-size:14px;color:#333}
+    .check-item:last-child{border-bottom:none}
+    .check-box{width:18px;height:18px;border:2px solid #d1d5db;border-radius:4px;flex-shrink:0;margin-top:2px;cursor:pointer}
+    .check-box.checked{background:#5b3fd9;border-color:#5b3fd9}
+
+    /* ===== LOAS — DARK (herdado de loas-quadrix.html) ===== */
+    .loas-wrap{background:#0f172a;min-height:60vh}
+    .loas-header{background:linear-gradient(135deg,#1e3a5f,#0f172a);padding:18px 24px;border-bottom:2px solid #3b82f6}
+    .loas-header h2{font-size:1.3rem;color:#fff;margin-bottom:3px}
+    .loas-header .sub{color:#94a3b8;font-size:0.82rem}
+    .loas-nav{display:flex;flex-wrap:wrap;gap:7px;padding:12px 20px;background:#1e293b;border-bottom:1px solid #334155;position:sticky;top:48px;z-index:100}
+    .nb{padding:6px 12px;border-radius:6px;border:1px solid #475569;background:#1e293b;color:#94a3b8;cursor:pointer;font-size:0.8rem;transition:all .2s}
+    .nb:hover,.nb.on{background:#3b82f6;color:#fff;border-color:#3b82f6}
+    .loas-content{max-width:900px;margin:0 auto;padding:20px 20px 60px}
+    .lsec{display:none}.lsec.on{display:block}
+    .lcard{background:#1e293b;border-radius:10px;padding:18px;margin-bottom:16px;border-left:4px solid #3b82f6}
+    .lcard h2{font-size:1rem;color:#60a5fa;margin-bottom:10px}
+    .lei{font-size:0.87rem;color:#cbd5e1;line-height:1.75;border-left:3px solid #475569;padding-left:12px;margin-bottom:12px}
+    .lnum{color:#f59e0b;font-weight:700}
+    .lneg{color:#f87171;font-weight:700}
+    .lkey{color:#34d399;font-weight:600}
+    .lhot{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-weight:700;background:#7f1d1d;color:#fca5a5;margin-left:8px}
+    .qbox{background:#1a2744;border:1px solid #3b82f6;border-radius:8px;padding:12px;margin-top:10px}
+    .qbox-t{color:#60a5fa;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .tbox{background:#2d1515;border:1px solid #ef4444;border-radius:8px;padding:12px;margin-top:10px}
+    .tbox-t{color:#f87171;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .mbox{background:#1a2d1a;border:1px solid #22c55e;border-radius:8px;padding:12px;margin-top:10px}
+    .mbox-t{color:#4ade80;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    ul.lq{padding-left:16px}
+    ul.lq li{font-size:0.84rem;color:#93c5fd;margin-bottom:5px;line-height:1.5}
+    ul.lt{padding-left:16px}
+    ul.lt li{font-size:0.84rem;color:#fca5a5;margin-bottom:5px;line-height:1.5}
+    ul.lm{padding-left:0;list-style:none}
+    ul.lm li{font-size:0.84rem;color:#86efac;margin-bottom:4px;line-height:1.6}
+    ul.la{padding-left:18px}
+    ul.la li{font-size:0.86rem;color:#cbd5e1;margin-bottom:6px;line-height:1.65}
+    ul.la li strong{color:#e2e8f0}
+    .ltable{width:100%;border-collapse:collapse;margin-top:10px;font-size:0.83rem}
+    .ltable th{background:#1e3a5f;color:#93c5fd;padding:9px 10px;text-align:left}
+    .ltable td{padding:9px 10px;border-bottom:1px solid #334155;color:#cbd5e1;vertical-align:top}
+    .ltable tr:hover td{background:#1a2744}
+    .rcard{background:#0f172a;border-radius:6px;padding:10px 14px;margin-bottom:8px;cursor:pointer}
+    .rq{color:#e2e8f0;font-size:0.85rem;font-weight:600}
+    .ra{color:#334155;font-size:0.84rem;margin-top:4px;transition:color .2s}
+    .rcard:hover .ra{color:#60a5fa}
+    .bpc-nao{background:#1a2d1a;border:1px solid #22c55e;border-radius:8px;padding:14px;margin-top:12px}
+    .bpc-nao h3{color:#4ade80;font-size:0.9rem;margin-bottom:10px}
+
+    footer{text-align:center;font-size:11px;color:#bbb;padding:24px 0 40px;background:#f5f4f0}
+    .loas-wrap footer{background:#0f172a;color:#475569}
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="site-header">
+  <h1>📚 SEDES-DF 2026 · Cargo 409 · Psicologia</h1>
+  <span class="badge-prova">🎯 Prova: 06/09/2026</span>
+</div>
+
+<!-- ===== MAIN NAV ===== -->
+<nav class="main-nav">
+  <button class="main-tab active" onclick="showMain('plano')">📅 Plano Geral</button>
+  <button class="main-tab" onclick="showMain('semana1')">📖 Semana 1</button>
+  <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS Quadrix</button>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 1: PLANO GERAL
+══════════════════════════════════════════════════════════ -->
+<section id="tab-plano" class="tab-section active">
+<div class="plano-container">
+
+  <h2 class="plano-h2">Diagnóstico de Ponto de Partida</h2>
+  <table class="diag-table">
+    <tr><th>Status</th><th>Matérias</th></tr>
+    <tr><td>✅ Já domina</td><td>Português, Lei Orgânica, Código de Ética</td></tr>
+    <tr><td>⚡ Tem base (adaptar ao SUAS)</td><td>Abordagens teóricas, Psicologia do Desenvolvimento, Avaliação psicossocial</td></tr>
+    <tr><td>🔴 Estuda do zero</td><td>SUAS/LOAS/NOB, Psicólogo no SUAS, Legislação protetiva, Programas DF</td></tr>
+  </table>
+  <div class="info-box"><strong>Vantagem não óbvia:</strong> 5 anos de clínica = entrevista, anamnese, avaliação, relação terapêutica. A prova cobra esses instrumentos dentro do SUAS. Você não está partindo do zero — está aprendendo <em>onde aplicar</em> o que já sabe.</div>
+
+  <h2 class="plano-h2">Formato Diário</h2>
+  <table class="diag-table">
+    <tr><th>Slot</th><th>Quando</th><th>O que fazer</th></tr>
+    <tr><td>🚗 Carro manhã</td><td>30min · Áudio</td><td>Videoaula GranCursos via Bluetooth (conteúdo novo) <strong>ou</strong> roteiro de revisão em áudio gerado por IA</td></tr>
+    <tr><td>🚗 Carro volta 13h</td><td>30min · Áudio/Revisão</td><td>Continua a videoaula <strong>ou</strong> relê resumo em áudio e tenta lembrar pontos de cabeça (fala em voz alta)</td></tr>
+    <tr><td>📖 Casa Pomodoro 1</td><td>30min · Leitura ativa</td><td>Lê PDF GranCursos, sublinha</td></tr>
+    <tr><td>✍️ Casa Pomodoro 2</td><td>30min · Recall ativo</td><td>Escreve resumo 1 página (fecha o PDF primeiro)</td></tr>
+    <tr><td>⭐ Quinta-feira</td><td>Bônus</td><td>Revisões agendadas + 20–30 questões + manutenção mensal (última quinta)</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Manutenção de Matérias Dominadas</h2>
+  <div class="success-box">Português, Código de Ética e Lei Orgânica não saem do plano — entram em manutenção mensal. <strong>Última quinta de cada mês:</strong> 30 questões (10 por matéria). Se acertar &gt;70% mantém; abaixo de 70% relê o resumo na semana seguinte.</div>
+  <table class="diag-table">
+    <tr><th>Data</th><th>Manutenção</th></tr>
+    <tr><td>29/05 (quinta)</td><td>Português + Ética + Lei Orgânica</td></tr>
+    <tr><td>26/06 (quinta)</td><td>Português + Ética + Lei Orgânica</td></tr>
+    <tr><td>31/07 (quinta)</td><td>Português + Ética + Lei Orgânica</td></tr>
+    <tr><td>28/08 (quinta)</td><td>Português + Ética + Lei Orgânica</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Ciclos de Revisão — Retenção Espaçada</h2>
+  <table class="ciclo-table">
+    <tr><th>Ciclo</th><th>Quando</th><th>Como</th></tr>
+    <tr><td>Retenção 1</td><td>7 dias depois</td><td>Relê resumo + 10 questões na quinta</td></tr>
+    <tr><td>Retenção 2</td><td>15 dias depois</td><td>15–20 questões mistas na quinta</td></tr>
+    <tr><td>Retenção 3</td><td>30 dias depois</td><td>Simulado parcial ou 20 questões na quinta</td></tr>
+  </table>
+  <table class="semana-table">
+    <tr><th>Bloco</th><th>Estudo</th><th>Ret. 1 (7d)</th><th>Ret. 2 (15d)</th><th>Ret. 3 (30d)</th></tr>
+    <tr><td>SUAS Fundamentos</td><td>Sem 1–2</td><td>Sem 3</td><td>Sem 5</td><td>Sem 7</td></tr>
+    <tr><td>NOB + Tipificação</td><td>Sem 3–4</td><td>Sem 5</td><td>Sem 6</td><td>Sem 9</td></tr>
+    <tr><td>Lei Maria da Penha</td><td>Sem 5–6</td><td>Sem 7</td><td>Sem 8</td><td>Sem 10</td></tr>
+    <tr><td>Legislação Protetiva</td><td>Sem 7–8</td><td>Sem 9</td><td>Sem 10</td><td>Sem 12</td></tr>
+    <tr><td>Psicólogo SUAS + Abordagens</td><td>Sem 9–10</td><td>Sem 11</td><td>Sem 12</td><td>Sem 14</td></tr>
+    <tr><td>Psicologia Aplicada + Desenvolvimento</td><td>Sem 11</td><td>Sem 12</td><td>Sem 13</td><td>Sem 15</td></tr>
+    <tr><td>Programas DF</td><td>Sem 12</td><td>Sem 13</td><td>Sem 14</td><td>Sem 15–16</td></tr>
+    <tr><td>Legislação DF</td><td>Sem 14</td><td>Sem 15</td><td>Sem 16</td><td>—</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Protocolo de Calibração por Desempenho</h2>
+  <table class="diag-table">
+    <tr><th>% de Acerto</th><th>O que fazer</th></tr>
+    <tr><td style="color:#dc2626;font-weight:700">Abaixo de 50%</td><td>Para. Volta ao conteúdo antes de avançar. Re-estuda o tópico no slot casa da semana seguinte.</td></tr>
+    <tr><td style="color:#d97706;font-weight:700">50%–65%</td><td>Continua avançando, mas adiciona um ciclo de revisão extra na semana seguinte.</td></tr>
+    <tr><td style="color:#16a34a;font-weight:700">65%–80%</td><td>No caminho certo. Segue o plano normalmente.</td></tr>
+    <tr><td style="color:#2563eb;font-weight:700">Acima de 80%</td><td>Sólido. Reduz tempo nesse tópico e usa o ganho para reforçar os blocos abaixo de 65%.</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Protocolo Dia Ruim (Fibromialgia)</h2>
+  <table class="diag-table">
+    <tr><th>Intensidade</th><th>O que fazer</th></tr>
+    <tr><td>Dor/fog leve</td><td>Plano normal, reduz ritmo no Pomodoro</td></tr>
+    <tr><td>Dor/fog médio</td><td>Apenas os 2 slots do carro (1h áudio) · Cancela slot casa</td></tr>
+    <tr><td>Dor/fog forte</td><td>Só slot 1 carro (30min) · Escuta passiva, sem cobrança</td></tr>
+    <tr><td>Dia crítico</td><td>Descansa. Sem reposição. Semana que vem continua no ponto.</td></tr>
+  </table>
+  <div class="warn-box"><strong>Regra de ouro:</strong> nunca cancela tudo, nunca recompõe no dia seguinte. O plano é um rio, não uma lista de tarefas.</div>
+
+  <h2 class="plano-h2">Cronograma Semana a Semana</h2>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semanas 1–2 · 17/05 a 30/05</div>
+    <h4>SUAS: Fundamentos</h4>
+    <p>LOAS: princípios, diretrizes, proteção social, seguranças socioassistenciais · PNAS/2004: família, território · SUAS: serviços, programas, projetos, benefícios · <em>Quinta: sem questões ainda. Organiza resumos. 29/05: manutenção.</em></p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semanas 3–4 · 31/05 a 13/06</div>
+    <h4>NOB/SUAS + Tipificação Nacional</h4>
+    <p>NOB/SUAS: responsabilidades dos entes, cofinanciamento · NOB-RH/SUAS: equipe de referência · Tipificação: CRAS, CREAS, Centro POP, Acolhimento · Instâncias: CIT, CIB, CNAS, conferências</p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semanas 5–6 · 14/06 a 27/06</div>
+    <h4>Lei Maria da Penha + Mulheres</h4>
+    <p>Lei 11.340/2006: formas de violência, medidas protetivas, rede de atendimento, papel do psicólogo · Plano Distrital de Política para Mulheres · <em>Mínimo 3 questões garantidas na prova.</em></p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semanas 7–8 · 28/06 a 11/07</div>
+    <h4>Legislação Protetiva</h4>
+    <p>ECA + SINASE · LBI (Lei 13.146/2015) · Estatuto do Idoso + Política Nacional do Idoso · Política Nacional para Pop. em Situação de Rua · Diversidade: étnico-racial + homotransfobia</p>
+  </div>
+
+  <div class="semana-card bloco-critico">
+    <div class="semana-badge vermelho">⚠️ BLOCO MAIS CRÍTICO · Semanas 9–10 · 12/07 a 25/07</div>
+    <h4>Psicólogo no SUAS + Abordagens Teóricas</h4>
+    <p>Dimensão ético-política da Psicologia · Psicólogo no CRAS, CREAS, Centro POP, Acolhimento · Intervenção psicossocial · Política sobre drogas no SUAS · Abordagens: Sócio-histórica (Vigotski), Psicanálise, Humanista, TCC no contexto SUAS</p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semana 11 · 26/07 a 01/08</div>
+    <h4>Psicologia Aplicada + Desenvolvimento</h4>
+    <p>Desenvolvimento infantil em vulnerabilidade · Adolescência e conflito com a lei · Envelhecimento e vulnerabilidade · Avaliação psicossocial: entrevista, anamnese, visita domiciliar · Interdisciplinaridade no SUAS</p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semana 12 · 02/08 a 08/08</div>
+    <h4>Programas DF + MROSC</h4>
+    <p>CadÚnico + Protocolo de Gestão Integrada · MROSC (Lei 13.019/2014) · Programas DF: Cartão Prato Cheio, Cartão Gás, Plano DF Social, Benefícios Eventuais, SISAN</p>
+  </div>
+
+  <div class="semana-card bloco-reserva">
+    <div class="semana-badge amarelo">⚙️ BUFFER · Semana 13 · 09/08 a 15/08</div>
+    <h4>Semana de Reserva</h4>
+    <p>Se precisou usar: retoma conteúdo que ficou para trás. Se não precisou: simulado temático + questões mistas dos blocos com menor desempenho. <strong>Não pule esta semana mesmo que esteja bem.</strong></p>
+  </div>
+
+  <div class="semana-card">
+    <div class="semana-badge">Semana 14 · 16/08 a 22/08</div>
+    <h4>Legislação DF + Primeiros Socorros</h4>
+    <p>Realidade do DF e RIDE (LC 94/1998) · LC 840/2011: Títulos I, V, VI, VII · Lei 7.484/2024 (carreira EDAS) · Primeiros Socorros: leitura única do PDF · <em>Quinta: SIMULADO COMPLETO 1</em></p>
+  </div>
+
+  <div class="semana-card bloco-revisao">
+    <div class="semana-badge verde">🔁 REVISÃO · Semana 15 · 23/08 a 29/08</div>
+    <h4>Revisão Intensiva</h4>
+    <p>Zero conteúdo novo. Foco nos blocos com menor % de acerto. Questões diárias: 15–20 por sessão em casa. <em>Quinta 28/08: SIMULADO COMPLETO 2 + manutenção.</em></p>
+  </div>
+
+  <div class="semana-card bloco-revisao">
+    <div class="semana-badge verde">🏁 FINAL · Semana 16 · 30/08 a 05/09</div>
+    <h4>Revisão Final → Prova</h4>
+    <p>Apenas questões e revisão leve. Prioriza: psicólogo no SUAS + legislação protetiva + programas DF. Quinta 03/09: SIMULADO COMPLETO 3. <strong>05/09:</strong> relê anotações das matérias mais fracas, nada novo, dorme cedo. <strong>06/09: PROVA.</strong></p>
+  </div>
+
+  <h2 class="plano-h2">Visão Geral do Plano</h2>
+  <div class="visao-geral">
+Semanas 1–2   → SUAS fundamentos
+Semanas 3–4   → NOB/SUAS + Tipificação              (+ início questões)
+Semanas 5–6   → Lei Maria da Penha + Mulheres
+Semanas 7–8   → Legislação protetiva
+Semanas 9–10  → Psicólogo no SUAS + Abordagens      ← BLOCO MAIS IMPORTANTE
+Semana 11     → Psicologia Aplicada + Desenvolvimento
+Semana 12     → Programas DF + MROSC
+Semana 13     → RESERVA / Consolidação               ← BUFFER FIBROMIALGIA
+Semana 14     → Legislação DF + Simulado 1
+Semana 15     → Revisão intensiva + Simulado 2
+Semana 16     → Revisão final + Simulado 3            → PROVA 06/09
+
+Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Ética + Lei Orgânica</div>
+
+  <h2 class="plano-h2">Como Usar as IAs</h2>
+  <table class="diag-table">
+    <tr><th>Ferramenta</th><th>Uso ideal</th></tr>
+    <tr><td><strong>Claude</strong></td><td>Explicar conceitos, tirar dúvidas, criar roteiros de áudio para o carro, simular questões</td></tr>
+    <tr><td><strong>GPT</strong></td><td>Criar flashcards, transformar resumo em Q&amp;A, gerar quizzes rápidos</td></tr>
+    <tr><td><strong>Gemini</strong></td><td>Pesquisa de legislação atualizada, comparativos entre leis</td></tr>
+    <tr><td><strong>GranCursos</strong></td><td>Videoaulas (áudio no carro) + PDF (leitura casa) + questões (quinta-feira)</td></tr>
+    <tr><td><strong>Speechify</strong></td><td>TTS natural para ouvir roteiros e PDFs no carro</td></tr>
+  </table>
+  <div class="info-box"><strong>Fórmula para áudio de revisão:</strong> Cole o PDF no Claude e peça: <em>"Transforme esse conteúdo em um roteiro de áudio de 8 minutos, em formato de perguntas e respostas, como se fosse um podcast de revisão para concurso. Linguagem direta, enfatize o que mais cai em prova."</em> — depois cole no Speechify e ouça no carro.</div>
+
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 2: SEMANA 1
+══════════════════════════════════════════════════════════ -->
+<section id="tab-semana1" class="tab-section">
+
+  <!-- Sub-nav de dias -->
+  <nav class="day-nav">
+    <button class="day-btn active" onclick="showDay(1)">Dia 1<small>Seg 18/05</small></button>
+    <button class="day-btn" onclick="showDay(2)">Dia 2<small>Ter 19/05</small></button>
+    <button class="day-btn" onclick="showDay(3)">Dia 3<small>Qua 20/05</small></button>
+    <button class="day-btn bonus-btn" onclick="showDay(4)">Dia 4 ⭐<small>Qui 21/05</small></button>
+    <button class="day-btn" onclick="showDay(5)">Dia 5<small>Sex 22/05</small></button>
+    <button class="day-btn" onclick="showDay(6)">Dia 6<small>Sáb 23/05</small></button>
+  </nav>
+
+  <!-- DIA 1 -->
+  <div id="day-1" class="day-content active">
+    <div class="day-header">
+      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
+      <h1>Dia 1 · Segunda, 18/05</h1>
+      <p>LOAS — Conceito, Objetivos, Princípios e Diretrizes (Arts. 1, 2, 4 e 5)</p>
+    </div>
+    <div class="slot carro-manha">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+      <p><strong>O que fazer:</strong> abre o GranCursos e procura a videoaula de LOAS. Busca por <em>"LOAS introdução"</em> ou <em>"assistência social conceito e objetivos"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender o que é a assistência social, por que ela existe e quais os objetivos da LOAS (Arts. 1 e 2). Não precisa memorizar — é primeiro contato.</p>
+      <div class="tip">⚡ Se a aula for curta (menos de 30min): ouve completa e no tempo restante repete em voz alta o que entendeu com suas palavras.</div>
+    </div>
+    <div class="slot carro-volta">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+      <p><strong>O que fazer:</strong> continua a <strong>mesma videoaula</strong> do ponto onde pausou — agora cobre princípios e diretrizes (Arts. 4 e 5).</p>
+      <p><strong>Objetivo:</strong> ouvir os 5 princípios e 3 diretrizes ao menos uma vez antes de sentar à mesa.</p>
+      <div class="tip">⚡ Se já terminou a aula: volta para a parte de princípios e diretrizes e ouve de novo. Repetição é válida.</div>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF GranCursos de LOAS. Lê <strong>apenas</strong> Arts. 1, 2, 4 e 5 + explicações do professor.</p>
+      <p>Não lê o PDF inteiro — pula direto para esses artigos pelo índice ou pelos títulos "conceito", "princípios", "diretrizes".</p>
+      <div class="tip">⚡ Sublinha só o que parece essencial. Se sublinhar tudo, não sublinha nada.</div>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche o cartão abaixo sem consultar nada. Depois abre e corrige em vermelho o que errou ou esqueceu.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Cartão de Recall — Dia 1</div>
+        <strong>Art. 1 — Assistência social é:</strong><br/>
+        <span class="cl">&nbsp;</span><span class="cl">&nbsp;</span>
+        <strong>Art. 2 — Objetivos (ao menos 4):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+        <strong>Art. 4 — 5 Princípios (palavra-chave):</strong><br/>
+        P1:<span class="cl">&nbsp;</span>P2:<span class="cl">&nbsp;</span>P3:<span class="cl">&nbsp;</span>P4:<span class="cl">&nbsp;</span>P5:<span class="cl">&nbsp;</span>
+        <strong>Art. 5 — 3 Diretrizes (palavra-chave):</strong><br/>
+        D1:<span class="cl">&nbsp;</span>D2:<span class="cl">&nbsp;</span>D3:<span class="cl">&nbsp;</span>
+      </div>
+    </div>
+    <div class="ref-box">
+      <h2>Referência — confere após o recall</h2>
+      <div class="artigo"><span class="art-num">Art. 1</span><p>Direito do cidadão, dever do Estado. Política de seguridade social <strong>não contributiva</strong> que provê os mínimos sociais.</p></div>
+      <div class="artigo"><span class="art-num">Art. 2 — Objetivos</span><ol><li>Proteção à família, maternidade, infância, adolescência e velhice</li><li>Amparo às crianças e adolescentes carentes</li><li>Promoção da integração ao mercado de trabalho</li><li>Habilitação e reabilitação das pessoas com deficiência</li><li>Garantia de 1 salário mínimo mensal à PCD e ao idoso (BPC)</li></ol></div>
+      <div class="artigo"><span class="art-num">Art. 4 — 5 Princípios</span><ol><li>Supremacia do atendimento às necessidades sociais sobre exigências de rentabilidade econômica</li><li>Universalização dos direitos sociais</li><li>Respeito à dignidade do cidadão e à sua autonomia <em>(vedada comprovação vexatória de necessidade)</em></li><li>Igualdade de direitos no acesso, sem discriminação</li><li>Divulgação ampla dos benefícios, serviços, programas e projetos</li></ol></div>
+      <div class="artigo"><span class="art-num">Art. 5 — 3 Diretrizes</span><ol><li>Descentralização político-administrativa + comando único em cada esfera</li><li>Participação da população por organizações representativas</li><li>Primazia da responsabilidade do Estado</li></ol></div>
+      <div class="ancora"><strong>Âncora:</strong> princípios = o que a política <em>é</em> (valores). Diretrizes = como ela <em>se organiza</em> (estrutura).</div>
+    </div>
+  </div>
+
+  <!-- DIA 2 -->
+  <div id="day-2" class="day-content">
+    <div class="day-header">
+      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
+      <h1>Dia 2 · Terça, 19/05</h1>
+      <p>LOAS — Proteções Sociais e Seguranças Socioassistenciais</p>
+    </div>
+    <div class="slot carro-manha">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"proteção social básica e especial SUAS"</em> ou <em>"LOAS proteções sociais"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender a diferença entre proteção básica e especial, e onde cada uma acontece (CRAS × CREAS).</p>
+    </div>
+    <div class="slot carro-volta">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+      <p><strong>O que fazer:</strong> fala em voz alta, sem olhar nada:</p>
+      <p>— <em>"Qual a diferença entre proteção básica e especial?"</em><br/>— <em>"O que é CRAS? O que é CREAS?"</em><br/>— <em>"Quando um caso vai para especial média? E para alta?"</em></p>
+      <div class="tip">⚡ Não importa não saber — o exercício de tentar lembrar já treina a memória.</div>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF de LOAS. Lê Art. 6-A (proteções sociais) e a seção sobre seguranças socioassistenciais. Sublinha.</p>
+      <div class="tip">⚡ Foca nas diferenças entre básica, especial média e especial alta. São 3 coisas distintas — elas caem separadas na prova.</div>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Cartão de Recall — Dia 2</div>
+        <strong>Proteção Social Básica:</strong><br/>
+        Público: <span class="cl">&nbsp;</span>
+        Onde acontece: <span class="cl">&nbsp;</span>
+        Exemplo de serviço: <span class="cl">&nbsp;</span>
+        <strong>Proteção Especial — Média Complexidade:</strong><br/>
+        Público: <span class="cl">&nbsp;</span>
+        Onde: <span class="cl">&nbsp;</span>
+        <strong>Proteção Especial — Alta Complexidade:</strong><br/>
+        Quando: <span class="cl">&nbsp;</span>
+        <strong>5 Seguranças Socioassistenciais:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+      </div>
+    </div>
+    <div class="ref-box">
+      <h2>Referência — confere após o recall</h2>
+      <div class="artigo"><span class="art-num">Proteção Social Básica</span><p>Previne situações de vulnerabilidade e risco. Para famílias em vulnerabilidade por <strong>pobreza ou fragilização de vínculos</strong>. Ofertada nos <strong>CRAS</strong>. Serviço principal: PAIF.</p></div>
+      <div class="artigo"><span class="art-num">Proteção Especial — Média</span><p>Para situações de <strong>violação de direitos já ocorrida</strong>, mas vínculos familiares ainda existentes. Ofertada no <strong>CREAS</strong>. Serviço principal: PAEFI. Ex: violência doméstica, trabalho infantil.</p></div>
+      <div class="artigo"><span class="art-num">Proteção Especial — Alta</span><p>Vínculos familiares <strong>rompidos ou gravemente fragilizados</strong>. Requer atendimento integral 24h. Ex: acolhimento institucional, república, família acolhedora.</p></div>
+      <div class="artigo"><span class="art-num">5 Seguranças Socioassistenciais</span><ol><li>Segurança de acolhida</li><li>Segurança social e de renda</li><li>Segurança de convívio ou vivência familiar, comunitária e social</li><li>Segurança do desenvolvimento da autonomia individual, familiar e social</li><li>Segurança de apoio e auxílio</li></ol></div>
+      <div class="ancora"><strong>Âncora:</strong> básica = prevenção (CRAS). Especial = resposta à violação. A chave é o <em>vínculo familiar</em>: existe → especial média. Rompido → especial alta.</div>
+    </div>
+  </div>
+
+  <!-- DIA 3 -->
+  <div id="day-3" class="day-content">
+    <div class="day-header">
+      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
+      <h1>Dia 3 · Quarta, 20/05</h1>
+      <p>LOAS — BPC, Benefícios Eventuais e Gestão</p>
+    </div>
+    <div class="slot carro-manha">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"BPC benefício de prestação continuada"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender quem tem direito ao BPC, os critérios e as restrições. É o artigo mais cobrado da LOAS.</p>
+    </div>
+    <div class="slot carro-volta">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+      <p><strong>O que fazer:</strong> recita em voz alta:</p>
+      <p>— <em>"Quem tem direito ao BPC?"</em><br/>— <em>"Qual o critério de renda?"</em><br/>— <em>"Quais os 3 'não pode' do BPC?"</em></p>
+      <div class="tip">⚡ Os 3 "não pode" são os mais cobrados: não gera 13º, não é transferível, não acumula com benefício previdenciário.</div>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> lê no PDF os Arts. 20 e 21 (BPC) e Art. 22 (benefícios eventuais). Sublinha os critérios e as restrições.</p>
+      <div class="tip">⚡ No Art. 20, presta atenção especial às exceções e às condições de revisão — são esses detalhes que caem em prova.</div>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Cartão de Recall — Dia 3</div>
+        <strong>BPC — Quem recebe:</strong><br/>
+        PCD: <span class="cl">&nbsp;</span>
+        Idoso: ___ anos ou mais<span class="cl">&nbsp;</span>
+        Renda per capita: menor que<span class="cl">&nbsp;</span>
+        <strong>BPC — Os 3 "não pode":</strong><br/>
+        Não <span class="cl">&nbsp;</span>
+        Não <span class="cl">&nbsp;</span>
+        Não <span class="cl">&nbsp;</span>
+        <strong>BPC — Revisão:</strong> a cada<span class="cl">&nbsp;</span>
+        <strong>Benefícios Eventuais — 4 situações (Art. 22):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>
+      </div>
+    </div>
+    <div class="ref-box">
+      <h2>Referência — confere após o recall</h2>
+      <div class="artigo"><span class="art-num">BPC — Art. 20</span><ul><li>1 salário mínimo mensal</li><li>PCD com impedimento de longo prazo que obstrua participação plena na sociedade</li><li>Idoso com <strong>65 anos ou mais</strong></li><li>Renda familiar per capita <strong>menor que 1/4 do salário mínimo</strong></li></ul></div>
+      <div class="artigo"><span class="art-num">BPC — Os 3 "não pode"</span><ol><li><strong>Não gera 13º salário</strong></li><li><strong>Não é transferível</strong></li><li><strong>Não acumula</strong> com benefício da Previdência Social</li></ol><p>Revisado a cada <strong>2 anos</strong>.</p></div>
+      <div class="artigo"><span class="art-num">Benefícios Eventuais — Art. 22</span><p>Provisão suplementar e provisória nos casos de: <strong>nascimento, morte, situação de vulnerabilidade temporária e calamidade pública.</strong></p></div>
+      <div class="atencao"><strong>Atenção:</strong> o BPC é o artigo mais cobrado da LOAS. Memorize os critérios e os 3 "não pode".</div>
+    </div>
+  </div>
+
+  <!-- DIA 4 -->
+  <div id="day-4" class="day-content">
+    <div class="day-header">
+      <div class="dbadge bonus">Dia Bônus ⭐ · Quinta é seu sábado</div>
+      <h1>Dia 4 · Quinta, 21/05</h1>
+      <p>Revisão LOAS (dias 1–3) + PNAS/2004: Família e Território</p>
+    </div>
+    <div class="slot carro-manha">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio novo</div></div></div>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"PNAS 2004 introdução"</em> ou <em>"centralidade família SUAS"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> primeiro contato com a PNAS — entender por que ela existe e o que é matricialidade sociofamiliar.</p>
+    </div>
+    <div class="slot revisao">
+      <div class="slot-header"><span class="slot-icon">🔁</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão ativa dos dias 1–3</div></div></div>
+      <p><strong>O que fazer:</strong> sem áudio. Recita em voz alta tudo que lembra dos 3 primeiros dias — princípios, diretrizes, proteções, seguranças, BPC.</p>
+      <div class="tip">⚡ Recall falado é mais eficiente do que reler. O que não conseguir lembrar = ponto fraco para focar hoje.</div>
+    </div>
+    <div class="slot revisao">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Revisão escrita dias 1–3</div></div></div>
+      <p><strong>O que fazer:</strong> fecha todos os resumos. Numa folha em branco, escreve de memória os pontos principais dos dias 1, 2 e 3. Depois abre e marca em vermelho o que faltou.</p>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · PNAS/2004</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF da PNAS/2004. Lê centralidade na família, matricialidade sociofamiliar e territorialização.</p>
+      <div class="tip">⚡ Foca em entender a lógica: "Por que a família é o centro? Por que o território importa?"</div>
+    </div>
+    <div class="slot bonus-slot">
+      <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Tempo extra (se tiver)</div><div class="slot-time">Opcional · Organização</div></div></div>
+      <p>Organiza um documento único com todos os resumos dos dias 1 a 4. Isso vira seu material de revisão para os ciclos de retenção.</p>
+    </div>
+    <div class="ref-box">
+      <h2>Referência — PNAS/2004</h2>
+      <div class="artigo"><span class="art-num">Por que a PNAS?</span><p>A LOAS (1993) criou o marco legal. A PNAS (2004) criou o <em>como implementar</em> — deu forma operacional ao SUAS.</p></div>
+      <div class="artigo"><span class="art-num">Centralidade na família</span><p>A família é o núcleo social fundamental. Todos os serviços se organizam em torno do grupo familiar, não do indivíduo isolado.</p></div>
+      <div class="artigo"><span class="art-num">Matricialidade sociofamiliar</span><p>O trabalho com famílias é a base estruturante do SUAS. O serviço acompanha a família como unidade.</p></div>
+      <div class="artigo"><span class="art-num">Território</span><p>Território não é só endereço. É o contexto de vida — onde a vulnerabilidade se manifesta. Define onde e como o serviço é ofertado.</p></div>
+      <div class="ancora"><strong>Âncora:</strong> PNAS = a LOAS em ação. Família + Território = os dois eixos que organizam tudo no SUAS.</div>
+    </div>
+  </div>
+
+  <!-- DIA 5 -->
+  <div id="day-5" class="day-content">
+    <div class="day-header">
+      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
+      <h1>Dia 5 · Sexta, 22/05</h1>
+      <p>PNAS/2004 — Eixos Estruturantes + Serviços, Programas, Projetos e Benefícios</p>
+    </div>
+    <div class="slot carro-manha">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"eixos estruturantes PNAS"</em> ou <em>"serviços programas projetos benefícios SUAS"</em>. Ouve os primeiros 30min.</p>
+    </div>
+    <div class="slot carro-volta">
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+      <p>— <em>"Qual a diferença entre serviço, programa, projeto e benefício?"</em><br/>— <em>"Quais os 5 eixos estruturantes da PNAS?"</em></p>
+      <div class="tip">⚡ A diferença entre serviço (contínuo) e programa (complementar) cai muito.</div>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> lê no PDF da PNAS a seção de eixos estruturantes e as definições de serviço, programa, projeto e benefício. Sublinha a palavra-chave de cada um.</p>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Cartão de Recall — Dia 5</div>
+        <strong>5 Eixos Estruturantes da PNAS:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+        <strong>4 Tipos de Oferta do SUAS:</strong><br/>
+        Serviço = <span class="cl">&nbsp;</span>
+        Programa = <span class="cl">&nbsp;</span>
+        Projeto = <span class="cl">&nbsp;</span>
+        Benefício = <span class="cl">&nbsp;</span>
+      </div>
+    </div>
+    <div class="ref-box">
+      <h2>Referência — confere após o recall</h2>
+      <div class="artigo"><span class="art-num">5 Eixos Estruturantes</span><ol><li>Matricialidade sociofamiliar</li><li>Descentralização político-administrativa e territorialização</li><li>Novas bases para a relação entre Estado e Sociedade Civil</li><li>Financiamento</li><li>Controle social</li></ol></div>
+      <div class="artigo"><span class="art-num">4 Tipos de Oferta</span><ul><li><strong>Serviço:</strong> atividades <em>continuadas</em>. Ex: PAIF, PAEFI, SCFV</li><li><strong>Programa:</strong> ações <em>complementares</em>, não continuadas</li><li><strong>Projeto:</strong> investimento <em>pontual</em> em grupos em pobreza</li><li><strong>Benefício:</strong> BPC + benefícios eventuais — <em>direito garantido</em></li></ul></div>
+      <div class="ancora"><strong>Âncora:</strong> serviço = contínuo. Programa = complementar. Projeto = pontual. Benefício = direito.</div>
+    </div>
+  </div>
+
+  <!-- DIA 6 -->
+  <div id="day-6" class="day-content">
+    <div class="day-header">
+      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
+      <h1>Dia 6 · Sábado, 23/05</h1>
+      <p>Consolidação e revisão integral da semana</p>
+    </div>
+    <div class="slot revisao">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Releitura dos resumos</div></div></div>
+      <p><strong>O que fazer:</strong> relê todos os resumos e cartões de recall dos dias 1 a 5. Não estuda nada novo — só consolida o que já viu.</p>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Teste final</div></div></div>
+      <p><strong>Fecha tudo.</strong> Escreve livremente, sem olhar nada: <em>"O que é o SUAS, como ele se organiza e quais os princípios que o sustentam."</em></p>
+      <div class="tip">⚡ Se conseguir escrever 1 página coerente — a semana foi bem absorvida.</div>
+    </div>
+    <div class="checklist">
+      <h2>Checklist da semana — responda sem consultar</h2>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>5 princípios</strong> da LOAS? (Art. 4)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais as <strong>3 diretrizes</strong> da LOAS? (Art. 5)</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Qual a diferença entre proteção <strong>básica, especial média e especial alta</strong>?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais as <strong>5 seguranças socioassistenciais</strong>?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quem tem direito ao <strong>BPC</strong>? Quais os 3 "não pode"?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é <strong>matricialidade sociofamiliar</strong>?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Qual a diferença entre <strong>serviço, programa, projeto e benefício</strong>?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>5 eixos estruturantes</strong> da PNAS?</span></div>
+    </div>
+    <div class="ref-box">
+      <h2>Próximos passos — Semana 2</h2>
+      <p style="font-size:14px;color:#444">Na semana 2 você continua no bloco de SUAS Fundamentos: <strong>NOB/SUAS, NOB-RH e Tipificação Nacional de Serviços</strong>.</p>
+      <div class="ancora" style="margin-top:12px"><strong>Domingo 24/05 → DESCANSO.</strong> Nenhum estudo. O descanso é parte do plano.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 3: LOAS QUADRIX
+══════════════════════════════════════════════════════════ -->
+<section id="tab-loas" class="tab-section">
+<div class="loas-wrap">
+
+  <div class="loas-header">
+    <h2>⚖️ LOAS (Lei 8.742/93) — Foco Quadrix</h2>
+    <div class="sub">SEDES-DF 2026 · Cargo 409 Psicologia · Letra da lei + armadilhas da banca</div>
+  </div>
+
+  <div class="loas-nav">
+    <button class="nb on" onclick="showLoas('ls1',this)">Arts. 1–3 · Conceito</button>
+    <button class="nb" onclick="showLoas('ls2',this)">Arts. 4–5 · Princípios e Diretrizes</button>
+    <button class="nb" onclick="showLoas('ls3',this)">Arts. 6–6D · SUAS/CRAS/CREAS</button>
+    <button class="nb" onclick="showLoas('ls4',this)">Arts. 12–15 · Competências</button>
+    <button class="nb" onclick="showLoas('ls5',this)">Arts. 16–18 · CNAS</button>
+    <button class="nb" onclick="showLoas('ls6',this)">Arts. 20–21 · BPC ⭐</button>
+    <button class="nb" onclick="showLoas('ls7',this)">Arts. 22–24 · Benefícios/Serviços</button>
+    <button class="nb" onclick="showLoas('ls8',this)">Art. 30 · Financiamento</button>
+    <button class="nb" onclick="showLoas('ls9',this)">🎯 Recall Geral</button>
+  </div>
+
+  <div class="loas-content">
+
+  <!-- s1 -->
+  <div id="ls1" class="lsec on">
+    <div class="lcard">
+      <h2>Art. 1° — Conceito <span class="lhot">🔥 DIA 1</span></h2>
+      <div class="lei">A assistência social, <span class="lkey">direito do cidadão e dever do Estado</span>, é Política de <span class="lkey">Seguridade Social não contributiva</span>, que provê os <span class="lkey">mínimos sociais</span>, realizada através de um <span class="lkey">conjunto integrado de ações de iniciativa pública e da sociedade</span>, para garantir o atendimento às necessidades básicas.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>"Direito do cidadão <strong>e</strong> dever do Estado" — as duas partes são obrigatórias</li><li>É <strong>não contributiva</strong> — não exige contribuição prévia</li><li>Iniciativa <strong>pública E da sociedade</strong> — não é exclusividade do Estado</li><li>Provê <strong>mínimos</strong> sociais — não máximos</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas típicas</div><ul class="lt"><li>"...é política de seguridade social <span class="lneg">contributiva</span>..." → <strong>ERRADO</strong></li><li>"...realizada exclusivamente por iniciativa <span class="lneg">pública</span>..." → <strong>ERRADO</strong></li><li>"...é <span class="lneg">dever exclusivo</span> do Estado..." → <strong>ERRADO</strong></li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 2° — Objetivos <span class="lhot">🔥 DIA 1</span></h2>
+      <div class="lei"><em>Redação vigente — Lei 12.435/2011</em></div>
+      <ul class="la"><li><strong>I — Proteção social:</strong> garantia da vida, redução de danos e prevenção de riscos<ul style="padding-left:16px;margin-top:5px"><li>a) proteção à família, maternidade, infância, adolescência e velhice</li><li>b) amparo às crianças e adolescentes carentes</li><li>c) promoção da integração ao mercado de trabalho</li><li>d) habilitação/reabilitação de PcD + integração à vida comunitária</li><li>e) garantia de <span class="lnum">1 salário-mínimo</span> mensal à PcD e ao idoso sem meios</li></ul></li><li style="margin-top:8px"><strong>II — Vigilância socioassistencial:</strong> analisar <em>territorialmente</em> a capacidade protetiva das famílias</li><li><strong>III — Defesa de direitos:</strong> garantir pleno acesso aos direitos</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">3</span> objetivos na redação vigente</li><li>"Vigilância socioassistencial" é OBJETIVO (Art. 2°, II), não apenas instrumento</li><li>Parágrafo único: integrada às políticas setoriais → enfrentamento da pobreza + universalização dos direitos</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Redação original vs. vigente</div><ul class="lt"><li>A redação original tinha 5 incisos avulsos. A Quadrix às vezes usa esse texto antigo como vigente</li><li>Regra: se a questão citar os 5 incisos sem "proteção social" como inciso I → redação <span class="lneg">revogada</span></li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 3° — Entidades de Assistência Social</h2>
+      <div class="lei">Sem fins lucrativos que, isolada ou <span class="lkey">cumulativamente</span>, prestam atendimento e assessoramento + atuam na defesa e garantia de direitos.</div>
+      <table class="ltable"><tr><th>Tipo</th><th>O que fazem</th><th>Como</th></tr><tr><td><strong>Atendimento</strong></td><td>Serviços, programas, projetos e benefícios de proteção básica ou especial</td><td rowspan="3" style="color:#34d399">Continuada, <strong>permanente</strong> e planejada</td></tr><tr><td><strong>Assessoramento</strong></td><td>Fortalecem movimentos sociais, organizações de usuários</td></tr><tr><td><strong>Defesa de direitos</strong></td><td>Promoção da cidadania, enfrentamento das desigualdades</td></tr></table>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"...de forma continuada e planejada..." → <strong>ERRADO</strong> (falta "<span class="lneg">permanente</span>")</li><li>"...com fins lucrativos..." → <strong>ERRADO</strong></li></ul></div>
+    </div>
+  </div>
+
+  <!-- s2 -->
+  <div id="ls2" class="lsec">
+    <div class="lcard">
+      <h2>Art. 4° — Princípios <span class="lhot">🔥 DIA 1</span></h2>
+      <ul class="la"><li><strong>I — Supremacia</strong> do atendimento às necessidades sociais sobre as exigências de <em>rentabilidade econômica</em></li><li><strong>II — Universalização</strong> dos direitos sociais</li><li><strong>III — Respeito à dignidade</strong> do cidadão, à sua autonomia → <span class="lkey">vedando-se qualquer comprovação vexatória de necessidade</span></li><li><strong>IV — Igualdade de direitos</strong> no acesso, sem discriminação → <span class="lkey">garantindo-se equivalência às populações urbanas e rurais</span></li><li><strong>V — Divulgação ampla</strong> dos benefícios, serviços, programas e projetos</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico — 5 Princípios</div><ul class="lm"><li><strong>SU-RID</strong> → Supremacia · Universalização · Respeito · Igualdade · Divulgação</li></ul></div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">5</span> princípios</li><li>Princípio III: "<strong>qualquer</strong> comprovação vexatória" — Quadrix troca por "alguma" ou "excessiva"</li><li>Princípio IV: equivalência <strong>urbana E rural</strong></li><li>Princípio V: inclui os <strong>critérios para concessão</strong> + <strong>recursos do Poder Público</strong></li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"Supremacia das exigências de rentabilidade econômica <span class="lneg">sobre</span> as necessidades sociais" → <strong>ERRADO</strong></li><li>"...vedada comprovação <span class="lneg">simplificada</span>..." → <strong>ERRADO</strong> (é vexatória)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 5° — Diretrizes <span class="lhot">🔥 DIA 1</span></h2>
+      <ul class="la"><li><strong>I — Descentralização político-administrativa</strong> + <span class="lkey">comando único</span> em cada esfera</li><li><strong>II — Participação da população</strong> na <em>formulação das políticas</em> e no <em>controle das ações</em> em todos os níveis</li><li><strong>III — Primazia da responsabilidade do Estado</strong> na condução da política</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico — 3 Diretrizes</div><ul class="lm"><li><strong>D-P-P</strong> → Descentralização · Participação · Primazia</li></ul></div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">3</span> diretrizes</li><li>Diretriz I: descentralização + <strong>comando único</strong> — os dois no mesmo inciso</li><li>Diretriz II: participação na formulação <strong>E</strong> no controle — em <strong>todos os níveis</strong></li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"...participação apenas na <span class="lneg">formulação</span>..." → <strong>ERRADO</strong></li><li>"...comando <span class="lneg">compartilhado</span>..." → <strong>ERRADO</strong> (é único)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s3 -->
+  <div id="ls3" class="lsec">
+    <div class="lcard">
+      <h2>Art. 6° — SUAS</h2>
+      <div class="lei">Sistema <span class="lkey">descentralizado e participativo</span> denominado <span class="lkey">Sistema Único de Assistência Social (SUAS)</span>.</div>
+      <ul class="la"><li>I — Consolidar gestão compartilhada, cofinanciamento e cooperação técnica entre entes federativos</li><li>II — Integrar rede pública e privada de serviços, programas, projetos e benefícios</li><li>V — Implementar gestão do trabalho e educação permanente</li><li>VII — Afiançar a vigilância socioassistencial e a garantia de direitos</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>§ 1°: base de organização do SUAS = <span class="lkey">território</span></li><li>§ 2°: integrado pelos entes federativos + conselhos + entidades/organizações</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 6°-A — Tipos de Proteção Social</h2>
+      <table class="ltable"><tr><th>Proteção</th><th>Objetivo central</th></tr><tr><td><strong>Básica</strong></td><td><span class="lkey">Prevenir</span> situações de vulnerabilidade e risco + <span class="lkey">fortalecimento de vínculos familiares e comunitários</span></td></tr><tr><td><strong>Especial</strong></td><td><span class="lkey">Reconstruir vínculos</span> + defesa de direito + proteção para <span class="lkey">enfrentamento de situações de violação de direitos</span></td></tr></table>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>Básica = <strong>prevenir</strong> | Especial = <strong>reconstruir vínculos + violação de direitos</strong></li><li>"A vigilância socioassistencial <span class="lneg">é um tipo de proteção</span>..." → <strong>ERRADO</strong> (é instrumento)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 6°-C — CRAS e CREAS</h2>
+      <table class="ltable"><tr><th>Unidade</th><th>Abrangência</th><th>Proteção</th></tr><tr><td><strong>CRAS</strong></td><td>Unidade pública <span class="lkey">municipal</span>, de base <span class="lkey">territorial</span></td><td>Social <span class="lkey">básica</span></td></tr><tr><td><strong>CREAS</strong></td><td>Unidade pública de gestão <span class="lkey">municipal, estadual ou regional</span></td><td>Social <span class="lkey">especial</span></td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>CRAS = <strong>sempre municipal</strong> · CREAS = pode ser <strong>municipal, estadual ou regional</strong></li><li>§ 3°: ambos são unidades públicas <strong>estatais</strong></li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"CREAS é de abrangência exclusivamente <span class="lneg">municipal</span>..." → <strong>ERRADO</strong></li><li>"CRAS atende situações de violação de direitos..." → <strong>ERRADO</strong> (é o CREAS)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s4 -->
+  <div id="ls4" class="lsec">
+    <div class="lcard">
+      <h2>Arts. 12–15 — Competências por Esfera</h2>
+      <table class="ltable"><tr><th>Esfera</th><th>Competências-chave</th></tr><tr><td><strong>União (Art. 12)</strong></td><td>Concessão e manutenção do <span class="lkey">BPC</span> · Cofinanciar via transferência automática · Monitorar e avaliar + assessorar</td></tr><tr><td><strong>Estados (Art. 13)</strong></td><td>Destinar recursos para benefícios eventuais · Cofinanciar em âmbito regional · Prestar serviços cuja rede regional seja justificada</td></tr><tr><td><strong>DF (Art. 14)</strong></td><td>Destinar recursos para benefícios eventuais · Efetuar pagamento dos auxílios natalidade e funeral · Executar projetos de enfrentamento da pobreza</td></tr><tr><td><strong>Municípios (Art. 15)</strong></td><td>Destinar recursos para benefícios eventuais · Efetuar auxílios natalidade e funeral · Prestar os serviços socioassistenciais (Art. 23)</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Art. 12, I: concessão e manutenção do BPC é competência da <span class="lkey">União</span></li><li>DF e Municípios têm competências muito parecidas — questão pode trocar incisos entre eles</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s5 -->
+  <div id="ls5" class="lsec">
+    <div class="lcard">
+      <h2>Art. 16 — Instâncias Deliberativas</h2>
+      <div class="lei">Caráter <span class="lkey">permanente</span> e composição <span class="lkey">paritária</span> entre governo e sociedade civil.</div>
+      <ul class="la"><li>I — Conselho Nacional (CNAS)</li><li>II — Conselhos Estaduais</li><li>III — Conselho do Distrito Federal</li><li>IV — Conselhos Municipais</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">4</span> instâncias deliberativas</li><li>Composição <span class="lkey">paritária</span> — obrigatoriamente 50/50</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 17 — CNAS: Composição e Mandatos <span class="lhot">🔥</span></h2>
+      <ul class="la"><li>Órgão superior de <span class="lkey">deliberação colegiada</span></li><li>Membros nomeados pelo <span class="lkey">Presidente da República</span></li><li>Total: <span class="lnum">18 membros</span> + suplentes</li><li><span class="lnum">9</span> representantes governamentais (incl. 1 estado + 1 município)</li><li><span class="lnum">9</span> representantes da sociedade civil — sob fiscalização do MPF</li><li>Mandato: <span class="lnum">2 anos</span>, uma única recondução</li><li>Presidente: eleito, mandato de <span class="lnum">1 ano</span>, uma única recondução</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Memorize os números</div><ul class="lm"><li><strong>18 membros = 9 governo + 9 sociedade civil</strong></li><li>Mandato geral: <strong>2 anos</strong> (reconduzível 1 vez)</li><li>Mandato da presidência: <strong>1 ano</strong> (reconduzível 1 vez)</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas — CNAS</div><ul class="lt"><li>"...composto por <span class="lneg">16</span> membros..." → <strong>ERRADO</strong> (são 18)</li><li>"...mandato de <span class="lneg">4 anos</span>..." → <strong>ERRADO</strong> (são 2)</li><li>"...permitidas <span class="lneg">duas</span> recondução..." → <strong>ERRADO</strong> (apenas uma)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 18 — Competências do CNAS</h2>
+      <ul class="la"><li>I — Aprovar a <span class="lkey">Política Nacional de Assistência Social</span></li><li>II — Normatizar as ações e regular a prestação de serviços</li><li>VI — Convocar ordinariamente a cada <span class="lnum">4 anos</span> a Conferência Nacional</li><li>VIII — Apreciar e aprovar a proposta orçamentária</li><li>XIV — Divulgar no <span class="lkey">Diário Oficial da União</span> todas as suas decisões</li></ul>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>Conferência Nacional = a cada <span class="lnum">4 anos</span> — Quadrix troca por "<span class="lneg">2 anos</span>"</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s6 -->
+  <div id="ls6" class="lsec">
+    <div class="lcard">
+      <h2>Art. 20 — BPC <span class="lhot">⭐ MAIS COBRADO</span></h2>
+      <div class="lei">Garantia de <span class="lnum">1 salário-mínimo</span> mensal à <span class="lkey">pessoa com deficiência</span> e ao <span class="lkey">idoso com <span class="lnum">65 anos</span> ou mais</span> que comprovem não possuir meios de prover a própria manutenção.</div>
+      <table class="ltable"><tr><th>Critério</th><th>Regra vigente</th></tr><tr><td>Idoso</td><td><span class="lnum">65 anos</span> ou mais</td></tr><tr><td>PcD — definição</td><td>Impedimento de longo prazo de natureza <span class="lkey">física, mental, intelectual ou sensorial</span></td></tr><tr><td>Impedimento de longo prazo</td><td>Efeitos por prazo mínimo de <span class="lnum">2 anos</span></td></tr><tr><td>Renda per capita</td><td>≤ <span class="lnum">1/4 do salário-mínimo</span></td></tr><tr><td>Revisão</td><td>A cada <span class="lnum">2 anos</span></td></tr></table>
+      <div class="bpc-nao"><h3>✅ O que NÃO impede o BPC</h3><ul class="la"><li>Rendimentos de <span class="lkey">estágio supervisionado e aprendizagem</span> não são computados para renda</li><li>BPC de idoso ≥ 65 anos <span class="lkey">não é computado</span> para concessão a outro membro da mesma família</li><li>BPC pode ser concedido a <span class="lkey">mais de um membro</span> da mesma família</li></ul></div>
+      <div class="lcard" style="background:#2d1515;border-left-color:#ef4444;margin-top:14px"><h2 style="color:#f87171">Art. 21-A — Suspensão do BPC</h2><ul class="la"><li>Suspenso quando PcD exerce <span class="lkey">atividade remunerada</span>, inclusive como <span class="lkey">MEI</span></li><li>Extinta a relação trabalhista: pode requerer continuidade <span class="lkey">sem nova perícia médica</span></li><li>Contratação como <span class="lkey">aprendiz = não suspende</span> — limitado a <span class="lnum">2 anos</span></li></ul></div>
+      <div class="lcard" style="background:#1e293b;border-left-color:#f59e0b;margin-top:14px"><h2 style="color:#f59e0b">BPC: O que NÃO acumula</h2><ul class="la"><li><span class="lneg">Não acumula</span> com qualquer outro benefício da seguridade social</li><li><strong>EXCEÇÕES:</strong> <span class="lkey">assistência médica</span> e <span class="lkey">pensão especial indenizatória</span></li><li><span class="lneg">Não gera</span> 13° salário</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas clássicas — BPC</div><ul class="lt"><li>"Idoso com <span class="lneg">70 anos</span>..." → <strong>ERRADO</strong> (hoje são 65)</li><li>"Renda per capita inferior a <span class="lneg">1/2</span> do SM..." → <strong>ERRADO</strong> (é 1/4)</li><li>"BPC não pode ser acumulado nem com assistência médica..." → <strong>ERRADO</strong></li><li>"Revisão <span class="lneg">anual</span>..." → <strong>ERRADO</strong> (a cada 2 anos)</li><li>"PcD aprendiz tem BPC suspenso..." → <strong>ERRADO</strong> (não suspende)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s7 -->
+  <div id="ls7" class="lsec">
+    <div class="lcard">
+      <h2>Art. 22 — Benefícios Eventuais</h2>
+      <div class="lei">Provisões <span class="lkey">suplementares e provisórias</span> que integram <span class="lkey">organicamente</span> as garantias do SUAS, prestadas em virtude de: <span class="lkey">nascimento, morte, situações de vulnerabilidade temporária e calamidade pública</span>.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">4</span> situações</li><li>Integram <strong>organicamente</strong> as garantias do SUAS</li><li>§ 1°: valor definido pelos <span class="lkey">Estados, DF e Municípios</span></li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 23 — Serviços Socioassistenciais</h2>
+      <div class="lei">Atividades <span class="lkey">continuadas</span> que visem à melhoria de vida da população.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Serviços = atividades <strong>continuadas</strong> (programas têm prazo definido; serviços não)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 24 — PAIF · PAEFI · PETI</h2>
+      <table class="ltable"><tr><th>Serviço</th><th>Proteção</th><th>Onde</th><th>Para quem</th></tr><tr><td><strong>PAIF</strong></td><td>Social <span class="lkey">básica</span></td><td><span class="lkey">CRAS</span></td><td>Famílias em <span class="lkey">vulnerabilidade social</span></td></tr><tr><td><strong>PAEFI</strong></td><td>Social <span class="lkey">especial</span></td><td><span class="lkey">CREAS</span></td><td>Situação de <span class="lkey">ameaça ou violação de direitos</span></td></tr><tr><td><strong>PETI</strong></td><td>Intersetorial</td><td>Âmbito nacional</td><td>Crianças/adolescentes <span class="lkey">abaixo de 16 anos</span> em trabalho</td></tr></table>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"PAIF é ofertado no <span class="lneg">CREAS</span>..." → <strong>ERRADO</strong> (é no CRAS)</li><li>"PAEFI é voltado à prevenção de vulnerabilidade..." → <strong>ERRADO</strong> (é violação de direitos)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s8 -->
+  <div id="ls8" class="lsec">
+    <div class="lcard">
+      <h2>Art. 30 — Condições para Repasse de Recursos</h2>
+      <div class="lei">É <span class="lkey">condição</span> para os repasses aos Municípios, Estados e DF:</div>
+      <ul class="la"><li>I — <span class="lkey">Conselho</span> de Assistência Social de composição <span class="lkey">paritária</span></li><li>II — <span class="lkey">Fundo</span> de Assistência Social com controle dos Conselhos</li><li>III — <span class="lkey">Plano</span> de Assistência Social</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico</div><ul class="lm"><li><strong>C · F · P</strong> → Conselho · Fundo · Plano — faltando qualquer um = sem repasse</li></ul></div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São exatamente <span class="lnum">3</span> condições</li><li>O Conselho deve ser <strong>paritário</strong></li><li>Parágrafo único: também é condição a <span class="lkey">comprovação orçamentária</span> dos recursos próprios</li></ul></div>
+    </div>
+  </div>
+
+  <!-- s9: Recall Geral -->
+  <div id="ls9" class="lsec">
+    <div class="lcard">
+      <h2>🎯 Cartão de Recall — Números que a Quadrix adora</h2>
+      <p style="color:#94a3b8;font-size:0.84rem;margin-bottom:14px">Tente responder <strong>sem olhar</strong>. Clique para revelar a resposta.</p>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CNAS: quantos membros? Como se divide?</div><div class="ra">→ 18 membros = 9 governo (incl. 1 estado + 1 município) + 9 sociedade civil</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CNAS: mandato dos membros? E do presidente?</div><div class="ra">→ Membros: 2 anos, uma recondução · Presidente: 1 ano, uma recondução</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CNAS: quem nomeia os membros?</div><div class="ra">→ Presidente da República</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">BPC: idade do idoso?</div><div class="ra">→ 65 anos ou mais (não 70, não 67)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">BPC: critério de renda per capita?</div><div class="ra">→ ≤ 1/4 do salário-mínimo</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">BPC: revisão a cada quanto tempo?</div><div class="ra">→ 2 anos</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Impedimento de longo prazo (PcD): prazo mínimo?</div><div class="ra">→ 2 anos</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Conferência Nacional de Assistência Social: frequência?</div><div class="ra">→ Ordinariamente a cada 4 anos</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quantos princípios (Art. 4°)? Quais?</div><div class="ra">→ 5: Supremacia · Universalização · Respeito à dignidade · Igualdade · Divulgação (SU-RID)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quantas diretrizes (Art. 5°)? Quais?</div><div class="ra">→ 3: Descentralização + comando único · Participação · Primazia do Estado (D-P-P)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Condições para repasse de recursos (Art. 30)?</div><div class="ra">→ Conselho paritário + Fundo + Plano (C-F-P)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">BPC: com o que não acumula? Com o que pode acumular?</div><div class="ra">→ Não acumula com qualquer benefício da seguridade · PODE acumular com assistência médica e pensão especial indenizatória</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CRAS: abrangência. CREAS: abrangência.</div><div class="ra">→ CRAS = sempre municipal · CREAS = municipal, estadual ou regional</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">PAIF: proteção, local. PAEFI: proteção, local.</div><div class="ra">→ PAIF = básica, CRAS · PAEFI = especial, CREAS</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Art. 1°: assistência social é política de seguridade social... o quê?</div><div class="ra">→ NÃO CONTRIBUTIVA</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Benefícios eventuais: quais são as 4 situações?</div><div class="ra">→ Nascimento · Morte · Vulnerabilidade temporária · Calamidade pública</div></div>
+    </div>
+  </div>
+
+  </div><!-- /loas-content -->
+  <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · Lei 8.742/1993</footer>
+</div>
+</section>
+
+<footer>SEDES-DF 2026 · Cargo 409 · Psicologia · 112 dias até a prova</footer>
+
+<script>
+  function showMain(tab) {
+    document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.main-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showDay(n) {
+    document.querySelectorAll('.day-content').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('day-' + n).classList.add('active');
+    document.querySelectorAll('.day-btn')[n - 1].classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showLoas(id, btn) {
+    document.querySelectorAll('.lsec').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    btn.classList.add('on');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function toggleRecall(el) {
+    const ra = el.querySelector('.ra');
+    ra.style.color = ra.style.color === 'rgb(96, 165, 250)' ? '#334155' : 'rgb(96, 165, 250)';
+  }
+
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+  }
+</script>
+</body>
+</html>

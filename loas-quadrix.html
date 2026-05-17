@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOAS — Foco Quadrix · SEDES-DF 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.header{background:linear-gradient(135deg,#1e3a5f,#0f172a);padding:20px 24px;border-bottom:2px solid #3b82f6}
+.header h1{font-size:1.5rem;color:#fff;margin-bottom:4px}
+.header .sub{color:#94a3b8;font-size:0.85rem}
+.nav{display:flex;flex-wrap:wrap;gap:8px;padding:14px 24px;background:#1e293b;border-bottom:1px solid #334155;position:sticky;top:0;z-index:10}
+.nb{padding:7px 14px;border-radius:6px;border:1px solid #475569;background:#1e293b;color:#94a3b8;cursor:pointer;font-size:0.82rem;transition:all .2s}
+.nb:hover,.nb.on{background:#3b82f6;color:#fff;border-color:#3b82f6}
+.content{max-width:900px;margin:0 auto;padding:24px}
+.sec{display:none}.sec.on{display:block}
+.card{background:#1e293b;border-radius:10px;padding:18px;margin-bottom:18px;border-left:4px solid #3b82f6}
+.card h2{font-size:1rem;color:#60a5fa;margin-bottom:12px}
+.lei{font-size:0.87rem;color:#cbd5e1;line-height:1.75;border-left:3px solid #475569;padding-left:12px;margin-bottom:12px}
+.num{color:#f59e0b;font-weight:700}
+.neg{color:#f87171;font-weight:700}
+.key{color:#34d399;font-weight:600}
+.hot{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.72rem;font-weight:700;background:#7f1d1d;color:#fca5a5;margin-left:8px}
+.qbox{background:#1a2744;border:1px solid #3b82f6;border-radius:8px;padding:12px;margin-top:10px}
+.qbox-t{color:#60a5fa;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.tbox{background:#2d1515;border:1px solid #ef4444;border-radius:8px;padding:12px;margin-top:10px}
+.tbox-t{color:#f87171;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.mbox{background:#1a2d1a;border:1px solid #22c55e;border-radius:8px;padding:12px;margin-top:10px}
+.mbox-t{color:#4ade80;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+ul.q{padding-left:16px}
+ul.q li{font-size:0.84rem;color:#93c5fd;margin-bottom:5px;line-height:1.5}
+ul.t{padding-left:16px}
+ul.t li{font-size:0.84rem;color:#fca5a5;margin-bottom:5px;line-height:1.5}
+ul.m{padding-left:0;list-style:none}
+ul.m li{font-size:0.84rem;color:#86efac;margin-bottom:4px;line-height:1.6}
+ul.a{padding-left:18px}
+ul.a li{font-size:0.86rem;color:#cbd5e1;margin-bottom:6px;line-height:1.65}
+ul.a li strong{color:#e2e8f0}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:0.83rem}
+th{background:#1e3a5f;color:#93c5fd;padding:9px 10px;text-align:left}
+td{padding:9px 10px;border-bottom:1px solid #334155;color:#cbd5e1;vertical-align:top}
+tr:hover td{background:#1a2744}
+.rcard{background:#0f172a;border-radius:6px;padding:10px 14px;margin-bottom:8px;cursor:pointer}
+.rq{color:#e2e8f0;font-size:0.85rem;font-weight:600}
+.ra{color:#334155;font-size:0.84rem;margin-top:4px;transition:color .2s}
+.rcard:hover .ra{color:#60a5fa}
+.bpc-nao{background:#1a2d1a;border:1px solid #22c55e;border-radius:8px;padding:14px;margin-top:12px}
+.bpc-nao h3{color:#4ade80;font-size:0.9rem;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>⚖️ LOAS (Lei 8.742/93) — Foco Quadrix</h1>
+  <div class="sub">SEDES-DF 2026 · Cargo 409 Psicologia · Letra da lei + armadilhas da banca</div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('s1',this)">Arts. 1–3 · Conceito</button>
+  <button class="nb" onclick="show('s2',this)">Arts. 4–5 · Princípios e Diretrizes</button>
+  <button class="nb" onclick="show('s3',this)">Arts. 6–6D · SUAS/CRAS/CREAS</button>
+  <button class="nb" onclick="show('s4',this)">Arts. 12–15 · Competências</button>
+  <button class="nb" onclick="show('s5',this)">Arts. 16–18 · CNAS</button>
+  <button class="nb" onclick="show('s6',this)">Arts. 20–21 · BPC ⭐</button>
+  <button class="nb" onclick="show('s7',this)">Arts. 22–24 · Benefícios/Serviços</button>
+  <button class="nb" onclick="show('s8',this)">Art. 30 · Financiamento</button>
+  <button class="nb" onclick="show('s9',this)">🎯 Recall Geral</button>
+</div>
+
+<div class="content">
+
+<!-- ===== SEÇÃO 1: Arts 1-3 ===== -->
+<div id="s1" class="sec on">
+
+  <div class="card">
+    <h2>Art. 1° — Conceito <span class="hot">🔥 DIA 1</span></h2>
+    <div class="lei">
+      A assistência social, <span class="key">direito do cidadão e dever do Estado</span>, é Política de
+      <span class="key">Seguridade Social não contributiva</span>, que provê os <span class="key">mínimos sociais</span>,
+      realizada através de um <span class="key">conjunto integrado de ações de iniciativa pública e da sociedade</span>,
+      para garantir o atendimento às necessidades básicas.
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>"Direito do cidadão <strong>e</strong> dever do Estado" — as duas partes são obrigatórias na mesma afirmação</li>
+        <li>É <strong>não contributiva</strong> — não exige contribuição prévia para ter acesso</li>
+        <li>Iniciativa <strong>pública E da sociedade</strong> — não é exclusividade do Estado</li>
+        <li>Provê <strong>mínimos</strong> sociais — não máximos, não necessidades ilimitadas</li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"...é política de seguridade social <span class="neg">contributiva</span>..." → <strong>ERRADO</strong></li>
+        <li>"...realizada exclusivamente por iniciativa <span class="neg">pública</span>..." → <strong>ERRADO</strong> (também da sociedade)</li>
+        <li>"...é <span class="neg">dever exclusivo</span> do Estado..." → <strong>ERRADO</strong> (também é direito do cidadão)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 2° — Objetivos <span class="hot">🔥 DIA 1</span></h2>
+    <div class="lei"><em>Redação vigente — Lei 12.435/2011 (substituiu a redação original de 5 incisos)</em></div>
+    <ul class="a">
+      <li><strong>I — Proteção social:</strong> garantia da vida, redução de danos e prevenção da incidência de riscos
+        <ul style="padding-left:16px;margin-top:5px">
+          <li>a) proteção à família, maternidade, infância, adolescência e velhice</li>
+          <li>b) amparo às crianças e adolescentes carentes</li>
+          <li>c) promoção da integração ao mercado de trabalho</li>
+          <li>d) habilitação/reabilitação de PcD + integração à vida comunitária</li>
+          <li>e) garantia de <span class="num">1 salário-mínimo</span> mensal à PcD e ao idoso sem meios de prover manutenção</li>
+        </ul>
+      </li>
+      <li style="margin-top:8px"><strong>II — Vigilância socioassistencial:</strong> analisar <em>territorialmente</em> a capacidade protetiva das famílias + vulnerabilidades, ameaças, vitimizações e danos</li>
+      <li><strong>III — Defesa de direitos:</strong> garantir pleno acesso aos direitos no conjunto das provisões socioassistenciais</li>
+    </ul>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São <span class="num">3</span> objetivos na redação vigente (a Quadrix pode usar trechos da redação <strong>revogada</strong> de 1993 como se fossem vigentes)</li>
+        <li>"Vigilância socioassistencial" é OBJETIVO (Art. 2°, II), não apenas instrumento</li>
+        <li>Parágrafo único: integrada às políticas setoriais → enfrentamento da pobreza, mínimos sociais, contingências sociais, universalização dos direitos</li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilha — redação original vs. vigente</div>
+      <ul class="t">
+        <li>A redação original (riscada no PDF) tinha 5 incisos avulsos. A Quadrix às vezes usa esse texto antigo como se ainda estivesse em vigor</li>
+        <li>Regra prática: se a questão citar os 5 incisos sem mencionar "proteção social" como inciso I → está usando a redação <span class="neg">revogada</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 3° — Entidades de Assistência Social</h2>
+    <div class="lei">Sem fins lucrativos que, isolada ou <span class="key">cumulativamente</span>, prestam atendimento e assessoramento + atuam na defesa e garantia de direitos.</div>
+    <table>
+      <tr><th>Tipo</th><th>O que fazem</th><th>Como</th></tr>
+      <tr><td><strong>Atendimento</strong></td><td>Serviços, programas, projetos e benefícios de proteção básica ou especial a famílias e indivíduos em vulnerabilidade ou risco</td><td rowspan="3" style="color:#34d399">Continuada, <strong>permanente</strong> e planejada</td></tr>
+      <tr><td><strong>Assessoramento</strong></td><td>Fortalecem movimentos sociais, organizações de usuários, formação e capacitação de lideranças</td></tr>
+      <tr><td><strong>Defesa e garantia de direitos</strong></td><td>Defesa de direitos socioassistenciais, construção de novos direitos, promoção da cidadania, enfrentamento das desigualdades</td></tr>
+    </table>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"...de forma continuada e planejada..." → <strong>ERRADO</strong> (falta "<span class="neg">permanente</span>")</li>
+        <li>"...com fins lucrativos..." → <strong>ERRADO</strong> (sem fins lucrativos)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s1 -->
+
+<!-- ===== SEÇÃO 2: Arts 4-5 ===== -->
+<div id="s2" class="sec">
+
+  <div class="card">
+    <h2>Art. 4° — Princípios <span class="hot">🔥 DIA 1</span></h2>
+    <ul class="a">
+      <li><strong>I — Supremacia</strong> do atendimento às necessidades sociais sobre as exigências de <em>rentabilidade econômica</em></li>
+      <li><strong>II — Universalização</strong> dos direitos sociais → tornar o destinatário da ação assistencial <em>alcançável pelas demais políticas públicas</em></li>
+      <li><strong>III — Respeito à dignidade</strong> do cidadão, à sua autonomia e ao seu direito a benefícios e serviços de qualidade, bem como à convivência familiar e comunitária → <span class="key">vedando-se qualquer comprovação vexatória de necessidade</span></li>
+      <li><strong>IV — Igualdade de direitos</strong> no acesso ao atendimento, sem discriminação de qualquer natureza → <span class="key">garantindo-se equivalência às populações urbanas e rurais</span></li>
+      <li><strong>V — Divulgação ampla</strong> dos benefícios, serviços, programas e projetos + recursos do Poder Público + critérios para sua concessão</li>
+    </ul>
+    <div class="mbox">
+      <div class="mbox-t">🧠 Mnemônico — 5 Princípios</div>
+      <ul class="m">
+        <li><strong>S</strong>upremia · <strong>U</strong>niversalização · <strong>R</strong>espeito à dignidade · <strong>I</strong>gualdade · <strong>D</strong>ivulgação</li>
+        <li>→ <strong>SU-RID</strong> (imagine: "Supremacia e Universalização são os dois primeiros; depois RIDÃ: Respeito, Igualdade, Divulgação")</li>
+      </ul>
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São <span class="num">5</span> princípios (nunca 4 nem 6)</li>
+        <li>Princípio III: "<strong>qualquer</strong> comprovação vexatória" — Quadrix troca por "alguma" ou "excessiva"</li>
+        <li>Princípio IV: equivalência <strong>urbana E rural</strong> — nunca só urbana</li>
+        <li>Princípio V: inclui os <strong>critérios para concessão</strong> + <strong>recursos do Poder Público</strong> — não apenas os benefícios em si</li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"Supremacia das exigências de rentabilidade econômica <span class="neg">sobre</span> as necessidades sociais" → <strong>ERRADO</strong> (é o contrário)</li>
+        <li>"...vedada comprovação <span class="neg">simplificada</span>..." → <strong>ERRADO</strong> (é vexatória)</li>
+        <li>"Divulgação <span class="neg">restrita</span>..." → <strong>ERRADO</strong> (é ampla)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 5° — Diretrizes <span class="hot">🔥 DIA 1</span></h2>
+    <ul class="a">
+      <li><strong>I — Descentralização político-administrativa</strong> para os Estados, DF e Municípios + <span class="key">comando único</span> das ações em cada esfera de governo</li>
+      <li><strong>II — Participação da população</strong>, por meio de organizações representativas, na <em>formulação das políticas</em> e no <em>controle das ações</em> em todos os níveis</li>
+      <li><strong>III — Primazia da responsabilidade do Estado</strong> na condução da política de assistência social em cada esfera de governo</li>
+    </ul>
+    <div class="mbox">
+      <div class="mbox-t">🧠 Mnemônico — 3 Diretrizes</div>
+      <ul class="m">
+        <li><strong>D</strong>escentralização · <strong>P</strong>articipação · <strong>P</strong>rimazia → <strong>D-P-P</strong></li>
+        <li>Âncora: Princípios = <em>o que a política É</em> (valores). Diretrizes = <em>como ela SE ORGANIZA</em> (estrutura).</li>
+      </ul>
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São <span class="num">3</span> diretrizes</li>
+        <li>Diretriz I: descentralização + <strong>comando único</strong> — os dois elementos juntos no mesmo inciso</li>
+        <li>Diretriz II: participação na formulação <strong>E</strong> no controle — em <strong>todos os níveis</strong></li>
+        <li>Diretriz III: <strong>primazia</strong> — não exclusividade, não monopólio</li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"...participação apenas na <span class="neg">formulação</span>..." → <strong>ERRADO</strong> (também no controle)</li>
+        <li>"...comando <span class="neg">compartilhado</span>..." → <strong>ERRADO</strong> (é único)</li>
+        <li>"Centralização político-administrativa..." → <strong>ERRADO</strong> (é descentralização)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s2 -->
+
+<!-- ===== SEÇÃO 3: SUAS ===== -->
+<div id="s3" class="sec">
+
+  <div class="card">
+    <h2>Art. 6° — SUAS</h2>
+    <div class="lei">Sistema <span class="key">descentralizado e participativo</span> denominado <span class="key">Sistema Único de Assistência Social (SUAS)</span>.</div>
+    <p style="color:#94a3b8;font-size:0.83rem;margin-bottom:8px">7 objetivos do SUAS:</p>
+    <ul class="a">
+      <li>I — Consolidar gestão compartilhada, cofinanciamento e cooperação técnica entre entes federativos</li>
+      <li>II — Integrar rede pública e privada de serviços, programas, projetos e benefícios</li>
+      <li>III — Estabelecer responsabilidades dos entes federativos</li>
+      <li>IV — Definir níveis de gestão, respeitando diversidades regionais e municipais</li>
+      <li>V — Implementar gestão do trabalho e educação permanente na assistência social</li>
+      <li>VI — Estabelecer gestão integrada de serviços e benefícios</li>
+      <li>VII — Afiançar a vigilância socioassistencial e a garantia de direitos</li>
+    </ul>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>§ 1°: base de organização do SUAS = <span class="key">território</span></li>
+        <li>§ 2°: integrado pelos entes federativos + seus conselhos + entidades/organizações de assistência social</li>
+        <li>§ 3°: instância coordenadora da Política Nacional = <span class="key">Ministério do Desenvolvimento Social e Combate à Fome</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 6°-A — Tipos de Proteção Social</h2>
+    <table>
+      <tr><th>Proteção</th><th>Objetivo central</th></tr>
+      <tr>
+        <td><strong>Básica</strong></td>
+        <td><span class="key">Prevenir</span> situações de vulnerabilidade e risco social por meio do desenvolvimento de potencialidades e aquisições e do <span class="key">fortalecimento de vínculos familiares e comunitários</span></td>
+      </tr>
+      <tr>
+        <td><strong>Especial</strong></td>
+        <td><span class="key">Reconstruir vínculos</span> familiares e comunitários, defesa de direito, fortalecimento de potencialidades e proteção para <span class="key">enfrentamento de situações de violação de direitos</span></td>
+      </tr>
+    </table>
+    <div class="lei" style="margin-top:12px">
+      Parágrafo único: Vigilância socioassistencial é <span class="key">instrumento das proteções</span> que identifica e <span class="key">previne</span> situações de risco e vulnerabilidade e seus agravos no território.
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>Básica = <strong>prevenir</strong> | Especial = <strong>reconstruir vínculos + violação de direitos</strong></li>
+        <li>"A vigilância socioassistencial <span class="neg">é um tipo de proteção</span>..." → <strong>ERRADO</strong> (é instrumento das proteções)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 6°-C — CRAS e CREAS</h2>
+    <table>
+      <tr><th>Unidade</th><th>Abrangência</th><th>Localização</th><th>Proteção</th></tr>
+      <tr>
+        <td><strong>CRAS</strong></td>
+        <td>Unidade pública <span class="key">municipal</span>, de base <span class="key">territorial</span></td>
+        <td>Áreas com maiores índices de vulnerabilidade e risco social</td>
+        <td>Social <span class="key">básica</span></td>
+      </tr>
+      <tr>
+        <td><strong>CREAS</strong></td>
+        <td>Unidade pública de abrangência e gestão <span class="key">municipal, estadual ou regional</span></td>
+        <td>Atende indivíduos/famílias em risco por <span class="key">violação de direitos</span> ou contingência</td>
+        <td>Social <span class="key">especial</span></td>
+      </tr>
+    </table>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>CRAS = <strong>sempre municipal</strong> · CREAS = pode ser <strong>municipal, estadual ou regional</strong></li>
+        <li>§ 3°: Cras e Creas são unidades públicas <strong>estatais</strong> (não privadas)</li>
+        <li>Art. 6°-D: instalações devem ter espaços para trabalhos em grupo + atendimento reservado + <span class="key">acessibilidade a idosos e PcD</span></li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"CREAS é de abrangência exclusivamente <span class="neg">municipal</span>..." → <strong>ERRADO</strong> (pode ser estadual ou regional)</li>
+        <li>"CRAS atende situações de violação de direitos..." → <strong>ERRADO</strong> (é o CREAS)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s3 -->
+
+<!-- ===== SEÇÃO 4: Competências ===== -->
+<div id="s4" class="sec">
+
+  <div class="card">
+    <h2>Arts. 12–15 — Competências por Esfera</h2>
+    <table>
+      <tr><th>Esfera</th><th>Competências-chave</th></tr>
+      <tr>
+        <td><strong>União<br>(Art. 12)</strong></td>
+        <td>
+          <ul class="a" style="margin:0">
+            <li>Concessão e manutenção do <span class="key">BPC</span> (Art. 203 CF)</li>
+            <li>Cofinanciar via transferência automática</li>
+            <li>Atender ações emergenciais em conjunto com Estados, DF e Municípios</li>
+            <li>Monitorar e avaliar + assessorar Estados, DF e Municípios</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Estados<br>(Art. 13)</strong></td>
+        <td>
+          <ul class="a" style="margin:0">
+            <li>Destinar recursos aos Municípios para benefícios eventuais</li>
+            <li>Cofinanciar em âmbito regional ou local</li>
+            <li>Atender ações emergenciais com Municípios</li>
+            <li>Prestar serviços cujos custos justifiquem rede regional desconcentrada</li>
+            <li>Monitorar e avaliar + assessorar Municípios</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>DF<br>(Art. 14)</strong></td>
+        <td>
+          <ul class="a" style="margin:0">
+            <li>Destinar recursos para benefícios eventuais</li>
+            <li>Efetuar pagamento dos auxílios natalidade e funeral</li>
+            <li>Executar projetos de enfrentamento da pobreza</li>
+            <li>Atender ações de emergência</li>
+            <li>Cofinanciar aprimoramento da gestão em âmbito local</li>
+            <li>Monitorar e avaliar em seu âmbito</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Municípios<br>(Art. 15)</strong></td>
+        <td>
+          <ul class="a" style="margin:0">
+            <li>Destinar recursos para benefícios eventuais</li>
+            <li>Efetuar pagamento dos auxílios natalidade e funeral</li>
+            <li>Executar projetos de enfrentamento da pobreza</li>
+            <li>Prestar os serviços socioassistenciais (Art. 23)</li>
+            <li>Cofinanciar aprimoramento da gestão em âmbito local</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>Art. 11: normas gerais = esfera <span class="key">federal</span>; execução dos programas = Estados, DF e Municípios</li>
+        <li>Art. 12, I: concessão e manutenção do BPC é competência da <span class="key">União</span> — não dos municípios</li>
+        <li>DF e Municípios têm competências muito parecidas — questão pode trocar incisos entre eles</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s4 -->
+
+<!-- ===== SEÇÃO 5: CNAS ===== -->
+<div id="s5" class="sec">
+
+  <div class="card">
+    <h2>Art. 16 — Instâncias Deliberativas do SUAS</h2>
+    <div class="lei">Caráter <span class="key">permanente</span> e composição <span class="key">paritária</span> entre governo e sociedade civil.</div>
+    <ul class="a">
+      <li>I — Conselho Nacional de Assistência Social (CNAS)</li>
+      <li>II — Conselhos Estaduais de Assistência Social</li>
+      <li>III — Conselho de Assistência Social do Distrito Federal</li>
+      <li>IV — Conselhos Municipais de Assistência Social</li>
+    </ul>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São <span class="num">4</span> instâncias deliberativas</li>
+        <li>Composição <span class="key">paritária</span> — obrigatoriamente 50/50</li>
+        <li>Caráter <span class="key">permanente</span> (não é eventual ou temporário)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 17 — CNAS: Composição e Mandatos <span class="hot">🔥</span></h2>
+    <ul class="a">
+      <li>Órgão superior de <span class="key">deliberação colegiada</span></li>
+      <li>Membros nomeados pelo <span class="key">Presidente da República</span></li>
+      <li>Mandato dos membros: <span class="num">2 anos</span>, permitida <span class="num">uma única recondução</span></li>
+      <li>Total: <span class="num">18 membros</span> + respectivos suplentes</li>
+      <li><span class="num">9</span> representantes governamentais — incluindo <span class="num">1</span> dos Estados e <span class="num">1</span> dos Municípios</li>
+      <li><span class="num">9</span> representantes da sociedade civil — escolhidos em <span class="key">foro próprio sob fiscalização do MPF</span></li>
+      <li>Presidido por membro eleito — mandato de <span class="num">1 ano</span>, permitida <span class="num">uma única recondução</span></li>
+    </ul>
+    <div class="mbox">
+      <div class="mbox-t">🧠 Memorize os números</div>
+      <ul class="m">
+        <li><strong>18 membros = 9 governo + 9 sociedade civil</strong></li>
+        <li>Mandato geral: <strong>2 anos</strong> (reconduzível 1 vez)</li>
+        <li>Mandato da presidência: <strong>1 ano</strong> (reconduzível 1 vez)</li>
+      </ul>
+    </div>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas — CNAS</div>
+      <ul class="t">
+        <li>"...composto por <span class="neg">16</span> membros..." → <strong>ERRADO</strong> (são 18)</li>
+        <li>"...mandato de <span class="neg">4 anos</span>..." → <strong>ERRADO</strong> (são 2 anos)</li>
+        <li>"...permitidas <span class="neg">duas</span> recondução..." → <strong>ERRADO</strong> (apenas uma)</li>
+        <li>"Membros eleitos pelos próprios conselheiros..." → <strong>ERRADO</strong> (nomeados pelo Presidente da República)</li>
+        <li>O presidente do CNAS tem mandato de <span class="num">1 ano</span>, não de 2</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 18 — Competências do CNAS</h2>
+    <ul class="a">
+      <li>I — Aprovar a <span class="key">Política Nacional de Assistência Social</span></li>
+      <li>II — Normatizar as ações e regular a prestação de serviços de natureza pública e privada</li>
+      <li>V — Zelar pela efetivação do sistema descentralizado e participativo</li>
+      <li>VI — Convocar ordinariamente a cada <span class="num">4 anos</span> a Conferência Nacional de Assistência Social</li>
+      <li>VIII — Apreciar e aprovar a proposta orçamentária da Assistência Social</li>
+      <li>IX — Aprovar critérios de transferência de recursos para Estados, Municípios e DF</li>
+      <li>XI — Estabelecer diretrizes e aprovar programas anuais e plurianuais do <span class="key">FNAS</span></li>
+      <li>XIV — Divulgar no <span class="key">Diário Oficial da União</span> todas as suas decisões + contas do FNAS + pareceres</li>
+    </ul>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>Conferência Nacional = a cada <span class="num">4 anos</span> — Quadrix troca por "<span class="neg">2 anos</span>"</li>
+        <li>Publicação no DOU é competência do <strong>CNAS</strong>, não do Ministério</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s5 -->
+
+<!-- ===== SEÇÃO 6: BPC ===== -->
+<div id="s6" class="sec">
+
+  <div class="card">
+    <h2>Art. 20 — BPC: Benefício de Prestação Continuada <span class="hot">⭐ MAIS COBRADO</span></h2>
+    <div class="lei">
+      Garantia de <span class="num">1 salário-mínimo</span> mensal à <span class="key">pessoa com deficiência</span> e ao
+      <span class="key">idoso com <span class="num">65 anos</span> ou mais</span> que comprovem não possuir meios de prover
+      a própria manutenção nem de tê-la provida por sua família.
+    </div>
+
+    <table>
+      <tr><th>Critério</th><th>Regra vigente</th></tr>
+      <tr><td>Valor</td><td><span class="num">1 salário-mínimo</span> mensal</td></tr>
+      <tr><td>Idoso</td><td><span class="num">65 anos</span> ou mais (redação Lei 12.435/2011)</td></tr>
+      <tr><td>PcD — definição vigente</td><td>Impedimento de longo prazo de natureza <span class="key">física, mental, intelectual ou sensorial</span> + interação com barreiras → obstrui participação plena e efetiva na sociedade</td></tr>
+      <tr><td>Impedimento de longo prazo</td><td>Aquele que produz efeitos por prazo mínimo de <span class="num">2 anos</span></td></tr>
+      <tr><td>Renda per capita</td><td>Igual ou inferior a <span class="num">1/4 do salário-mínimo</span></td></tr>
+      <tr><td>Revisão</td><td>A cada <span class="num">2 anos</span></td></tr>
+      <tr><td>Composição familiar</td><td>Requerente + cônjuge/companheiro + pais/padrasto/madrasta + irmãos solteiros + filhos e enteados solteiros + menores tutelados — <span class="key">sob o mesmo teto</span></td></tr>
+    </table>
+
+    <div class="bpc-nao">
+      <h3>✅ O que NÃO computa para renda / O que NÃO impede o BPC</h3>
+      <ul class="a">
+        <li>Rendimentos de <span class="key">estágio supervisionado e aprendizagem</span> não são computados para renda per capita</li>
+        <li>BPC de idoso ≥ 65 anos (valor ≤ 1 SM) <span class="key">não é computado</span> para concessão a outro idoso/PcD da mesma família (§ 14)</li>
+        <li>Condição de acolhimento em <span class="key">instituição de longa permanência não prejudica</span> o direito</li>
+        <li>Desenvolvimento de capacidades cognitivas/motoras/educacionais <span class="key">não é motivo de suspensão</span></li>
+        <li>Cessação do BPC <span class="key">não impede nova concessão</span> se atendidos os requisitos</li>
+        <li>BPC pode ser concedido a <span class="key">mais de um membro</span> da mesma família (§ 15)</li>
+      </ul>
+    </div>
+
+    <div class="card" style="background:#2d1515;border-left-color:#ef4444;margin-top:14px">
+      <h2 style="color:#f87171">Art. 21-A — Suspensão do BPC</h2>
+      <ul class="a">
+        <li>BPC é <span class="neg">suspenso</span> quando PcD exerce <span class="key">atividade remunerada</span>, inclusive na condição de <span class="key">microempreendedor individual (MEI)</span></li>
+        <li>Extinta a relação trabalhista: pode requerer continuidade <span class="key">sem nova perícia médica</span></li>
+        <li>Contratação como <span class="key">aprendiz = não suspende o BPC</span> — limitado a <span class="num">2 anos</span> de recebimento concomitante</li>
+      </ul>
+    </div>
+
+    <div class="card" style="background:#1e293b;border-left-color:#f59e0b;margin-top:14px">
+      <h2 style="color:#f59e0b">BPC: O que NÃO acumula</h2>
+      <ul class="a">
+        <li><span class="neg">Não acumula</span> com qualquer outro benefício da seguridade social ou de outro regime</li>
+        <li><strong>EXCEÇÕES (pode acumular):</strong> <span class="key">assistência médica</span> e <span class="key">pensão especial de natureza indenizatória</span></li>
+        <li><span class="neg">Não gera</span> 13° salário (abono anual)</li>
+      </ul>
+    </div>
+
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas clássicas Quadrix — BPC</div>
+      <ul class="t">
+        <li>"Idoso com <span class="neg">70 anos</span>..." → <strong>ERRADO</strong> (era a redação original; hoje são 65)</li>
+        <li>"Renda per capita inferior a <span class="neg">1/2</span> do SM..." → <strong>ERRADO</strong> (é 1/4; a ampliação para 1/2 foi revogada)</li>
+        <li>"BPC não pode ser acumulado nem com assistência médica..." → <strong>ERRADO</strong> (assistência médica é exceção expressa)</li>
+        <li>"Revisão <span class="neg">anual</span>..." → <strong>ERRADO</strong> (é a cada 2 anos)</li>
+        <li>"Impedimento de longo prazo: pelo menos <span class="neg">1 ano</span>..." → <strong>ERRADO</strong> (são 2 anos)</li>
+        <li>"PcD aprendiz tem BPC suspenso..." → <strong>ERRADO</strong> (não suspende, limitado a 2 anos)</li>
+        <li>"PcD pode trabalhar como aprendiz por tempo <span class="neg">ilimitado</span> mantendo o BPC..." → <strong>ERRADO</strong> (limitado a 2 anos)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s6 -->
+
+<!-- ===== SEÇÃO 7: Benefícios/Serviços ===== -->
+<div id="s7" class="sec">
+
+  <div class="card">
+    <h2>Art. 22 — Benefícios Eventuais</h2>
+    <div class="lei">
+      Provisões <span class="key">suplementares e provisórias</span> que integram <span class="key">organicamente</span>
+      as garantias do SUAS, prestadas em virtude de:
+      <span class="key">nascimento, morte, situações de vulnerabilidade temporária e calamidade pública</span>.
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São <span class="num">4</span> situações — nascimento, morte, vulnerabilidade temporária e calamidade pública</li>
+        <li>Integram <strong>organicamente</strong> as garantias do SUAS (não são ações avulsas)</li>
+        <li>§ 1°: valor definido pelos <span class="key">Estados, DF e Municípios</span>, com base nos respectivos Conselhos de Assistência Social</li>
+        <li>§ 2°: CNAS pode propor benefícios subsidiários de até <span class="num">25%</span> do SM para crianças de até <span class="num">6 anos</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 23 — Serviços Socioassistenciais</h2>
+    <div class="lei">
+      Atividades <span class="key">continuadas</span> que visem à melhoria de vida da população, voltadas para necessidades básicas, observando objetivos, princípios e diretrizes desta Lei.
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>Serviços = atividades <strong>continuadas</strong> (programas têm prazo definido; serviços não)</li>
+        <li>§ 2°: programas de amparo: crianças/adolescentes em risco pessoal e social + pessoas em situação de rua + <em>(Lei 14.878/2024)</em> idosos carentes em ILPI</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 24 — Programas · Art. 24-A — PAIF · Art. 24-B — PAEFI</h2>
+    <table>
+      <tr><th>Serviço/Programa</th><th>Proteção</th><th>Onde</th><th>Para quem</th></tr>
+      <tr>
+        <td><strong>PAIF</strong><br><small>Serviço de Proteção e Atendimento Integral à Família</small></td>
+        <td>Social <span class="key">básica</span></td>
+        <td><span class="key">CRAS</span></td>
+        <td>Famílias em situação de <span class="key">vulnerabilidade social</span> — prevenir rompimento de vínculos e violência</td>
+      </tr>
+      <tr>
+        <td><strong>PAEFI</strong><br><small>Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos</small></td>
+        <td>Social <span class="key">especial</span></td>
+        <td><span class="key">CREAS</span></td>
+        <td>Famílias/indivíduos em situação de <span class="key">ameaça ou violação de direitos</span></td>
+      </tr>
+      <tr>
+        <td><strong>PETI</strong><br><small>Programa de Erradicação do Trabalho Infantil</small></td>
+        <td>Intersetorial</td>
+        <td>Âmbito nacional</td>
+        <td>Crianças/adolescentes <span class="key">abaixo de 16 anos</span> em situação de trabalho (ressalvado aprendiz a partir de 14)</td>
+      </tr>
+    </table>
+    <div class="tbox">
+      <div class="tbox-t">⚠️ Armadilhas típicas</div>
+      <ul class="t">
+        <li>"PAIF é ofertado no <span class="neg">CREAS</span>..." → <strong>ERRADO</strong> (é no CRAS)</li>
+        <li>"PAEFI é voltado à prevenção de vulnerabilidade..." → <strong>ERRADO</strong> (é violação de direitos, não prevenção)</li>
+        <li>"PETI retira crianças com menos de <span class="neg">14 anos</span>..." → <strong>ERRADO</strong> (menos de 16 anos, ressalvado aprendiz a partir de 14)</li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /s7 -->
+
+<!-- ===== SEÇÃO 8: Financiamento ===== -->
+<div id="s8" class="sec">
+
+  <div class="card">
+    <h2>Art. 30 — Condições para Repasse de Recursos</h2>
+    <div class="lei">É <span class="key">condição</span> para os repasses aos Municípios, Estados e DF:</div>
+    <ul class="a">
+      <li>I — <span class="key">Conselho</span> de Assistência Social de composição <span class="key">paritária</span> entre governo e sociedade civil</li>
+      <li>II — <span class="key">Fundo</span> de Assistência Social, com orientação e controle dos respectivos Conselhos</li>
+      <li>III — <span class="key">Plano</span> de Assistência Social</li>
+    </ul>
+    <div class="mbox">
+      <div class="mbox-t">🧠 Mnemônico</div>
+      <ul class="m">
+        <li><strong>C · F · P</strong> → Conselho · Fundo · Plano</li>
+        <li>Faltando qualquer um dos três = sem repasse</li>
+      </ul>
+    </div>
+    <div class="qbox">
+      <div class="qbox-t">📌 Quadrix costuma cobrar</div>
+      <ul class="q">
+        <li>São exatamente <span class="num">3</span> condições</li>
+        <li>O Conselho deve ser <strong>paritário</strong> — maioria governamental invalida a condição</li>
+        <li>Parágrafo único: também é condição a <span class="key">comprovação orçamentária</span> dos recursos próprios nos respectivos Fundos de Assistência Social (a partir de 1999)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Art. 28 — Financiamento do SUAS</h2>
+    <ul class="a">
+      <li>Recursos da União, Estados, DF e Municípios + contribuições sociais (Art. 195 CF) + FNAS</li>
+      <li>§ 3°: financiamento no SUAS = <span class="key">cofinanciamento dos 3 entes federados</span></li>
+      <li>Art. 30-A: cofinanciamento por <span class="key">transferências automáticas</span> entre fundos de assistência social</li>
+    </ul>
+  </div>
+
+</div><!-- /s8 -->
+
+<!-- ===== SEÇÃO 9: Recall ===== -->
+<div id="s9" class="sec">
+
+  <div class="card">
+    <h2>🎯 Cartão de Recall — Números que a Quadrix adora</h2>
+    <p style="color:#94a3b8;font-size:0.84rem;margin-bottom:14px">Tente responder <strong>sem olhar</strong>. Clique no espaço abaixo de cada pergunta para revelar.</p>
+
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">CNAS: quantos membros? Como se divide?</div>
+      <div class="ra">→ 18 membros = 9 governo (incl. 1 estado + 1 município) + 9 sociedade civil</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">CNAS: mandato dos membros? E do presidente?</div>
+      <div class="ra">→ Membros: 2 anos, uma recondução · Presidente: 1 ano, uma recondução</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">CNAS: quem nomeia os membros?</div>
+      <div class="ra">→ Presidente da República</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">BPC: idade do idoso?</div>
+      <div class="ra">→ 65 anos ou mais (não 70, não 67)</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">BPC: critério de renda per capita?</div>
+      <div class="ra">→ ≤ 1/4 do salário-mínimo</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">BPC: revisão a cada quanto tempo?</div>
+      <div class="ra">→ 2 anos</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Impedimento de longo prazo (PcD): prazo mínimo?</div>
+      <div class="ra">→ 2 anos</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Conferência Nacional de Assistência Social: frequência?</div>
+      <div class="ra">→ Ordinariamente a cada 4 anos</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Quantos princípios (Art. 4°)? Quais?</div>
+      <div class="ra">→ 5: Supremacia · Universalização · Respeito à dignidade · Igualdade · Divulgação (SU-RID)</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Quantas diretrizes (Art. 5°)? Quais?</div>
+      <div class="ra">→ 3: Descentralização + comando único · Participação da população · Primazia do Estado (D-P-P)</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Condições para repasse de recursos (Art. 30)?</div>
+      <div class="ra">→ Conselho paritário + Fundo + Plano de Assistência Social (C-F-P)</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">BPC: com o que não acumula? Com o que pode acumular?</div>
+      <div class="ra">→ Não acumula com qualquer benefício da seguridade ou outro regime · PODE acumular com assistência médica e pensão especial indenizatória</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">CRAS: abrangência. CREAS: abrangência.</div>
+      <div class="ra">→ CRAS = sempre municipal · CREAS = municipal, estadual ou regional</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">PAIF: proteção, local. PAEFI: proteção, local.</div>
+      <div class="ra">→ PAIF = básica, CRAS · PAEFI = especial, CREAS</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Art. 1°: assistência social é política de seguridade social... o quê?</div>
+      <div class="ra">→ NÃO CONTRIBUTIVA</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">Benefícios eventuais: quais são as 4 situações?</div>
+      <div class="ra">→ Nascimento · Morte · Vulnerabilidade temporária · Calamidade pública</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">PETI: objetivo e faixa etária?</div>
+      <div class="ra">→ Retirar crianças/adolescentes abaixo de 16 anos do trabalho (aprendiz permitido a partir de 14)</div>
+    </div>
+    <div class="rcard" onclick="toggle(this)">
+      <div class="rq">BPC: PcD que trabalha como aprendiz pode manter o benefício?</div>
+      <div class="ra">→ SIM, não suspende — limitado a 2 anos de recebimento concomitante</div>
+    </div>
+  </div>
+
+</div><!-- /s9 -->
+
+</div><!-- /content -->
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.sec').forEach(s => s.classList.remove('on'));
+  document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function toggle(el) {
+  const ra = el.querySelector('.ra');
+  ra.style.color = ra.style.color === 'rgb(96, 165, 250)' ? '#334155' : 'rgb(96, 165, 250)';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Arquivos temporários
+*.tmp
+Thumbs.db
+.DS_Store
+desktop.ini

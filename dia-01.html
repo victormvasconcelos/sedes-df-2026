@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semana 1 · SUAS Fundamentos</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f4f0;color:#1a1a1a;line-height:1.6}
+
+    /* NAV */
+    .day-nav{background:#fff;border-bottom:1px solid #e5e5e5;display:flex;overflow-x:auto;position:sticky;top:0;z-index:100;padding:0 16px}
+    .day-btn{flex:1;min-width:90px;padding:14px 8px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:#888;border-bottom:3px solid transparent;transition:.2s;text-align:center;line-height:1.3}
+    .day-btn small{display:block;font-size:11px;font-weight:400;color:#aaa}
+    .day-btn.active{color:#5b3fd9;border-bottom-color:#5b3fd9}
+    .day-btn:hover{color:#5b3fd9}
+    .bonus-btn.active{color:#f59e0b;border-bottom-color:#f59e0b}
+    .bonus-btn:hover{color:#f59e0b}
+
+    /* LAYOUT */
+    .day-content{display:none;padding:28px 16px 48px;max-width:720px;margin:0 auto}
+    .day-content.active{display:block}
+
+    /* HEADER */
+    .day-header{margin-bottom:24px}
+    .badge{display:inline-block;background:#e8e4ff;color:#5b3fd9;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 12px;border-radius:20px;margin-bottom:10px}
+    .badge.bonus{background:#fff3cd;color:#b45309}
+    .day-header h1{font-size:24px;font-weight:800;color:#111}
+    .day-header p{font-size:14px;color:#666;margin-top:5px}
+
+    /* SLOTS */
+    .slot{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px;border-left:5px solid #ccc}
+    .slot.carro-manha{border-color:#f59e0b}
+    .slot.carro-volta{border-color:#3b82f6}
+    .slot.pomodoro-1{border-color:#10b981}
+    .slot.pomodoro-2{border-color:#ef4444}
+    .slot.revisao{border-color:#8b5cf6}
+    .slot.bonus-slot{border-color:#f59e0b;background:#fffbf0}
+    .slot-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .slot-icon{font-size:20px}
+    .slot-title{font-size:15px;font-weight:700;color:#111}
+    .slot-time{font-size:11px;font-weight:600;color:#888;margin-top:2px}
+    .slot p{font-size:14px;color:#444;margin-bottom:9px}
+    .slot p:last-child{margin-bottom:0}
+    .tip{background:#fef9ec;border:1px solid #f6d860;border-radius:8px;padding:9px 13px;font-size:13px;color:#7a5c00;margin-top:9px}
+
+    /* RECALL CARD */
+    .recall-card{background:#1a1a2e;color:#e0e0ff;border-radius:12px;padding:20px 22px;font-family:'Courier New',monospace;font-size:13px;line-height:2.1;margin-top:12px}
+    .recall-title{font-weight:700;color:#a78bfa;font-size:13px;margin-bottom:10px;font-family:'Segoe UI',system-ui,sans-serif;letter-spacing:1px;text-transform:uppercase}
+    .cl{border-bottom:1px solid #2d2d4e;display:block;width:100%;margin:2px 0 5px 0}
+
+    /* REFERÊNCIA */
+    .ref-box{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px}
+    .ref-box h2{font-size:13px;font-weight:700;color:#999;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+    .artigo{margin-bottom:16px}
+    .art-num{display:inline-block;background:#5b3fd9;color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:7px}
+    .artigo p{font-size:14px;color:#444;margin-bottom:5px}
+    .artigo ol,.artigo ul{padding-left:20px;font-size:14px;color:#444}
+    .artigo li{margin-bottom:4px}
+    .ancora{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:11px 15px;font-size:14px;color:#166534;margin-top:14px}
+    .ancora strong{color:#14532d}
+    .atencao{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:11px 15px;font-size:14px;color:#9a3412;margin-top:14px}
+
+    /* CHECKLIST */
+    .checklist{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px}
+    .checklist h2{font-size:13px;font-weight:700;color:#999;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px}
+    .check-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:14px;color:#333}
+    .check-item:last-child{border-bottom:none}
+    .check-box{width:20px;height:20px;border:2px solid #d1d5db;border-radius:5px;flex-shrink:0;margin-top:1px}
+
+    footer{text-align:center;font-size:11px;color:#bbb;padding:24px 0 40px}
+  </style>
+</head>
+<body>
+
+<!-- NAVEGAÇÃO -->
+<nav class="day-nav">
+  <button class="day-btn active" onclick="show(1)">Dia 1<small>Seg 18/05</small></button>
+  <button class="day-btn" onclick="show(2)">Dia 2<small>Ter 19/05</small></button>
+  <button class="day-btn" onclick="show(3)">Dia 3<small>Qua 20/05</small></button>
+  <button class="day-btn bonus-btn" onclick="show(4)">Dia 4 ⭐<small>Qui 21/05</small></button>
+  <button class="day-btn" onclick="show(5)">Dia 5<small>Sex 22/05</small></button>
+  <button class="day-btn" onclick="show(6)">Dia 6<small>Sáb 23/05</small></button>
+</nav>
+
+<!-- ═══════════════════════════════════════ DIA 1 ═══ -->
+<div id="day-1" class="day-content active">
+  <div class="day-header">
+    <div class="badge">Semana 1 · SUAS Fundamentos</div>
+    <h1>Dia 1 · Segunda, 18/05</h1>
+    <p>LOAS — Conceito, Objetivos, Princípios e Diretrizes (Arts. 1, 2, 4 e 5)</p>
+  </div>
+
+  <div class="slot carro-manha">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+    <p><strong>O que fazer:</strong> abre o GranCursos e procura a videoaula de LOAS. Busca por <em>"LOAS introdução"</em> ou <em>"assistência social conceito e objetivos"</em>. Ouve os primeiros 30min.</p>
+    <p><strong>Objetivo:</strong> entender o que é a assistência social, por que ela existe e quais os objetivos da LOAS (Arts. 1 e 2). Não precisa memorizar — é primeiro contato.</p>
+    <div class="tip">⚡ Se a aula for curta (menos de 30min): ouve completa e no tempo restante repete em voz alta o que entendeu com suas palavras.</div>
+  </div>
+
+  <div class="slot carro-volta">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+    <p><strong>O que fazer:</strong> continua a <strong>mesma videoaula</strong> do ponto onde pausou — agora cobre princípios e diretrizes (Arts. 4 e 5).</p>
+    <p><strong>Objetivo:</strong> ouvir os 5 princípios e 3 diretrizes ao menos uma vez antes de sentar à mesa.</p>
+    <div class="tip">⚡ Se já terminou a aula: volta para a parte de princípios e diretrizes e ouve de novo. Repetição é válida.</div>
+  </div>
+
+  <div class="slot pomodoro-1">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+    <p><strong>O que fazer:</strong> abre o PDF GranCursos de LOAS. Lê <strong>apenas</strong> Arts. 1, 2, 4 e 5 + explicações do professor.</p>
+    <p>Não lê o PDF inteiro — pula direto para esses artigos pelo índice ou pelos títulos "conceito", "princípios", "diretrizes".</p>
+    <div class="tip">⚡ Sublinha só o que parece essencial. Se sublinhar tudo, não sublinha nada.</div>
+  </div>
+
+  <div class="slot pomodoro-2">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+    <p><strong>Fecha o PDF.</strong> Preenche o cartão abaixo sem consultar nada. Depois abre e corrige em vermelho o que errou ou esqueceu.</p>
+    <div class="recall-card">
+      <div class="recall-title">📋 Cartão de Recall — Dia 1</div>
+      <strong>Art. 1 — Assistência social é:</strong><br/>
+      <span class="cl">&nbsp;</span><span class="cl">&nbsp;</span>
+      <strong>Art. 2 — Objetivos (ao menos 4):</strong><br/>
+      1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+      <strong>Art. 4 — 5 Princípios (palavra-chave):</strong><br/>
+      P1:<span class="cl">&nbsp;</span>P2:<span class="cl">&nbsp;</span>P3:<span class="cl">&nbsp;</span>P4:<span class="cl">&nbsp;</span>P5:<span class="cl">&nbsp;</span>
+      <strong>Art. 5 — 3 Diretrizes (palavra-chave):</strong><br/>
+      D1:<span class="cl">&nbsp;</span>D2:<span class="cl">&nbsp;</span>D3:<span class="cl">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h2>Referência — confere após o recall</h2>
+    <div class="artigo"><span class="art-num">Art. 1</span><p>Direito do cidadão, dever do Estado. Política de seguridade social <strong>não contributiva</strong> que provê os mínimos sociais.</p></div>
+    <div class="artigo"><span class="art-num">Art. 2 — Objetivos</span><ol><li>Proteção à família, maternidade, infância, adolescência e velhice</li><li>Amparo às crianças e adolescentes carentes</li><li>Promoção da integração ao mercado de trabalho</li><li>Habilitação e reabilitação das pessoas com deficiência</li><li>Garantia de 1 salário mínimo mensal à PCD e ao idoso (BPC)</li></ol></div>
+    <div class="artigo"><span class="art-num">Art. 4 — 5 Princípios</span><ol><li>Supremacia do atendimento às necessidades sociais sobre exigências de rentabilidade econômica</li><li>Universalização dos direitos sociais</li><li>Respeito à dignidade do cidadão e à sua autonomia <em>(vedada comprovação vexatória de necessidade)</em></li><li>Igualdade de direitos no acesso, sem discriminação</li><li>Divulgação ampla dos benefícios, serviços, programas e projetos</li></ol></div>
+    <div class="artigo"><span class="art-num">Art. 5 — 3 Diretrizes</span><ol><li>Descentralização político-administrativa + comando único em cada esfera</li><li>Participação da população por organizações representativas</li><li>Primazia da responsabilidade do Estado</li></ol></div>
+    <div class="ancora"><strong>Âncora:</strong> princípios = o que a política <em>é</em> (valores). Diretrizes = como ela <em>se organiza</em> (estrutura).</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DIA 2 ═══ -->
+<div id="day-2" class="day-content">
+  <div class="day-header">
+    <div class="badge">Semana 1 · SUAS Fundamentos</div>
+    <h1>Dia 2 · Terça, 19/05</h1>
+    <p>LOAS — Proteções Sociais e Seguranças Socioassistenciais</p>
+  </div>
+
+  <div class="slot carro-manha">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+    <p><strong>O que fazer:</strong> busca no GranCursos <em>"proteção social básica e especial SUAS"</em> ou <em>"LOAS proteções sociais"</em>. Ouve os primeiros 30min.</p>
+    <p><strong>Objetivo:</strong> entender a diferença entre proteção básica e especial, e onde cada uma acontece (CRAS × CREAS).</p>
+  </div>
+
+  <div class="slot carro-volta">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+    <p><strong>O que fazer:</strong> fala em voz alta, sem olhar nada:</p>
+    <p>— <em>"Qual a diferença entre proteção básica e especial?"</em><br/>— <em>"O que é CRAS? O que é CREAS?"</em><br/>— <em>"Quando um caso vai para especial média? E para alta?"</em></p>
+    <div class="tip">⚡ Não importa não saber — o exercício de tentar lembrar já treina a memória.</div>
+  </div>
+
+  <div class="slot pomodoro-1">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+    <p><strong>O que fazer:</strong> abre o PDF de LOAS. Lê Art. 6-A (proteções sociais) e a seção sobre seguranças socioassistenciais. Sublinha.</p>
+    <div class="tip">⚡ Foca nas diferenças entre básica, especial média e especial alta. São 3 coisas distintas — elas caem separadas na prova.</div>
+  </div>
+
+  <div class="slot pomodoro-2">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+    <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+    <div class="recall-card">
+      <div class="recall-title">📋 Cartão de Recall — Dia 2</div>
+      <strong>Proteção Social Básica:</strong><br/>
+      Público: <span class="cl">&nbsp;</span>
+      Onde acontece: <span class="cl">&nbsp;</span>
+      Exemplo de serviço: <span class="cl">&nbsp;</span>
+      <strong>Proteção Especial — Média Complexidade:</strong><br/>
+      Público: <span class="cl">&nbsp;</span>
+      Onde: <span class="cl">&nbsp;</span>
+      Diferença da básica: <span class="cl">&nbsp;</span>
+      <strong>Proteção Especial — Alta Complexidade:</strong><br/>
+      Quando se aplica: <span class="cl">&nbsp;</span>
+      Exemplo: <span class="cl">&nbsp;</span>
+      <strong>5 Seguranças Socioassistenciais:</strong><br/>
+      1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h2>Referência — confere após o recall</h2>
+    <div class="artigo"><span class="art-num">Proteção Social Básica</span><p>Previne situações de vulnerabilidade e risco. Para famílias em vulnerabilidade por <strong>pobreza ou fragilização de vínculos</strong>. Ofertada nos <strong>CRAS</strong>. Serviço principal: PAIF.</p></div>
+    <div class="artigo"><span class="art-num">Proteção Especial — Média</span><p>Para situações de <strong>violação de direitos já ocorrida</strong>, mas vínculos familiares ainda existentes. Ofertada no <strong>CREAS</strong>. Serviço principal: PAEFI. Ex: violência doméstica, trabalho infantil.</p></div>
+    <div class="artigo"><span class="art-num">Proteção Especial — Alta</span><p>Vínculos familiares <strong>rompidos ou gravemente fragilizados</strong>. Requer atendimento integral 24h. Ex: acolhimento institucional, república, família acolhedora.</p></div>
+    <div class="artigo"><span class="art-num">5 Seguranças Socioassistenciais</span><ol><li>Segurança de acolhida</li><li>Segurança social e de renda</li><li>Segurança de convívio ou vivência familiar, comunitária e social</li><li>Segurança do desenvolvimento da autonomia individual, familiar e social</li><li>Segurança de apoio e auxílio</li></ol></div>
+    <div class="ancora"><strong>Âncora:</strong> básica = prevenção (CRAS). Especial = resposta à violação. A chave é o <em>vínculo familiar</em>: existe → especial média. Rompido → especial alta.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DIA 3 ═══ -->
+<div id="day-3" class="day-content">
+  <div class="day-header">
+    <div class="badge">Semana 1 · SUAS Fundamentos</div>
+    <h1>Dia 3 · Quarta, 20/05</h1>
+    <p>LOAS — BPC, Benefícios Eventuais e Gestão</p>
+  </div>
+
+  <div class="slot carro-manha">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+    <p><strong>O que fazer:</strong> busca no GranCursos <em>"BPC benefício de prestação continuada"</em>. Ouve os primeiros 30min.</p>
+    <p><strong>Objetivo:</strong> entender quem tem direito ao BPC, os critérios e as restrições. É o artigo mais cobrado da LOAS.</p>
+  </div>
+
+  <div class="slot carro-volta">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+    <p><strong>O que fazer:</strong> recita em voz alta:</p>
+    <p>— <em>"Quem tem direito ao BPC?"</em><br/>— <em>"Qual o critério de renda?"</em><br/>— <em>"Quais os 3 'não pode' do BPC?"</em></p>
+    <div class="tip">⚡ Os 3 "não pode" são os mais cobrados em prova: não gera 13º, não é transferível, não acumula com benefício previdenciário.</div>
+  </div>
+
+  <div class="slot pomodoro-1">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+    <p><strong>O que fazer:</strong> lê no PDF os Arts. 20 e 21 (BPC) e Art. 22 (benefícios eventuais). Sublinha os critérios e as restrições.</p>
+    <div class="tip">⚡ No Art. 20, presta atenção especial às exceções e às condições de revisão — são esses detalhes que caem em prova.</div>
+  </div>
+
+  <div class="slot pomodoro-2">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+    <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+    <div class="recall-card">
+      <div class="recall-title">📋 Cartão de Recall — Dia 3</div>
+      <strong>BPC — Quem recebe:</strong><br/>
+      PCD: <span class="cl">&nbsp;</span>
+      Idoso: ___ anos ou mais <span class="cl">&nbsp;</span>
+      Renda familiar per capita: menor que <span class="cl">&nbsp;</span>
+      <strong>BPC — Os 3 "não pode":</strong><br/>
+      Não <span class="cl">&nbsp;</span>
+      Não <span class="cl">&nbsp;</span>
+      Não <span class="cl">&nbsp;</span>
+      <strong>BPC — Revisão:</strong><br/>
+      É revisado a cada <span class="cl">&nbsp;</span>
+      <strong>Benefícios Eventuais — 4 situações (Art. 22):</strong><br/>
+      1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h2>Referência — confere após o recall</h2>
+    <div class="artigo"><span class="art-num">BPC — Art. 20</span><ul><li>1 salário mínimo mensal</li><li>PCD com impedimento de longo prazo que obstrua participação plena na sociedade</li><li>Idoso com <strong>65 anos ou mais</strong></li><li>Renda familiar per capita <strong>menor que 1/4 do salário mínimo</strong></li></ul></div>
+    <div class="artigo"><span class="art-num">BPC — Os 3 "não pode"</span><ol><li><strong>Não gera 13º salário</strong></li><li><strong>Não é transferível</strong> (não passa para herdeiros)</li><li><strong>Não acumula</strong> com benefício da Previdência Social</li></ol><p>Revisado a cada <strong>2 anos</strong> para verificar as condições.</p></div>
+    <div class="artigo"><span class="art-num">Benefícios Eventuais — Art. 22</span><p>Provisão suplementar e provisória nos casos de: <strong>nascimento, morte, situação de vulnerabilidade temporária e calamidade pública.</strong></p></div>
+    <div class="atencao"><strong>Atenção:</strong> o BPC é o artigo mais cobrado da LOAS. Memorize os critérios e os 3 "não pode" — eles aparecem em quase toda prova.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DIA 4 ═══ -->
+<div id="day-4" class="day-content">
+  <div class="day-header">
+    <div class="badge bonus">Dia Bônus ⭐ · Quinta é seu sábado</div>
+    <h1>Dia 4 · Quinta, 21/05</h1>
+    <p>Revisão LOAS (dias 1–3) + PNAS/2004: Família e Território</p>
+  </div>
+
+  <div class="slot carro-manha">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio novo</div></div></div>
+    <p><strong>O que fazer:</strong> busca no GranCursos <em>"PNAS 2004 introdução"</em> ou <em>"centralidade família SUAS"</em>. Ouve os primeiros 30min.</p>
+    <p><strong>Objetivo:</strong> primeiro contato com a PNAS — entender por que ela existe e o que é matricialidade sociofamiliar.</p>
+  </div>
+
+  <div class="slot revisao">
+    <div class="slot-header"><span class="slot-icon">🔁</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão ativa dos dias 1–3</div></div></div>
+    <p><strong>O que fazer:</strong> sem áudio. Recita em voz alta tudo que lembra dos 3 primeiros dias — princípios, diretrizes, proteções, seguranças, BPC.</p>
+    <p>Fala como se estivesse explicando para alguém: <em>"A LOAS diz que..."</em>, <em>"Os princípios são..."</em>, <em>"O BPC vai para quem..."</em></p>
+    <div class="tip">⚡ Esse exercício de recall falado é mais eficiente do que reler. O que não conseguir lembrar = ponto fraco para focar hoje.</div>
+  </div>
+
+  <div class="slot revisao">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Revisão escrita dos dias 1–3</div></div></div>
+    <p><strong>O que fazer:</strong> fecha todos os resumos. Numa folha em branco, escreve de memória os pontos principais dos dias 1, 2 e 3. Depois abre e marca em vermelho o que faltou.</p>
+    <p>O que ficou faltando = relê rapidamente essa parte antes de continuar.</p>
+  </div>
+
+  <div class="slot pomodoro-1">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · PNAS/2004</div></div></div>
+    <p><strong>O que fazer:</strong> abre o PDF da PNAS/2004 no GranCursos. Lê a seção de centralidade na família, matricialidade sociofamiliar e territorialização.</p>
+    <div class="tip">⚡ Foca em entender a lógica, não decorar. A pergunta que guia a leitura: "Por que a família é o centro? Por que o território importa?"</div>
+  </div>
+
+  <div class="slot bonus-slot">
+    <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Tempo extra (se tiver)</div><div class="slot-time">Opcional · Organização</div></div></div>
+    <p>Organiza um documento único com todos os resumos dos dias 1 a 4. Isso vira seu material de revisão para os ciclos de retenção das próximas semanas.</p>
+  </div>
+
+  <div class="ref-box">
+    <h2>Referência — PNAS/2004</h2>
+    <div class="artigo"><span class="art-num">Por que a PNAS?</span><p>A LOAS (1993) criou o marco legal. A PNAS (2004) criou o <em>como implementar</em> — deu forma operacional ao SUAS.</p></div>
+    <div class="artigo"><span class="art-num">Centralidade na família</span><p>A família é o núcleo social fundamental. Todos os serviços se organizam em torno do grupo familiar, não do indivíduo isolado.</p></div>
+    <div class="artigo"><span class="art-num">Matricialidade sociofamiliar</span><p>O trabalho com famílias é a base estruturante do SUAS. O serviço acompanha a família como unidade, não somente o membro em situação de vulnerabilidade.</p></div>
+    <div class="artigo"><span class="art-num">Território</span><p>Território não é só endereço. É o contexto de vida — onde a vulnerabilidade se manifesta. Define onde e como o serviço é ofertado.</p></div>
+    <div class="ancora"><strong>Âncora:</strong> PNAS = a LOAS em ação. Família + Território = os dois eixos que organizam tudo no SUAS.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DIA 5 ═══ -->
+<div id="day-5" class="day-content">
+  <div class="day-header">
+    <div class="badge">Semana 1 · SUAS Fundamentos</div>
+    <h1>Dia 5 · Sexta, 22/05</h1>
+    <p>PNAS/2004 — Eixos Estruturantes + Serviços, Programas, Projetos e Benefícios</p>
+  </div>
+
+  <div class="slot carro-manha">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
+    <p><strong>O que fazer:</strong> busca no GranCursos <em>"eixos estruturantes PNAS"</em> ou <em>"serviços programas projetos benefícios SUAS"</em>. Ouve os primeiros 30min.</p>
+    <p><strong>Objetivo:</strong> entender os 5 eixos da PNAS e a diferença entre os 4 tipos de oferta do SUAS.</p>
+  </div>
+
+  <div class="slot carro-volta">
+    <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
+    <p><strong>O que fazer:</strong> fala em voz alta, sem olhar:</p>
+    <p>— <em>"Qual a diferença entre serviço, programa, projeto e benefício?"</em><br/>— <em>"Quais os 5 eixos estruturantes da PNAS?"</em></p>
+    <div class="tip">⚡ A diferença entre serviço (contínuo) e programa (complementar) cai muito. Tenta formular uma frase curta para cada um.</div>
+  </div>
+
+  <div class="slot pomodoro-1">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
+    <p><strong>O que fazer:</strong> lê no PDF da PNAS a seção de eixos estruturantes e as definições de serviço, programa, projeto e benefício. Sublinha a palavra-chave de cada um.</p>
+  </div>
+
+  <div class="slot pomodoro-2">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
+    <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+    <div class="recall-card">
+      <div class="recall-title">📋 Cartão de Recall — Dia 5</div>
+      <strong>5 Eixos Estruturantes da PNAS:</strong><br/>
+      1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+      <strong>4 Tipos de Oferta do SUAS:</strong><br/>
+      Serviço = <span class="cl">&nbsp;</span>
+      Programa = <span class="cl">&nbsp;</span>
+      Projeto = <span class="cl">&nbsp;</span>
+      Benefício = <span class="cl">&nbsp;</span>
+      <strong>Vigilância Socioassistencial é:</strong><br/>
+      <span class="cl">&nbsp;</span><span class="cl">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="ref-box">
+    <h2>Referência — confere após o recall</h2>
+    <div class="artigo"><span class="art-num">5 Eixos Estruturantes</span><ol><li>Matricialidade sociofamiliar</li><li>Descentralização político-administrativa e territorialização</li><li>Novas bases para a relação entre Estado e Sociedade Civil</li><li>Financiamento</li><li>Controle social</li></ol></div>
+    <div class="artigo"><span class="art-num">4 Tipos de Oferta</span><ul><li><strong>Serviço:</strong> atividades <em>continuadas</em> que visam à melhoria de vida. Ex: PAIF, PAEFI, SCFV</li><li><strong>Programa:</strong> ações integradas e <em>complementares</em>, caráter não continuado</li><li><strong>Projeto:</strong> investimento econômico-social em grupos em pobreza — caráter <em>pontual</em></li><li><strong>Benefício:</strong> BPC + benefícios eventuais — <em>direito garantido</em></li></ul></div>
+    <div class="artigo"><span class="art-num">Vigilância Socioassistencial</span><p>Análise territorial das vulnerabilidades e riscos sociais — função do SUAS para mapear onde e como agir.</p></div>
+    <div class="ancora"><strong>Âncora:</strong> serviço = contínuo. Programa = complementar. Projeto = pontual. Benefício = direito.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DIA 6 ═══ -->
+<div id="day-6" class="day-content">
+  <div class="day-header">
+    <div class="badge">Semana 1 · SUAS Fundamentos</div>
+    <h1>Dia 6 · Sábado, 23/05</h1>
+    <p>Consolidação e revisão integral da semana</p>
+  </div>
+
+  <div class="slot revisao">
+    <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Releitura dos resumos</div></div></div>
+    <p><strong>O que fazer:</strong> relê todos os resumos e cartões de recall dos dias 1 a 5. Não estuda nada novo — só consolida o que já viu.</p>
+    <p>Presta atenção especial nos pontos que errou nos cartões de recall.</p>
+  </div>
+
+  <div class="slot pomodoro-2">
+    <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Teste final</div></div></div>
+    <p><strong>Fecha tudo.</strong> Escreve livremente, sem olhar nada: <em>"O que é o SUAS, como ele se organiza e quais os princípios que o sustentam."</em></p>
+    <p>Se conseguir escrever 1 página coerente — a semana foi bem absorvida.</p>
+    <div class="tip">⚡ Não precisa ser perfeito. O objetivo é ver quanto ficou na memória de forma integrada, não fragmentada.</div>
+  </div>
+
+  <div class="checklist">
+    <h2>Checklist da semana — você deve responder sem consultar</h2>
+    <div class="check-item"><div class="check-box"></div><span>Quais os <strong>5 princípios</strong> da LOAS? (Art. 4)</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Quais as <strong>3 diretrizes</strong> da LOAS? (Art. 5)</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Qual a diferença entre proteção <strong>básica, especial média e especial alta</strong>?</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Quais as <strong>5 seguranças socioassistenciais</strong>?</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Quem tem direito ao <strong>BPC</strong>? Quais os 3 "não pode"?</span></div>
+    <div class="check-item"><div class="check-box"></div><span>O que é <strong>matricialidade sociofamiliar</strong>?</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Qual a diferença entre <strong>serviço, programa, projeto e benefício</strong>?</span></div>
+    <div class="check-item"><div class="check-box"></div><span>Quais os <strong>5 eixos estruturantes</strong> da PNAS?</span></div>
+  </div>
+
+  <div class="ref-box">
+    <h2>Próximos passos — Semana 2</h2>
+    <p style="font-size:14px;color:#444">Na semana 2 você continua no bloco de SUAS Fundamentos: <strong>NOB/SUAS, NOB-RH e Tipificação Nacional de Serviços</strong>. O que estudou esta semana é a base — semana 2 aprofunda a estrutura de gestão e os serviços específicos de cada equipamento.</p>
+    <div class="ancora" style="margin-top:14px"><strong>Domingo 24/05 → DESCANSO.</strong> Nenhum estudo. O descanso é parte do plano.</div>
+  </div>
+</div>
+
+<footer>SEDES-DF 2026 · Cargo 409 · Psicologia · Semana 1 · 18/05 a 23/05</footer>
+
+<script>
+  function show(n){
+    document.querySelectorAll('.day-content').forEach(d=>d.classList.remove('active'));
+    document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('day-'+n).classList.add('active');
+    document.querySelectorAll('.day-btn')[n-1].classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
