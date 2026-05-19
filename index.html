@@ -157,6 +157,95 @@
 
     footer{text-align:center;font-size:11px;color:#bbb;padding:24px 0 40px;background:#f5f4f0}
     .loas-wrap footer{background:#0f172a;color:#475569}
+
+    /* ===== QUESTÕES — LIGHT ===== */
+    .qz-wrap{max-width:780px;margin:0 auto;padding:20px 14px 80px}
+    .qz-h2{font-size:18px;font-weight:800;color:#111;margin:0 0 14px;padding-bottom:6px;border-bottom:2px solid #e5e5e5}
+    .qz-stats-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+    .qz-stat{background:#fff;border-radius:10px;padding:10px 8px;text-align:center;border-left:4px solid #5b3fd9;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+    .qz-stat .v{font-size:18px;font-weight:800;color:#2d1f69;line-height:1.1}
+    .qz-stat .l{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+    .qz-stat.warn{border-left-color:#f59e0b} .qz-stat.warn .v{color:#92400e}
+    .qz-stat.ok{border-left-color:#22c55e} .qz-stat.ok .v{color:#166534}
+    .qz-stat.bad{border-left-color:#ef4444} .qz-stat.bad .v{color:#991b1b}
+
+    .qz-section{background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .qz-section h3{font-size:13px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+    .qz-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .qz-chip{background:#f3f1ff;border:2px solid transparent;color:#5b3fd9;font-size:13px;font-weight:600;padding:7px 13px;border-radius:20px;cursor:pointer;transition:.15s;line-height:1.2}
+    .qz-chip:hover{background:#e8e4ff}
+    .qz-chip.on{background:#5b3fd9;color:#fff;border-color:#2d1f69}
+    .qz-chip small{display:block;font-size:9px;opacity:.7;font-weight:500;margin-top:1px}
+
+    .qz-select{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;background:#fff;color:#333}
+    .qz-start{display:block;width:100%;background:linear-gradient(135deg,#5b3fd9,#2d1f69);color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;box-shadow:0 2px 6px rgba(91,63,217,.3)}
+    .qz-start:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(91,63,217,.4)}
+    .qz-start:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+    .qz-loading{text-align:center;padding:40px 20px;color:#666}
+    .qz-loading .spin{display:inline-block;width:24px;height:24px;border:3px solid #e8e4ff;border-top-color:#5b3fd9;border-radius:50%;animation:qz-spin .8s linear infinite;margin-bottom:8px}
+    @keyframes qz-spin{to{transform:rotate(360deg)}}
+
+    /* Sessão */
+    .qz-progress{background:#fff;border-radius:12px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;gap:12px;font-size:13px;flex-wrap:wrap;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .qz-prog-bar{flex:1;min-width:120px;height:6px;background:#e5e5e5;border-radius:3px;overflow:hidden}
+    .qz-prog-fill{height:100%;background:linear-gradient(90deg,#5b3fd9,#8b5cf6);border-radius:3px;transition:width .3s}
+    .qz-prog-txt{font-weight:700;color:#2d1f69;font-size:13px}
+    .qz-disc-tag{background:#e8e4ff;color:#5b3fd9;font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px}
+
+    .qz-questao{background:#fff;border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .qz-meta{display:flex;gap:8px;font-size:11px;color:#888;margin-bottom:10px;flex-wrap:wrap}
+    .qz-meta span{background:#f3f4f6;padding:2px 8px;border-radius:10px}
+    .qz-texto-base{background:#f9f8ff;border-left:3px solid #a78bfa;padding:10px 14px;border-radius:6px;font-size:13px;color:#555;margin-bottom:12px;white-space:pre-wrap;max-height:220px;overflow-y:auto}
+    .qz-enunciado{font-size:15px;color:#111;line-height:1.6;margin-bottom:16px;white-space:pre-wrap;font-weight:500}
+
+    .qz-alts{display:flex;flex-direction:column;gap:8px}
+    .qz-alt{display:flex;gap:10px;align-items:flex-start;background:#f9f9fb;border:2px solid #e5e5e5;border-radius:10px;padding:12px 14px;cursor:pointer;transition:.15s;text-align:left;font-family:inherit;font-size:14px;color:#333;line-height:1.5}
+    .qz-alt:hover:not(:disabled){background:#f3f1ff;border-color:#a78bfa}
+    .qz-alt:disabled{cursor:default}
+    .qz-alt-letra{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#e5e5e5;color:#666;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+    .qz-alt-txt{flex:1;white-space:pre-wrap}
+    .qz-alt.correta{background:#f0fdf4;border-color:#22c55e}
+    .qz-alt.correta .qz-alt-letra{background:#22c55e;color:#fff}
+    .qz-alt.errada{background:#fef2f2;border-color:#ef4444}
+    .qz-alt.errada .qz-alt-letra{background:#ef4444;color:#fff}
+    .qz-alt.escolhida{box-shadow:0 0 0 3px rgba(91,63,217,.15)}
+
+    .qz-feedback{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:14px;font-weight:600;display:none}
+    .qz-feedback.show{display:block}
+    .qz-feedback.ok{background:#f0fdf4;color:#166534;border-left:4px solid #22c55e}
+    .qz-feedback.bad{background:#fef2f2;color:#991b1b;border-left:4px solid #ef4444}
+
+    .qz-actions{display:flex;gap:8px;margin-top:14px}
+    .qz-btn{flex:1;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.15s}
+    .qz-btn-prim{background:#5b3fd9;color:#fff}
+    .qz-btn-prim:hover{background:#4a31b8}
+    .qz-btn-sec{background:#f3f4f6;color:#374151}
+    .qz-btn-sec:hover{background:#e5e7eb}
+
+    /* Resultado */
+    .qz-result-hero{background:linear-gradient(135deg,#5b3fd9,#2d1f69);color:#fff;border-radius:14px;padding:24px;text-align:center;margin-bottom:14px}
+    .qz-result-hero .big{font-size:42px;font-weight:800;line-height:1}
+    .qz-result-hero .pct{font-size:22px;font-weight:700;opacity:.9;margin-top:4px}
+    .qz-result-hero .label{font-size:12px;opacity:.8;margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+    .qz-result-list{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .qz-result-list h3{font-size:13px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+    .qz-rev-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
+    .qz-rev-item:last-child{border-bottom:none}
+    .qz-rev-mark{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+    .qz-rev-mark.ok{background:#22c55e;color:#fff}
+    .qz-rev-mark.bad{background:#ef4444;color:#fff}
+    .qz-rev-text{flex:1;color:#444;line-height:1.4}
+    .qz-rev-text small{display:block;color:#999;font-size:11px;margin-top:2px}
+
+    .qz-empty{text-align:center;padding:32px 16px;color:#888}
+    .qz-empty h3{color:#444;margin-bottom:8px}
+    .qz-error{background:#fef2f2;border-left:4px solid #ef4444;color:#991b1b;padding:14px;border-radius:8px;font-size:13px;margin-bottom:14px}
+
+    @media (max-width:520px){
+      .qz-stats-mini{grid-template-columns:repeat(2,1fr)}
+      .qz-result-hero .big{font-size:36px}
+    }
   </style>
 </head>
 <body>
@@ -169,9 +258,10 @@
 
 <!-- ===== MAIN NAV ===== -->
 <nav class="main-nav">
-  <button class="main-tab active" onclick="showMain('plano')">📅 Plano Geral</button>
+  <button class="main-tab active" onclick="showMain('plano')">📅 Plano</button>
   <button class="main-tab" onclick="showMain('semana1')">📖 Semana 1</button>
-  <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS Quadrix</button>
+  <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS</button>
+  <button class="main-tab" onclick="showMain('questoes')">❓ Questões</button>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -818,15 +908,127 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </div>
 </section>
 
+<!-- ══════════════════════════════════════════════════════════
+     TAB 4: QUESTÕES
+══════════════════════════════════════════════════════════ -->
+<section id="tab-questoes" class="tab-section">
+<div class="qz-wrap">
+
+  <!-- TELA: SETUP -->
+  <div id="qz-screen-setup">
+    <h2 class="qz-h2">Sessão de Questões</h2>
+
+    <div class="qz-stats-mini" id="qz-stats-mini">
+      <div class="qz-stat"><div class="v" id="qz-st-total">—</div><div class="l">Banco</div></div>
+      <div class="qz-stat ok"><div class="v" id="qz-st-feitas">—</div><div class="l">Respondidas</div></div>
+      <div class="qz-stat warn"><div class="v" id="qz-st-devidas">—</div><div class="l">Pra revisar</div></div>
+      <div class="qz-stat"><div class="v" id="qz-st-acerto">—</div><div class="l">% Acerto</div></div>
+    </div>
+
+    <div id="qz-error-box" class="qz-error" hidden>
+      <strong>Não consegui carregar o banco de questões.</strong>
+      O arquivo <code>questoes-data.js</code> precisa estar na mesma pasta que este HTML.
+    </div>
+
+    <div id="qz-loading-box" class="qz-loading">
+      <div class="spin"></div>
+      <div>Carregando 2.547 questões...</div>
+    </div>
+
+    <div id="qz-setup-form" hidden>
+      <div class="qz-section">
+        <h3>📚 Disciplina</h3>
+        <div class="qz-chips" id="qz-disc-chips"></div>
+      </div>
+
+      <div class="qz-section">
+        <h3>🎯 Quantidade</h3>
+        <div class="qz-chips" id="qz-qtd-chips">
+          <button class="qz-chip" data-qtd="5">5 <small>carro</small></button>
+          <button class="qz-chip on" data-qtd="10">10 <small>sessão</small></button>
+          <button class="qz-chip" data-qtd="20">20 <small>bloco</small></button>
+          <button class="qz-chip" data-qtd="30">30 <small>longo</small></button>
+        </div>
+      </div>
+
+      <div class="qz-section">
+        <h3>🔁 Modo</h3>
+        <div class="qz-chips" id="qz-modo-chips">
+          <button class="qz-chip on" data-modo="mista">Mista <small>revisão + nova</small></button>
+          <button class="qz-chip" data-modo="nova">Só novas</button>
+          <button class="qz-chip" data-modo="revisao">Só revisão</button>
+          <button class="qz-chip" data-modo="erradas">Só erradas</button>
+        </div>
+      </div>
+
+      <div class="qz-section">
+        <h3>🏷️ Assunto (opcional)</h3>
+        <select class="qz-select" id="qz-assunto-sel"><option value="">Todos os assuntos</option></select>
+      </div>
+
+      <button class="qz-start" id="qz-btn-start" onclick="qzStart()">▶️ Começar Sessão</button>
+    </div>
+  </div>
+
+  <!-- TELA: SESSÃO -->
+  <div id="qz-screen-session" hidden>
+    <div class="qz-progress">
+      <span class="qz-prog-txt" id="qz-prog-txt">1/10</span>
+      <div class="qz-prog-bar"><div class="qz-prog-fill" id="qz-prog-fill" style="width:10%"></div></div>
+      <span class="qz-disc-tag" id="qz-prog-disc">—</span>
+    </div>
+    <div class="qz-questao" id="qz-questao-card"></div>
+    <div class="qz-actions">
+      <button class="qz-btn qz-btn-sec" onclick="qzAbandonar()">⏹️ Encerrar</button>
+      <button class="qz-btn qz-btn-prim" id="qz-btn-prox" onclick="qzProxima()" hidden>Próxima →</button>
+    </div>
+  </div>
+
+  <!-- TELA: RESULTADO -->
+  <div id="qz-screen-result" hidden>
+    <div class="qz-result-hero">
+      <div class="big" id="qz-res-fracao">0/0</div>
+      <div class="pct" id="qz-res-pct">0%</div>
+      <div class="label" id="qz-res-msg">Resultado da sessão</div>
+    </div>
+
+    <div class="qz-result-list">
+      <h3>📌 Próximas revisões agendadas</h3>
+      <div id="qz-res-revisoes" style="font-size:13px;color:#555;line-height:1.6"></div>
+    </div>
+
+    <div class="qz-result-list" id="qz-res-erradas-box" hidden>
+      <h3>❌ Questões erradas (já marcadas pra revisão amanhã)</h3>
+      <div id="qz-res-erradas"></div>
+    </div>
+
+    <div class="qz-actions">
+      <button class="qz-btn qz-btn-sec" onclick="qzVoltarSetup()">⚙️ Nova config</button>
+      <button class="qz-btn qz-btn-prim" onclick="qzNovaSessao()">🔁 Outra sessão</button>
+    </div>
+  </div>
+
+</div><!-- /qz-wrap -->
+</section>
+
 <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · 112 dias até a prova</footer>
 
+<script src="questoes-data.js" onerror="window.__QZ_LOAD_ERR=true"></script>
 <script>
   function showMain(tab) {
     document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.main-tab').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + tab).classList.add('active');
-    event.currentTarget.classList.add('active');
+    // Marca a tab ativa: usa currentTarget se houver evento; senão localiza pelo onclick
+    if (typeof event !== 'undefined' && event && event.currentTarget) {
+      event.currentTarget.classList.add('active');
+    } else {
+      const btn = Array.from(document.querySelectorAll('.main-tab'))
+        .find(b => (b.getAttribute('onclick') || '').includes(`showMain('${tab}')`));
+      if (btn) btn.classList.add('active');
+    }
     window.scrollTo({top: 0, behavior: 'smooth'});
+    if (tab === 'questoes') qzInit();
   }
 
   function showDay(n) {
@@ -852,6 +1054,372 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 
   function toggleCheck(el) {
     el.classList.toggle('checked');
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     SISTEMA DE QUESTÕES — Sessão guiada + revisão espaçada
+     ═══════════════════════════════════════════════════════════ */
+  const QZ = {
+    inited: false,
+    data: null,
+    hist: {},
+    filtros: { disc: 'psicologia', qtd: 10, modo: 'mista', assunto: '' },
+    fila: [], idx: 0, acertos: 0, startTs: 0, respostas: [],
+  };
+  const HIST_KEY = 'sedes_q_hist_v1';
+  const SESS_KEY = 'sedes_q_sessions_v1';
+  const DIA = 86400000;
+  const INTERV = [1, 3, 7, 14, 30, 60, 120]; // dias por nível de acerto consecutivo
+
+  function qzInit() {
+    if (QZ.inited) { qzVoltarSetup(); qzAtualizarStats(); return; }
+    QZ.inited = true;
+
+    if (window.__QZ_LOAD_ERR || !window.QZ_DATA) {
+      document.getElementById('qz-loading-box').hidden = true;
+      document.getElementById('qz-error-box').hidden = false;
+      return;
+    }
+    QZ.data = window.QZ_DATA;
+    try { QZ.hist = JSON.parse(localStorage.getItem(HIST_KEY) || '{}'); } catch(e) { QZ.hist = {}; }
+
+    document.getElementById('qz-loading-box').hidden = true;
+    document.getElementById('qz-setup-form').hidden = false;
+    qzMontarDisciplinasChips();
+    qzMontarAssuntoSelect();
+    qzWireChips();
+    qzAtualizarStats();
+  }
+
+  function qzMontarDisciplinasChips() {
+    const box = document.getElementById('qz-disc-chips');
+    const discs = QZ.data.meta.disciplinas;
+    const labels = {
+      psicologia: '🧠 Psicologia',
+      servico_social: '🤝 SUAS/LOAS',
+      direito_constitucional: '📜 Const.',
+      portugues: '✍️ Português',
+    };
+    const order = ['psicologia','servico_social','direito_constitucional','portugues'];
+    let html = '';
+    for (const slug of order) {
+      const d = discs[slug];
+      if (!d || !d.com_gabarito) continue;
+      const on = QZ.filtros.disc === slug ? 'on' : '';
+      html += `<button class="qz-chip ${on}" data-disc="${slug}">${labels[slug]} <small>${d.com_gabarito}</small></button>`;
+    }
+    html += `<button class="qz-chip" data-disc="mix">🎲 Misto <small>todas</small></button>`;
+    box.innerHTML = html;
+  }
+
+  function qzMontarAssuntoSelect() {
+    const sel = document.getElementById('qz-assunto-sel');
+    const disc = QZ.filtros.disc;
+    const set = new Set();
+    for (const q of QZ.data.questoes) {
+      if (disc !== 'mix' && q.d !== disc) continue;
+      for (const a of (q.a || [])) set.add(a);
+    }
+    const arr = Array.from(set).sort((a, b) => a.localeCompare(b, 'pt'));
+    sel.innerHTML = '<option value="">Todos os assuntos</option>' +
+      arr.map(a => `<option value="${a.replace(/"/g,'&quot;')}">${a}</option>`).join('');
+    sel.value = '';
+    QZ.filtros.assunto = '';
+    sel.onchange = () => { QZ.filtros.assunto = sel.value; qzAtualizarStats(); };
+  }
+
+  function qzWireChips() {
+    document.getElementById('qz-disc-chips').onclick = (ev) => {
+      const btn = ev.target.closest('.qz-chip'); if (!btn) return;
+      document.querySelectorAll('#qz-disc-chips .qz-chip').forEach(c => c.classList.remove('on'));
+      btn.classList.add('on');
+      QZ.filtros.disc = btn.dataset.disc;
+      qzMontarAssuntoSelect();
+      qzAtualizarStats();
+    };
+    document.getElementById('qz-qtd-chips').onclick = (ev) => {
+      const btn = ev.target.closest('.qz-chip'); if (!btn) return;
+      document.querySelectorAll('#qz-qtd-chips .qz-chip').forEach(c => c.classList.remove('on'));
+      btn.classList.add('on');
+      QZ.filtros.qtd = parseInt(btn.dataset.qtd, 10);
+    };
+    document.getElementById('qz-modo-chips').onclick = (ev) => {
+      const btn = ev.target.closest('.qz-chip'); if (!btn) return;
+      document.querySelectorAll('#qz-modo-chips .qz-chip').forEach(c => c.classList.remove('on'));
+      btn.classList.add('on');
+      QZ.filtros.modo = btn.dataset.modo;
+      qzAtualizarStats();
+    };
+  }
+
+  function qzPool() {
+    return QZ.data.questoes.filter(q => {
+      if (QZ.filtros.disc !== 'mix' && q.d !== QZ.filtros.disc) return false;
+      if (QZ.filtros.assunto && !(q.a || []).includes(QZ.filtros.assunto)) return false;
+      return true;
+    });
+  }
+
+  function qzAtualizarStats() {
+    const pool = qzPool();
+    const now = Date.now();
+    let feitas = 0, acertos = 0, devidas = 0, erradas = 0;
+    for (const q of pool) {
+      const h = QZ.hist[q.id];
+      if (!h) continue;
+      const total = (h.ac || 0) + (h.er || 0);
+      if (total > 0) { feitas++; acertos += (h.ac || 0); }
+      if (h.prox && h.prox <= now) devidas++;
+      if ((h.streak || 0) === 0 && (h.er || 0) > 0) erradas++;
+    }
+    const tot = pool.reduce((s, q) => s + ((QZ.hist[q.id]?.ac || 0) + (QZ.hist[q.id]?.er || 0)), 0);
+    document.getElementById('qz-st-total').textContent = pool.length.toLocaleString('pt-BR');
+    document.getElementById('qz-st-feitas').textContent = feitas;
+    document.getElementById('qz-st-devidas').textContent = devidas;
+    document.getElementById('qz-st-acerto').textContent = tot > 0 ? Math.round(100 * acertos / tot) + '%' : '—';
+
+    const btn = document.getElementById('qz-btn-start');
+    const disponivel = qzMontarFilaPreview().length;
+    btn.disabled = disponivel === 0;
+    btn.textContent = disponivel === 0
+      ? '⚠️ Sem questões pra este filtro'
+      : `▶️ Começar (${Math.min(QZ.filtros.qtd, disponivel)} questões)`;
+  }
+
+  function qzMontarFilaPreview() {
+    const pool = qzPool();
+    const now = Date.now();
+    if (QZ.filtros.modo === 'revisao') {
+      return pool.filter(q => { const h = QZ.hist[q.id]; return h && h.prox && h.prox <= now; });
+    }
+    if (QZ.filtros.modo === 'erradas') {
+      return pool.filter(q => { const h = QZ.hist[q.id]; return h && (h.streak || 0) === 0 && (h.er || 0) > 0; });
+    }
+    if (QZ.filtros.modo === 'nova') {
+      return pool.filter(q => !QZ.hist[q.id]);
+    }
+    return pool; // mista
+  }
+
+  function qzShuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function qzStart() {
+    const pool = qzPool();
+    const now = Date.now();
+    const devidas = pool.filter(q => { const h = QZ.hist[q.id]; return h && h.prox && h.prox <= now; });
+    const erradas = pool.filter(q => { const h = QZ.hist[q.id]; return h && (h.streak || 0) === 0 && (h.er || 0) > 0; });
+    const novas   = pool.filter(q => !QZ.hist[q.id]);
+    let fila = [];
+    const N = QZ.filtros.qtd;
+    if (QZ.filtros.modo === 'revisao') {
+      fila = qzShuffle(devidas).slice(0, N);
+    } else if (QZ.filtros.modo === 'erradas') {
+      fila = qzShuffle(erradas).slice(0, N);
+    } else if (QZ.filtros.modo === 'nova') {
+      fila = qzShuffle(novas).slice(0, N);
+    } else { // mista: metade revisão, metade nova; se não tem revisão, completa com nova; se não tem nova, completa com revisão
+      const halfRev = Math.ceil(N / 2);
+      const partRev = qzShuffle(devidas).slice(0, halfRev);
+      const sobra   = N - partRev.length;
+      const partNov = qzShuffle(novas).slice(0, sobra);
+      fila = [...partRev, ...partNov];
+      if (fila.length < N) {
+        // completa com revisões adicionais
+        const extra = qzShuffle(devidas).slice(halfRev, halfRev + (N - fila.length));
+        fila = [...fila, ...extra];
+      }
+      if (fila.length < N) {
+        // completa com já vistas (não devidas ainda) se sobrar espaço
+        const jaVistasNaoDevidas = pool.filter(q => {
+          const h = QZ.hist[q.id];
+          return h && (!h.prox || h.prox > now);
+        });
+        fila = [...fila, ...qzShuffle(jaVistasNaoDevidas).slice(0, N - fila.length)];
+      }
+    }
+    if (!fila.length) { alert('Sem questões disponíveis para este filtro.'); return; }
+    QZ.fila = qzShuffle(fila);
+    QZ.idx = 0; QZ.acertos = 0; QZ.respostas = []; QZ.startTs = Date.now();
+    qzMostrarTela('session');
+    qzRenderQuestao();
+  }
+
+  function qzMostrarTela(tela) {
+    document.getElementById('qz-screen-setup').hidden   = (tela !== 'setup');
+    document.getElementById('qz-screen-session').hidden = (tela !== 'session');
+    document.getElementById('qz-screen-result').hidden  = (tela !== 'result');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function qzVoltarSetup()  { qzMostrarTela('setup');  qzAtualizarStats(); }
+  function qzNovaSessao()   { qzStart(); }
+
+  function qzAbandonar() {
+    if (QZ.respostas.length === 0) { qzVoltarSetup(); return; }
+    if (confirm('Encerrar sessão? As respostas já dadas serão salvas.')) {
+      qzFinalizar();
+    }
+  }
+
+  const ESC = (s) => String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const NOMES_DISC = {
+    psicologia: 'Psicologia',
+    servico_social: 'SUAS/LOAS',
+    direito_constitucional: 'Const.',
+    portugues: 'Português',
+  };
+
+  function qzRenderQuestao() {
+    const q = QZ.fila[QZ.idx];
+    const n = QZ.idx + 1, tot = QZ.fila.length;
+    document.getElementById('qz-prog-txt').textContent  = `${n}/${tot}`;
+    document.getElementById('qz-prog-fill').style.width = (100 * n / tot) + '%';
+    document.getElementById('qz-prog-disc').textContent = NOMES_DISC[q.d] || q.d;
+
+    const card = document.getElementById('qz-questao-card');
+    const assuntos = (q.a || []).slice(0, 2).map(ESC).join(' · ');
+    const metaHTML = `
+      <div class="qz-meta">
+        <span>Q${q.id}</span>
+        ${q.ano ? `<span>${ESC(q.ano)}</span>` : ''}
+        ${q.org ? `<span>${ESC(q.org)}</span>` : ''}
+        ${assuntos ? `<span>${assuntos}</span>` : ''}
+      </div>`;
+    const textoBaseHTML = q.t ? `<div class="qz-texto-base">${ESC(q.t)}</div>` : '';
+    const altsHTML = ['A','B','C','D','E']
+      .filter(L => q.alt[L] !== undefined)
+      .map(L => `<button class="qz-alt" data-letra="${L}" onclick="qzResponder('${L}')">
+        <span class="qz-alt-letra">${L}</span>
+        <span class="qz-alt-txt">${ESC(q.alt[L])}</span>
+      </button>`).join('');
+
+    card.innerHTML = `
+      ${metaHTML}
+      ${textoBaseHTML}
+      <div class="qz-enunciado">${ESC(q.e)}</div>
+      <div class="qz-alts">${altsHTML}</div>
+      <div class="qz-feedback" id="qz-feedback"></div>
+    `;
+    document.getElementById('qz-btn-prox').hidden = true;
+  }
+
+  function qzAtualizaHist(qid, correto) {
+    const now = Date.now();
+    const h = QZ.hist[qid] || { ac:0, er:0, streak:0, ult:0, prox:0 };
+    h.ult = now;
+    if (correto) {
+      h.ac = (h.ac || 0) + 1;
+      h.streak = (h.streak || 0) + 1;
+      const i = Math.min(h.streak, INTERV.length) - 1;
+      h.prox = now + INTERV[i] * DIA;
+    } else {
+      h.er = (h.er || 0) + 1;
+      h.streak = 0;
+      h.prox = now + 1 * DIA;
+    }
+    QZ.hist[qid] = h;
+    try { localStorage.setItem(HIST_KEY, JSON.stringify(QZ.hist)); } catch(e) {}
+    return h;
+  }
+
+  function qzResponder(letra) {
+    const q = QZ.fila[QZ.idx];
+    const correto = (letra === q.g);
+    if (correto) QZ.acertos++;
+    QZ.respostas.push({ qid: q.id, escolha: letra, correta: correto, ts: Date.now(), d: q.d });
+    const h = qzAtualizaHist(q.id, correto);
+
+    document.querySelectorAll('#qz-questao-card .qz-alt').forEach(btn => {
+      btn.disabled = true;
+      const L = btn.dataset.letra;
+      if (L === q.g) btn.classList.add('correta');
+      if (L === letra && letra !== q.g) btn.classList.add('errada');
+      if (L === letra) btn.classList.add('escolhida');
+    });
+
+    const fb = document.getElementById('qz-feedback');
+    if (correto) {
+      const dias = INTERV[Math.min(h.streak, INTERV.length) - 1];
+      fb.className = 'qz-feedback show ok';
+      fb.textContent = `✓ Correta! Próxima revisão desta questão em ${dias} ${dias===1?'dia':'dias'}.`;
+    } else {
+      fb.className = 'qz-feedback show bad';
+      fb.textContent = `✗ Errada. Gabarito: ${q.g}. Volta amanhã pra revisar.`;
+    }
+    document.getElementById('qz-btn-prox').hidden = false;
+    document.getElementById('qz-btn-prox').textContent = (QZ.idx + 1 >= QZ.fila.length) ? '🏁 Ver resultado' : 'Próxima →';
+  }
+
+  function qzProxima() {
+    if (QZ.idx + 1 >= QZ.fila.length) { qzFinalizar(); return; }
+    QZ.idx++;
+    qzRenderQuestao();
+  }
+
+  function qzFinalizar() {
+    // salva sessão
+    try {
+      const sess = JSON.parse(localStorage.getItem(SESS_KEY) || '[]');
+      sess.push({
+        ts: Date.now(), disc: QZ.filtros.disc, modo: QZ.filtros.modo,
+        total: QZ.respostas.length, acertos: QZ.acertos,
+        ids: QZ.respostas.map(r => r.qid),
+      });
+      localStorage.setItem(SESS_KEY, JSON.stringify(sess.slice(-100)));
+    } catch(e) {}
+
+    const tot = QZ.respostas.length;
+    const pct = tot > 0 ? Math.round(100 * QZ.acertos / tot) : 0;
+    document.getElementById('qz-res-fracao').textContent = `${QZ.acertos}/${tot}`;
+    document.getElementById('qz-res-pct').textContent = `${pct}%`;
+    let msg = 'Resultado da sessão';
+    if (pct >= 80) msg = '🔥 Sólido — segue o plano';
+    else if (pct >= 65) msg = '✅ No caminho certo';
+    else if (pct >= 50) msg = '⚠️ Adicione uma revisão extra';
+    else if (tot > 0)   msg = '🛑 Volta ao conteúdo antes de avançar';
+    document.getElementById('qz-res-msg').textContent = msg;
+
+    // contagem próximas revisões (em 1d, 3d, 7d, 14d+)
+    const buckets = { '1 dia': 0, '3 dias': 0, '7 dias': 0, '14+ dias': 0 };
+    for (const r of QZ.respostas) {
+      const h = QZ.hist[r.qid]; if (!h?.prox) continue;
+      const d = Math.round((h.prox - Date.now()) / DIA);
+      if (d <= 1) buckets['1 dia']++;
+      else if (d <= 3) buckets['3 dias']++;
+      else if (d <= 7) buckets['7 dias']++;
+      else buckets['14+ dias']++;
+    }
+    document.getElementById('qz-res-revisoes').innerHTML = Object.entries(buckets)
+      .map(([k, v]) => `<div>• <strong>${v}</strong> ${v===1?'questão':'questões'} em ${k}</div>`).join('');
+
+    // lista de erradas
+    const erradas = QZ.respostas.filter(r => !r.correta);
+    const box = document.getElementById('qz-res-erradas-box');
+    if (erradas.length) {
+      box.hidden = false;
+      const lista = document.getElementById('qz-res-erradas');
+      lista.innerHTML = erradas.map(r => {
+        const q = QZ.fila.find(x => x.id === r.qid);
+        const enunc = (q?.e || '').slice(0, 110).replace(/\n/g, ' ');
+        return `<div class="qz-rev-item">
+          <div class="qz-rev-mark bad">✗</div>
+          <div class="qz-rev-text">${ESC(enunc)}${q?.e.length>110?'…':''}
+            <small>Q${q?.id} · sua resposta: ${r.escolha} · gabarito: ${q?.g}</small>
+          </div>
+        </div>`;
+      }).join('');
+    } else {
+      box.hidden = true;
+    }
+
+    qzMostrarTela('result');
   }
 </script>
 </body>
