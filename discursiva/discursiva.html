@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#f7f4ef" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+<title>Treinador de Discursiva — SEDES PsyRank</title>
+<link rel="stylesheet" href="../explicar/explicar.css">
+<style>
+  :root {
+    --fundo: #f7f4ef; --card: #ffffff; --card-elev: #fdfcfa;
+    --borda: #e7e3dc; --borda-forte: #d6d1c7;
+    --texto: #1c1917; --texto-suave: #57534e; --texto-fraco: #a8a29e;
+    --sage: #5a8068; --sage-bg: #e8efe9; --sage-border: #b8c9be; --sage-texto: #2d4a3e;
+    --amber: #a16207; --amber-bg: #fdf6e3; --amber-border: #e8d5a5; --amber-texto: #713f12;
+    --coral: #a35d5d; --coral-bg: #f7ece9; --coral-border: #e2c2b8; --coral-texto: #6b3030;
+    --primary: #1c1917; --primary-texto: #ffffff;
+    --sombra: 0 1px 2px rgba(28, 25, 23, 0.04);
+    --sombra-elev: 0 2px 8px rgba(28, 25, 23, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #1a1a1a; --card: #242220; --card-elev: #2a2724;
+      --borda: #3a3633; --borda-forte: #4a4541;
+      --texto: #f5f5f4; --texto-suave: #a8a29e; --texto-fraco: #78716c;
+      --sage: #7fa68d; --sage-bg: #2a3530; --sage-border: #3d4f44; --sage-texto: #a8c9b3;
+      --amber: #d4a560; --amber-bg: #2f2818; --amber-border: #5a4a26; --amber-texto: #e8c98a;
+      --coral: #c98b8b; --coral-bg: #2f2222; --coral-border: #5a3838; --coral-texto: #e2b3b3;
+      --primary: #f5f5f4; --primary-texto: #1c1917;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+    color: var(--texto); background: var(--fundo); line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 24px 16px 40px; }
+
+  .header-top {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 6px;
+  }
+  .voltar {
+    background: transparent; border: 1px solid var(--borda-forte);
+    border-radius: 9px; padding: 7px 12px;
+    color: var(--texto-suave); font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    font-family: inherit;
+  }
+  .voltar:hover { background: var(--card-elev); color: var(--texto); }
+  h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .data { color: var(--texto-suave); font-size: 0.85rem; margin: 4px 0 22px; font-weight: 500; }
+
+  /* === Tela 1: lista de casos === */
+
+  .intro-grade {
+    background: var(--amber-bg); border-left: 3px solid var(--amber);
+    padding: 14px 18px; border-radius: 10px; margin-bottom: 22px;
+    color: var(--amber-texto); font-size: 0.875rem; line-height: 1.6;
+  }
+  .intro-grade strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--amber); margin-bottom: 6px; }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px; margin-bottom: 22px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--borda);
+    border-radius: 11px; padding: 14px; text-align: center;
+  }
+  .stat .v { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em; }
+  .stat .l { font-size: 0.7rem; color: var(--texto-suave); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 2px; }
+
+  .filtros {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;
+  }
+  .filtro-chip {
+    background: var(--card); border: 1px solid var(--borda-forte);
+    border-radius: 999px; padding: 7px 14px;
+    font-size: 0.82rem; font-weight: 600; color: var(--texto-suave);
+    cursor: pointer; font-family: inherit;
+  }
+  .filtro-chip.ativo { background: var(--primary); color: var(--primary-texto); border-color: var(--primary); }
+
+  .casos-grade {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+  .caso-card {
+    background: var(--card); border: 1px solid var(--borda);
+    border-radius: 14px; padding: 18px; cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.15s, border-color 0.15s;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .caso-card:hover { border-color: var(--borda-forte); box-shadow: var(--sombra-elev); }
+  .caso-card:active { transform: scale(0.99); }
+  .caso-titulo { font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; }
+  .caso-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+  .caso-chip {
+    font-size: 0.68rem; padding: 2px 9px; border-radius: 999px;
+    background: var(--card-elev); border: 1px solid var(--borda); color: var(--texto-suave);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .caso-chip.dif-facil { background: var(--sage-bg); color: var(--sage-texto); border-color: var(--sage-border); }
+  .caso-chip.dif-media { background: var(--amber-bg); color: var(--amber-texto); border-color: var(--amber-border); }
+  .caso-chip.dif-alta { background: var(--coral-bg); color: var(--coral-texto); border-color: var(--coral-border); }
+  .caso-chip.status-feito { background: var(--sage); color: white; border-color: var(--sage); }
+  .caso-chip.status-rascunho { background: var(--amber); color: white; border-color: var(--amber); }
+  .caso-preview { color: var(--texto-suave); font-size: 0.85rem; line-height: 1.5; }
+
+  /* === Tela 2: redação === */
+
+  .caso-detalhe {
+    background: var(--card); border: 1px solid var(--borda);
+    border-radius: 14px; padding: 20px; margin-bottom: 18px;
+  }
+  .caso-detalhe h2 { font-size: 1.15rem; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .caso-detalhe .secao { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--texto-suave); font-weight: 700; margin: 14px 0 6px; }
+  .caso-detalhe p { margin: 6px 0; line-height: 1.6; }
+  .pergunta-box {
+    background: var(--sage-bg); border-left: 3px solid var(--sage);
+    padding: 14px 16px; border-radius: 8px; margin: 12px 0;
+    color: var(--sage-texto); font-size: 0.95rem; line-height: 1.6;
+  }
+
+  .editor-wrap {
+    background: var(--card); border: 1px solid var(--borda);
+    border-radius: 14px; padding: 18px; margin-bottom: 18px;
+  }
+  .editor-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px; gap: 12px;
+  }
+  .editor-header h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+  .contador {
+    display: flex; gap: 14px; font-size: 0.78rem; color: var(--texto-suave);
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  }
+  .contador strong { color: var(--texto); font-weight: 700; }
+  .contador.alerta strong { color: var(--coral); }
+
+  textarea.editor {
+    width: 100%; min-height: 320px;
+    padding: 16px 18px;
+    border: 1px solid var(--borda-forte); border-radius: 11px;
+    background: var(--card-elev);
+    font-family: inherit; font-size: 1rem; line-height: 1.75;
+    color: var(--texto); resize: vertical;
+    -webkit-appearance: none;
+  }
+  textarea.editor:focus { outline: none; border-color: var(--primary); }
+
+  .acoes-redacao {
+    display: flex; gap: 10px; margin-top: 14px;
+  }
+  .btn {
+    flex: 1; padding: 14px 18px;
+    border: none; border-radius: 11px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; font-family: inherit;
+    transition: opacity 0.15s;
+  }
+  .btn-primary { background: var(--primary); color: var(--primary-texto); }
+  .btn-secondary { background: transparent; color: var(--texto-suave); border: 1px solid var(--borda-forte); }
+  .btn:hover { opacity: 0.92; }
+  .btn:active { transform: scale(0.985); }
+
+  .correcao-cacheada {
+    background: var(--sage-bg); border: 1px solid var(--sage-border);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 18px;
+    color: var(--sage-texto);
+  }
+  .correcao-cacheada h3 { font-size: 0.95rem; margin: 0 0 10px; font-weight: 700; color: var(--sage); }
+  .correcao-cacheada .conteudo {
+    background: var(--card); color: var(--texto);
+    padding: 14px 16px; border-radius: 9px;
+    font-size: 0.95rem; line-height: 1.65; white-space: pre-wrap;
+    max-height: 320px; overflow-y: auto;
+  }
+  .correcao-cacheada .acoes { display: flex; gap: 8px; margin-top: 12px; }
+  .correcao-cacheada .acao-link {
+    background: transparent; border: none; cursor: pointer;
+    color: var(--sage-texto); text-decoration: underline;
+    text-decoration-color: var(--sage-border); text-underline-offset: 3px;
+    font-size: 0.82rem; font-family: inherit; padding: 4px 6px;
+  }
+  .correcao-cacheada .acao-link.danger { color: var(--coral); }
+
+  .footer {
+    text-align: center; color: var(--texto-fraco);
+    font-size: 0.75rem; margin: 30px 0 8px;
+  }
+  .hidden { display: none; }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 16px 12px 28px; }
+    h1 { font-size: 1.4rem; }
+    .casos-grade { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header-top">
+    <a href="../index.html" class="voltar">← Voltar</a>
+  </div>
+
+  <h1>Treinador de Discursiva</h1>
+  <div class="data" id="data-hoje"></div>
+
+  <!-- === Tela 1: Listagem === -->
+  <div id="tela-lista">
+    <div class="intro-grade">
+      <strong>Grade Quadrix EDAS</strong>
+      <strong style="display:inline;text-transform:none;letter-spacing:0;font-weight:600;color:inherit">CAC peso 7</strong> (conteúdo técnico) ·
+      <strong style="display:inline;text-transform:none;letter-spacing:0;font-weight:600;color:inherit">OT peso 1.5</strong> (organização) ·
+      <strong style="display:inline;text-transform:none;letter-spacing:0;font-weight:600;color:inherit">DLP peso 1.5</strong> (português).
+      70% da nota vem do CONTEÚDO. Não é redação bonita — é resposta técnica certa.
+    </div>
+
+    <div class="stats-row" id="stats-row"><!-- preenchido por JS --></div>
+
+    <div class="filtros" id="filtros">
+      <button class="filtro-chip ativo" data-filtro="todos">Todos</button>
+      <button class="filtro-chip" data-filtro="nao_feito">Não feitos</button>
+      <button class="filtro-chip" data-filtro="rascunho">Rascunho salvo</button>
+      <button class="filtro-chip" data-filtro="feito">Corrigidos</button>
+    </div>
+
+    <div class="casos-grade" id="casos-grade"><!-- preenchido por JS --></div>
+  </div>
+
+  <!-- === Tela 2: Redação === -->
+  <div id="tela-redacao" class="hidden">
+    <div class="caso-detalhe" id="caso-detalhe"><!-- preenchido por JS --></div>
+
+    <div id="correcao-existente" class="hidden"><!-- preenchido por JS se houver --></div>
+
+    <div class="editor-wrap">
+      <div class="editor-header">
+        <h3>Sua redação</h3>
+        <div class="contador" id="contador">
+          <span><strong id="c-linhas">0</strong> linhas</span>
+          <span><strong id="c-palavras">0</strong> palavras</span>
+        </div>
+      </div>
+      <textarea
+        id="editor"
+        class="editor"
+        placeholder="Escreva sua resposta em português formal, 20 a 30 linhas..."
+        spellcheck="true"
+      ></textarea>
+      <div class="acoes-redacao">
+        <button class="btn btn-secondary" id="btn-voltar-lista">Voltar à lista</button>
+        <button class="btn btn-primary" id="btn-corrigir">Pronta — corrigir</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Treinador de Discursiva v1 · banco de 10 casos canônicos EDAS/SUAS · rascunhos e correções ficam só no seu celular
+  </div>
+</div>
+
+<script src="casos.js"></script>
+<script src="discursiva.js"></script>
+</body>
+</html>

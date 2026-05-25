@@ -1,0 +1,367 @@
+window.CASOS_DISCURSIVA = {
+  "_doc": "Banco de casos canônicos para treino de discursiva — SEDES-DF 2026 Cargo 409 EDAS Psicologia. Cada caso reflete padrões reais que a banca Quadrix usa em estudos de caso do SUAS, com atravessamentos múltiplos (pobreza × gênero/raça/idade/PCD/situação de rua) para testar competência psicossocial e não apenas clínica.",
+  "_origem": "Derivado do edital SEDES-DF 2026 + literatura técnica CFP/CRESS + Tipificação Nacional de Serviços Socioassistenciais",
+  "_versao": "1.0",
+  "_atualizado": "2026-05-22",
+  "_grade_avaliacao": {
+    "CAC": {
+      "peso": 7,
+      "nome": "Conteúdo, Adequação e Coerência",
+      "criterios": [
+        "Respondeu tecnicamente à pergunta (não filosofou)",
+        "Citou rede intersetorial específica (não genérica)",
+        "Respeitou a atribuição do psicólogo no SUAS (escuta qualificada, plano de acompanhamento, articulação — NÃO clínica individual isolada)",
+        "NÃO psicologizou a pobreza nem reduziu problemas estruturais a questões individuais",
+        "Citou ao menos uma norma técnica aplicável (LOAS, PNAS, NOB-RH/SUAS, Tipificação, CFP, ECA, LBI, Maria da Penha, etc)",
+        "Demonstrou compreensão da matricialidade sociofamiliar"
+      ]
+    },
+    "OT": {
+      "peso": 1.5,
+      "nome": "Organização Textual",
+      "criterios": [
+        "Introdução clara delimitando o problema",
+        "Desenvolvimento com argumentos encadeados",
+        "Conclusão com proposta de ação",
+        "Coesão entre parágrafos (não fragmentação)"
+      ]
+    },
+    "DLP": {
+      "peso": 1.5,
+      "nome": "Domínio da Língua Portuguesa",
+      "criterios": [
+        "Português formal (sem gírias, sem 1ª pessoa do singular)",
+        "Concordância e regência corretas",
+        "Pontuação adequada",
+        "Vocabulário técnico apropriado"
+      ]
+    },
+    "_nota_calculo": "nota = (CAC × 7 + OT × 1.5 + DLP × 1.5) / 10. Escala 0-100."
+  },
+  "casos": [
+    {
+      "id": "caso_01_violencia_intrafamiliar",
+      "titulo": "Violência intrafamiliar contra criança — atendimento no CREAS",
+      "categoria_edital": [
+        "PAEFI",
+        "ECA",
+        "psicologo_no_suas",
+        "Conselho Tutelar"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Joana, 32 anos, foi encaminhada ao CREAS de Ceilândia pelo Conselho Tutelar. A escola da filha Mariana, 9 anos, notificou suspeita de violência física: manchas recorrentes nos braços, comportamento retraído, faltas frequentes. Joana é mãe solo, trabalha como diarista, e o atual companheiro — Carlos, 38 — está desempregado e mora na casa há seis meses. A família recebe Bolsa Família. Joana minimiza os relatos da escola e afirma que Mariana 'cai bastante porque é desastrada'. Mariana, em escuta individual, demonstra medo de voltar para casa, mas pede para 'não tirarem ela da mamãe'.",
+      "pergunta": "Como psicóloga do CREAS responsável pelo PAEFI, descreva sua atuação técnica neste caso. Considere a articulação com a rede de proteção, a natureza do acompanhamento psicossocial à família e os encaminhamentos necessários, à luz da Tipificação Nacional de Serviços Socioassistenciais e do ECA.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Identificar como caso de violação de direitos → PAEFI no CREAS, não PAIF no CRAS",
+        "Citar ECA — notificação obrigatória de suspeita de violência (art. 13 e 245)",
+        "Articulação com Conselho Tutelar (mesmo já tendo entrado por lá — manter ciência)",
+        "Rede de saúde para avaliação médica das lesões (UBS / IML quando indicado)",
+        "Escuta qualificada de Mariana (NÃO escuta única, escuta especializada com protocolo)",
+        "Acompanhamento psicossocial à família (não psicoterapia clínica)",
+        "Plano de acompanhamento PAEFI com objetivos, prazos e responsáveis",
+        "Defesa do direito à convivência familiar como princípio, mas com proteção integral"
+      ],
+      "armadilhas_a_evitar": [
+        "Tratar como caso clínico de psicoterapia familiar isolada",
+        "Reduzir a violência à dinâmica psicológica do casal (psicologização)",
+        "Recomendar afastamento da criança sem articulação multidisciplinar",
+        "Esquecer da escuta de Mariana segundo protocolo de escuta especializada",
+        "Não citar nenhuma norma técnica"
+      ]
+    },
+    {
+      "id": "caso_02_mulher_violencia_pneha",
+      "titulo": "Mulher em situação de violência doméstica acompanhada no CRAS",
+      "categoria_edital": [
+        "PAIF",
+        "Maria da Penha",
+        "rede_mulher",
+        "psicologo_no_suas"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Renata, 41 anos, três filhos (12, 8 e 4 anos), procurou o CRAS de Samambaia para incluir-se no Cadastro Único e acessar o Auxílio Brasil. Durante a entrevista, relata baixa autoestima e dificuldade de manter emprego desde que se separou do companheiro há quatro meses. Ao longo da conversa, descreve episódios passados de controle financeiro, humilhações públicas e duas situações de violência física. Disse não ter feito boletim de ocorrência por medo da reação do ex e por achar que 'agora já passou'. Mora atualmente na casa da mãe, mas tem retornado a contatos com o ex para discutir convivência com os filhos.",
+      "pergunta": "Como psicóloga do CRAS atuando no PAIF, fundamente sua atuação técnica neste atendimento. Aborde a abordagem psicossocial à usuária, a articulação com a rede de proteção à mulher e o cuidado com o sigilo profissional, considerando a Lei 11.340/2006 e a Tipificação Nacional de Serviços Socioassistenciais.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "PAIF como serviço adequado (situação de vulnerabilidade, vínculos preservados, sem violação atual)",
+        "Acolhimento qualificado SEM induzir denúncia (autonomia da mulher)",
+        "Citar Lei 11.340/2006 — Maria da Penha, formas de violência (física, psicológica, patrimonial, moral, sexual)",
+        "Rede de proteção à mulher do DF: CEAM, Casa da Mulher Brasileira (Ceilândia), DEAM, Núcleo de Gênero do MPDFT",
+        "Sigilo profissional (Resolução CFP 10/05, art. 9-13) — limites do sigilo quando há risco",
+        "Atenção aos filhos como prevenção (efeito da violência testemunhada)",
+        "Articulação com a Justiça apenas com consentimento (medidas protetivas — Lei 11.340)",
+        "NÃO patologizar a 'baixa autoestima' — contextualizar como efeito da violência continuada"
+      ],
+      "armadilhas_a_evitar": [
+        "Encaminhar imediatamente para boletim de ocorrência ignorando a autonomia",
+        "Reduzir o caso a uma 'questão emocional' da Renata",
+        "Esquecer da articulação intersetorial específica do DF",
+        "Tratar como acompanhamento psicoterápico individual"
+      ]
+    },
+    {
+      "id": "caso_03_situacao_rua_transtorno",
+      "titulo": "Pessoa em situação de rua com sofrimento psíquico — Centro POP",
+      "categoria_edital": [
+        "Centro_POP",
+        "RAPS",
+        "CAPS",
+        "saude_mental",
+        "pop_rua"
+      ],
+      "dificuldade": "alta",
+      "tempo_estimado_min": 40,
+      "contexto": "André, aproximadamente 50 anos (não tem documentos), está em situação de rua na Rodoviária do Plano Piloto há 18 meses. A equipe do Serviço Especializado em Abordagem Social do Centro POP da Asa Sul fez contato em três tentativas anteriores; ele recusou atendimento. Apresenta fala desorganizada em alguns momentos, escuta vozes que ninguém mais ouve e dorme em vão de prédio. Membros da comunidade reclamam, e a Administração Regional pediu 'solução'. Em uma quarta tentativa, André aceita conversar e diz que 'não é doido' e que 'só quer um lugar pra ficar em paz'.",
+      "pergunta": "Fundamente a atuação da equipe técnica do Centro POP neste caso, articulando-a com a Rede de Atenção Psicossocial (RAPS). Considere o direito à autonomia, a vedação da internação compulsória como regra e os princípios da Lei 10.216/2001 (Reforma Psiquiátrica).",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Serviço Especializado em Abordagem Social do Centro POP (Tipificação)",
+        "Lei 10.216/2001 — cuidado em liberdade como princípio, internação como exceção",
+        "RAPS: CAPS AD/CAPS III, Consultório na Rua, UBS, Saúde Mental no DF",
+        "Vínculo de confiança como pré-condição (sucessivas abordagens, não invasão)",
+        "Recusa de atendimento é direito — não há internação compulsória por situação de rua",
+        "Direito ao documento (Cadastro Único, RG, CPF) — porta de acesso a benefícios",
+        "Articulação intersetorial: saúde + assistência + habitação (Locação Social DF se houver)",
+        "NÃO confundir situação de rua com transtorno mental (correlação, não causação)"
+      ],
+      "armadilhas_a_evitar": [
+        "Recomendar internação compulsória",
+        "Tratar como caso de polícia/segurança",
+        "Patologizar a situação de rua em si",
+        "Esquecer a RAPS (rede específica de saúde mental)",
+        "Atender sem considerar a recusa inicial como sinal a ser respeitado"
+      ]
+    },
+    {
+      "id": "caso_04_adolescente_socioeducativa",
+      "titulo": "Adolescente em medida socioeducativa em meio aberto — CREAS",
+      "categoria_edital": [
+        "SINASE",
+        "ECA",
+        "MSE",
+        "PSC",
+        "LA",
+        "psicologo_no_suas"
+      ],
+      "dificuldade": "alta",
+      "tempo_estimado_min": 40,
+      "contexto": "Diego, 16 anos, cumpre medida socioeducativa de Liberdade Assistida (LA) por seis meses, aplicada pela Vara da Infância e Juventude do DF após ato infracional análogo a roubo. É acompanhado pelo Serviço de Proteção Social a Adolescentes em Cumprimento de Medida Socioeducativa do CREAS Estrutural. Mora com a mãe e dois irmãos menores. Pai preso. Família recebe Bolsa Família. Diego abandonou o ensino fundamental há dois anos e diz não querer voltar à escola porque 'os professores não acreditam em mim'. Tem amigos envolvidos com tráfico no bairro. Apresenta-se aos atendimentos com regularidade, mas verbalmente desafiador, e diz que 'medida socioeducativa não muda nada'.",
+      "pergunta": "Descreva sua atuação técnica como psicóloga do CREAS no acompanhamento socioeducativo de Diego, fundamentando-se no SINASE (Lei 12.594/2012), no ECA e na perspectiva da garantia de direitos. Aborde o Plano Individual de Atendimento (PIA), a articulação com a rede e a relação com a família.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Lei 12.594/2012 — SINASE, princípios (integração operacional, prioridade absoluta, brevidade, excepcionalidade)",
+        "PIA — Plano Individual de Atendimento como instrumento técnico obrigatório",
+        "Medida socioeducativa tem caráter pedagógico-protetivo, NÃO punitivo",
+        "Rede de garantia de direitos: Vara da Infância, Defensoria, Conselho Tutelar, escola, saúde",
+        "Direito à educação — articulação com a escola e programas de reinserção (EJA, projovem)",
+        "Acompanhamento familiar — sem culpabilizar a mãe",
+        "Atenção à territorialidade — vínculos com tráfico exigem articulação com PSE + segurança",
+        "Postura técnica não moralista (não 'mudar' o adolescente, mas garantir direitos)"
+      ],
+      "armadilhas_a_evitar": [
+        "Tratar a medida socioeducativa como punição",
+        "Culpabilizar a família ou a ausência paterna",
+        "Esquecer do PIA",
+        "Confundir LA com Prestação de Serviços à Comunidade (PSC) ou semiliberdade",
+        "Adotar tom moralista ou redentor"
+      ]
+    },
+    {
+      "id": "caso_05_idoso_negligencia",
+      "titulo": "Pessoa idosa em situação de negligência familiar — CREAS",
+      "categoria_edital": [
+        "Estatuto_Idoso",
+        "PAEFI",
+        "violencia_idoso",
+        "psicologo_no_suas"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Dona Olívia, 78 anos, viúva, mora com o filho Marcos (45) e a nora Sandra na casa da própria. Após denúncia anônima ao Disque 100, equipe do CREAS visita o domicílio. Dona Olívia está magra, com poucas roupas adequadas, no quarto dos fundos sem janela. O BPC dela (1 salário mínimo) entra na conta conjunta com Marcos. Sandra alega que cuida da sogra, mas há sinais de descuido com higiene e alimentação. Dona Olívia, em escuta privada, diz que 'não quer dar trabalho' e que 'meus filhos fazem o que podem'.",
+      "pergunta": "Como psicóloga do CREAS, descreva sua atuação técnica neste atendimento. Considere o Estatuto da Pessoa Idosa, a Tipificação Nacional, o direito de autonomia da idosa e a articulação com a rede.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Estatuto da Pessoa Idosa (Lei 10.741/2003) — violência inclui negligência e violência financeira (apropriação do BPC)",
+        "PAEFI no CREAS — violação de direitos",
+        "Escuta qualificada da idosa SEM exposição (privacidade) — princípio do sigilo",
+        "Direito à autonomia — não retirar idosa da família sem consentimento dela, exceto risco grave",
+        "Articulação: Conselho de Direitos da Pessoa Idosa, Ministério Público (BPC), saúde (avaliação clínica)",
+        "Plano de acompanhamento PAEFI com a família — não só atendimento individual",
+        "Possível notificação compulsória (Estatuto art. 19) ao MP se houver risco",
+        "Atenção à dimensão econômica — desemprego e BPC como único provedor familiar"
+      ],
+      "armadilhas_a_evitar": [
+        "Recomendar acolhimento institucional automaticamente",
+        "Ignorar a autonomia da idosa",
+        "Tratar como questão clínica isolada (depressão, demência) sem investigação",
+        "Esquecer da violência financeira (apropriação do BPC)",
+        "Culpabilizar nora/filho sem considerar contexto"
+      ]
+    },
+    {
+      "id": "caso_06_familia_baixa_renda_paif",
+      "titulo": "Família em vulnerabilidade econômica com criança fora da escola — CRAS",
+      "categoria_edital": [
+        "PAIF",
+        "matricialidade",
+        "Bolsa_Familia",
+        "CRAS",
+        "vulnerabilidade"
+      ],
+      "dificuldade": "fácil",
+      "tempo_estimado_min": 30,
+      "contexto": "A família de Marlene, 33 anos, é atendida pelo CRAS do Recanto das Emas há um ano no PAIF. Recebem Bolsa Família e Marlene trabalha como camelô. Tem três filhos: João (14), que está fora da escola há um mês ('não quer mais ir'), Lúcia (10) e Pedro (4). O pai dos filhos não tem vínculo com a família. A escola contatou o CRAS pela frequência irregular do João. Marlene se diz cansada e diz que 'cuidar de três sozinha é demais'. A família mora em casa cedida pela irmã, com risco de despejo.",
+      "pergunta": "Fundamente sua atuação técnica no acompanhamento desta família pelo PAIF. Aborde os princípios da matricialidade sociofamiliar, a articulação intersetorial e o que diferencia o atendimento do PAIF de uma intervenção psicoterápica.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "PAIF — Serviço de Proteção e Atendimento Integral à Família (Tipificação)",
+        "Matricialidade sociofamiliar — família como unidade de cuidado, NÃO indivíduo isolado",
+        "Acompanhamento ≠ psicoterapia (objetivo: fortalecimento de vínculos, acesso a direitos, autonomia)",
+        "Articulação com a escola (busca ativa, Programa Educacional do GDF, projovem)",
+        "Possível Programa Bolsa Família — condicionalidade da frequência escolar (atenção: não é punitiva)",
+        "Articulação com habitação (atenção ao risco de despejo)",
+        "Reconhecimento do trabalho de cuidado de Marlene como sobrecarga estrutural, não falha individual",
+        "Plano de Acompanhamento Familiar com prazos e metas"
+      ],
+      "armadilhas_a_evitar": [
+        "Reduzir o caso à 'sobrecarga emocional' de Marlene",
+        "Tratar o filho João apenas como questão comportamental",
+        "Confundir PAIF com terapia familiar",
+        "Esquecer da dimensão habitacional/econômica"
+      ]
+    },
+    {
+      "id": "caso_07_pcd_familia_bpc",
+      "titulo": "Pessoa com deficiência em família vulnerável — BPC e PAIF",
+      "categoria_edital": [
+        "LBI",
+        "BPC",
+        "PAIF",
+        "PCD",
+        "matricialidade"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Daniel, 22 anos, tem paralisia cerebral, é totalmente dependente para alimentação, higiene e mobilidade. Mora com a mãe Cleide, 58, que abandonou o emprego há 15 anos para cuidar dele. A família recebe BPC e Auxílio Brasil. Cleide está com hipertensão descontrolada, cansada, sem rede de apoio. Pediu ajuda no CRAS pedindo 'um lugar pra deixar Daniel pra eu poder trabalhar'. Não há outros familiares disponíveis. Daniel não frequenta nenhum serviço de saúde ou de convivência há dois anos.",
+      "pergunta": "Como psicóloga do CRAS, descreva a atuação técnica neste atendimento à luz da Lei Brasileira de Inclusão (Lei 13.146/2015), do BPC e da Tipificação. Aborde os direitos de Daniel e o cuidado com a cuidadora.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "LBI (Lei 13.146/2015) — autonomia e capacidade legal da pessoa com deficiência",
+        "BPC — direito subjetivo, NÃO contrapartida da cuidadora ficar em casa",
+        "Direito à convivência social — Serviço de Convivência e Fortalecimento de Vínculos (SCFV) acessível ou Centro-Dia",
+        "Direito de Cleide ao trabalho remunerado — articulação com possíveis serviços (Centro-Dia, ILPI quando indicado)",
+        "RAPS para saúde mental e física de Daniel",
+        "Articulação com saúde para Cleide (hipertensão, sobrecarga do cuidador)",
+        "Cuidadora não é responsabilidade jurídica única — Estado responsável (princípio da convivência)",
+        "NÃO institucionalizar como primeira opção (LBI inverte o paradigma)"
+      ],
+      "armadilhas_a_evitar": [
+        "Recomendar institucionalização sem considerar alternativas em meio aberto",
+        "Culpabilizar a mãe pelo afastamento dos serviços",
+        "Tratar Daniel como passivo, sem considerar sua autonomia possível",
+        "Esquecer da saúde da cuidadora",
+        "Confundir BPC com 'salário do cuidador'"
+      ]
+    },
+    {
+      "id": "caso_08_sigilo_etica",
+      "titulo": "Conflito ético sobre sigilo profissional em equipe interdisciplinar",
+      "categoria_edital": [
+        "etica",
+        "CFP_010_2005",
+        "sigilo",
+        "trabalho_equipe"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Você é psicóloga do CRAS de Taguatinga. Em atendimento individual, uma usuária revelou que comete pequenos furtos em supermercados para complementar a renda, mas pede que isso fique apenas entre vocês duas. Na reunião de equipe semanal, a assistente social pergunta abertamente: 'O que ela te contou? Preciso saber pra fechar o PAIF.' A coordenadora do CRAS apoia a pergunta, dizendo 'somos uma equipe, não tem segredo aqui'.",
+      "pergunta": "Fundamente sua conduta técnica neste impasse, considerando a Resolução CFP nº 010/2005 (Código de Ética Profissional do Psicólogo), os limites do sigilo no trabalho em equipe interdisciplinar e a Tipificação Nacional de Serviços Socioassistenciais.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Resolução CFP 010/2005 — sigilo é princípio fundamental (art. 9)",
+        "Sigilo entre equipe: compartilhar apenas o necessário para o cuidado, não todo o conteúdo do atendimento (art. 12)",
+        "Diferença entre 'compartilhar informação clínica' e 'compartilhar diagnóstico psicossocial'",
+        "Pequenos furtos como sintoma de vulnerabilidade econômica — discutir mecanismos, não fato individual",
+        "Direito da usuária à proteção do que confidencia",
+        "Trabalho em equipe interdisciplinar — sigilo coletivo da equipe (não sigilo absoluto individual)",
+        "Posicionamento ético sem confronto direto (mediação técnica com a coordenação)",
+        "Possível necessidade de levar à supervisão técnica ou CRP em caso de pressão indevida"
+      ],
+      "armadilhas_a_evitar": [
+        "Revelar conteúdo específico do atendimento à equipe",
+        "Não dizer nada à equipe (omissão também é antiética)",
+        "Confundir sigilo individual com sigilo absoluto",
+        "Não citar a Resolução CFP",
+        "Tratar o ato da usuária como crime moral em vez de sintoma estrutural"
+      ]
+    },
+    {
+      "id": "caso_09_catador_dignidade",
+      "titulo": "Catador de materiais recicláveis em situação de extrema vulnerabilidade",
+      "categoria_edital": [
+        "pop_rua",
+        "catador",
+        "PAIF",
+        "PNRS",
+        "trabalho_informal"
+      ],
+      "dificuldade": "alta",
+      "tempo_estimado_min": 35,
+      "contexto": "Senhor José, 52 anos, é catador de materiais recicláveis no bairro Estrutural há 12 anos. Não está em situação de rua — mora em barraco autoconstruído no Setor Habitacional, mas vive abaixo da linha da pobreza extrema. Não tem registro em carteira, nunca acessou BPC nem Bolsa Família (sem documentação atualizada). Foi atropelado em um cruzamento e está temporariamente impossibilitado de trabalhar. Procurou o CRAS pedindo 'um auxílio'. Demonstra resistência a 'depender dos outros' e diz que 'quer voltar a catar logo'.",
+      "pergunta": "Como psicóloga do CRAS, fundamente sua atuação técnica neste atendimento à luz dos princípios da assistência social (LOAS, PNAS), da Política Nacional de Resíduos Sólidos (Lei 12.305/2010) e da Tipificação. Aborde o cuidado com a dignidade do trabalhador catador.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "LOAS (Lei 8.742/1993) — assistência social como direito do cidadão, sem contrapartida",
+        "PNAS — princípio da matricialidade + acesso a benefícios",
+        "Cadastro Único + acesso a Bolsa Família + possível BPC se preenchidos critérios",
+        "PNRS (Lei 12.305/2010) — reconhecimento do catador como trabalhador da cadeia da reciclagem",
+        "Auxílio emergencial (vulnerabilidade temporária — 5ª segurança socioassistencial)",
+        "Articulação com cooperativa de catadores existente no DF (CENTCOOP, valorização do trabalho)",
+        "Articulação com saúde (acompanhamento clínico pós-acidente)",
+        "Respeito à autonomia e ao desejo dele de retornar ao trabalho — postura não assistencialista"
+      ],
+      "armadilhas_a_evitar": [
+        "Tratar como caso de mero auxílio financeiro pontual",
+        "Romantizar a 'resistência' do José sem oferecer rede",
+        "Não citar PNRS (reconhecimento do catador)",
+        "Esquecer da dimensão de saúde pós-acidente",
+        "Confundir extrema pobreza com situação de rua"
+      ]
+    },
+    {
+      "id": "caso_10_programa_df_social",
+      "titulo": "Família atendida pelo Programa DF Social e Cartão Gás — articulação intersetorial",
+      "categoria_edital": [
+        "programas_DF",
+        "DF_Social",
+        "Cartao_Gas",
+        "PAIF",
+        "Lei_7484"
+      ],
+      "dificuldade": "média",
+      "tempo_estimado_min": 35,
+      "contexto": "Família composta por dois adultos (Marcos, 38 e Tatiana, 35) e três crianças (10, 7 e 4), reside em Brazlândia, em vulnerabilidade econômica há dois anos. Marcos perdeu o emprego na pandemia e desde então faz bicos. Tatiana cuida dos filhos. A família foi cadastrada no Programa DF Social (transferência de renda estadual complementar) e recebe Cartão Gás. Procuram o CRAS para 'saber se podem entrar em mais alguma coisa'. A escola das crianças informou que duas estão com defasagem de aprendizado.",
+      "pergunta": "Fundamente sua atuação técnica como psicóloga do CRAS neste atendimento. Aborde a articulação dos programas socioassistenciais distritais com os serviços do SUAS (PAIF), a Lei 7.484/2024 e a perspectiva da matricialidade sociofamiliar.",
+      "limite_linhas": 30,
+      "pontos_obrigatorios": [
+        "Programa DF Social (Lei distrital específica) — transferência de renda complementar do GDF",
+        "Cartão Gás DF — benefício eventual para botijão de gás",
+        "Lei 7.484/2024 — atualização da política de assistência social do DF (citar)",
+        "Articulação SUAS (PAIF) + programas distritais = atendimento integral",
+        "Matricialidade sociofamiliar — trabalho com a família, não programas isolados",
+        "Articulação com escola (Programa Educacional do GDF, reforço escolar)",
+        "Possível Bolsa Universitária DF (se aplicável quando criança crescer)",
+        "Acompanhamento PAIF com plano familiar específico, integrando benefícios federais e distritais"
+      ],
+      "armadilhas_a_evitar": [
+        "Tratar programas federais e distritais como excludentes",
+        "Esquecer da Lei 7.484 (atualização recente)",
+        "Limitar atuação a inscrição em programas (sem acompanhamento)",
+        "Não articular com a escola (defasagem é sinal de risco social)"
+      ]
+    }
+  ]
+};

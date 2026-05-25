@@ -247,6 +247,7 @@
       .qz-result-hero .big{font-size:36px}
     }
   </style>
+  <link rel="stylesheet" href="explicar/explicar.css">
 </head>
 <body>
 
@@ -259,9 +260,12 @@
 <!-- ===== MAIN NAV ===== -->
 <nav class="main-nav">
   <button class="main-tab active" onclick="showMain('plano')">📅 Plano</button>
-  <button class="main-tab" onclick="showMain('semana1')">📖 Semana 1</button>
+  <button class="main-tab" onclick="showMain('semana1')">📖 Semana 2</button>
   <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS</button>
+  <button class="main-tab" onclick="showMain('nob')">📚 NOB/SUAS</button>
   <button class="main-tab" onclick="showMain('questoes')">❓ Questões</button>
+  <button class="main-tab" onclick="window.location.href='discursiva/discursiva.html'">📝 Discursiva</button>
+  <button class="main-tab" onclick="showMain('estudado')">📊 Estudado</button>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -436,284 +440,314 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     TAB 2: SEMANA 1
+     TAB 2: SEMANA 2
 ══════════════════════════════════════════════════════════ -->
 <section id="tab-semana1" class="tab-section">
 
   <!-- Sub-nav de dias -->
   <nav class="day-nav">
-    <button class="day-btn active" onclick="showDay(1)">Dia 1<small>Seg 18/05</small></button>
-    <button class="day-btn" onclick="showDay(2)">Dia 2<small>Ter 19/05</small></button>
-    <button class="day-btn" onclick="showDay(3)">Dia 3<small>Qua 20/05</small></button>
-    <button class="day-btn bonus-btn" onclick="showDay(4)">Dia 4 ⭐<small>Qui 21/05</small></button>
-    <button class="day-btn" onclick="showDay(5)">Dia 5<small>Sex 22/05</small></button>
-    <button class="day-btn" onclick="showDay(6)">Dia 6<small>Sáb 23/05</small></button>
+    <button class="day-btn active" onclick="showDay(1)">Dia 1<small>Seg 25/05</small></button>
+    <button class="day-btn" onclick="showDay(2)">Dia 2<small>Ter 26/05</small></button>
+    <button class="day-btn" onclick="showDay(3)">Dia 3<small>Qua 27/05</small></button>
+    <button class="day-btn bonus-btn" onclick="showDay(4)">Dia 4 ⭐<small>Qui 28/05</small></button>
+    <button class="day-btn" onclick="showDay(5)">Dia 5<small>Sex 29/05</small></button>
+    <button class="day-btn" onclick="showDay(6)">Dia 6<small>Sáb 30/05</small></button>
   </nav>
 
   <!-- DIA 1 -->
   <div id="day-1" class="day-content active">
     <div class="day-header">
-      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
-      <h1>Dia 1 · Segunda, 18/05</h1>
-      <p>LOAS — Conceito, Objetivos, Princípios e Diretrizes (Arts. 1, 2, 4 e 5)</p>
+      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
+      <h1>Dia 1 · Segunda, 25/05</h1>
+      <p>NOB/SUAS 2012 — O que é, Princípios Organizativos e Tipos de Gestão Municipal</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> abre o GranCursos e procura a videoaula de LOAS. Busca por <em>"LOAS introdução"</em> ou <em>"assistência social conceito e objetivos"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender o que é a assistência social, por que ela existe e quais os objetivos da LOAS (Arts. 1 e 2). Não precisa memorizar — é primeiro contato.</p>
-      <div class="tip">⚡ Se a aula for curta (menos de 30min): ouve completa e no tempo restante repete em voz alta o que entendeu com suas palavras.</div>
+      <p><strong>O que fazer:</strong> abre o GranCursos e busca por <em>"NOB SUAS 2012 introdução"</em> ou <em>"Norma Operacional Básica SUAS"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender o que é a NOB/SUAS, por que ela existe (operacionaliza a PNAS) e quais os princípios organizativos do SUAS.</p>
+      <div class="tip">⚡ A NOB/SUAS 2012 é uma resolução do CNAS (Res. CNAS 33/2012). Ela transformou o SUAS em sistema, não só em política.</div>
     </div>
     <div class="slot carro-volta">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> continua a <strong>mesma videoaula</strong> do ponto onde pausou — agora cobre princípios e diretrizes (Arts. 4 e 5).</p>
-      <p><strong>Objetivo:</strong> ouvir os 5 princípios e 3 diretrizes ao menos uma vez antes de sentar à mesa.</p>
-      <div class="tip">⚡ Se já terminou a aula: volta para a parte de princípios e diretrizes e ouve de novo. Repetição é válida.</div>
+      <p><strong>O que fazer:</strong> continua a <strong>mesma videoaula</strong> ou busca <em>"níveis de gestão municipal SUAS"</em>. Foco nos tipos de gestão (inicial, básica, plena) e nos blocos de financiamento.</p>
+      <p><strong>Objetivo:</strong> entender a hierarquia: município que recebe recurso federal precisa estar habilitado em um nível de gestão.</p>
+      <div class="tip">⚡ Quanto maior o nível (plena &gt; básica &gt; inicial), maior a autonomia e a responsabilidade do município.</div>
     </div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF GranCursos de LOAS. Lê <strong>apenas</strong> Arts. 1, 2, 4 e 5 + explicações do professor.</p>
-      <p>Não lê o PDF inteiro — pula direto para esses artigos pelo índice ou pelos títulos "conceito", "princípios", "diretrizes".</p>
-      <div class="tip">⚡ Sublinha só o que parece essencial. Se sublinhar tudo, não sublinha nada.</div>
+      <p><strong>O que fazer:</strong> abre o PDF GranCursos da NOB/SUAS 2012. Lê <strong>apenas</strong> os capítulos I e II — princípios, diretrizes estruturantes e tipos de gestão.</p>
+      <p>Não lê tudo — foca em <em>"princípios organizativos"</em>, <em>"objetivos do SUAS"</em> e <em>"níveis de gestão municipal"</em>.</p>
+      <div class="tip">⚡ Sublinha só palavras-chave. A NOB tem muitos itens parecidos — se sublinhar tudo, perde a hierarquia.</div>
     </div>
     <div class="slot pomodoro-2">
       <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
       <p><strong>Fecha o PDF.</strong> Preenche o cartão abaixo sem consultar nada. Depois abre e corrige em vermelho o que errou ou esqueceu.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 1</div>
-        <strong>Art. 1 — Assistência social é:</strong><br/>
+        <strong>NOB/SUAS — o que é (1 frase):</strong><br/>
         <span class="cl">&nbsp;</span><span class="cl">&nbsp;</span>
-        <strong>Art. 2 — Objetivos (ao menos 4):</strong><br/>
-        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
-        <strong>Art. 4 — 5 Princípios (palavra-chave):</strong><br/>
-        P1:<span class="cl">&nbsp;</span>P2:<span class="cl">&nbsp;</span>P3:<span class="cl">&nbsp;</span>P4:<span class="cl">&nbsp;</span>P5:<span class="cl">&nbsp;</span>
-        <strong>Art. 5 — 3 Diretrizes (palavra-chave):</strong><br/>
-        D1:<span class="cl">&nbsp;</span>D2:<span class="cl">&nbsp;</span>D3:<span class="cl">&nbsp;</span>
+        <strong>Resolução e ano:</strong> Res. CNAS nº ___/____<span class="cl">&nbsp;</span>
+        <strong>Princípios organizativos do SUAS (cite ao menos 4):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>
+        <strong>3 Níveis de Gestão Municipal:</strong><br/>
+        Inicial: <span class="cl">&nbsp;</span>
+        Básica: <span class="cl">&nbsp;</span>
+        Plena: <span class="cl">&nbsp;</span>
+        <strong>Quem habilita o município?</strong><br/>
+        <span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">Art. 1</span><p>Direito do cidadão, dever do Estado. Política de seguridade social <strong>não contributiva</strong> que provê os mínimos sociais.</p></div>
-      <div class="artigo"><span class="art-num">Art. 2 — Objetivos</span><ol><li>Proteção à família, maternidade, infância, adolescência e velhice</li><li>Amparo às crianças e adolescentes carentes</li><li>Promoção da integração ao mercado de trabalho</li><li>Habilitação e reabilitação das pessoas com deficiência</li><li>Garantia de 1 salário mínimo mensal à PCD e ao idoso (BPC)</li></ol></div>
-      <div class="artigo"><span class="art-num">Art. 4 — 5 Princípios</span><ol><li>Supremacia do atendimento às necessidades sociais sobre exigências de rentabilidade econômica</li><li>Universalização dos direitos sociais</li><li>Respeito à dignidade do cidadão e à sua autonomia <em>(vedada comprovação vexatória de necessidade)</em></li><li>Igualdade de direitos no acesso, sem discriminação</li><li>Divulgação ampla dos benefícios, serviços, programas e projetos</li></ol></div>
-      <div class="artigo"><span class="art-num">Art. 5 — 3 Diretrizes</span><ol><li>Descentralização político-administrativa + comando único em cada esfera</li><li>Participação da população por organizações representativas</li><li>Primazia da responsabilidade do Estado</li></ol></div>
-      <div class="ancora"><strong>Âncora:</strong> princípios = o que a política <em>é</em> (valores). Diretrizes = como ela <em>se organiza</em> (estrutura).</div>
+      <div class="artigo"><span class="art-num">NOB/SUAS 2012</span><p><strong>Resolução CNAS nº 33, de 12/12/2012.</strong> Norma que disciplina a operacionalização da gestão da Política de Assistência Social no território nacional, no âmbito do SUAS.</p></div>
+      <div class="artigo"><span class="art-num">Princípios Organizativos do SUAS</span><ol><li>Universalidade</li><li>Gratuidade</li><li>Integralidade da proteção socioassistencial</li><li>Intersetorialidade</li><li>Equidade</li></ol></div>
+      <div class="artigo"><span class="art-num">3 Níveis de Gestão Municipal</span><ul><li><strong>Inicial:</strong> cumpre requisitos mínimos (LOAS) — Conselho, Plano e Fundo de Assistência Social</li><li><strong>Básica:</strong> assume gestão dos serviços de proteção social básica (PSB)</li><li><strong>Plena:</strong> assume gestão da PSB <em>e</em> da Proteção Social Especial (média e alta)</li></ul></div>
+      <div class="artigo"><span class="art-num">Quem habilita?</span><p>A <strong>CIB</strong> (Comissão Intergestores Bipartite) habilita o município e a <strong>CIT</strong> pactua nacionalmente. O CNAS aprova as normas.</p></div>
+      <div class="ancora"><strong>Âncora:</strong> LOAS = lei (1993). PNAS = política (2004). NOB/SUAS = norma operacional (2012). Cada uma é uma camada que detalha a anterior.</div>
     </div>
   </div>
 
   <!-- DIA 2 -->
   <div id="day-2" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
-      <h1>Dia 2 · Terça, 19/05</h1>
-      <p>LOAS — Proteções Sociais e Seguranças Socioassistenciais</p>
+      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
+      <h1>Dia 2 · Terça, 26/05</h1>
+      <p>NOB/SUAS — Responsabilidades dos Entes Federativos (União, Estados, DF e Municípios)</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"proteção social básica e especial SUAS"</em> ou <em>"LOAS proteções sociais"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender a diferença entre proteção básica e especial, e onde cada uma acontece (CRAS × CREAS).</p>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"responsabilidades entes federativos NOB SUAS"</em> ou <em>"competências União Estados Municípios assistência social"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender quem faz o quê no SUAS — a União coordena, o Estado apoia, o Município executa. O DF acumula competências de Estado e Município.</p>
     </div>
     <div class="slot carro-volta">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
       <p><strong>O que fazer:</strong> fala em voz alta, sem olhar nada:</p>
-      <p>— <em>"Qual a diferença entre proteção básica e especial?"</em><br/>— <em>"O que é CRAS? O que é CREAS?"</em><br/>— <em>"Quando um caso vai para especial média? E para alta?"</em></p>
-      <div class="tip">⚡ Não importa não saber — o exercício de tentar lembrar já treina a memória.</div>
+      <p>— <em>"Quem coordena o SUAS nacionalmente?"</em><br/>— <em>"Quem executa os serviços diretamente?"</em><br/>— <em>"O DF é Estado ou Município?"</em><br/>— <em>"Quem cofinancia o SUAS?"</em></p>
+      <div class="tip">⚡ Pega leve com a memorização literal — o que cai mais é a <em>lógica</em> de quem faz o quê. A banca adora trocar competências entre entes.</div>
     </div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF de LOAS. Lê Art. 6-A (proteções sociais) e a seção sobre seguranças socioassistenciais. Sublinha.</p>
-      <div class="tip">⚡ Foca nas diferenças entre básica, especial média e especial alta. São 3 coisas distintas — elas caem separadas na prova.</div>
+      <p><strong>O que fazer:</strong> abre o PDF da NOB/SUAS 2012. Lê o capítulo de <strong>responsabilidades</strong> (Arts. 12 a 18 da LOAS + correspondentes na NOB). Faz uma tabela 4 colunas: União / Estado / DF / Município.</p>
+      <div class="tip">⚡ Quando a banca diz <em>"compete ao Estado coordenar e financiar os serviços socioassistenciais"</em>, sem citar Município — é pegadinha. Coordenação nacional é da União.</div>
     </div>
     <div class="slot pomodoro-2">
       <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
       <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 2</div>
-        <strong>Proteção Social Básica:</strong><br/>
-        Público: <span class="cl">&nbsp;</span>
-        Onde acontece: <span class="cl">&nbsp;</span>
-        Exemplo de serviço: <span class="cl">&nbsp;</span>
-        <strong>Proteção Especial — Média Complexidade:</strong><br/>
-        Público: <span class="cl">&nbsp;</span>
-        Onde: <span class="cl">&nbsp;</span>
-        <strong>Proteção Especial — Alta Complexidade:</strong><br/>
-        Quando: <span class="cl">&nbsp;</span>
-        <strong>5 Seguranças Socioassistenciais:</strong><br/>
-        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
+        <strong>União — 2 verbos principais:</strong><br/>
+        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
+        <strong>Estado — 2 verbos principais:</strong><br/>
+        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
+        <strong>Município — 2 verbos principais:</strong><br/>
+        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
+        <strong>DF — particularidade:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>Cofinanciamento — quem participa?</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>3 instrumentos comuns aos 3 entes (LOAS Art. 30):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">Proteção Social Básica</span><p>Previne situações de vulnerabilidade e risco. Para famílias em vulnerabilidade por <strong>pobreza ou fragilização de vínculos</strong>. Ofertada nos <strong>CRAS</strong>. Serviço principal: PAIF.</p></div>
-      <div class="artigo"><span class="art-num">Proteção Especial — Média</span><p>Para situações de <strong>violação de direitos já ocorrida</strong>, mas vínculos familiares ainda existentes. Ofertada no <strong>CREAS</strong>. Serviço principal: PAEFI. Ex: violência doméstica, trabalho infantil.</p></div>
-      <div class="artigo"><span class="art-num">Proteção Especial — Alta</span><p>Vínculos familiares <strong>rompidos ou gravemente fragilizados</strong>. Requer atendimento integral 24h. Ex: acolhimento institucional, república, família acolhedora.</p></div>
-      <div class="artigo"><span class="art-num">5 Seguranças Socioassistenciais</span><ol><li>Segurança de acolhida</li><li>Segurança social e de renda</li><li>Segurança de convívio ou vivência familiar, comunitária e social</li><li>Segurança do desenvolvimento da autonomia individual, familiar e social</li><li>Segurança de apoio e auxílio</li></ol></div>
-      <div class="ancora"><strong>Âncora:</strong> básica = prevenção (CRAS). Especial = resposta à violação. A chave é o <em>vínculo familiar</em>: existe → especial média. Rompido → especial alta.</div>
+      <div class="artigo"><span class="art-num">União (LOAS Art. 12)</span><p><strong>Coordenar</strong> e <strong>cofinanciar</strong> a Política Nacional de Assistência Social. Apoiar técnica e financeiramente Estados, DF e Municípios. Atender ações de caráter emergencial.</p></div>
+      <div class="artigo"><span class="art-num">Estados (LOAS Art. 13)</span><p><strong>Apoiar</strong> técnica e financeiramente os Municípios. <strong>Cofinanciar</strong>. Estimular consórcios. Realizar monitoramento e avaliação. Prestar serviços regionalizados (especial alta complexidade).</p></div>
+      <div class="artigo"><span class="art-num">Municípios (LOAS Art. 15)</span><p><strong>Executar</strong> os serviços, programas, projetos e benefícios. <strong>Cofinanciar</strong>. Operar o CRAS, CREAS, Centro POP. Inscrever entidades. Atender ações emergenciais locais.</p></div>
+      <div class="artigo"><span class="art-num">DF (LOAS Art. 14)</span><p>Acumula competências de <strong>Estado e Município</strong>. É o único ente subnacional com essa dupla atribuição — relevante para o concurso SEDES.</p></div>
+      <div class="artigo"><span class="art-num">Art. 30 — 3 instrumentos obrigatórios</span><ol><li><strong>Conselho</strong> de Assistência Social (paritário e deliberativo)</li><li><strong>Fundo</strong> de Assistência Social (orientado pelo Conselho)</li><li><strong>Plano</strong> de Assistência Social</li></ol><p>Sem esses 3, o ente não recebe repasse federal.</p></div>
+      <div class="ancora"><strong>Âncora:</strong> União <em>coordena</em>, Estado <em>apoia</em>, Município <em>executa</em>, DF faz os <em>dois últimos</em>. Os 3 cofinanciam (pacto federativo).</div>
     </div>
   </div>
 
   <!-- DIA 3 -->
   <div id="day-3" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
-      <h1>Dia 3 · Quarta, 20/05</h1>
-      <p>LOAS — BPC, Benefícios Eventuais e Gestão</p>
+      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
+      <h1>Dia 3 · Quarta, 27/05</h1>
+      <p>NOB-RH/SUAS — Equipe de Referência do CRAS e CREAS (Onde Entra o Psicólogo)</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"BPC benefício de prestação continuada"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender quem tem direito ao BPC, os critérios e as restrições. É o artigo mais cobrado da LOAS.</p>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"NOB-RH SUAS equipe de referência"</em> ou <em>"trabalhadores SUAS CRAS CREAS"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender a NOB-RH/SUAS (Res. CNAS 269/2006) e a composição mínima das equipes do CRAS e do CREAS — é onde a prova encaixa o cargo de psicólogo.</p>
+      <div class="tip">⚡ Este é o tópico mais "seu" da semana. A vaga é justamente para compor essa equipe de referência. Entender o papel = entender o que vai cobrar de você.</div>
     </div>
     <div class="slot carro-volta">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
       <p><strong>O que fazer:</strong> recita em voz alta:</p>
-      <p>— <em>"Quem tem direito ao BPC?"</em><br/>— <em>"Qual o critério de renda?"</em><br/>— <em>"Quais os 3 'não pode' do BPC?"</em></p>
-      <div class="tip">⚡ Os 3 "não pode" são os mais cobrados: não gera 13º, não é transferível, não acumula com benefício previdenciário.</div>
+      <p>— <em>"Qual a equipe mínima do CRAS para 2.500 famílias referenciadas?"</em><br/>— <em>"E para 3.500? E para 5.000?"</em><br/>— <em>"Quantos psicólogos no CREAS?"</em><br/>— <em>"Quais profissionais são de nível superior obrigatório?"</em></p>
+      <div class="tip">⚡ A banca adora trocar quantitativos (2 técnicos × 3 técnicos) e títulos profissionais (assistente social × psicólogo).</div>
     </div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> lê no PDF os Arts. 20 e 21 (BPC) e Art. 22 (benefícios eventuais). Sublinha os critérios e as restrições.</p>
-      <div class="tip">⚡ No Art. 20, presta atenção especial às exceções e às condições de revisão — são esses detalhes que caem em prova.</div>
+      <p><strong>O que fazer:</strong> lê no PDF da NOB-RH/SUAS as tabelas de equipe de referência do CRAS e do CREAS. Faz uma tabela própria comparando os dois.</p>
+      <div class="tip">⚡ Decorar tabela só com leitura não funciona — copia a tabela à mão. A memória motora ajuda a fixar os números.</div>
     </div>
     <div class="slot pomodoro-2">
       <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
       <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 3</div>
-        <strong>BPC — Quem recebe:</strong><br/>
-        PCD: <span class="cl">&nbsp;</span>
-        Idoso: ___ anos ou mais<span class="cl">&nbsp;</span>
-        Renda per capita: menor que<span class="cl">&nbsp;</span>
-        <strong>BPC — Os 3 "não pode":</strong><br/>
-        Não <span class="cl">&nbsp;</span>
-        Não <span class="cl">&nbsp;</span>
-        Não <span class="cl">&nbsp;</span>
-        <strong>BPC — Revisão:</strong> a cada<span class="cl">&nbsp;</span>
-        <strong>Benefícios Eventuais — 4 situações (Art. 22):</strong><br/>
-        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>
+        <strong>NOB-RH/SUAS — Resolução e ano:</strong><br/>
+        Res. CNAS nº ___/____<span class="cl">&nbsp;</span>
+        <strong>CRAS — até 2.500 famílias:</strong><br/>
+        ___ coordenador(a) +<span class="cl">&nbsp;</span>
+        ___ técnicos nível superior (mínimo)<span class="cl">&nbsp;</span>
+        ___ técnicos nível médio<span class="cl">&nbsp;</span>
+        <strong>CRAS — até 3.500 famílias:</strong><br/>
+        ___ técnicos nível superior<span class="cl">&nbsp;</span>
+        <strong>CRAS — até 5.000 famílias:</strong><br/>
+        ___ técnicos nível superior<span class="cl">&nbsp;</span>
+        <strong>CREAS — capacidade até 80 casos/mês:</strong><br/>
+        ___ coordenador +<span class="cl">&nbsp;</span>
+        ___ assistentes sociais<span class="cl">&nbsp;</span>
+        ___ psicólogo(s)<span class="cl">&nbsp;</span>
+        ___ advogado(a)<span class="cl">&nbsp;</span>
+        ___ nível médio<span class="cl">&nbsp;</span>
+        <strong>3 categorias de nível superior obrigatórias na PSE:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">BPC — Art. 20</span><ul><li>1 salário mínimo mensal</li><li>PCD com impedimento de longo prazo que obstrua participação plena na sociedade</li><li>Idoso com <strong>65 anos ou mais</strong></li><li>Renda familiar per capita <strong>menor que 1/4 do salário mínimo</strong></li></ul></div>
-      <div class="artigo"><span class="art-num">BPC — Os 3 "não pode"</span><ol><li><strong>Não gera 13º salário</strong></li><li><strong>Não é transferível</strong></li><li><strong>Não acumula</strong> com benefício da Previdência Social</li></ol><p>Revisado a cada <strong>2 anos</strong>.</p></div>
-      <div class="artigo"><span class="art-num">Benefícios Eventuais — Art. 22</span><p>Provisão suplementar e provisória nos casos de: <strong>nascimento, morte, situação de vulnerabilidade temporária e calamidade pública.</strong></p></div>
-      <div class="atencao"><strong>Atenção:</strong> o BPC é o artigo mais cobrado da LOAS. Memorize os critérios e os 3 "não pode".</div>
+      <div class="artigo"><span class="art-num">NOB-RH/SUAS</span><p><strong>Resolução CNAS nº 269, de 13/12/2006.</strong> Define os trabalhadores do SUAS, equipes de referência, princípios éticos e diretrizes para gestão do trabalho.</p></div>
+      <div class="artigo"><span class="art-num">Equipe de Referência — CRAS</span><ul><li><strong>Até 2.500 famílias:</strong> 1 coordenador + 2 técnicos nível superior (sendo 1 assistente social e outro preferencialmente psicólogo) + 2 técnicos nível médio</li><li><strong>Até 3.500 famílias:</strong> 1 coordenador + 3 técnicos nível superior (2 assistentes sociais + 1 psicólogo) + 3 nível médio</li><li><strong>Até 5.000 famílias:</strong> 1 coordenador + 4 técnicos nível superior (2 assistentes sociais + 1 psicólogo + 1 outro, ex.: pedagogo, antropólogo) + 4 nível médio</li></ul></div>
+      <div class="artigo"><span class="art-num">Equipe de Referência — CREAS (até 80 casos/mês)</span><ul><li>1 coordenador</li><li>1 assistente social</li><li>1 psicólogo</li><li>1 advogado</li><li>2 profissionais de nível superior ou médio (abordagem)</li><li>1 auxiliar administrativo</li></ul></div>
+      <div class="artigo"><span class="art-num">Categorias de Nível Superior na PSE</span><p>A NOB-RH lista categorias de nível superior obrigatórias no SUAS, incluindo: <strong>assistente social, psicólogo, advogado</strong>, pedagogo, antropólogo, economista doméstico, sociólogo, terapeuta ocupacional, musicoterapeuta.</p></div>
+      <div class="atencao"><strong>Atenção:</strong> a expressão correta é <em>"equipe de referência"</em>, não "equipe mínima". Banca usa as duas, mas tecnicamente é a primeira.</div>
+      <div class="ancora"><strong>Âncora:</strong> CRAS = família + território (psicólogo &gt;= 1). CREAS = violação + casos individualizados (psicólogo + advogado obrigatórios).</div>
     </div>
   </div>
 
   <!-- DIA 4 -->
   <div id="day-4" class="day-content">
     <div class="day-header">
-      <div class="dbadge bonus">Dia Bônus ⭐ · Quinta é seu sábado</div>
-      <h1>Dia 4 · Quinta, 21/05</h1>
-      <p>Revisão LOAS (dias 1–3) + PNAS/2004: Família e Território</p>
+      <div class="dbadge bonus">Dia Bônus ⭐ · Quinta é seu sábado · Última quinta = Manutenção mensal</div>
+      <h1>Dia 4 · Quinta, 28/05</h1>
+      <p>Revisão NOB (dias 1–3) + Manutenção mensal: Português · Código de Ética · Lei Orgânica</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio novo</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"PNAS 2004 introdução"</em> ou <em>"centralidade família SUAS"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> primeiro contato com a PNAS — entender por que ela existe e o que é matricialidade sociofamiliar.</p>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"Tipificação Nacional de Serviços Socioassistenciais"</em> ou <em>"Resolução CNAS 109/2009"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> primeiro contato com a Tipificação — entender que ela lista <strong>todos</strong> os serviços do SUAS organizados por nível de proteção.</p>
     </div>
     <div class="slot revisao">
       <div class="slot-header"><span class="slot-icon">🔁</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão ativa dos dias 1–3</div></div></div>
-      <p><strong>O que fazer:</strong> sem áudio. Recita em voz alta tudo que lembra dos 3 primeiros dias — princípios, diretrizes, proteções, seguranças, BPC.</p>
-      <div class="tip">⚡ Recall falado é mais eficiente do que reler. O que não conseguir lembrar = ponto fraco para focar hoje.</div>
+      <p><strong>O que fazer:</strong> sem áudio. Recita em voz alta tudo que lembra dos 3 primeiros dias — princípios organizativos do SUAS, níveis de gestão municipal, competências dos entes, equipe de referência do CRAS e CREAS.</p>
+      <div class="tip">⚡ Recall falado é mais eficiente do que reler. O que não conseguir lembrar = ponto fraco para focar amanhã.</div>
     </div>
     <div class="slot revisao">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Revisão escrita dias 1–3</div></div></div>
-      <p><strong>O que fazer:</strong> fecha todos os resumos. Numa folha em branco, escreve de memória os pontos principais dos dias 1, 2 e 3. Depois abre e marca em vermelho o que faltou.</p>
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Manutenção mensal (30 questões)</div></div></div>
+      <p><strong>O que fazer:</strong> resolve <strong>30 questões mistas</strong> no QConcursos (10 Português + 10 Código de Ética do Psicólogo + 10 Lei Orgânica do DF). Marca a hora — 1min por questão.</p>
+      <div class="tip">⚡ Se acertar &gt;70% em cada matéria: mantém. Se ficar abaixo de 70%: relê o resumo da matéria fraca na semana seguinte (slot extra de 15min).</div>
+      <div class="atencao"><strong>Atenção:</strong> esta é a manutenção de maio. Próximas: 26/06, 31/07, 28/08.</div>
     </div>
     <div class="slot pomodoro-1">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · PNAS/2004</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF da PNAS/2004. Lê centralidade na família, matricialidade sociofamiliar e territorialização.</p>
-      <div class="tip">⚡ Foca em entender a lógica: "Por que a família é o centro? Por que o território importa?"</div>
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Revisão escrita dias 1–3 da NOB</div></div></div>
+      <p><strong>O que fazer:</strong> fecha todos os resumos. Numa folha em branco, escreve de memória os pontos principais dos dias 1, 2 e 3. Depois abre e marca em vermelho o que faltou.</p>
+      <div class="tip">⚡ Compare com o cartão de recall do dia 6 (checklist da semana). O que faltar aqui = foco amanhã.</div>
     </div>
     <div class="slot bonus-slot">
-      <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Tempo extra (se tiver)</div><div class="slot-time">Opcional · Organização</div></div></div>
-      <p>Organiza um documento único com todos os resumos dos dias 1 a 4. Isso vira seu material de revisão para os ciclos de retenção.</p>
+      <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Tempo extra (se tiver)</div><div class="slot-time">Opcional · Tabela CRAS × CREAS</div></div></div>
+      <p>Monta uma tabela única com tudo do CRAS e CREAS: público, serviço principal (PAIF/PAEFI), equipe mínima, capacidade. Cola na geladeira ou no carro. Vira sua âncora visual.</p>
     </div>
     <div class="ref-box">
-      <h2>Referência — PNAS/2004</h2>
-      <div class="artigo"><span class="art-num">Por que a PNAS?</span><p>A LOAS (1993) criou o marco legal. A PNAS (2004) criou o <em>como implementar</em> — deu forma operacional ao SUAS.</p></div>
-      <div class="artigo"><span class="art-num">Centralidade na família</span><p>A família é o núcleo social fundamental. Todos os serviços se organizam em torno do grupo familiar, não do indivíduo isolado.</p></div>
-      <div class="artigo"><span class="art-num">Matricialidade sociofamiliar</span><p>O trabalho com famílias é a base estruturante do SUAS. O serviço acompanha a família como unidade.</p></div>
-      <div class="artigo"><span class="art-num">Território</span><p>Território não é só endereço. É o contexto de vida — onde a vulnerabilidade se manifesta. Define onde e como o serviço é ofertado.</p></div>
-      <div class="ancora"><strong>Âncora:</strong> PNAS = a LOAS em ação. Família + Território = os dois eixos que organizam tudo no SUAS.</div>
+      <h2>Referência — Tipificação (intro) + Manutenção</h2>
+      <div class="artigo"><span class="art-num">Tipificação Nacional</span><p><strong>Resolução CNAS nº 109, de 11/11/2009.</strong> Padronizou nacionalmente os serviços socioassistenciais em 3 níveis: <strong>Proteção Social Básica (PSB), Especial de Média Complexidade e Especial de Alta Complexidade</strong>.</p></div>
+      <div class="artigo"><span class="art-num">Os 14 serviços tipificados</span><ul><li><strong>PSB (3):</strong> PAIF · SCFV · Proteção Social Básica no Domicílio (PCD/idosos)</li><li><strong>Média Complexidade (5):</strong> PAEFI · Serviço Especializado de Abordagem Social · Serviço para Adolescentes em MSE · Serviço para PCD/idosos e suas famílias · Serviço Especializado para Pessoas em Situação de Rua</li><li><strong>Alta Complexidade (6):</strong> Acolhimento Institucional · Acolhimento em República · Acolhimento em Família Acolhedora · Proteção em Situações de Calamidades Públicas e de Emergências (mais 2 detalhamentos)</li></ul></div>
+      <div class="artigo"><span class="art-num">Por que isso importa?</span><p>Decora o nome certo de cada serviço — a banca Quadrix cobra muito a nomenclatura literal. <em>"Atendimento"</em> e <em>"Acompanhamento"</em> têm diferença técnica no SUAS.</p></div>
+      <div class="ancora"><strong>Âncora:</strong> 3 + 5 + 6 = 14 serviços tipificados. PAIF (PSB) e PAEFI (Média) são os 2 que sempre caem.</div>
+      <div class="info-box"><strong>Manutenção mensal — checklist rápido:</strong><br/>✓ Português (interpretação + concordância + crase) — 10 questões<br/>✓ Código de Ética do Psicólogo (Res. CFP 10/2005) — 10 questões<br/>✓ Lei Orgânica do DF — 10 questões<br/><strong>Próxima manutenção:</strong> 26/06 (quinta da semana 6).</div>
     </div>
   </div>
 
   <!-- DIA 5 -->
   <div id="day-5" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
-      <h1>Dia 5 · Sexta, 22/05</h1>
-      <p>PNAS/2004 — Eixos Estruturantes + Serviços, Programas, Projetos e Benefícios</p>
+      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
+      <h1>Dia 5 · Sexta, 29/05</h1>
+      <p>Instâncias de Pactuação e Deliberação — CIT, CIB, CNAS, CEAS, CMAS e Conferências</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"eixos estruturantes PNAS"</em> ou <em>"serviços programas projetos benefícios SUAS"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"CIT CIB pactuação SUAS"</em> ou <em>"CNAS controle social assistência social"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> diferenciar instâncias de <strong>pactuação</strong> (CIT/CIB — gestores) de instâncias de <strong>deliberação/controle social</strong> (CNAS/CEAS/CMAS — gestores + sociedade civil paritários).</p>
     </div>
     <div class="slot carro-volta">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
-      <p>— <em>"Qual a diferença entre serviço, programa, projeto e benefício?"</em><br/>— <em>"Quais os 5 eixos estruturantes da PNAS?"</em></p>
-      <div class="tip">⚡ A diferença entre serviço (contínuo) e programa (complementar) cai muito.</div>
+      <p>— <em>"O que é a CIT? E a CIB?"</em><br/>— <em>"Quem compõe o CNAS? É paritário?"</em><br/>— <em>"Qual a diferença entre pactuar e deliberar?"</em><br/>— <em>"De quanto em quanto tempo acontecem as Conferências de Assistência Social?"</em></p>
+      <div class="tip">⚡ Paridade no SUAS = metade governo, metade sociedade civil. Cai muito.</div>
     </div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> lê no PDF da PNAS a seção de eixos estruturantes e as definições de serviço, programa, projeto e benefício. Sublinha a palavra-chave de cada um.</p>
+      <p><strong>O que fazer:</strong> lê na NOB/SUAS o capítulo de <strong>Instâncias de Pactuação</strong> + LOAS Arts. 16 a 19 (CNAS). Sublinha quem pactua, quem delibera, periodicidade das Conferências.</p>
+      <div class="tip">⚡ Cuidado: o CNAS é vinculado ao MDS, mas não é "subordinado". É órgão <em>colegiado</em> de caráter <strong>deliberativo</strong>.</div>
     </div>
     <div class="slot pomodoro-2">
       <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
       <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 5</div>
-        <strong>5 Eixos Estruturantes da PNAS:</strong><br/>
-        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>5.<span class="cl">&nbsp;</span>
-        <strong>4 Tipos de Oferta do SUAS:</strong><br/>
-        Serviço = <span class="cl">&nbsp;</span>
-        Programa = <span class="cl">&nbsp;</span>
-        Projeto = <span class="cl">&nbsp;</span>
-        Benefício = <span class="cl">&nbsp;</span>
+        <strong>CIT — o que é, quem compõe:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>CIB — o que é, quem compõe:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>CNAS — caráter:</strong> ( ) consultivo  ( ) deliberativo  ( ) executivo<br/>
+        Composição: ___ governo + ___ sociedade civil = ___ total<span class="cl">&nbsp;</span>
+        Mandato: <span class="cl">&nbsp;</span>
+        <strong>3 instâncias de deliberação/controle social:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
+        <strong>Conferência Nacional de Assistência Social — a cada ___ anos:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>Quem convoca a Conferência Nacional?</strong><br/>
+        <span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">5 Eixos Estruturantes</span><ol><li>Matricialidade sociofamiliar</li><li>Descentralização político-administrativa e territorialização</li><li>Novas bases para a relação entre Estado e Sociedade Civil</li><li>Financiamento</li><li>Controle social</li></ol></div>
-      <div class="artigo"><span class="art-num">4 Tipos de Oferta</span><ul><li><strong>Serviço:</strong> atividades <em>continuadas</em>. Ex: PAIF, PAEFI, SCFV</li><li><strong>Programa:</strong> ações <em>complementares</em>, não continuadas</li><li><strong>Projeto:</strong> investimento <em>pontual</em> em grupos em pobreza</li><li><strong>Benefício:</strong> BPC + benefícios eventuais — <em>direito garantido</em></li></ul></div>
-      <div class="ancora"><strong>Âncora:</strong> serviço = contínuo. Programa = complementar. Projeto = pontual. Benefício = direito.</div>
+      <div class="artigo"><span class="art-num">Instâncias de PACTUAÇÃO (gestores)</span><ul><li><strong>CIT — Comissão Intergestores Tripartite:</strong> nacional. Representantes da União (MDS), Estados (FONSEAS) e Municípios (CONGEMAS). Pactua a operacionalização nacional do SUAS.</li><li><strong>CIB — Comissão Intergestores Bipartite:</strong> estadual. Estado + Municípios (COEGEMAS). Pactua a operacionalização regional, habilita níveis de gestão municipal.</li></ul></div>
+      <div class="artigo"><span class="art-num">Instâncias de DELIBERAÇÃO / CONTROLE SOCIAL</span><ul><li><strong>CNAS — Conselho Nacional de Assistência Social:</strong> caráter <em>deliberativo</em>, composição paritária (9 governo + 9 sociedade civil = 18), mandato 2 anos (uma recondução). Vinculado ao MDS.</li><li><strong>CEAS — Conselho Estadual / CAS-DF — Conselho de Assistência Social do DF</strong></li><li><strong>CMAS — Conselho Municipal</strong></li></ul><p>Todos paritários e deliberativos.</p></div>
+      <div class="artigo"><span class="art-num">Conferências</span><p>A <strong>Conferência Nacional</strong> de Assistência Social ocorre <strong>a cada 4 anos</strong> (convocada pelo CNAS), precedida pelas conferências municipais e estaduais. Avaliam a situação e propõem diretrizes para a PNAS.</p></div>
+      <div class="atencao"><strong>Pegadinha Quadrix:</strong> trocar CIT × CIB (qual é nacional?), trocar "deliberativo" por "consultivo" no CNAS, ou dizer que o CNAS é "subordinado ao Ministro" — tudo errado.</div>
+      <div class="ancora"><strong>Âncora:</strong> Pactua = gestor com gestor (CIT/CIB). Delibera = gestor com sociedade civil (CNAS/CEAS/CMAS). Conferência = a cada 4 anos.</div>
     </div>
   </div>
 
   <!-- DIA 6 -->
   <div id="day-6" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 1 · SUAS Fundamentos</div>
-      <h1>Dia 6 · Sábado, 23/05</h1>
-      <p>Consolidação e revisão integral da semana</p>
+      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
+      <h1>Dia 6 · Sábado, 30/05</h1>
+      <p>Consolidação semanal + Tipificação aprofundada (PAIF e PAEFI)</p>
     </div>
     <div class="slot revisao">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Releitura dos resumos</div></div></div>
-      <p><strong>O que fazer:</strong> relê todos os resumos e cartões de recall dos dias 1 a 5. Não estuda nada novo — só consolida o que já viu.</p>
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · PAIF + PAEFI (Tipificação detalhada)</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF da Tipificação Nacional (Res. CNAS 109/2009). Lê <strong>apenas</strong> as fichas do <strong>PAIF</strong> (Proteção Social Básica) e do <strong>PAEFI</strong> (Média Complexidade). Compara objetivos, público, aquisições, unidade.</p>
+      <div class="tip">⚡ PAIF e PAEFI são os 2 serviços mais cobrados em qualquer prova de psicólogo do SUAS. Decore objetivos e diferenças.</div>
     </div>
     <div class="slot pomodoro-2">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Teste final</div></div></div>
-      <p><strong>Fecha tudo.</strong> Escreve livremente, sem olhar nada: <em>"O que é o SUAS, como ele se organiza e quais os princípios que o sustentam."</em></p>
-      <div class="tip">⚡ Se conseguir escrever 1 página coerente — a semana foi bem absorvida.</div>
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Teste final da semana</div></div></div>
+      <p><strong>Fecha tudo.</strong> Escreve livremente, sem olhar nada: <em>"Como o SUAS se organiza operacionalmente — quem coordena, quem executa, com qual equipe e por meio de quais serviços."</em></p>
+      <div class="tip">⚡ Se conseguir escrever 1 página coerente integrando NOB + NOB-RH + Tipificação + instâncias — a semana 2 foi bem absorvida.</div>
     </div>
     <div class="checklist">
       <h2>Checklist da semana — responda sem consultar</h2>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>5 princípios</strong> da LOAS? (Art. 4)</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais as <strong>3 diretrizes</strong> da LOAS? (Art. 5)</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Qual a diferença entre proteção <strong>básica, especial média e especial alta</strong>?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais as <strong>5 seguranças socioassistenciais</strong>?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quem tem direito ao <strong>BPC</strong>? Quais os 3 "não pode"?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é <strong>matricialidade sociofamiliar</strong>?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Qual a diferença entre <strong>serviço, programa, projeto e benefício</strong>?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>5 eixos estruturantes</strong> da PNAS?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é a <strong>NOB/SUAS 2012</strong>? Qual a Resolução do CNAS?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>3 níveis de gestão municipal</strong> (inicial, básica, plena)?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>3 instrumentos obrigatórios</strong> (Art. 30 LOAS) para receber repasse federal?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Competências da <strong>União, Estados, Municípios e DF</strong> — quem coordena, apoia, executa?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Equipe de referência</strong> do CRAS para 2.500 / 3.500 / 5.000 famílias.</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Equipe de referência</strong> do CREAS — quais profissionais de nível superior obrigatórios?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Diferença entre <strong>CIT e CIB</strong> (pactuação) e <strong>CNAS / CEAS / CMAS</strong> (deliberação).</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Conferência Nacional</strong> de Assistência Social — periodicidade e quem convoca.</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é a <strong>Tipificação Nacional</strong> (Res. CNAS 109/2009)? Quantos serviços ela lista?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>PAIF × PAEFI</strong> — qual é PSB, qual é PSE? Onde acontecem? Público de cada um?</span></div>
     </div>
     <div class="ref-box">
-      <h2>Próximos passos — Semana 2</h2>
-      <p style="font-size:14px;color:#444">Na semana 2 você continua no bloco de SUAS Fundamentos: <strong>NOB/SUAS, NOB-RH e Tipificação Nacional de Serviços</strong>.</p>
-      <div class="ancora" style="margin-top:12px"><strong>Domingo 24/05 → DESCANSO.</strong> Nenhum estudo. O descanso é parte do plano.</div>
+      <h2>Próximos passos — Semana 3</h2>
+      <p style="font-size:14px;color:#444">Na semana 3 você fecha o bloco de SUAS Fundamentos com o <strong>aprofundamento da Tipificação Nacional</strong> (todos os 14 serviços) + início das <strong>questões temáticas</strong> sobre SUAS no QConcursos (primeira quinta com questões: 04/06).</p>
+      <div class="ancora" style="margin-top:12px"><strong>Domingo 31/05 → DESCANSO.</strong> Nenhum estudo. Você acumulou 12 dias de carga (semanas 1 + 2). O descanso consolida o que foi aprendido.</div>
     </div>
   </div>
 
@@ -909,7 +943,220 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     TAB 4: QUESTÕES
+     TAB 4: NOB/SUAS + NOB-RH + TIPIFICAÇÃO (Quadrix)
+══════════════════════════════════════════════════════════ -->
+<section id="tab-nob" class="tab-section">
+<div class="loas-wrap">
+
+  <div class="loas-header">
+    <h2>📚 NOB/SUAS · NOB-RH · Tipificação — Foco Quadrix</h2>
+    <div class="sub">Res. CNAS 33/2012 · Res. CNAS 269/2006 · Res. CNAS 109/2009 — Cargo 409 Psicologia (~6 questões esperadas)</div>
+  </div>
+
+  <div class="loas-nav">
+    <button class="nb on" onclick="showNob('ns1',this)">1 · Conceito + Princípios</button>
+    <button class="nb" onclick="showNob('ns2',this)">2 · Níveis de Gestão Municipal</button>
+    <button class="nb" onclick="showNob('ns3',this)">3 · Responsabilidades dos Entes</button>
+    <button class="nb" onclick="showNob('ns4',this)">4 · Cofinanciamento + Pisos</button>
+    <button class="nb" onclick="showNob('ns5',this)">5 · NOB-RH · Equipe ⭐</button>
+    <button class="nb" onclick="showNob('ns6',this)">6 · Tipificação · 14 Serviços</button>
+    <button class="nb" onclick="showNob('ns7',this)">7 · CIT · CIB · CNAS</button>
+    <button class="nb" onclick="showNob('ns8',this)">🎯 Recall Geral</button>
+  </div>
+
+  <div class="loas-content">
+
+  <!-- ns1: Conceito e Princípios -->
+  <div id="ns1" class="lsec on">
+    <div class="lcard">
+      <h2>NOB/SUAS 2012 — O que é <span class="lhot">🔥 BASE</span></h2>
+      <div class="lei"><strong>Resolução CNAS nº 33, de 12 de dezembro de 2012.</strong> Norma que disciplina a <span class="lkey">operacionalização da gestão</span> da Política Nacional de Assistência Social no território nacional, no âmbito do SUAS. Substituiu a NOB/SUAS de 2005.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Quem aprova a NOB/SUAS? → <strong>CNAS</strong> (não é o MDS, não é o Presidente)</li><li>É uma <strong>resolução</strong>, não uma lei ordinária</li><li>Tema central: <strong>operacionalização</strong> — diferente da PNAS, que é a política</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"A NOB/SUAS foi aprovada por <span class="lneg">decreto</span>..." → <strong>ERRADO</strong> (é resolução do CNAS)</li><li>"A NOB/SUAS é a política nacional de assistência social..." → <strong>ERRADO</strong> (essa é a PNAS)</li></ul></div>
+      <div class="mbox"><div class="mbox-t">🧠 Ordem das normas (memorize)</div><ul class="lm"><li><strong>LOAS</strong> (Lei 8.742/<span class="lnum">1993</span>) → lei federal · cria a política</li><li><strong>PNAS</strong> (Res. CNAS 145/<span class="lnum">2004</span>) → política · dá forma ao SUAS</li><li><strong>NOB/SUAS</strong> (Res. CNAS 33/<span class="lnum">2012</span>) → norma operacional · "como fazer"</li><li><strong>NOB-RH</strong> (Res. CNAS 269/<span class="lnum">2006</span>) → trabalhadores · equipe</li><li><strong>Tipificação</strong> (Res. CNAS 109/<span class="lnum">2009</span>) → serviços padronizados</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Princípios Organizativos do SUAS (NOB Cap. II)</h2>
+      <ul class="la"><li><strong>I — Universalidade:</strong> todos têm direito à proteção socioassistencial</li><li><strong>II — Gratuidade:</strong> serviços, programas, projetos e benefícios são gratuitos</li><li><strong>III — Integralidade da proteção:</strong> oferta articulada de serviços, programas, projetos e benefícios</li><li><strong>IV — Intersetorialidade:</strong> articulação com as demais políticas e órgãos de defesa de direitos</li><li><strong>V — Equidade:</strong> respeitar as diversidades regionais, culturais, socioeconômicas, políticas e territoriais</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico</div><ul class="lm"><li><strong>U-G-I-I-E</strong> → Universalidade · Gratuidade · Integralidade · Intersetorialidade · Equidade</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Não confundir</div><ul class="lt"><li>Estes são os <strong>princípios organizativos do SUAS</strong> (NOB). Os <strong>princípios da LOAS</strong> (Art. 4°) são outros 5: SU-RID</li><li>"Equidade" aqui NÃO é igualdade matemática — é tratar diferentes conforme suas diferenças</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Diretrizes Estruturantes da Gestão (NOB)</h2>
+      <ul class="la"><li>Primazia da responsabilidade do <span class="lkey">Estado</span> na condução da política</li><li><span class="lkey">Descentralização</span> político-administrativa e comando único</li><li>Financiamento partilhado entre os <span class="lkey">3 entes</span> federados</li><li><span class="lkey">Matricialidade sociofamiliar</span></li><li><span class="lkey">Territorialização</span></li><li>Fortalecimento da relação democrática entre Estado e sociedade civil</li><li>Controle social e participação popular</li></ul>
+    </div>
+  </div>
+
+  <!-- ns2: Níveis de Gestão -->
+  <div id="ns2" class="lsec">
+    <div class="lcard">
+      <h2>Níveis de Gestão Municipal — NOB/SUAS</h2>
+      <div class="lei">A habilitação ocorre na <span class="lkey">CIB</span> (Comissão Intergestores Bipartite). Cada nível define autonomia, responsabilidade e modalidade de cofinanciamento.</div>
+      <table class="ltable"><tr><th>Nível</th><th>O que faz</th><th>Recebe</th></tr><tr><td><strong>Inicial</strong></td><td>Cumpre requisitos mínimos da LOAS: <span class="lkey">Conselho + Fundo + Plano</span> (CFP)</td><td>Recursos por meio de transferências eventuais e específicas</td></tr><tr><td><strong>Básica</strong></td><td>Assume gestão da <span class="lkey">Proteção Social Básica (PSB)</span></td><td>Recursos do <span class="lkey">Piso Básico Fixo (PBF)</span> e <span class="lkey">Piso Básico de Transição</span></td></tr><tr><td><strong>Plena</strong></td><td>Assume gestão da PSB <span class="lkey">e</span> da Proteção Social Especial (média + alta)</td><td>Pisos da PSB <span class="lkey">+</span> Pisos da PSE (Fixo de Média, Transição de MC, Alta)</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Sem os <strong>3 instrumentos do Art. 30 LOAS</strong> (Conselho-Fundo-Plano), o município não consegue nem a habilitação Inicial</li><li>Habilita-se na <strong>CIB</strong> (NÃO é o CNAS, NÃO é o Ministério)</li><li>Plena = único nível com PSE direta</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"Município em gestão <span class="lneg">básica</span> oferta acolhimento institucional..." → <strong>ERRADO</strong> (acolhimento é PSE alta = só na Plena, ou regionalizado pelo Estado)</li><li>"A habilitação é feita pelo <span class="lneg">CNAS</span>..." → <strong>ERRADO</strong> (é a CIB)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Vigilância Socioassistencial — função de gestão</h2>
+      <div class="lei">É uma das <span class="lkey">funções</span> da política de assistência social (junto com Proteção Social e Defesa Social e Institucional). Produz e sistematiza informações sobre vulnerabilidades, riscos e capacidade protetiva.</div>
+      <ul class="la"><li>Vigilância de <strong>riscos e vulnerabilidades</strong>: incidências de violações</li><li>Vigilância de <strong>padrões de serviços</strong>: tipos, capacidade, padrões</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">3</span> funções do SUAS: Proteção Social · Defesa de Direitos · <strong>Vigilância Socioassistencial</strong></li><li>Vigilância NÃO é fiscalização — é produção de informação para a gestão</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ns3: Responsabilidades dos Entes -->
+  <div id="ns3" class="lsec">
+    <div class="lcard">
+      <h2>Responsabilidades por Ente Federado</h2>
+      <table class="ltable"><tr><th>Ente</th><th>Verbo-chave</th><th>Atribuições centrais</th></tr><tr><td><strong>União</strong></td><td><span class="lkey">Coordenar</span></td><td>Coordena a PNAS · Concede e mantém o <span class="lkey">BPC</span> · Cofinancia via Fundo Nacional · Apoia técnica e financeiramente Estados, DF e Municípios</td></tr><tr><td><strong>Estados</strong></td><td><span class="lkey">Apoiar</span></td><td>Apoia técnica e financeiramente os Municípios · Cofinancia · Oferece serviços <span class="lkey">regionalizados</span> de alta complexidade quando justificado</td></tr><tr><td><strong>DF</strong></td><td><span class="lkey">Estado + Município</span></td><td>Acumula competências dos dois entes · Único ente subnacional com dupla atribuição · Relevante para SEDES-DF</td></tr><tr><td><strong>Municípios</strong></td><td><span class="lkey">Executar</span></td><td>Executa serviços diretamente · Opera CRAS, CREAS, Centro POP · Inscreve entidades · Concede benefícios eventuais</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Verbo da União = <strong>coordenar</strong>; do Estado = <strong>apoiar</strong>; do Município = <strong>executar</strong></li><li>O <strong>BPC</strong> é gerido pela <span class="lkey">União</span> (operacionalizado pelo INSS) — não é benefício municipal</li><li>Os <strong>benefícios eventuais</strong> (Art. 22) é o oposto: ofertados por Estados, DF e Municípios</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas clássicas</div><ul class="lt"><li>"Compete ao <span class="lneg">Município</span> conceder o BPC..." → <strong>ERRADO</strong> (é da União)</li><li>"O <span class="lneg">Estado</span> executa diretamente os serviços de proteção básica..." → <strong>ERRADO</strong> (quem executa é o Município)</li><li>"O DF tem competências apenas de <span class="lneg">Estado</span>..." → <strong>ERRADO</strong> (Estado + Município)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 30 LOAS — Condições para Repasse <span class="lhot">🔥 CAI MUITO</span></h2>
+      <div class="lei">É <span class="lkey">condição</span> para repasse aos Municípios, Estados e DF a efetiva instituição e funcionamento de:</div>
+      <ul class="la"><li><strong>I — Conselho</strong> de Assistência Social, composição <span class="lkey">paritária</span> entre governo e sociedade civil</li><li><strong>II — Fundo</strong> de Assistência Social, com orientação e controle dos Conselhos</li><li><strong>III — Plano</strong> de Assistência Social</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico</div><ul class="lm"><li><strong>C-F-P</strong> → Conselho · Fundo · Plano</li><li>Sem <strong>qualquer um</strong> dos 3 → sem repasse federal</li></ul></div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li><strong>Parágrafo único:</strong> também é condição a <span class="lkey">comprovação orçamentária</span> dos recursos próprios destinados à assistência social</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ns4: Cofinanciamento -->
+  <div id="ns4" class="lsec">
+    <div class="lcard">
+      <h2>Cofinanciamento — Lógica Geral</h2>
+      <div class="lei">O SUAS é financiado pelos <span class="lkey">3 entes federados</span> (União, Estados/DF, Municípios). Os recursos federais transitam por <span class="lkey">Fundo a Fundo</span>, automaticamente, condicionados aos requisitos do Art. 30 LOAS.</div>
+      <ul class="la"><li>União → <strong>Fundo Nacional</strong> de Assistência Social (FNAS)</li><li>Estado/DF → <strong>Fundo Estadual / Distrital</strong> (FEAS / FDAS)</li><li>Município → <strong>Fundo Municipal</strong> (FMAS)</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>Pisos de Proteção Social — Blocos de Financiamento</h2>
+      <table class="ltable"><tr><th>Bloco</th><th>Piso</th><th>Para quê</th></tr><tr><td rowspan="2"><strong>PSB</strong></td><td>Piso Básico Fixo (PBF)</td><td>Co-financia o <span class="lkey">PAIF</span> (referenciado ao CRAS)</td></tr><tr><td>Piso Básico Variável</td><td>SCFV e outros serviços da PSB</td></tr><tr><td rowspan="2"><strong>PSE Média</strong></td><td>Piso Fixo de Média Complexidade (PFMC)</td><td>Co-financia o <span class="lkey">PAEFI</span> (CREAS)</td></tr><tr><td>Piso de Transição de MC</td><td>Outros serviços de MC</td></tr><tr><td><strong>PSE Alta</strong></td><td>Piso de Alta Complexidade I e II</td><td>Acolhimento institucional, república, família acolhedora</td></tr><tr><td><strong>Gestão</strong></td><td>IGD-SUAS / IGD-PBF</td><td>Índices de Gestão Descentralizada — apoio à gestão</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li><strong>PBF</strong> → PAIF (PSB · CRAS)</li><li><strong>PFMC</strong> → PAEFI (PSE Média · CREAS)</li><li><strong>IGD</strong> = Índice de Gestão Descentralizada (mede qualidade da gestão municipal)</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"O Piso Básico Fixo cofinancia o <span class="lneg">PAEFI</span>..." → <strong>ERRADO</strong> (PBF é PAIF; o PAEFI é PFMC)</li><li>"Os repasses são feitos por <span class="lneg">convênio</span>..." → <strong>ERRADO</strong> (é fundo a fundo, automático)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ns5: NOB-RH (estrela) -->
+  <div id="ns5" class="lsec">
+    <div class="lcard">
+      <h2>NOB-RH/SUAS — O que é <span class="lhot">⭐ ONDE VOCÊ ENTRA</span></h2>
+      <div class="lei"><strong>Resolução CNAS nº 269, de 13 de dezembro de 2006.</strong> Norma Operacional Básica de Recursos Humanos do SUAS. Define trabalhadores, equipes de referência, princípios éticos e diretrizes para gestão do trabalho.</div>
+      <div class="qbox"><div class="qbox-t">📌 Por que importa pra você</div><ul class="lq"><li>O Cargo 409 (Psicólogo EDAS) <strong>é</strong> a NOB-RH em ação — você compõe a equipe de referência</li><li>Esperar de <strong>2 a 3 questões</strong> diretas sobre NOB-RH no concurso</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Equipe de Referência — CRAS <span class="lhot">🔥 DECORE</span></h2>
+      <table class="ltable"><tr><th>Famílias referenciadas</th><th>Composição mínima</th></tr><tr><td><strong>Até 2.500</strong></td><td><span class="lnum">1</span> coordenador (NS) + <span class="lnum">2</span> técnicos de NS (1 assistente social + 1 outro, <span class="lkey">preferencialmente psicólogo</span>) + <span class="lnum">2</span> técnicos de nível médio</td></tr><tr><td><strong>Até 3.500</strong></td><td><span class="lnum">1</span> coordenador + <span class="lnum">3</span> técnicos NS (2 assistentes sociais + <span class="lkey">1 psicólogo</span>) + <span class="lnum">3</span> técnicos NM</td></tr><tr><td><strong>A cada 5.000</strong></td><td><span class="lnum">1</span> coordenador + <span class="lnum">4</span> técnicos NS (2 assistentes sociais + <span class="lkey">1 psicólogo</span> + 1 outro: pedagogo, antropólogo etc.) + <span class="lnum">4</span> técnicos NM</td></tr></table>
+      <div class="mbox"><div class="mbox-t">🧠 Truque de memorização</div><ul class="lm"><li>O número de <strong>técnicos NS = (faixa em milhares ÷ 1.250) + 1</strong></li><li>NM acompanha o NS (mesma quantidade)</li><li>Sempre tem <strong>1 assistente social</strong>; psicólogo entra a partir de 2.500</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Equipe de Referência — CREAS</h2>
+      <table class="ltable"><tr><th>Capacidade</th><th>Composição mínima</th></tr><tr><td><strong>Municipal · até 80 casos/mês</strong></td><td><span class="lnum">1</span> coordenador · <span class="lnum">1</span> assistente social · <span class="lnum">1</span> <span class="lkey">psicólogo</span> · <span class="lnum">1</span> advogado · <span class="lnum">2</span> profissionais (NS ou NM) para abordagem · <span class="lnum">1</span> auxiliar administrativo</td></tr><tr><td><strong>Municipal · capacidade ampliada</strong></td><td>+ 1 assistente social, + 1 psicólogo, + 1 auxiliar administrativo</td></tr><tr><td><strong>Estadual / Regional</strong></td><td>+ orientadores sociais e profissionais especializados conforme demanda</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li><strong>Advogado</strong> só aparece no CREAS — não está na equipe mínima do CRAS</li><li>Psicólogo é <strong>obrigatório</strong> no CREAS (1, mínimo), <strong>preferencial</strong> no CRAS até 2.500</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"No CRAS para 5.000 famílias, basta <span class="lneg">1 técnico de nível superior</span>..." → <strong>ERRADO</strong> (são 4)</li><li>"No CREAS, o <span class="lneg">advogado é opcional</span>..." → <strong>ERRADO</strong> (é obrigatório)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Categorias Profissionais Obrigatórias no SUAS</h2>
+      <div class="lei"><strong>Resolução CNAS nº 17/2011</strong> (atualizada) lista as categorias de nível superior que compõem as equipes de referência:</div>
+      <ul class="la"><li><strong>Assistente Social</strong> (presente em todas as equipes)</li><li><strong>Psicólogo</strong> (presente em todas as equipes — PSB e PSE)</li><li>Advogado (CREAS · PSE)</li><li>Pedagogo</li><li>Antropólogo</li><li>Economista Doméstico</li><li>Sociólogo</li><li>Terapeuta Ocupacional</li><li>Musicoterapeuta</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Assistente Social e Psicólogo são as <strong>únicas 2 categorias permanentes em toda equipe</strong></li><li>"Equipe de referência" é a expressão técnica correta — não "equipe mínima"</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ns6: Tipificação -->
+  <div id="ns6" class="lsec">
+    <div class="lcard">
+      <h2>Tipificação Nacional — O que é</h2>
+      <div class="lei"><strong>Resolução CNAS nº 109, de 11 de novembro de 2009.</strong> Padroniza nacionalmente <span class="lkey">todos os serviços socioassistenciais</span> em 3 níveis de proteção. Define para cada serviço: usuários, objetivos, provisões, aquisições, condições e formas de acesso, unidade, período de funcionamento, abrangência e articulação em rede.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <strong>14 serviços tipificados</strong> (3 PSB + 5 PSE-Média + 6 PSE-Alta)</li><li>Cuidado com a nomenclatura literal — Quadrix testa palavras como <em>"atendimento"</em> vs <em>"acompanhamento"</em></li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>PSB — 3 serviços</h2>
+      <ul class="la"><li><strong>PAIF</strong> · Serviço de Proteção e Atendimento Integral à Família · <span class="lkey">CRAS</span></li><li><strong>SCFV</strong> · Serviço de Convivência e Fortalecimento de Vínculos · CRAS ou referenciado ao CRAS</li><li><strong>PSB no Domicílio</strong> · Serviço de Proteção Social Básica no Domicílio para PCD e Idosos</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>PSE — Média Complexidade · 5 serviços</h2>
+      <ul class="la"><li><strong>PAEFI</strong> · Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos · <span class="lkey">CREAS</span></li><li>Serviço Especializado em <strong>Abordagem Social</strong></li><li>Serviço de Proteção Social a Adolescentes em Cumprimento de <strong>MSE</strong> (LA e PSC)</li><li>Serviço de Proteção Social Especial para PCD, Idosos e suas famílias (Centro-Dia)</li><li>Serviço Especializado para <strong>Pessoas em Situação de Rua</strong> · <span class="lkey">Centro POP</span></li></ul>
+    </div>
+    <div class="lcard">
+      <h2>PSE — Alta Complexidade · 6 serviços</h2>
+      <ul class="la"><li>Serviço de <strong>Acolhimento Institucional</strong> (abrigo, casa-lar, casa de passagem, residência inclusiva)</li><li>Serviço de Acolhimento em <strong>República</strong></li><li>Serviço de Acolhimento em <strong>Família Acolhedora</strong></li><li>Serviço de Proteção em Situações de <strong>Calamidades Públicas e Emergências</strong></li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Atenção à contagem</div><ul class="lq"><li>A contagem "6" inclui modalidades de acolhimento institucional + república + família acolhedora + emergências. Bancas divergem; o número que mais cai é <strong>"até 14 serviços"</strong> no total.</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>PAIF × PAEFI <span class="lhot">🔥 SEMPRE CAI</span></h2>
+      <table class="ltable"><tr><th>Critério</th><th>PAIF</th><th>PAEFI</th></tr><tr><td>Proteção</td><td>Social <span class="lkey">Básica</span></td><td>Social <span class="lkey">Especial</span> (Média)</td></tr><tr><td>Unidade</td><td><span class="lkey">CRAS</span></td><td><span class="lkey">CREAS</span></td></tr><tr><td>Público</td><td>Famílias em vulnerabilidade <strong>sem violação</strong></td><td>Famílias com <strong>violação de direitos já ocorrida</strong></td></tr><tr><td>Caráter</td><td>Preventivo + continuado</td><td>Reparativo + especializado</td></tr><tr><td>Verbo-chave</td><td><span class="lkey">Atenção integral</span> à família</td><td><span class="lkey">Atendimento especializado</span> a famílias e indivíduos</td></tr></table>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"PAIF é ofertado no <span class="lneg">CREAS</span>..." → <strong>ERRADO</strong></li><li>"PAEFI atende prioritariamente situações de <span class="lneg">vulnerabilidade</span>..." → <strong>ERRADO</strong> (é violação)</li><li>"PAIF é serviço <span class="lneg">temporário</span>..." → <strong>ERRADO</strong> (é continuado)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ns7: Instâncias -->
+  <div id="ns7" class="lsec">
+    <div class="lcard">
+      <h2>Pactuação × Deliberação — diferença fundamental</h2>
+      <table class="ltable"><tr><th>Tipo</th><th>Quem participa</th><th>Instâncias</th></tr><tr><td><strong>Pactuação</strong></td><td>Só <span class="lkey">gestores</span> (governo)</td><td>CIT (nacional) · CIB (estadual)</td></tr><tr><td><strong>Deliberação / Controle social</strong></td><td><span class="lkey">Governo + sociedade civil</span> (paridade)</td><td>CNAS · CEAS · CMAS · CAS-DF</td></tr></table>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li><strong>Pactuar</strong> = gestor com gestor. <strong>Deliberar</strong> = gestor com sociedade civil.</li><li>Tudo que é <strong>conselho</strong> é deliberativo e paritário (Art. 16 LOAS)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>CIT — Comissão Intergestores Tripartite</h2>
+      <ul class="la"><li>Espaço de <span class="lkey">pactuação nacional</span> da gestão do SUAS</li><li>Composição <strong>tripartite</strong>: representantes da União (<span class="lkey">MDS</span>), Estados (<span class="lkey">FONSEAS</span>) e Municípios (<span class="lkey">CONGEMAS</span>)</li><li>Pactua a operacionalização da PNAS e do SUAS no plano nacional</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>CIB — Comissão Intergestores Bipartite</h2>
+      <ul class="la"><li>Espaço de <span class="lkey">pactuação estadual</span></li><li>Composição <strong>bipartite</strong>: Estado + Municípios (<span class="lkey">COEGEMAS</span>)</li><li><strong>Habilita</strong> os municípios nos níveis de gestão (Inicial, Básica, Plena)</li></ul>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"A <span class="lneg">CIT</span> habilita os municípios..." → <strong>ERRADO</strong> (é a CIB)</li><li>"A CIB é composta por <span class="lneg">sociedade civil</span>..." → <strong>ERRADO</strong> (só gestores)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>CNAS — Conselho Nacional <span class="lhot">🔥</span></h2>
+      <ul class="la"><li>Caráter: <span class="lkey">deliberativo</span> + colegiado + vinculado ao MDS</li><li>Composição: <span class="lnum">9</span> governo + <span class="lnum">9</span> sociedade civil = <span class="lnum">18</span> membros</li><li>Mandato: <span class="lnum">2 anos</span>, uma recondução</li><li>Presidente eleito entre os membros, mandato de <span class="lnum">1 ano</span>, uma recondução</li><li>Membros nomeados pelo <span class="lkey">Presidente da República</span></li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Números do CNAS</div><ul class="lm"><li><strong>18 = 9 + 9</strong> (paridade)</li><li>Mandato membros: <strong>2 anos</strong> · Presidente: <strong>1 ano</strong></li><li>Conferência Nacional: <strong>4 em 4 anos</strong></li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas clássicas</div><ul class="lt"><li>"CNAS é <span class="lneg">consultivo</span>..." → <strong>ERRADO</strong> (é deliberativo)</li><li>"CNAS tem <span class="lneg">16</span> membros..." → <strong>ERRADO</strong> (são 18)</li><li>"Conferência a cada <span class="lneg">2 anos</span>..." → <strong>ERRADO</strong> (são 4)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Conselhos Estaduais, do DF e Municipais</h2>
+      <ul class="la"><li><strong>CEAS</strong> · Conselho Estadual de Assistência Social</li><li><strong>CAS-DF</strong> · Conselho de Assistência Social do Distrito Federal</li><li><strong>CMAS</strong> · Conselho Municipal de Assistência Social</li></ul>
+      <div class="lei">Todos são <span class="lkey">paritários</span> (governo + sociedade civil), <span class="lkey">deliberativos</span> e <span class="lkey">permanentes</span>, com mandato definido em regimento próprio.</div>
+    </div>
+    <div class="lcard">
+      <h2>Conferências de Assistência Social</h2>
+      <ul class="la"><li>Avaliam a situação da assistência social e propõem diretrizes para o aperfeiçoamento do sistema</li><li><strong>Conferência Nacional</strong>: convocada pelo CNAS, <span class="lnum">a cada 4 anos</span> (ordinariamente)</li><li>Precedida pelas Conferências Municipais, Estaduais e do DF</li><li>Pode ser convocada extraordinariamente</li></ul>
+    </div>
+  </div>
+
+  <!-- ns8: Recall Geral -->
+  <div id="ns8" class="lsec">
+    <div class="lcard">
+      <h2>🎯 Recall — Números e Resoluções da NOB</h2>
+      <p style="color:#94a3b8;font-size:0.84rem;margin-bottom:14px">Tente responder <strong>sem olhar</strong>. Clique para revelar.</p>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">NOB/SUAS — qual a Resolução e o ano?</div><div class="ra">→ Resolução CNAS nº 33/2012</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">NOB-RH/SUAS — qual a Resolução e o ano?</div><div class="ra">→ Resolução CNAS nº 269/2006</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Tipificação Nacional — qual a Resolução e o ano?</div><div class="ra">→ Resolução CNAS nº 109/2009</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais os 5 princípios organizativos do SUAS (NOB)?</div><div class="ra">→ Universalidade · Gratuidade · Integralidade · Intersetorialidade · Equidade (U-G-I-I-E)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais os 3 níveis de gestão municipal? Quem habilita?</div><div class="ra">→ Inicial · Básica · Plena. Habilitação: CIB.</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Equipe mínima do CRAS para 2.500 famílias?</div><div class="ra">→ 1 coordenador + 2 técnicos NS (1 AS + 1 outro, pref. psicólogo) + 2 técnicos NM</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Equipe mínima do CRAS para 3.500 famílias?</div><div class="ra">→ 1 coordenador + 3 técnicos NS (2 AS + 1 psicólogo) + 3 técnicos NM</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Equipe mínima do CRAS para cada 5.000 famílias?</div><div class="ra">→ 1 coordenador + 4 técnicos NS (2 AS + 1 psicólogo + 1 outro) + 4 técnicos NM</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Equipe mínima do CREAS (até 80 casos/mês)?</div><div class="ra">→ 1 coord · 1 AS · 1 psicólogo · 1 advogado · 2 profissionais (NS ou NM) abordagem · 1 auxiliar administrativo</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quantos serviços a Tipificação Nacional define? E como se distribuem?</div><div class="ra">→ 14 serviços: 3 PSB + 5 PSE Média + 6 PSE Alta (contando modalidades de acolhimento)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">PAIF — proteção, unidade, foco?</div><div class="ra">→ PSB · CRAS · família em vulnerabilidade (preventivo, continuado)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">PAEFI — proteção, unidade, foco?</div><div class="ra">→ PSE Média · CREAS · violação de direitos já ocorrida (reparativo, especializado)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a diferença entre pactuação e deliberação?</div><div class="ra">→ Pactuação = só gestores (CIT/CIB). Deliberação = gestor + sociedade civil (CNAS/CEAS/CMAS).</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CIT vs CIB: quem compõe cada uma? Quem habilita o município?</div><div class="ra">→ CIT (nacional): União + FONSEAS + CONGEMAS. CIB (estadual): Estado + COEGEMAS. Habilita o município: CIB.</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">CNAS — composição, mandato, periodicidade da Conferência?</div><div class="ra">→ 18 membros (9 gov + 9 SC), mandato 2 anos (1 recondução), Conferência Nacional a cada 4 anos.</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Verbo-chave de cada ente: União, Estado, Município, DF?</div><div class="ra">→ União: coordena. Estado: apoia. Município: executa. DF: acumula Estado + Município.</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais os 3 instrumentos do Art. 30 LOAS para receber repasse?</div><div class="ra">→ Conselho paritário · Fundo · Plano (C-F-P). Sem qualquer um → sem repasse.</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais as 3 funções do SUAS?</div><div class="ra">→ Proteção Social · Defesa de Direitos · Vigilância Socioassistencial</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual piso financia o PAIF? E o PAEFI?</div><div class="ra">→ PAIF: Piso Básico Fixo (PBF). PAEFI: Piso Fixo de Média Complexidade (PFMC).</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais 2 categorias profissionais aparecem em TODA equipe de referência?</div><div class="ra">→ Assistente Social e Psicólogo</div></div>
+    </div>
+  </div>
+
+  </div><!-- /loas-content -->
+  <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · Res. CNAS 33/2012 + 269/2006 + 109/2009</footer>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 5: QUESTÕES
 ══════════════════════════════════════════════════════════ -->
 <section id="tab-questoes" class="tab-section">
 <div class="qz-wrap">
@@ -1011,6 +1258,82 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </div><!-- /qz-wrap -->
 </section>
 
+<!-- ══════════════════════════════════════════════════════════
+     TAB 6: ESTUDADO — Cumulativo de tudo que a Clarissa já estudou
+══════════════════════════════════════════════════════════ -->
+<section id="tab-estudado" class="tab-section">
+<div class="plano-container">
+
+  <h2 class="plano-h2">📊 O que a Clarissa já estudou</h2>
+  <div class="info-box"><strong>Como funciona:</strong> esta aba acumula tudo que já foi estudado, semana a semana. A aba "Semana X" da nav principal mostra só a semana atual (vai sendo sobrescrita). Aqui você tem o histórico completo para os <strong>ciclos de revisão</strong> (7d, 15d, 30d) e para saber em que pé está cada bloco.</div>
+
+  <h2 class="plano-h2">Progresso geral do edital</h2>
+  <table class="diag-table">
+    <tr><th>Bloco do edital</th><th>Semana(s)</th><th>Status</th><th>Aba permanente</th></tr>
+    <tr><td>SUAS Fundamentos (LOAS · PNAS)</td><td>1</td><td style="color:#16a34a;font-weight:700">✅ Concluído</td><td>⚖️ LOAS</td></tr>
+    <tr><td>NOB/SUAS · NOB-RH · Tipificação</td><td>2</td><td style="color:#16a34a;font-weight:700">✅ Concluído</td><td>📚 NOB/SUAS</td></tr>
+    <tr><td>Lei Maria da Penha + Mulheres</td><td>5–6</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+    <tr><td>Legislação Protetiva (ECA · LBI · Idoso · Pop. Rua)</td><td>7–8</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+    <tr><td>Psicólogo no SUAS + Abordagens ⭐</td><td>9–10</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+    <tr><td>Psicologia Aplicada + Desenvolvimento</td><td>11</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+    <tr><td>Programas DF + MROSC</td><td>12</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+    <tr><td>Legislação DF + Lei 7.484/2024</td><td>14</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Semana 1 · 17/05 a 23/05 · SUAS Fundamentos</h2>
+  <div class="semana-card">
+    <div class="semana-badge verde">✅ Concluído · 6 dias · 12h estudadas</div>
+    <h4>LOAS (Lei 8.742/93) + PNAS/2004 — Conceito, Princípios, BPC e Eixos</h4>
+    <p><strong>O que foi coberto:</strong></p>
+    <ul style="padding-left:20px;font-size:14px;line-height:1.7;color:#444">
+      <li><strong>Dia 1 (Seg 18/05):</strong> LOAS Arts. 1, 2, 4 e 5 — Conceito, Objetivos, 5 Princípios (SU-RID), 3 Diretrizes (D-P-P)</li>
+      <li><strong>Dia 2 (Ter 19/05):</strong> LOAS Art. 6-A — Proteção Social Básica × Especial Média × Especial Alta + 5 Seguranças Socioassistenciais</li>
+      <li><strong>Dia 3 (Qua 20/05):</strong> LOAS Arts. 20, 21 e 22 — BPC (idoso 65+, renda &lt;1/4 SM, 3 "não pode") + Benefícios Eventuais</li>
+      <li><strong>Dia 4 (Qui 21/05) ⭐:</strong> Revisão dias 1–3 + Introdução PNAS/2004 — Centralidade na Família · Matricialidade Sociofamiliar · Território</li>
+      <li><strong>Dia 5 (Sex 22/05):</strong> PNAS — 5 Eixos Estruturantes + Diferença Serviço × Programa × Projeto × Benefício</li>
+      <li><strong>Dia 6 (Sáb 23/05):</strong> Consolidação semanal + checklist de 8 perguntas</li>
+    </ul>
+    <p style="margin-top:10px;font-size:14px"><strong>Aba permanente de consulta:</strong> <a onclick="showMain('loas')" style="color:#2563eb;cursor:pointer;text-decoration:underline">⚖️ LOAS</a> (letra da lei + armadilhas Quadrix)</p>
+    <p style="font-size:13px;color:#6b7280;margin-top:6px"><strong>Ciclos de revisão:</strong> Ret. 1 = 24/05 (já passou — feita no fim da semana) · Ret. 2 = 31/05–06/06 (semana 3) · Ret. 3 = 14/06–20/06 (semana 5)</p>
+  </div>
+
+  <h2 class="plano-h2">Semana 2 · 25/05 a 30/05 · NOB/SUAS + NOB-RH + Tipificação</h2>
+  <div class="semana-card">
+    <div class="semana-badge verde">✅ Concluído · 6 dias · 12h estudadas</div>
+    <h4>NOB/SUAS 2012 + NOB-RH 2006 + Tipificação 2009 — Operacionalização do SUAS</h4>
+    <p><strong>O que foi coberto:</strong></p>
+    <ul style="padding-left:20px;font-size:14px;line-height:1.7;color:#444">
+      <li><strong>Dia 1 (Seg 25/05):</strong> NOB/SUAS 2012 (Res. CNAS 33/2012) — Princípios Organizativos (U-G-I-I-E) + Níveis de Gestão Municipal (Inicial · Básica · Plena)</li>
+      <li><strong>Dia 2 (Ter 26/05):</strong> Responsabilidades dos Entes (União coordena · Estado apoia · Município executa · DF acumula) + Art. 30 LOAS (Conselho · Fundo · Plano)</li>
+      <li><strong>Dia 3 (Qua 27/05):</strong> NOB-RH/SUAS (Res. CNAS 269/2006) — Equipe de Referência do CRAS (2.500/3.500/5.000) e CREAS (até 80 casos/mês)</li>
+      <li><strong>Dia 4 (Qui 28/05) ⭐:</strong> Revisão NOB + Intro Tipificação Nacional + <strong>Manutenção mensal de maio</strong> (30 questões: Português + Ética + Lei Orgânica)</li>
+      <li><strong>Dia 5 (Sex 29/05):</strong> Instâncias do SUAS — CIT (nacional, tripartite, pactua) · CIB (estadual, bipartite, habilita) · CNAS/CEAS/CMAS (paritários, deliberativos) · Conferências (4 em 4 anos)</li>
+      <li><strong>Dia 6 (Sáb 30/05):</strong> Tipificação aprofundada — PAIF × PAEFI + Consolidação + checklist de 10 perguntas</li>
+    </ul>
+    <p style="margin-top:10px;font-size:14px"><strong>Aba permanente de consulta:</strong> <a onclick="showMain('nob')" style="color:#2563eb;cursor:pointer;text-decoration:underline">📚 NOB/SUAS</a> (8 seções + Recall Geral)</p>
+    <p style="font-size:13px;color:#6b7280;margin-top:6px"><strong>Ciclos de revisão:</strong> Ret. 1 = 31/05–06/06 (semana 3) · Ret. 2 = 07/06–13/06 (semana 4) · Ret. 3 = 21/06–27/06 (semana 6)</p>
+  </div>
+
+  <h2 class="plano-h2">Manutenção mensal — Português · Ética · Lei Orgânica</h2>
+  <table class="diag-table">
+    <tr><th>Data</th><th>Status</th><th>Desempenho</th></tr>
+    <tr><td>28/05/2026 (quinta da semana 2)</td><td style="color:#16a34a;font-weight:700">✅ Concluída</td><td>— (registrar % após resolver)</td></tr>
+    <tr><td>26/06/2026 (quinta da semana 6)</td><td style="color:#94a3b8">⏳ Agendada</td><td>—</td></tr>
+    <tr><td>31/07/2026 (quinta da semana 11)</td><td style="color:#94a3b8">⏳ Agendada</td><td>—</td></tr>
+    <tr><td>28/08/2026 (quinta da semana 15)</td><td style="color:#94a3b8">⏳ Agendada</td><td>—</td></tr>
+  </table>
+
+  <h2 class="plano-h2">Próxima semana — o que vem aí</h2>
+  <div class="semana-card">
+    <div class="semana-badge">📅 Semana 3 · 01/06 a 06/06</div>
+    <h4>Aprofundamento da Tipificação + início das questões temáticas no QConcursos</h4>
+    <p>Detalhamento dos 14 serviços tipificados (especialmente PAIF, PAEFI, SCFV, Acolhimento) e da abordagem do psicólogo em cada um. <strong>Primeira quinta com questões:</strong> 04/06 (20 questões SUAS Fundamentos + Ret. 1 NOB).</p>
+    <p style="margin-top:8px;font-size:13px;color:#6b7280">Quando a semana 3 começar, a aba "Semana 2" da nav principal será substituída por "Semana 3". Esta aba <strong>📊 Estudado</strong> preserva tudo.</p>
+  </div>
+
+</div>
+</section>
+
 <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · 112 dias até a prova</footer>
 
 <script src="questoes-data.js" onerror="window.__QZ_LOAD_ERR=true"></script>
@@ -1040,8 +1363,16 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
   }
 
   function showLoas(id, btn) {
-    document.querySelectorAll('.lsec').forEach(s => s.classList.remove('on'));
-    document.querySelectorAll('.nb').forEach(b => b.classList.remove('on'));
+    document.querySelectorAll('#tab-loas .lsec').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('#tab-loas .nb').forEach(b => b.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    btn.classList.add('on');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showNob(id, btn) {
+    document.querySelectorAll('#tab-nob .lsec').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('#tab-nob .nb').forEach(b => b.classList.remove('on'));
     document.getElementById(id).classList.add('on');
     btn.classList.add('on');
     window.scrollTo({top: 0, behavior: 'smooth'});
@@ -1066,6 +1397,7 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     filtros: { disc: 'psicologia', qtd: 10, modo: 'mista', assunto: '' },
     fila: [], idx: 0, acertos: 0, startTs: 0, respostas: [],
   };
+  window.QZ = QZ; // expõe pra explicar.js (const em classic script não vai pra window)
   const HIST_KEY = 'sedes_q_hist_v1';
   const SESS_KEY = 'sedes_q_sessions_v1';
   const DIA = 86400000;
@@ -1422,5 +1754,6 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     qzMostrarTela('result');
   }
 </script>
+<script src="explicar/explicar.js"></script>
 </body>
 </html>

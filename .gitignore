@@ -3,3 +3,14 @@
 Thumbs.db
 .DS_Store
 desktop.ini
+
+# Secrets — nunca commitar
+.env
+.env.local
+.env.*.local
+*.key
+api_keys/
+
+# Outputs de validação (regeneráveis, podem ser grandes)
+q concursos/validacao/output/
+q concursos/validacao/checkpoint*.json
