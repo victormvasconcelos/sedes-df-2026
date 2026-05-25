@@ -166,9 +166,10 @@ Você concorre com:
 ### SEMANAS 5–6 · 14/06 a 27/06 · LEI MARIA DA PENHA + MULHERES
 **Conteúdo:**
 - Lei 11.340/2006: formas de violência, medidas protetivas, rede de atendimento, papel do psicólogo
-- Plano Distrital de Política para Mulheres
+- **Política Nacional de Enfrentamento à Violência contra as Mulheres** *(cobrança explícita no edital — bloco Direitos/Violações tópico 2)*
+- Plano Distrital de Política para Mulheres (PDPM)
 
-**Atenção:** mínimo 3 questões garantidas na prova. Alta probabilidade de cair mais.
+**Atenção:** mínimo 3 questões garantidas na prova (Lei Maria da Penha, Art. 6º Lei Distrital nº 7.462/2024). Alta probabilidade de cair mais.
 **Quinta semana 5:** questões Lei Maria da Penha + Ret. 1 NOB + Ret. 2 SUAS
 **Quinta semana 6 (26/06):** questões Lei Maria da Penha + Ret. 2 NOB + **MANUTENÇÃO**
 
@@ -177,10 +178,12 @@ Você concorre com:
 ### SEMANAS 7–8 · 28/06 a 11/07 · LEGISLAÇÃO PROTETIVA
 **Conteúdo:**
 - ECA + SINASE: criança/adolescente, ato infracional, medidas socioeducativas
+- **Estatuto Digital da Criança e do Adolescente (Lei nº 14.811/2024)** — proteção no ambiente digital, crimes cibernéticos contra crianças, dever das plataformas *(NOVO no edital — alta chance de cair, lei recente)*
+- **Convivência familiar e comunitária, acolhimento e adoção** *(detalhado dentro do ECA — edital pede explicitamente)*
 - LBI (Lei 13.146/2015): você tem vivência pessoal como PCD — vai absorver mais rápido
 - Estatuto do Idoso + Política Nacional do Idoso
 - Política Nacional para Pop. em Situação de Rua
-- Diversidade: étnico-racial + homotransfobia (posição STF)
+- Diversidade: étnico-racial + homotransfobia (posição STF) + crimes de preconceito de raça ou cor
 
 **Quinta semana 7:** questões ECA/LBI + Ret. 1 Lei Maria da Penha + Ret. 3 SUAS
 **Quinta semana 8:** questões Idoso/Pop. Rua + Ret. 2 Lei Maria da Penha
@@ -208,17 +211,23 @@ Você concorre com:
 
 ---
 
-### SEMANA 11 · 26/07 a 01/08 · PSICOLOGIA APLICADA + DESENVOLVIMENTO
+### SEMANA 11 · 26/07 a 01/08 · PSICOLOGIA APLICADA + DESENVOLVIMENTO + DOCUMENTOS
 **Conteúdo:**
 - Psicologia do Desenvolvimento aplicada a contextos de vulnerabilidade social
   - Desenvolvimento infantil em situação de risco (pobreza, violência doméstica, acolhimento)
   - Adolescência e conflito com a lei (conecta com ECA/SINASE já estudado)
   - Envelhecimento e vulnerabilidade (conecta com Estatuto do Idoso já estudado)
-- Avaliação psicossocial: entrevista, anamnese, visita domiciliar, observação, metodologias participativas
+- **Noções de Psicopatologia aplicadas ao contexto da vulnerabilidade social** *(edital, específico 1.4 — não é só desenvolvimento normal)*
+- **Subjetividade, cultura, diversidade e contexto social** *(edital, específico 1.3)*
+- Avaliação psicossocial: entrevista, anamnese, visita domiciliar, observação
+- **Fundamentos da avaliação psicológica formal e métodos de investigação aplicados ao campo social** *(edital, específico 3.1 — diferente de avaliação psicossocial)*
+- **Metodologias participativas, dinâmica de grupo, trabalho psicossocial com comunidades** *(edital, específico 3.3)*
+- **Planejamento, monitoramento e avaliação de ações, programas e projetos socioassistenciais** *(edital, específico 3.4)*
+- **Resolução CFP 06/2019 — Manual de Elaboração de Documentos Escritos**: declaração, atestado, relatório, laudo, parecer — estrutura, finalidade, sigilo e diferenças *(edital, específico 4.3 — cobrança quase certa, lei muito específica)*
 - Interdisciplinaridade e trabalho em equipe no SUAS
 - Psicologia social crítica e interface com políticas públicas
 
-**Foco:** você tem base clínica — estuda as especificidades do contexto SUAS. Em Desenvolvimento, o eixo é vulnerabilidade social, não marcos normais do desenvolvimento.
+**Foco:** você tem base clínica — estuda as especificidades do contexto SUAS. Em Desenvolvimento, o eixo é vulnerabilidade social, não marcos normais. Em Documentos, é decoreba estrutural: o que vai em cada tipo (laudo × parecer × relatório).
 **Quinta:** questões Psicologia Aplicada/Desenvolvimento + Ret. 1 Psicólogo SUAS
 
 ---
@@ -247,7 +256,8 @@ Você concorre com:
 
 ### SEMANA 14 · 16/08 a 22/08 · LEGISLAÇÃO DF + PRIMEIROS SOCORROS
 **Conteúdo:**
-- Realidade do DF e RIDE (LC 94/1998)
+- Realidade do DF e RIDE (LC 94/1998 + Decreto Federal nº 7.469/2011)
+- **Lei Orgânica do DF — Título VI específico (Da Ordem Social e do Meio Ambiente)** *(edital exige este título textualmente — NÃO confundir com a manutenção mensal genérica de Lei Orgânica)*
 - LC 840/2011 (Regime Jurídico Servidores DF): Títulos I, V, VI, VII
 - Lei 7.484/2024 (criação da carreira EDAS)
 - Primeiros Socorros: leitura única do PDF — engasgo, sangramento, fratura, queimadura, desmaio, convulsão, intoxicação (não precisa de videoaula)
