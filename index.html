@@ -263,6 +263,7 @@
   <button class="main-tab" onclick="showMain('semana1')">📖 Semana 2</button>
   <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS</button>
   <button class="main-tab" onclick="showMain('nob')">📚 NOB/SUAS</button>
+  <button class="main-tab" onclick="showMain('etica')">⚖️ Ética CFP</button>
   <button class="main-tab" onclick="showMain('questoes')">❓ Questões</button>
   <button class="main-tab" onclick="window.location.href='discursiva/discursiva.html'">📝 Discursiva</button>
   <button class="main-tab" onclick="showMain('estudado')">📊 Estudado</button>
@@ -1156,7 +1157,236 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     TAB 5: QUESTÕES
+     TAB 5: ÉTICA PROFISSIONAL DO PSICÓLOGO (Quadrix)
+     Cód. Ética CFP 10/2005 + Res. CFP 06/2019 + correlatas
+══════════════════════════════════════════════════════════ -->
+<section id="tab-etica" class="tab-section">
+<div class="loas-wrap">
+
+  <div class="loas-header">
+    <h2>⚖️ Ética Profissional do Psicólogo — Foco Quadrix</h2>
+    <div class="sub">Res. CFP 10/2005 (Código de Ética) + Res. CFP 06/2019 (Documentos) — Cargo 409 (~3 questões esperadas, pico de literalidade da Quadrix)</div>
+  </div>
+
+  <div class="loas-nav">
+    <button class="nb on" onclick="showEtica('es1',this)">1 · Princípios Fundamentais ⭐</button>
+    <button class="nb" onclick="showEtica('es2',this)">2 · Responsabilidades + Vedações</button>
+    <button class="nb" onclick="showEtica('es3',this)">3 · Sigilo Profissional ⭐</button>
+    <button class="nb" onclick="showEtica('es4',this)">4 · Crianças, Adolescentes, Justiça</button>
+    <button class="nb" onclick="showEtica('es5',this)">5 · Anúncio + Pesquisa</button>
+    <button class="nb" onclick="showEtica('es6',this)">6 · Infrações + Penalidades</button>
+    <button class="nb" onclick="showEtica('es7',this)">7 · Res. 06/2019 · Documentos ⭐</button>
+    <button class="nb" onclick="showEtica('es8',this)">8 · Outras Resoluções CFP</button>
+    <button class="nb" onclick="showEtica('es9',this)">🎯 Recall Geral</button>
+  </div>
+
+  <div class="loas-content">
+
+  <!-- es1: Princípios Fundamentais -->
+  <div id="es1" class="lsec on">
+    <div class="lcard">
+      <h2>Código de Ética — Resolução CFP nº 10/2005</h2>
+      <div class="lei">Aprovado em <span class="lnum">21/07/2005</span> pelo XII Plenário do CFP. Revogou o anterior (Res. CFP 02/1987). Estrutura: <span class="lkey">Apresentação · 7 Princípios Fundamentais · 25 Artigos · Disposições Gerais</span>.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>O Código de Ética vigente é a <strong>Res. CFP 10/2005</strong> (não confunda com Res. 02/1987, que foi revogada)</li><li>Tem <span class="lnum">7</span> princípios fundamentais (numerados em algarismos romanos)</li><li>Tem <span class="lnum">25</span> artigos</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Os 7 Princípios Fundamentais <span class="lhot">🔥 DECORE EM ORDEM</span></h2>
+      <ul class="la"><li><strong>I — Liberdade, Dignidade, Igualdade, Integridade.</strong> O psicólogo baseará o seu trabalho no respeito e na promoção da <span class="lkey">liberdade, da dignidade, da igualdade e da integridade do ser humano</span>, apoiado nos valores que embasam a <span class="lkey">Declaração Universal dos Direitos Humanos</span>.</li><li><strong>II — Saúde e Qualidade de Vida.</strong> O psicólogo trabalhará visando promover a <span class="lkey">saúde e a qualidade de vida</span> das pessoas e das coletividades e contribuirá para a <span class="lkey">eliminação de quaisquer formas de negligência, discriminação, exploração, violência, crueldade e opressão</span>.</li><li><strong>III — Responsabilidade Social.</strong> O psicólogo atuará com responsabilidade social, <span class="lkey">analisando crítica e historicamente a realidade política, econômica, social e cultural</span>.</li><li><strong>IV — Responsabilidade Profissional + Aprimoramento.</strong> O psicólogo atuará com responsabilidade, por meio do <span class="lkey">contínuo aprimoramento profissional</span>, contribuindo para o desenvolvimento da Psicologia como campo científico de conhecimento e de prática.</li><li><strong>V — Universalização do Acesso.</strong> O psicólogo contribuirá para promover a <span class="lkey">universalização do acesso da população</span> às informações, ao conhecimento da ciência psicológica, aos serviços e aos padrões éticos da profissão.</li><li><strong>VI — Dignidade da Profissão.</strong> O psicólogo zelará para que o <span class="lkey">exercício profissional seja efetuado com dignidade</span>, rejeitando situações em que a Psicologia esteja sendo aviltada.</li><li><strong>VII — Relações de Poder.</strong> O psicólogo <span class="lkey">considerará as relações de poder</span> nos contextos em que atua e os impactos dessas relações sobre as suas atividades profissionais, posicionando-se de forma crítica.</li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico — os 7 Princípios</div><ul class="lm"><li><strong>LI-SA-RES-RES-UN-DI-PO</strong> → <strong>LI</strong>berdade · <strong>SA</strong>úde · <strong>RES</strong>p. Social · <strong>RES</strong>p. Profissional · <strong>UN</strong>iversalização · <strong>DI</strong>gnidade · <strong>PO</strong>der</li><li>Princípio I é o único que cita a <strong>Declaração Universal dos Direitos Humanos</strong></li><li>Princípio II é o único com a lista de 6 violações (<em>negligência, discriminação, exploração, violência, crueldade, opressão</em>)</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas clássicas</div><ul class="lt"><li>"...apoiado na <span class="lneg">Constituição Federal</span>..." → <strong>ERRADO</strong> (Princípio I cita Declaração Universal dos Direitos Humanos, não CF)</li><li>"...trabalhará visando promover a saúde <span class="lneg">individual</span>..." → <strong>ERRADO</strong> (Princípio II: pessoas E coletividades)</li><li>"...realidade política <span class="lneg">e econômica</span>..." → <strong>INCOMPLETO</strong> (Princípio III: política, econômica, social E cultural — as 4)</li><li>"...universalização do acesso da população aos <span class="lneg">serviços de psicologia</span>..." → <strong>INCOMPLETO</strong> (Princípio V: informações, conhecimento, serviços E padrões éticos)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- es2: Responsabilidades + Vedações -->
+  <div id="es2" class="lsec">
+    <div class="lcard">
+      <h2>Art. 1° — Deveres Fundamentais do Psicólogo</h2>
+      <div class="lei">São deveres fundamentais (10 alíneas, "a" a "j"):</div>
+      <ul class="la"><li><strong>a)</strong> Conhecer, respeitar e fazer respeitar este Código</li><li><strong>b)</strong> Assumir responsabilidades profissionais somente por atividades para as quais esteja capacitado pessoal, teórica e tecnicamente</li><li><strong>c)</strong> Prestar serviços psicológicos de qualidade, em condições de trabalho dignas e apropriadas à natureza desses serviços</li><li><strong>d)</strong> Prestar serviços profissionais em <span class="lkey">situações de calamidade pública ou de emergência</span>, sem visar benefício pessoal</li><li><strong>e)</strong> Estabelecer acordos de prestação de serviços que respeitem os direitos do usuário ou beneficiário</li><li><strong>f)</strong> Fornecer, a quem de direito, na prestação de serviços psicológicos, informações concernentes ao trabalho a ser realizado e ao seu objetivo profissional</li><li><strong>g)</strong> Informar, a quem de direito, os resultados decorrentes da prestação de serviços psicológicos</li><li><strong>h)</strong> Orientar a quem de direito sobre os encaminhamentos apropriados</li><li><strong>i)</strong> Zelar para que o exercício profissional seja efetuado com dignidade</li><li><strong>j)</strong> Cumprir as normas do CRP em que o psicólogo está inscrito</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>Art. 2° — Vedações ao Psicólogo <span class="lhot">🔥 CAI MUITO</span></h2>
+      <div class="lei">Ao psicólogo é <span class="lneg">VEDADO</span> (21 alíneas, "a" a "u" — as mais cobradas):</div>
+      <ul class="la"><li><strong>a)</strong> Praticar ou ser conivente com quaisquer atos que <span class="lkey">caracterizem negligência, discriminação, exploração, violência, crueldade ou opressão</span></li><li><strong>b)</strong> Induzir a convicções políticas, filosóficas, morais, ideológicas, religiosas, de orientação sexual ou a qualquer tipo de preconceito</li><li><strong>c)</strong> Utilizar ou favorecer o uso de conhecimento e a utilização de práticas psicológicas como instrumentos de castigo, tortura ou qualquer forma de violência</li><li><strong>d)</strong> Ser perito, avaliador ou parecerista em situações nas quais seus vínculos, inclusive os de natureza <span class="lkey">familiar ou afetiva</span>, possam afetar a qualidade do trabalho ou a fidelidade aos princípios deste Código</li><li><strong>e)</strong> Prestar serviços profissionais a organizações concorrentes de modo que possa surgir conflito de interesses</li><li><strong>f)</strong> Prestar serviços ou vincular o título de psicólogo a serviços de atendimento psicológico cujos procedimentos, técnicas e meios não estejam regulamentados ou reconhecidos pela profissão</li><li><strong>g)</strong> Emitir documentos sem fundamentação e qualidade técnico-científica</li><li><strong>h)</strong> Interferir na validade e fidedignidade de instrumentos e técnicas psicológicas, adulterar resultados</li><li><strong>i)</strong> Intervir em prestação de serviços de outro psicólogo, salvo em situações que demonstradamente exijam a intervenção</li><li><strong>j)</strong> Pleitear ou receber comissões, empréstimos, doações ou vantagens outras, não correspondentes a serviços efetivamente prestados</li><li><strong>k)</strong> Ser conivente com erros, faltas éticas, violação de direitos, crimes ou contravenções praticados por psicólogos</li></ul>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas — Vedações</div><ul class="lt"><li>"O psicólogo pode ser perito de <span class="lneg">familiar próximo</span> desde que se declare suspeito..." → <strong>ERRADO</strong> (Art. 2°, d — é simplesmente VEDADO)</li><li>"Em situações de conflito político-ideológico, o psicólogo pode <span class="lneg">induzir o usuário</span> a uma visão crítica..." → <strong>ERRADO</strong> (Art. 2°, b)</li><li>"O psicólogo pode emitir documentos com base apenas em <span class="lneg">opinião pessoal</span>..." → <strong>ERRADO</strong> (Art. 2°, g — exige fundamentação técnico-científica)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- es3: Sigilo Profissional -->
+  <div id="es3" class="lsec">
+    <div class="lcard">
+      <h2>Art. 9° — Dever de Sigilo <span class="lhot">⭐ TÓPICO MAIS COBRADO</span></h2>
+      <div class="lei">É <span class="lkey">dever do psicólogo respeitar o sigilo profissional</span> a fim de proteger, por meio da <span class="lkey">confidencialidade</span>, a intimidade das <span class="lkey">pessoas, grupos ou organizações</span>, a que tenha acesso no exercício profissional.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Sigilo é <strong>dever</strong>, não opção</li><li>Protege intimidade de <strong>pessoas, grupos OU organizações</strong> — não só pessoas físicas</li><li>O meio de proteção é a <strong>confidencialidade</strong></li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 10 — Quebra de Sigilo (caput + §§ 1° e 2°)</h2>
+      <div class="lei">Em conflito entre o Art. 9° e os Princípios Fundamentais, <span class="lkey">excetuando-se os casos previstos em lei</span>, o psicólogo poderá decidir pela <span class="lkey">quebra de sigilo</span>, baseando sua decisão na <span class="lkey">busca do menor prejuízo</span>.</div>
+      <ul class="la"><li><strong>§ 1° (quebra por decisão ética):</strong> psicólogo deve restringir-se a prestar as <span class="lkey">informações estritamente necessárias</span></li><li><strong>§ 2° (quebra por previsão legal):</strong> mesma regra — <span class="lkey">informações estritamente necessárias</span></li></ul>
+      <div class="mbox"><div class="mbox-t">🧠 Princípio do Menor Prejuízo</div><ul class="lm"><li>A regra-mãe da quebra de sigilo é "<strong>busca do menor prejuízo</strong>"</li><li>Nunca é "obrigação total" nem "liberalidade plena" — sempre fundamentada e MÍNIMA</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas — Sigilo</div><ul class="lt"><li>"O psicólogo <span class="lneg">deve</span> quebrar o sigilo quando solicitado pelos pais..." → <strong>ERRADO</strong> (não é dever; é decisão baseada em menor prejuízo)</li><li>"Quebrado o sigilo, o psicólogo deve relatar <span class="lneg">todos os fatos</span> de que tem conhecimento..." → <strong>ERRADO</strong> (estritamente necessárias)</li><li>"O sigilo é <span class="lneg">absoluto e inquebrável</span>..." → <strong>ERRADO</strong> (pode ser quebrado em conflito com princípios ou por lei)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 11 — Depoimento em Juízo</h2>
+      <div class="lei">Quando solicitado a depor em juízo, o psicólogo <span class="lkey">poderá prestar informações</span>, considerando o disposto neste Código.</div>
+      <div class="qbox"><div class="qbox-t">📌 Atenção à palavra "PODERÁ"</div><ul class="lq"><li>É <strong>faculdade</strong>, não dever — o psicólogo avalia caso a caso</li><li>O critério continua sendo Art. 10: menor prejuízo + informações estritamente necessárias</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 12 — Equipe Multiprofissional</h2>
+      <div class="lei">Nos documentos que embasam as atividades em equipe multiprofissional, o psicólogo registrará apenas as <span class="lkey">informações necessárias para o cumprimento dos objetivos do trabalho</span>.</div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilha</div><ul class="lt"><li>"Na equipe multi, o psicólogo deve registrar <span class="lneg">todos os dados clínicos</span> para garantir transparência..." → <strong>ERRADO</strong> (Art. 12: apenas o necessário para o objetivo do trabalho)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- es4: Crianças, Adolescentes, Justiça -->
+  <div id="es4" class="lsec">
+    <div class="lcard">
+      <h2>Art. 13 — Crianças, Adolescentes e Interditos</h2>
+      <div class="lei">No atendimento à <span class="lkey">criança, adolescente ou interdito</span>, deve ser comunicado aos responsáveis o <span class="lkey">estritamente essencial</span> para se promoverem medidas em seu benefício.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Os responsáveis recebem apenas o <strong>estritamente essencial</strong> — não acesso a todo o conteúdo</li><li>Critério: o que é <strong>necessário para medidas em benefício</strong> da criança/adolescente/interdito</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"Os pais têm <span class="lneg">direito a todo o conteúdo</span> do atendimento do filho menor..." → <strong>ERRADO</strong></li><li>"O psicólogo <span class="lneg">não pode dar nenhuma informação</span> aos responsáveis..." → <strong>ERRADO</strong> (deve comunicar o essencial)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 14 — Pagamento por Serviços Profissionais</h2>
+      <div class="lei">Os preços dos serviços do psicólogo devem ser fixados considerando: condição financeira do usuário · contexto profissional · custos · dignidade da profissão.</div>
+      <p style="color:#94a3b8;font-size:0.83rem;margin-top:8px">⚠️ Pouco cobrado, mas existe — costuma vir em pegadinha sobre "pode psicólogo cobrar diferenciado conforme renda?" (sim, pode).</p>
+    </div>
+    <div class="lcard">
+      <h2>Art. 15 — Encerramento da Prestação de Serviços</h2>
+      <div class="lei">O encerramento deve ocorrer com a <span class="lkey">devida análise crítica</span> da situação e a <span class="lkey">comunicação à pessoa atendida</span>, encaminhando-a, quando necessário, a outro profissional.</div>
+    </div>
+  </div>
+
+  <!-- es5: Anúncio + Pesquisa -->
+  <div id="es5" class="lsec">
+    <div class="lcard">
+      <h2>Art. 20 — Anúncio Profissional</h2>
+      <div class="lei">Ao anunciar serviços profissionais, o psicólogo:</div>
+      <ul class="la"><li><strong>a)</strong> Mencionará apenas seu <span class="lkey">nome ou nome do serviço, sua profissão, número e sigla do CRP, especialidades reconhecidas, serviços prestados, endereço, contato e horário</span> de trabalho</li><li><strong>b)</strong> Apresentará apenas <span class="lkey">qualificações, formações e títulos que possa comprovar</span></li><li><strong>c)</strong> Pode incluir <span class="lkey">cursos de extensão, formação ou aperfeiçoamento</span> que possa comprovar</li></ul>
+      <div class="lcard" style="background:#2d1515;border-left-color:#ef4444;margin-top:14px"><h2 style="color:#f87171">É VEDADO no anúncio</h2><ul class="la"><li>Anunciar especialidade que <span class="lneg">não esteja reconhecida</span> pelo CFP/CRP</li><li>Anunciar prática que <span class="lneg">não esteja regulamentada</span></li><li>Vincular o título a entidades sem reconhecimento</li><li>Garantir <span class="lneg">resultados</span></li><li>Fazer publicidade enganosa, depreciativa ou sensacionalista</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas</div><ul class="lt"><li>"O psicólogo pode anunciar <span class="lneg">'cura garantida'</span> de fobias..." → <strong>ERRADO</strong> (vedado garantir resultados)</li><li>"Posso anunciar especialização <span class="lneg">em andamento</span> como já obtida..." → <strong>ERRADO</strong> (só o comprovável)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 16 — Pesquisa em Psicologia</h2>
+      <ul class="la"><li>Avaliará os <span class="lkey">riscos envolvidos</span>, tanto pelos procedimentos quanto pela divulgação dos resultados</li><li>Garantirá o caráter <span class="lkey">voluntário da participação</span> dos envolvidos</li><li>Garantirá o <span class="lkey">anonimato</span> dos sujeitos de pesquisa</li><li>Garantirá o <span class="lkey">acesso aos resultados</span> em linguagem acessível</li><li>Submeterá projeto a <span class="lkey">Comitê de Ética em Pesquisa (CEP)</span> reconhecido, quando aplicável</li><li>Obterá o <span class="lkey">consentimento dos participantes ou seus responsáveis</span>, após esclarecimento sobre objetivos, método e direitos</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Consentimento <strong>livre e esclarecido</strong> — sempre exigido</li><li>Pesquisa com seres humanos passa por <strong>CEP</strong> (Comitê de Ética em Pesquisa)</li><li>Direitos do participante: voluntariedade, anonimato, acesso aos resultados</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 17 — Ensino, Pesquisa, Divulgação Científica</h2>
+      <div class="lei">No exercício do magistério, supervisão, pesquisa e divulgação científica, o psicólogo: <span class="lkey">cuidará dos princípios da profissão</span> · empregará seus conhecimentos para o aprimoramento da Psicologia · zelará pela formação de novos profissionais.</div>
+    </div>
+  </div>
+
+  <!-- es6: Infrações + Penalidades -->
+  <div id="es6" class="lsec">
+    <div class="lcard">
+      <h2>Art. 21 — Apuração de Infrações</h2>
+      <div class="lei">Compete aos <span class="lkey">Conselhos Regionais de Psicologia (CRPs)</span> a apuração das transgressões a este Código, conforme processo disciplinar próprio.</div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 22 — As 5 Penalidades <span class="lhot">🔥 CAI MUITO — DECORE A ORDEM</span></h2>
+      <div class="lei">As transgressões deste Código constituirão infrações disciplinares com a aplicação das seguintes <span class="lkey">5 penalidades, em ordem crescente de gravidade</span>:</div>
+      <table class="ltable"><tr><th>#</th><th>Penalidade</th><th>Quem aplica</th></tr><tr><td><strong>a</strong></td><td><span class="lkey">Advertência</span></td><td>CRP</td></tr><tr><td><strong>b</strong></td><td><span class="lkey">Multa</span></td><td>CRP</td></tr><tr><td><strong>c</strong></td><td><span class="lkey">Censura Pública</span></td><td>CRP</td></tr><tr><td><strong>d</strong></td><td><span class="lkey">Suspensão</span> do exercício profissional <span class="lkey">por até 30 dias</span></td><td>CRP, <em>ad referendum</em> do <span class="lkey">CFP</span></td></tr><tr><td><strong>e</strong></td><td><span class="lkey">Cassação</span> do exercício profissional</td><td>CRP, <em>ad referendum</em> do <span class="lkey">CFP</span></td></tr></table>
+      <div class="mbox"><div class="mbox-t">🧠 Mnemônico — 5 Penalidades em ordem</div><ul class="lm"><li><strong>A · M · C · S · C</strong> → <strong>A</strong>dvertência · <strong>M</strong>ulta · <strong>C</strong>ensura pública · <strong>S</strong>uspensão · <strong>C</strong>assação</li><li>Suspensão é <strong>por até 30 dias</strong> (não 60, não 90)</li><li>Suspensão e Cassação exigem <strong><em>ad referendum</em> do CFP</strong> — as outras 3 ficam no CRP</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas — Penalidades</div><ul class="lt"><li>"A suspensão pode ser de até <span class="lneg">90 dias</span>..." → <strong>ERRADO</strong> (até 30 dias)</li><li>"A advertência exige <span class="lneg">ad referendum do CFP</span>..." → <strong>ERRADO</strong> (só suspensão e cassação)</li><li>"As 5 penalidades são aplicáveis pelo <span class="lneg">CFP</span>..." → <strong>ERRADO</strong> (quem aplica é o CRP)</li><li>"A ordem é: advertência, censura, multa..." → <strong>ERRADO</strong> (multa vem antes de censura: a-b-c-d-e)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Art. 23 — Aplicação Subsidiária</h2>
+      <div class="lei">Cabe ao CFP, ouvidos os CRPs, firmar <span class="lkey">orientações para a aplicação do Código</span>, podendo legislar sobre matéria omissa.</div>
+    </div>
+  </div>
+
+  <!-- es7: Res. 06/2019 — Documentos -->
+  <div id="es7" class="lsec">
+    <div class="lcard">
+      <h2>Resolução CFP nº 06/2019 — Manual de Elaboração de Documentos <span class="lhot">⭐ NOVA NO PLANO</span></h2>
+      <div class="lei">Publicada em <span class="lnum">29/03/2019</span>. <span class="lkey">Revogou a Res. CFP 07/2003</span>. Institui regras para a elaboração de documentos escritos produzidos pelo psicólogo no exercício profissional.</div>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>Revogou a Res. 07/2003 (a banca pode citar a antiga como vigente — ERRADO)</li><li>São <span class="lnum">5</span> tipos de documentos escritos (decorar nomes na ordem do impacto crescente)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Os 5 Tipos de Documentos <span class="lhot">🔥 SEMPRE CAI</span></h2>
+      <table class="ltable"><tr><th>#</th><th>Documento</th><th>O que é</th><th>Profundidade</th></tr><tr><td>1</td><td><strong>Declaração</strong></td><td>Informa apenas a <span class="lkey">ocorrência</span> de fatos: comparecimento, acompanhamento, atendimento. <span class="lkey">Sem julgamento ou avaliação</span></td><td>Mínima</td></tr><tr><td>2</td><td><strong>Atestado Psicológico</strong></td><td>Afirmação <span class="lkey">fundamentada e resumida</span> sobre fenômeno psicológico — para informar a instituição (escola, trabalho, justiça) sobre condições psicológicas</td><td>Baixa</td></tr><tr><td>3</td><td><strong>Relatório Psicológico</strong></td><td>Apresentação <span class="lkey">descritiva</span> sobre situações/condições psicológicas. Detalha o processo</td><td>Média</td></tr><tr><td>4</td><td><strong>Laudo Psicológico</strong></td><td>Apresentação <span class="lkey">descritiva E interpretativa</span> + <span class="lkey">determinações históricas, sociais, políticas e culturais</span></td><td>Alta</td></tr><tr><td>5</td><td><strong>Parecer Psicológico</strong></td><td><span class="lkey">Opinião fundamentada sobre questão específica</span> (consulta)</td><td>Resposta a consulta</td></tr></table>
+      <div class="mbox"><div class="mbox-t">🧠 Truque para diferenciar</div><ul class="lm"><li><strong>Declaração</strong> = "esteve aqui" (sem julgamento)</li><li><strong>Atestado</strong> = "está em condição X" (afirmação resumida)</li><li><strong>Relatório</strong> = descreve um processo</li><li><strong>Laudo</strong> = descreve E interpreta + contexto histórico/social</li><li><strong>Parecer</strong> = responde a uma pergunta específica de quem consultou</li></ul></div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilhas — Documentos</div><ul class="lt"><li>"A <span class="lneg">declaração</span> contém análise crítica e interpretação..." → <strong>ERRADO</strong> (é só informação simples — quem interpreta é o LAUDO)</li><li>"O <span class="lneg">atestado</span> deve conter descrição minuciosa do processo..." → <strong>ERRADO</strong> (atestado é resumido — RELATÓRIO descreve)</li><li>"O <span class="lneg">laudo</span> não inclui determinações sociais/políticas..." → <strong>ERRADO</strong> (inclui obrigatoriamente)</li><li>"<span class="lneg">Parecer</span> é elaborado para apresentar resultados de avaliação..." → <strong>ERRADO</strong> (responde a CONSULTA específica)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Estrutura Geral dos Documentos (Art. 4°)</h2>
+      <ul class="la"><li><strong>I — Identificação:</strong> autor, demandante, interessado, finalidade</li><li><strong>II — Descrição da demanda:</strong> motivo, justificativa</li><li><strong>III — Procedimento:</strong> métodos, técnicas e instrumentos utilizados</li><li><strong>IV — Análise:</strong> exposição reflexiva e fundamentada baseada nos achados</li><li><strong>V — Conclusão:</strong> síntese do processo, considerando finalidade do documento</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Quadrix costuma cobrar</div><ul class="lq"><li>São <span class="lnum">5</span> seções estruturais (I a V)</li><li>A <strong>análise</strong> deve ser <strong>fundamentada</strong> nos achados — não é opinião livre</li><li>Declaração NÃO segue essa estrutura completa (é mais simples)</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Princípios Técnicos (Art. 3°)</h2>
+      <ul class="la"><li>Compromisso com os <span class="lkey">direitos humanos</span></li><li>Cuidado na utilização de <span class="lkey">instrumentos e técnicas</span> reconhecidas</li><li>Linguagem <span class="lkey">precisa e científica</span></li><li>Rigor metodológico</li><li>Sigilo: informações <span class="lkey">estritamente necessárias</span> à finalidade do documento</li><li>Responsabilidade pelos documentos elaborados</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>Tempo de Guarda dos Documentos (Art. 16) <span class="lhot">🔥 NÚMERO QUE CAI</span></h2>
+      <div class="lei">O psicólogo é responsável pela guarda dos documentos por <span class="lkey">prazo mínimo de <span class="lnum">5 anos</span></span>, observando os seguintes parâmetros: necessidade institucional · necessidade de comissões éticas e do CFP · solicitação judicial · interesse científico.</div>
+      <div class="tbox"><div class="tbox-t">⚠️ Armadilha clássica</div><ul class="lt"><li>"Prazo mínimo de guarda dos documentos psicológicos é de <span class="lneg">2 anos</span>..." → <strong>ERRADO</strong> (5 anos)</li><li>"...prazo de <span class="lneg">10 anos</span>..." → <strong>ERRADO</strong> (mínimo de 5, pode ser ampliado)</li></ul></div>
+    </div>
+  </div>
+
+  <!-- es8: Outras Resoluções -->
+  <div id="es8" class="lsec">
+    <div class="lcard">
+      <h2>Res. CFP nº 11/2018 — Atendimento Psicológico Online</h2>
+      <div class="lei">Regula a prestação de serviços psicológicos por meios <span class="lkey">tecnológicos de comunicação à distância</span> (TICs).</div>
+      <ul class="la"><li>Atendimento online é <span class="lkey">PERMITIDO</span></li><li>Psicólogo deve cadastrar-se previamente no <span class="lkey">e-Psi</span> (cadastro do CFP)</li><li>Cliente deve ser informado sobre <span class="lkey">limitações da modalidade</span> e proteção de dados</li></ul>
+      <div class="qbox"><div class="qbox-t">📌 Cuidado</div><ul class="lq"><li>Antes da Res. 11/2018 havia restrições. Agora é amplamente permitido (com cadastro)</li><li>Vítimas de violência, situações de emergência: cuidados extras</li></ul></div>
+    </div>
+    <div class="lcard">
+      <h2>Res. CFP nº 01/2018 — Pessoas Trans</h2>
+      <div class="lei">Estabelece <span class="lkey">orientações para psicólogos sobre identidade de gênero</span> e suspende qualquer prática que vise patologização, conversão ou reorientação.</div>
+      <ul class="la"><li>É <span class="lneg">VEDADO</span> ao psicólogo propor terapia de conversão</li><li>Reconhece identidade de gênero autodeclarada</li><li>Combate a patologização das vivências trans</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>Res. CFP nº 01/1999 — Orientação Sexual</h2>
+      <div class="lei">Norma de atuação para psicólogos em relação à <span class="lkey">questão da orientação sexual</span>. Estabelece que a homossexualidade <span class="lkey">não constitui doença, distúrbio ou perversão</span>.</div>
+      <ul class="la"><li>Psicólogos <span class="lneg">não colaborarão</span> com eventos e serviços que proponham tratamento e cura das homossexualidades</li><li>Psicólogos <span class="lneg">não se pronunciarão</span> de forma a contribuir com preconceito social</li></ul>
+    </div>
+    <div class="lcard">
+      <h2>Res. CFP nº 09/2018 — Avaliação Psicológica (SATEPSI)</h2>
+      <div class="lei">Estabelece regras para a <span class="lkey">elaboração, comercialização, uso e estudo dos testes psicológicos</span>. Cria o <span class="lkey">SATEPSI</span> (Sistema de Avaliação de Testes Psicológicos).</div>
+      <ul class="la"><li>Só pode ser usado teste com <span class="lkey">parecer favorável</span> do SATEPSI</li><li>Teste tem validade temporal — psicólogo deve consultar SATEPSI periodicamente</li></ul>
+    </div>
+  </div>
+
+  <!-- es9: Recall Geral -->
+  <div id="es9" class="lsec">
+    <div class="lcard">
+      <h2>🎯 Recall — Números e Regras de Ouro</h2>
+      <p style="color:#94a3b8;font-size:0.84rem;margin-bottom:14px">Tente responder <strong>sem olhar</strong>. Clique para revelar.</p>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a Resolução do Código de Ética vigente? Em que ano?</div><div class="ra">→ Resolução CFP nº 10/2005 (revogou a Res. 02/1987)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quantos princípios fundamentais tem o Código? E quantos artigos?</div><div class="ra">→ 7 princípios fundamentais + 25 artigos</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">O Princípio I cita qual documento internacional?</div><div class="ra">→ Declaração Universal dos Direitos Humanos (NÃO é a Constituição Federal)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais as 6 violações listadas no Princípio II?</div><div class="ra">→ Negligência, discriminação, exploração, violência, crueldade e opressão</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">O sigilo (Art. 9°) protege a intimidade de quem?</div><div class="ra">→ Pessoas, grupos OU organizações (não só pessoas)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual o critério para quebra de sigilo (Art. 10)?</div><div class="ra">→ Busca do menor prejuízo + informações estritamente necessárias</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quando solicitado a depor em juízo, o psicólogo deve ou pode prestar informações?</div><div class="ra">→ PODE (Art. 11 — é faculdade, não dever)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Atendimento a criança/adolescente/interdito: o que se comunica aos responsáveis?</div><div class="ra">→ Apenas o estritamente essencial para promover medidas em seu benefício (Art. 13)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais as 5 penalidades do Art. 22 em ordem?</div><div class="ra">→ a) Advertência · b) Multa · c) Censura pública · d) Suspensão (até 30 dias) · e) Cassação (A-M-C-S-C)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a duração máxima da Suspensão? Quem aprova?</div><div class="ra">→ Até 30 dias · CRP aplica, mas exige ad referendum do CFP</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quem aplica a Cassação? Quem confirma?</div><div class="ra">→ CRP aplica, ad referendum do CFP confirma</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a Resolução vigente sobre documentos psicológicos? Que ano? O que revogou?</div><div class="ra">→ Res. CFP 06/2019 — revogou a Res. CFP 07/2003</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Quais os 5 tipos de documentos psicológicos?</div><div class="ra">→ Declaração · Atestado · Relatório · Laudo · Parecer</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a diferença entre Relatório e Laudo?</div><div class="ra">→ Relatório é descritivo; Laudo é descritivo E interpretativo + determinações históricas, sociais, políticas e culturais</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">O que é um Parecer Psicológico?</div><div class="ra">→ Opinião fundamentada do psicólogo sobre uma questão específica (consulta) que lhe foi feita</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a estrutura geral dos documentos (Art. 4° Res. 06/2019)?</div><div class="ra">→ I-Identificação · II-Descrição da demanda · III-Procedimento · IV-Análise · V-Conclusão</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual o prazo mínimo de guarda dos documentos psicológicos?</div><div class="ra">→ 5 anos (mínimo; pode ser ampliado)</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">É permitido atendimento psicológico online?</div><div class="ra">→ Sim, regulado pela Res. CFP 11/2018 — psicólogo deve se cadastrar no e-Psi</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">A homossexualidade é doença para o CFP? Qual a Resolução?</div><div class="ra">→ Não. Res. CFP 01/1999 — não constitui doença, distúrbio ou perversão. Vedado oferecer "tratamento" ou "cura"</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Qual a Resolução sobre identidade de gênero?</div><div class="ra">→ Res. CFP 01/2018 — vedada terapia de conversão; respeita autodeclaração</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Pode o psicólogo ser perito em caso envolvendo familiar?</div><div class="ra">→ NÃO. Art. 2°, "d" — vedado quando vínculos familiares ou afetivos possam afetar a qualidade do trabalho</div></div>
+      <div class="rcard" onclick="toggleRecall(this)"><div class="rq">Pode anunciar "cura garantida"?</div><div class="ra">→ NÃO. Art. 20 veda garantir resultados na publicidade</div></div>
+    </div>
+  </div>
+
+  </div><!-- /loas-content -->
+  <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · Res. CFP 10/2005 + 06/2019 + correlatas</footer>
+</div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 6: QUESTÕES
 ══════════════════════════════════════════════════════════ -->
 <section id="tab-questoes" class="tab-section">
 <div class="qz-wrap">
@@ -1283,6 +1513,7 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     <tr><th>Bloco do edital</th><th>Semana(s)</th><th>Status</th><th>Aba permanente</th></tr>
     <tr><td>SUAS Fundamentos (LOAS · PNAS)</td><td>1</td><td style="color:#16a34a;font-weight:700">✅ Concluído</td><td>⚖️ LOAS</td></tr>
     <tr><td>NOB/SUAS · NOB-RH · Tipificação</td><td>2</td><td style="color:#16a34a;font-weight:700">✅ Concluído</td><td>📚 NOB/SUAS</td></tr>
+    <tr><td>Código de Ética + Res. CFP 06/2019 (Documentos)</td><td>Manutenção mensal + Sem 11</td><td style="color:#d97706;font-weight:700">📖 Em manutenção</td><td>⚖️ Ética CFP</td></tr>
     <tr><td>Lei Maria da Penha + Mulheres</td><td>5–6</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
     <tr><td>Legislação Protetiva (ECA · LBI · Idoso · Pop. Rua)</td><td>7–8</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
     <tr><td>Psicólogo no SUAS + Abordagens ⭐</td><td>9–10</td><td style="color:#94a3b8">⏳ Pendente</td><td>—</td></tr>
@@ -1326,6 +1557,7 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
   </div>
 
   <h2 class="plano-h2">Manutenção mensal — Português · Ética · Lei Orgânica</h2>
+  <div class="info-box"><strong>Dica nova:</strong> antes da manutenção de Ética, abre a aba <a onclick="showMain('etica')" style="color:#2563eb;cursor:pointer;text-decoration:underline">⚖️ Ética CFP</a> e faz o Recall Geral (seção 9) — leva 10 min e dispara a memória dos princípios + sigilo + penalidades antes das 10 questões. Marca acerto/erro por matéria pra decidir se "mantém" ou "relê" na semana seguinte.</div>
   <table class="diag-table">
     <tr><th>Data</th><th>Status</th><th>Desempenho</th></tr>
     <tr><td>28/05/2026 (quinta da semana 2)</td><td style="color:#16a34a;font-weight:700">✅ Concluída</td><td>— (registrar % após resolver)</td></tr>
@@ -1384,6 +1616,14 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
   function showNob(id, btn) {
     document.querySelectorAll('#tab-nob .lsec').forEach(s => s.classList.remove('on'));
     document.querySelectorAll('#tab-nob .nb').forEach(b => b.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+    btn.classList.add('on');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showEtica(id, btn) {
+    document.querySelectorAll('#tab-etica .lsec').forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('#tab-etica .nb').forEach(b => b.classList.remove('on'));
     document.getElementById(id).classList.add('on');
     btn.classList.add('on');
     window.scrollTo({top: 0, behavior: 'smooth'});
