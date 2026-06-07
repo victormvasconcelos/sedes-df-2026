@@ -168,6 +168,34 @@ NOTA PROVÁVEL: X/100
 - Total da resposta: 350-500 palavras.`;
   }
 
+  // Prompt para a BANCA MULTIAGENTE (skill /discursiva no Claude Code)
+  function gerarPromptBanca(caso, textoRedacao) {
+    const pontosObrigatoriosFmt = caso.pontos_obrigatorios.map((p, i) => `${i + 1}. ${p}`).join('\n');
+    const armadilhasFmt = caso.armadilhas_a_evitar.map((a, i) => `${i + 1}. ${a}`).join('\n');
+
+    return `/discursiva
+
+Corrija minha redação rodando a BANCA MULTIAGENTE (workflow dinâmico: 3 avaliadores em paralelo — CAC/OT/DLP — + agente cético que remove notas infladas + síntese final). Cargo 409 EDAS Psicologia, SEDES-DF 2026. Workers em Haiku. Não invente normas.
+
+═══ CASO ═══
+${caso.titulo}
+
+CONTEXTO:
+${caso.contexto}
+
+PERGUNTA:
+${caso.pergunta}
+
+═══ PONTOS OBRIGATÓRIOS (verificar um a um) ═══
+${pontosObrigatoriosFmt}
+
+═══ ARMADILHAS A EVITAR (verificar se caí) ═══
+${armadilhasFmt}
+
+═══ MINHA RESPOSTA ═══
+${textoRedacao}`;
+  }
+
   // ---------- Tela 1: Lista ----------
 
   function renderLista() {
@@ -333,7 +361,21 @@ NOTA PROVÁVEL: X/100
     abrirModalCorrecao(caso, prompt);
   }
 
-  function abrirModalCorrecao(caso, prompt) {
+  function corrigirBanca() {
+    const caso = CASOS.find(c => c.id === casoAtualId);
+    if (!caso) return;
+    const texto = document.getElementById('editor').value.trim();
+    if (texto.length < 200) {
+      alert('Escreva pelo menos um parágrafo substancial (200 caracteres) antes de pedir correção.');
+      return;
+    }
+    salvarRascunho(caso.id, texto);
+    const prompt = gerarPromptBanca(caso, texto);
+    abrirModalCorrecao(caso, prompt, 'banca');
+  }
+
+  function abrirModalCorrecao(caso, prompt, modo) {
+    const ehBanca = modo === 'banca';
     document.body.style.overflow = 'hidden';
     const old = document.getElementById('disc-overlay');
     if (old) old.remove();
@@ -346,7 +388,7 @@ NOTA PROVÁVEL: X/100
     overlay.innerHTML = `
       <div class="expl-modal" role="dialog" aria-modal="true">
         <div class="expl-header">
-          <div class="expl-titulo">Corrigir discursiva</div>
+          <div class="expl-titulo">${ehBanca ? '🎯 Banca multiagente — /discursiva' : 'Corrigir discursiva'}</div>
           <button class="expl-close" id="disc-close">×</button>
         </div>
         <div class="expl-body">
@@ -356,11 +398,13 @@ NOTA PROVÁVEL: X/100
           </div>
 
           <div class="expl-banner sem-cache">
-            Copie o prompt completo, cole numa IA externa (Codex / Claude.ai / ChatGPT / Gemini), cole a correção de volta aqui.
+            ${ehBanca
+              ? 'Copie o prompt e cole no <strong>Claude Code (terminal)</strong>. A skill <code>/discursiva</code> roda a banca multiagente (3 avaliadores em paralelo + cético + síntese) e devolve a nota. Cole o resultado de volta aqui para salvar.'
+              : 'Copie o prompt completo, cole numa IA externa (Codex / Claude.ai / ChatGPT / Gemini), cole a correção de volta aqui.'}
           </div>
 
           <div class="expl-secao">
-            <h3>1. Prompt pronto (inclui sua redação + grade Quadrix)</h3>
+            <h3>${ehBanca ? '1. Prompt pronto (chama /discursiva com sua redação + caso)' : '1. Prompt pronto (inclui sua redação + grade Quadrix)'}</h3>
             <div class="expl-prompt-box" id="disc-prompt">${escapar(prompt)}</div>
             <div class="expl-btn-row">
               <button class="expl-btn expl-btn-primary" id="disc-btn-copiar">📋 Copiar prompt</button>
@@ -370,10 +414,9 @@ NOTA PROVÁVEL: X/100
           <div class="expl-secao">
             <h3>2. Onde colar</h3>
             <div class="expl-onde">
-              <strong>Codex CLI</strong> (assinatura ChatGPT — gratuito dentro da assinatura)<br>
-              <strong>Claude.ai</strong> (free tier dá conta) — <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a><br>
-              <strong>ChatGPT</strong> — <a href="https://chat.openai.com" target="_blank" rel="noopener">chat.openai.com</a><br>
-              <strong>Gemini</strong> (free tier generoso) — <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>
+              ${ehBanca
+                ? '<strong>Claude Code</strong> (terminal). Passo a passo:<br>1. Abra o Claude Code no terminal.<br>2. Cole o prompt acima e dê <strong>Enter</strong>.<br>3. Confirme quando ele perguntar <em>"dynamic workflow requested"</em>.<br>4. Acompanhe com <code>/workflows</code> (agentes, tokens, fases).<br>5. Quando terminar, cole a nota + feedback de volta aqui. 💡 Cheque o <code>/model</code> antes — os avaliadores já pedem Haiku para economizar.'
+                : '<strong>Codex CLI</strong> (assinatura ChatGPT — gratuito dentro da assinatura)<br><strong>Claude.ai</strong> (free tier dá conta) — <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a><br><strong>ChatGPT</strong> — <a href="https://chat.openai.com" target="_blank" rel="noopener">chat.openai.com</a><br><strong>Gemini</strong> (free tier generoso) — <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>'}
             </div>
           </div>
 
@@ -524,6 +567,8 @@ NOTA PROVÁVEL: X/100
       window.scrollTo(0, 0);
     };
     document.getElementById('btn-corrigir').onclick = corrigirAtual;
+    const btnBanca = document.getElementById('btn-banca');
+    if (btnBanca) btnBanca.onclick = corrigirBanca;
   }
 
   if (document.readyState === 'loading') {
