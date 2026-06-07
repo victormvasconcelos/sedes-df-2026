@@ -89,6 +89,16 @@
     .slot-time{font-size:11px;font-weight:600;color:#888;margin-top:2px}
     .slot p{font-size:14px;color:#444;margin-bottom:8px}
     .slot p:last-child{margin-bottom:0}
+    /* Check de conclusão de etapa */
+    .slot-check{margin-left:auto;flex-shrink:0;display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;border:1.5px solid #cbd5e1;background:#fff;color:#64748b;border-radius:20px;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all .15s;font-family:inherit}
+    .slot-check:hover{border-color:#10b981;color:#10b981}
+    .slot-check.on{background:#10b981;border-color:#10b981;color:#fff}
+    .slot.slot-done{opacity:.62}
+    .slot.slot-done .slot-title{text-decoration:line-through;text-decoration-color:#10b981}
+    .day-progress{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:12px;font-weight:700;color:#10b981;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:20px;padding:5px 12px}
+    .day-progress.zero{color:#94a3b8;background:#f1f5f9;border-color:#e2e8f0}
+    .dp-bar{width:90px;height:6px;border-radius:3px;background:#d1fae5;overflow:hidden}
+    .dp-bar i{display:block;height:100%;background:#10b981;transition:width .25s}
     .tip{background:#fef9ec;border:1px solid #f6d860;border-radius:8px;padding:8px 12px;font-size:13px;color:#7a5c00;margin-top:8px}
 
     .recall-card{background:#1a1a2e;color:#e0e0ff;border-radius:12px;padding:18px 20px;font-family:'Courier New',monospace;font-size:13px;line-height:2.1;margin-top:12px}
@@ -215,6 +225,12 @@
     .qz-feedback.show{display:block}
     .qz-feedback.ok{background:#f0fdf4;color:#166534;border-left:4px solid #22c55e}
     .qz-feedback.bad{background:#fef2f2;color:#991b1b;border-left:4px solid #ef4444}
+    .qz-explica{margin-top:10px}
+    .qz-explica-toggle{width:100%;text-align:left;background:#eef2ff;color:#4338ca;border:1px solid #c7d2fe;border-radius:10px;padding:11px 14px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;transition:.2s}
+    .qz-explica-toggle:hover{background:#e0e7ff;border-color:#a5b4fc}
+    .qz-explica-toggle::after{content:'▾';margin-left:auto;transition:transform .2s;color:#6366f1}
+    .qz-explica-toggle.open::after{transform:rotate(180deg)}
+    .qz-explica-body{margin-top:8px;background:#fafaff;border:1px solid #e0e7ff;border-left:4px solid #4338ca;border-radius:10px;padding:14px 16px;font-size:14px;line-height:1.6;color:#1e293b;white-space:normal}
 
     .qz-actions{display:flex;gap:8px;margin-top:14px}
     .qz-btn{flex:1;padding:12px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:.15s}
@@ -246,6 +262,101 @@
       .qz-stats-mini{grid-template-columns:repeat(2,1fr)}
       .qz-result-hero .big{font-size:36px}
     }
+
+    /* ═══ FIBROMODE ═══ */
+    .fm-wrap{max-width:840px;margin:0 auto;padding:18px}
+    .fm-rule{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-left:5px solid #d97706;padding:14px 18px;border-radius:10px;margin-bottom:24px;font-size:14px;color:#78350f}
+    .fm-rule-icon{font-size:24px}
+    .fm-h2{color:#2d1f69;font-size:22px;margin:0 0 4px}
+    .fm-sub{color:#64748b;font-size:14px;margin:0 0 20px}
+    .fm-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+    .fm-slider-block{margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #f1f5f9}
+    .fm-slider-block:last-of-type{border-bottom:none;margin-bottom:8px}
+    .fm-slider-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    .fm-slider-head label{font-weight:600;color:#1e293b;font-size:14px}
+    .fm-val{background:#2d1f69;color:#fff;font-weight:700;padding:3px 12px;border-radius:8px;font-size:13px;min-width:48px;text-align:center}
+    .fm-slider{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:4px;background:linear-gradient(to right,#10b981 0%,#f59e0b 50%,#ef4444 100%);outline:none;cursor:pointer}
+    .fm-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #2d1f69;cursor:pointer;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+    .fm-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #2d1f69;cursor:pointer}
+    .fm-scale{display:flex;justify-content:space-between;font-size:11px;color:#94a3b8;margin-top:4px}
+    .fm-btn-save{width:100%;padding:14px;border:none;border-radius:10px;background:linear-gradient(135deg,#2d1f69,#4338ca);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:10px;transition:.2s}
+    .fm-btn-save:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(45,31,105,0.3)}
+    .fm-resultado{margin-top:24px;display:none}
+    .fm-resultado.show{display:block;animation:fmFade .4s ease}
+    @keyframes fmFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .fm-zona-card{display:flex;align-items:center;gap:18px;padding:22px;border-radius:14px;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+    .fm-zona-card.verde{background:linear-gradient(135deg,#10b981,#059669)}
+    .fm-zona-card.amarela{background:linear-gradient(135deg,#f59e0b,#d97706)}
+    .fm-zona-card.vermelha{background:linear-gradient(135deg,#ef4444,#dc2626)}
+    .fm-zona-emoji{font-size:48px}
+    .fm-zona-nome{font-size:22px;font-weight:800}
+    .fm-zona-score{font-size:14px;opacity:.95;margin-top:2px}
+    .fm-plano{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin-top:14px}
+    .fm-plano h3{color:#2d1f69;margin:0 0 12px;font-size:16px}
+    .fm-plano-tempo{display:inline-block;background:#eef2ff;color:#4338ca;padding:6px 14px;border-radius:8px;font-weight:700;font-size:14px;margin-bottom:10px}
+    .fm-checklist{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin-top:14px}
+    .fm-checklist h3{color:#2d1f69;margin:0 0 12px;font-size:16px}
+    .fm-checklist ul{margin:0;padding-left:20px;line-height:1.8;color:#334155;font-size:14px}
+    .fm-checklist li{margin-bottom:4px}
+    .fm-historico{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px;overflow-x:auto}
+    .fm-hist-row{display:grid;grid-template-columns:90px 60px 60px 60px 60px 70px 60px;gap:6px;padding:8px 10px;border-bottom:1px solid #f1f5f9;font-size:12px;align-items:center}
+    .fm-hist-row.head{font-weight:700;color:#64748b;border-bottom:2px solid #e2e8f0;font-size:11px;text-transform:uppercase}
+    .fm-hist-row .fm-hist-zona{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+    .fm-hist-row .fm-hist-zona.verde{background:#10b981;color:#fff}
+    .fm-hist-row .fm-hist-zona.amarela{background:#f59e0b;color:#fff}
+    .fm-hist-row .fm-hist-zona.vermelha{background:#ef4444;color:#fff}
+
+    /* ═══ ESTRATÉGIA ═══ */
+    .es-wrap{max-width:1000px;margin:0 auto;padding:18px}
+    .es-h2{color:#2d1f69;font-size:24px;margin:0 0 4px}
+    .es-h3{color:#2d1f69;font-size:17px;margin:24px 0 4px}
+    .es-sub{color:#64748b;font-size:14px;margin:0 0 18px}
+    .es-dica{color:#94a3b8;font-size:13px;margin:0 0 10px;font-style:italic}
+    .es-overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:18px}
+    .es-ovbox{background:#fff;border:1px solid #e2e8f0;border-left:4px solid #4338ca;border-radius:10px;padding:14px}
+    .es-ovbox .v{font-size:22px;font-weight:800;color:#2d1f69;line-height:1}
+    .es-ovbox .l{font-size:12px;color:#64748b;margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+    .es-disc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+    .es-disc-chip{padding:8px 14px;border:2px solid #e2e8f0;border-radius:20px;background:#fff;cursor:pointer;font-size:13px;font-weight:600;color:#64748b;transition:.15s}
+    .es-disc-chip:hover{border-color:#a5b4fc;color:#4338ca}
+    .es-disc-chip.on{background:#2d1f69;color:#fff;border-color:#2d1f69}
+    .es-tabela-wrap{background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden}
+    .es-tabela{max-height:560px;overflow-y:auto}
+    .es-row{display:grid;grid-template-columns:1fr 60px 70px 80px;gap:8px;padding:11px 14px;border-bottom:1px solid #f1f5f9;align-items:center;cursor:pointer;transition:.15s;font-size:13px}
+    .es-row:hover{background:#eef2ff}
+    .es-row.head{background:#f8fafc;font-weight:700;color:#64748b;text-transform:uppercase;font-size:11px;cursor:default;letter-spacing:.5px}
+    .es-row.head:hover{background:#f8fafc}
+    .es-row .es-topico{font-weight:600;color:#1e293b}
+    .es-bar{position:relative;width:100%;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+    .es-bar-fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,#4338ca,#7c3aed);border-radius:4px}
+    .es-row-prio{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase}
+    .es-row-prio.alta{background:#fee2e2;color:#991b1b}
+    .es-row-prio.media{background:#fef3c7;color:#78350f}
+    .es-row-prio.baixa{background:#dbeafe;color:#1e40af}
+    .es-dossie{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;margin-top:14px}
+    .es-dossie-close{background:none;border:none;color:#4338ca;font-size:14px;cursor:pointer;padding:0;margin-bottom:12px;font-weight:600}
+    .es-dossie-close:hover{text-decoration:underline}
+    .es-dossie h3{color:#2d1f69;font-size:20px;margin:0 0 12px}
+    .es-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:18px}
+    .es-stat{background:#f8fafc;border-radius:8px;padding:10px 12px}
+    .es-stat .v{font-size:18px;font-weight:800;color:#2d1f69}
+    .es-stat .l{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+    .es-block{background:#fafaff;border-left:4px solid #4338ca;border-radius:8px;padding:12px 14px;margin-bottom:12px}
+    .es-block h4{margin:0 0 8px;color:#2d1f69;font-size:14px}
+    .es-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .es-tag{background:#eef2ff;color:#4338ca;padding:4px 10px;border-radius:12px;font-size:12px;font-weight:500}
+    .es-tag .n{background:#4338ca;color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;margin-left:4px;font-weight:700}
+    .es-mini-grafico{display:flex;align-items:flex-end;gap:6px;height:80px;padding:8px 0;border-bottom:1px solid #e2e8f0;margin-bottom:8px}
+    .es-bar-col{flex:1;background:linear-gradient(to top,#4338ca,#7c3aed);border-radius:4px 4px 0 0;position:relative;min-height:4px;transition:.2s}
+    .es-bar-col:hover{opacity:.8}
+    .es-bar-col .bn{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:#4338ca}
+    .es-bar-col .bl{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:10px;color:#64748b}
+    .es-gab-dist{display:flex;gap:6px;margin:8px 0}
+    .es-gab-item{flex:1;text-align:center;padding:8px 4px;background:#fff;border:1px solid #e2e8f0;border-radius:6px}
+    .es-gab-letra{font-weight:800;color:#4338ca;font-size:16px}
+    .es-gab-pct{font-size:11px;color:#64748b;margin-top:2px}
+    .es-praticar{background:linear-gradient(135deg,#2d1f69,#4338ca);color:#fff;border:none;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;margin-top:8px;width:100%;transition:.2s}
+    .es-praticar:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(45,31,105,0.3)}
   </style>
   <link rel="stylesheet" href="explicar/explicar.css">
 </head>
@@ -260,13 +371,15 @@
 <!-- ===== MAIN NAV ===== -->
 <nav class="main-nav">
   <button class="main-tab active" onclick="showMain('plano')">📅 Plano</button>
-  <button class="main-tab" onclick="showMain('semana1')">📖 Semana 2</button>
+  <button class="main-tab" onclick="showMain('semana1')">📖 Semana 3</button>
   <button class="main-tab" onclick="showMain('loas')">⚖️ LOAS</button>
   <button class="main-tab" onclick="showMain('nob')">📚 NOB/SUAS</button>
   <button class="main-tab" onclick="showMain('etica')">⚖️ Ética CFP</button>
   <button class="main-tab" onclick="showMain('questoes')">❓ Questões</button>
   <button class="main-tab" onclick="window.location.href='discursiva/discursiva.html'">📝 Discursiva</button>
   <button class="main-tab" onclick="showMain('estudado')">📊 Estudado</button>
+  <button class="main-tab" onclick="showMain('fibromode')">💪 FibroMode</button>
+  <button class="main-tab" onclick="showMain('estrategia')">🎯 Estratégia</button>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -441,314 +554,301 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     TAB 2: SEMANA 2
+     TAB 2: SEMANA 3 — APROFUNDAMENTO TIPIFICAÇÃO (remapeada)
 ══════════════════════════════════════════════════════════ -->
 <section id="tab-semana1" class="tab-section">
 
+  <!-- Aviso de remapeamento -->
+  <div style="background:#fff7ed;border-left:4px solid #f97316;border-radius:8px;padding:14px 18px;margin:14px 16px;font-size:14px;color:#7c2d12;max-width:720px;margin-left:auto;margin-right:auto">
+    <strong>📌 Semana 3 remapeada (Opção B):</strong> você viajou seg/ter/qua e volta hoje (qui 04/06) à tarde. Os <strong>5 dias úteis</strong> (Qui→Seg) cobrem todo o conteúdo da semana, aproveitando sáb+dom (sem deslocamento ao consultório) como dias longos de casa. <strong>Ter 09/06 e Qua 10/06 = folga total</strong>. Semana 4 começa <strong>Qui 11/06</strong> no ritmo padrão.
+  </div>
+
   <!-- Sub-nav de dias -->
   <nav class="day-nav">
-    <button class="day-btn active" onclick="showDay(1)">Dia 1<small>Seg 25/05</small></button>
-    <button class="day-btn" onclick="showDay(2)">Dia 2<small>Ter 26/05</small></button>
-    <button class="day-btn" onclick="showDay(3)">Dia 3<small>Qua 27/05</small></button>
-    <button class="day-btn bonus-btn" onclick="showDay(4)">Dia 4 ⭐<small>Qui 28/05</small></button>
-    <button class="day-btn" onclick="showDay(5)">Dia 5<small>Sex 29/05</small></button>
-    <button class="day-btn" onclick="showDay(6)">Dia 6<small>Sáb 30/05</small></button>
+    <button class="day-btn active" onclick="showDay(1)">Dia 1<small>Qui 04/06</small></button>
+    <button class="day-btn" onclick="showDay(2)">Dia 2<small>Sex 05/06</small></button>
+    <button class="day-btn" onclick="showDay(3)">Dia 3<small>Sáb 06/06</small></button>
+    <button class="day-btn bonus-btn" onclick="showDay(4)">Dia 4 ⭐<small>Dom 07/06</small></button>
+    <button class="day-btn" onclick="showDay(5)">Dia 5<small>Seg 08/06</small></button>
   </nav>
 
   <!-- DIA 1 -->
   <div id="day-1" class="day-content active">
     <div class="day-header">
-      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
-      <h1>Dia 1 · Segunda, 25/05</h1>
-      <p>NOB/SUAS 2012 — O que é, Princípios Organizativos e Tipos de Gestão Municipal</p>
+      <div class="dbadge">Semana 3 · Aprofundamento Tipificação</div>
+      <h1>Dia 1 · Quinta, 04/06 (volta da viagem)</h1>
+      <p>Visão geral da Tipificação Nacional + os 3 níveis de Proteção Social do SUAS</p>
     </div>
-    <div class="slot carro-manha">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> abre o GranCursos e busca por <em>"NOB SUAS 2012 introdução"</em> ou <em>"Norma Operacional Básica SUAS"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender o que é a NOB/SUAS, por que ela existe (operacionaliza a PNAS) e quais os princípios organizativos do SUAS.</p>
-      <div class="tip">⚡ A NOB/SUAS 2012 é uma resolução do CNAS (Res. CNAS 33/2012). Ela transformou o SUAS em sistema, não só em política.</div>
-    </div>
-    <div class="slot carro-volta">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> continua a <strong>mesma videoaula</strong> ou busca <em>"níveis de gestão municipal SUAS"</em>. Foco nos tipos de gestão (inicial, básica, plena) e nos blocos de financiamento.</p>
-      <p><strong>Objetivo:</strong> entender a hierarquia: município que recebe recurso federal precisa estar habilitado em um nível de gestão.</p>
-      <div class="tip">⚡ Quanto maior o nível (plena &gt; básica &gt; inicial), maior a autonomia e a responsabilidade do município.</div>
-    </div>
+    <div class="info-box" style="margin-top:0"><strong>Dia leve de retorno:</strong> você chegou de viagem à tarde — sem slots de carro hoje. Apenas <strong>1h em casa à noite</strong> para reentrar no ritmo. Conteúdo conceitual, não exige memorização agora.</div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF GranCursos da NOB/SUAS 2012. Lê <strong>apenas</strong> os capítulos I e II — princípios, diretrizes estruturantes e tipos de gestão.</p>
-      <p>Não lê tudo — foca em <em>"princípios organizativos"</em>, <em>"objetivos do SUAS"</em> e <em>"níveis de gestão municipal"</em>.</p>
-      <div class="tip">⚡ Sublinha só palavras-chave. A NOB tem muitos itens parecidos — se sublinhar tudo, perde a hierarquia.</div>
+      <p><strong>O que fazer:</strong> abre o PDF GranCursos da <strong>Tipificação Nacional</strong> (Res. CNAS 109/2009). Lê <strong>apenas</strong> a introdução + a divisão dos 3 níveis de proteção (PSB · PSE Média · PSE Alta) — não entra ainda em cada serviço.</p>
+      <p>Objetivo: <strong>entender a lógica</strong>. Por que existem 3 níveis? Qual o critério (vulnerabilidade × violação × rompimento de vínculos)? Onde encaixa o psicólogo em cada um?</p>
+      <div class="tip">⚡ A Tipificação <em>não cria</em> serviços novos — ela <em>padroniza nomenclatura, objetivos e público</em> dos serviços já existentes. É o "dicionário oficial" do SUAS.</div>
     </div>
     <div class="slot pomodoro-2">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
-      <p><strong>Fecha o PDF.</strong> Preenche o cartão abaixo sem consultar nada. Depois abre e corrige em vermelho o que errou ou esqueceu.</p>
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall + mapa mental</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Numa folha em branco, desenha um mapa mental dos 3 níveis. Depois preenche o cartão abaixo sem consultar.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 1</div>
-        <strong>NOB/SUAS — o que é (1 frase):</strong><br/>
-        <span class="cl">&nbsp;</span><span class="cl">&nbsp;</span>
-        <strong>Resolução e ano:</strong> Res. CNAS nº ___/____<span class="cl">&nbsp;</span>
-        <strong>Princípios organizativos do SUAS (cite ao menos 4):</strong><br/>
+        <strong>Tipificação Nacional — Resolução e ano:</strong><br/>
+        Res. CNAS nº ___/____<span class="cl">&nbsp;</span>
+        <strong>Total de serviços tipificados:</strong> ___<span class="cl">&nbsp;</span>
+        <strong>Distribuição por nível:</strong><br/>
+        PSB: ___ serviços<span class="cl">&nbsp;</span>
+        PSE Média: ___ serviços<span class="cl">&nbsp;</span>
+        PSE Alta: ___ serviços<span class="cl">&nbsp;</span>
+        <strong>Critério de cada nível (1 palavra-chave):</strong><br/>
+        PSB → <span class="cl">&nbsp;</span> (ex.: prevenção)<br/>
+        PSE Média → <span class="cl">&nbsp;</span> (ex.: violação com vínculo preservado)<br/>
+        PSE Alta → <span class="cl">&nbsp;</span> (ex.: vínculo rompido — acolhimento)
+        <strong>Onde o psicólogo aparece (cite os 4 equipamentos):</strong><br/>
         1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>4.<span class="cl">&nbsp;</span>
-        <strong>3 Níveis de Gestão Municipal:</strong><br/>
-        Inicial: <span class="cl">&nbsp;</span>
-        Básica: <span class="cl">&nbsp;</span>
-        Plena: <span class="cl">&nbsp;</span>
-        <strong>Quem habilita o município?</strong><br/>
-        <span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">NOB/SUAS 2012</span><p><strong>Resolução CNAS nº 33, de 12/12/2012.</strong> Norma que disciplina a operacionalização da gestão da Política de Assistência Social no território nacional, no âmbito do SUAS.</p></div>
-      <div class="artigo"><span class="art-num">Princípios Organizativos do SUAS</span><ol><li>Universalidade</li><li>Gratuidade</li><li>Integralidade da proteção socioassistencial</li><li>Intersetorialidade</li><li>Equidade</li></ol></div>
-      <div class="artigo"><span class="art-num">3 Níveis de Gestão Municipal</span><ul><li><strong>Inicial:</strong> cumpre requisitos mínimos (LOAS) — Conselho, Plano e Fundo de Assistência Social</li><li><strong>Básica:</strong> assume gestão dos serviços de proteção social básica (PSB)</li><li><strong>Plena:</strong> assume gestão da PSB <em>e</em> da Proteção Social Especial (média e alta)</li></ul></div>
-      <div class="artigo"><span class="art-num">Quem habilita?</span><p>A <strong>CIB</strong> (Comissão Intergestores Bipartite) habilita o município e a <strong>CIT</strong> pactua nacionalmente. O CNAS aprova as normas.</p></div>
-      <div class="ancora"><strong>Âncora:</strong> LOAS = lei (1993). PNAS = política (2004). NOB/SUAS = norma operacional (2012). Cada uma é uma camada que detalha a anterior.</div>
+      <div class="artigo"><span class="art-num">Tipificação Nacional</span><p><strong>Resolução CNAS nº 109, de 11/11/2009.</strong> Padroniza nacionalmente os serviços socioassistenciais — nome, objetivo, público, ações, aquisições, unidade. Organiza-os em <strong>3 níveis de Proteção Social</strong>.</p></div>
+      <div class="artigo"><span class="art-num">Os 3 níveis de Proteção</span><ul><li><strong>PSB — Proteção Social Básica (3 serviços):</strong> prevenir situações de risco. <em>Lógica: vínculo preservado, fortalece família e território.</em> Unidade-chave: CRAS.</li><li><strong>PSE Média Complexidade (5 serviços):</strong> direitos violados, vínculo familiar/comunitário <em>preservado</em>. Unidade-chave: CREAS · Centro POP.</li><li><strong>PSE Alta Complexidade (6 serviços):</strong> vínculo <em>rompido</em> — pessoa precisa ser acolhida fora da família de origem.</li></ul></div>
+      <div class="artigo"><span class="art-num">Onde o psicólogo do SUAS atua</span><p>Os 4 equipamentos onde a vaga de psicólogo é prevista por NOB-RH/SUAS: <strong>CRAS</strong> (PSB) · <strong>CREAS</strong> (PSE Média) · <strong>Centro POP</strong> (PSE Média — pop. rua) · <strong>Unidades de Acolhimento</strong> (PSE Alta).</p></div>
+      <div class="ancora"><strong>Âncora:</strong> 3 + 5 + 6 = <strong>14 serviços tipificados</strong>. Quanto maior o nível, mais grave a situação (e maior o vínculo rompido). PSB = prevenção · PSE Média = violação · PSE Alta = acolhimento.</div>
     </div>
   </div>
 
   <!-- DIA 2 -->
   <div id="day-2" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
-      <h1>Dia 2 · Terça, 26/05</h1>
-      <p>NOB/SUAS — Responsabilidades dos Entes Federativos (União, Estados, DF e Municípios)</p>
+      <div class="dbadge">Semana 3 · Aprofundamento Tipificação</div>
+      <h1>Dia 2 · Sexta, 05/06</h1>
+      <p>CRAS + PAIF — a porta de entrada da Proteção Social Básica</p>
     </div>
     <div class="slot carro-manha">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"responsabilidades entes federativos NOB SUAS"</em> ou <em>"competências União Estados Municípios assistência social"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender quem faz o quê no SUAS — a União coordena, o Estado apoia, o Município executa. O DF acumula competências de Estado e Município.</p>
+      <p><strong>O que fazer:</strong> busca no GranCursos <em>"CRAS PAIF psicólogo"</em> ou <em>"Serviço de Proteção e Atendimento Integral à Família"</em>. Ouve os primeiros 30min.</p>
+      <p><strong>Objetivo:</strong> entender que o <strong>CRAS é a unidade</strong> (o equipamento físico/territorial) e o <strong>PAIF é o serviço</strong> (a oferta principal que acontece dentro do CRAS). Não são sinônimos.</p>
+      <div class="tip">⚡ Erro clássico da banca: tratar CRAS = PAIF. CRAS é a porta, PAIF é o que se faz dentro. O CRAS também oferta SCFV e Proteção no Domicílio.</div>
     </div>
     <div class="slot carro-volta">
       <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
-      <p><strong>O que fazer:</strong> fala em voz alta, sem olhar nada:</p>
-      <p>— <em>"Quem coordena o SUAS nacionalmente?"</em><br/>— <em>"Quem executa os serviços diretamente?"</em><br/>— <em>"O DF é Estado ou Município?"</em><br/>— <em>"Quem cofinancia o SUAS?"</em></p>
-      <div class="tip">⚡ Pega leve com a memorização literal — o que cai mais é a <em>lógica</em> de quem faz o quê. A banca adora trocar competências entre entes.</div>
+      <p><strong>O que fazer:</strong> sem áudio. Fala em voz alta:</p>
+      <p>— <em>"O que é matricialidade sociofamiliar?"</em><br/>— <em>"Qual o público do PAIF?"</em><br/>— <em>"Qual a diferença entre acompanhamento e atendimento no PAIF?"</em><br/>— <em>"Quais ações o psicólogo conduz no CRAS?"</em></p>
+      <div class="tip">⚡ <strong>Matricialidade sociofamiliar</strong> = a família é a unidade de atenção do SUAS, não o indivíduo. Esse conceito cai muito e é o coração do PAIF.</div>
     </div>
     <div class="slot pomodoro-1">
       <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF da NOB/SUAS 2012. Lê o capítulo de <strong>responsabilidades</strong> (Arts. 12 a 18 da LOAS + correspondentes na NOB). Faz uma tabela 4 colunas: União / Estado / DF / Município.</p>
-      <div class="tip">⚡ Quando a banca diz <em>"compete ao Estado coordenar e financiar os serviços socioassistenciais"</em>, sem citar Município — é pegadinha. Coordenação nacional é da União.</div>
+      <p><strong>O que fazer:</strong> abre o PDF da Tipificação (Res. CNAS 109/2009) e lê a <strong>ficha completa do PAIF</strong> — descrição, usuários, objetivos, aquisições, condições e formas de acesso, unidade, período de funcionamento, abrangência, articulação em rede, impacto social esperado.</p>
+      <div class="tip">⚡ Cada ficha tem 9 campos sempre na mesma ordem. A banca cobra trocando campos (ex.: pega "impacto esperado" e troca por "objetivo"). Estude a estrutura, não só o texto.</div>
     </div>
     <div class="slot pomodoro-2">
       <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
       <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
       <div class="recall-card">
         <div class="recall-title">📋 Cartão de Recall — Dia 2</div>
-        <strong>União — 2 verbos principais:</strong><br/>
-        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
-        <strong>Estado — 2 verbos principais:</strong><br/>
-        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
-        <strong>Município — 2 verbos principais:</strong><br/>
-        <span class="cl">&nbsp;</span> e <span class="cl">&nbsp;</span>
-        <strong>DF — particularidade:</strong><br/>
+        <strong>CRAS — o que é (1 frase):</strong><br/>
         <span class="cl">&nbsp;</span>
-        <strong>Cofinanciamento — quem participa?</strong><br/>
+        <strong>PAIF — sigla completa:</strong><br/>
         <span class="cl">&nbsp;</span>
-        <strong>3 instrumentos comuns aos 3 entes (LOAS Art. 30):</strong><br/>
+        <strong>Público do PAIF:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>2 ações do psicólogo no PAIF:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>
+        <strong>Matricialidade sociofamiliar (1 frase):</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>Atendimento × Acompanhamento (PAIF):</strong><br/>
+        Atendimento → <span class="cl">&nbsp;</span> (pontual)<br/>
+        Acompanhamento → <span class="cl">&nbsp;</span> (continuado, com PIA)
+        <strong>3 outros serviços que o CRAS pode ofertar (além do PAIF):</strong><br/>
         1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">União (LOAS Art. 12)</span><p><strong>Coordenar</strong> e <strong>cofinanciar</strong> a Política Nacional de Assistência Social. Apoiar técnica e financeiramente Estados, DF e Municípios. Atender ações de caráter emergencial.</p></div>
-      <div class="artigo"><span class="art-num">Estados (LOAS Art. 13)</span><p><strong>Apoiar</strong> técnica e financeiramente os Municípios. <strong>Cofinanciar</strong>. Estimular consórcios. Realizar monitoramento e avaliação. Prestar serviços regionalizados (especial alta complexidade).</p></div>
-      <div class="artigo"><span class="art-num">Municípios (LOAS Art. 15)</span><p><strong>Executar</strong> os serviços, programas, projetos e benefícios. <strong>Cofinanciar</strong>. Operar o CRAS, CREAS, Centro POP. Inscrever entidades. Atender ações emergenciais locais.</p></div>
-      <div class="artigo"><span class="art-num">DF (LOAS Art. 14)</span><p>Acumula competências de <strong>Estado e Município</strong>. É o único ente subnacional com essa dupla atribuição — relevante para o concurso SEDES.</p></div>
-      <div class="artigo"><span class="art-num">Art. 30 — 3 instrumentos obrigatórios</span><ol><li><strong>Conselho</strong> de Assistência Social (paritário e deliberativo)</li><li><strong>Fundo</strong> de Assistência Social (orientado pelo Conselho)</li><li><strong>Plano</strong> de Assistência Social</li></ol><p>Sem esses 3, o ente não recebe repasse federal.</p></div>
-      <div class="ancora"><strong>Âncora:</strong> União <em>coordena</em>, Estado <em>apoia</em>, Município <em>executa</em>, DF faz os <em>dois últimos</em>. Os 3 cofinanciam (pacto federativo).</div>
+      <div class="artigo"><span class="art-num">CRAS</span><p><strong>Centro de Referência de Assistência Social.</strong> Unidade pública estatal, descentralizada, localizada em territórios de vulnerabilidade. Porta de entrada da PSB. Capacidade: referenciar até 2.500, 3.500 ou 5.000 famílias do território.</p></div>
+      <div class="artigo"><span class="art-num">PAIF</span><p><strong>Serviço de Proteção e Atendimento Integral à Família</strong> (Tipificação 2009). Serviço continuado, ofertado <strong>exclusivamente</strong> no CRAS. Tem caráter <em>preventivo, protetivo e proativo</em>.</p><ul><li><strong>Público:</strong> famílias em situação de vulnerabilidade social decorrente da pobreza, do precário ou nulo acesso aos serviços públicos, da fragilização de vínculos, da discriminação etária/étnica/gênero/orientação sexual ou por deficiência.</li><li><strong>Objetivo:</strong> fortalecer a função protetiva da família, prevenir a ruptura de vínculos, promover acesso a direitos.</li></ul></div>
+      <div class="artigo"><span class="art-num">Matricialidade Sociofamiliar</span><p>Princípio que reconhece a <strong>família como núcleo de atenção</strong> da política de assistência social — não o indivíduo isolado. O SUAS atua com a família para que ela exerça sua função protetiva.</p></div>
+      <div class="artigo"><span class="art-num">Atendimento × Acompanhamento (PAIF)</span><ul><li><strong>Atendimento:</strong> ação <em>imediata</em>, pontual — escuta, orientação, encaminhamento. Não exige plano.</li><li><strong>Acompanhamento familiar:</strong> ação <em>continuada</em>, mediada por <strong>PIA (Plano Individual/Familiar de Atendimento)</strong>, com monitoramento periódico.</li></ul></div>
+      <div class="artigo"><span class="art-num">Psicólogo no PAIF — ações típicas</span><ul><li>Acolhida individual e familiar (escuta qualificada)</li><li>Oficinas com famílias (temas: vínculos, parentalidade, redes)</li><li>Visitas domiciliares e busca ativa</li><li>Construção do PIA junto com assistente social</li><li>Articulação com rede intersetorial (saúde, educação, justiça)</li></ul></div>
+      <div class="atencao"><strong>Pegadinha Quadrix:</strong> dizer que o PAIF "atende indivíduos em situação de violação de direitos" — ERRADO. Violação de direitos = PAEFI (CREAS). PAIF é <em>prevenção</em>, vínculo preservado.</div>
+      <div class="ancora"><strong>Âncora:</strong> CRAS = unidade (a casa). PAIF = serviço (o que acontece na casa). Família = unidade de atenção (matricialidade sociofamiliar).</div>
     </div>
   </div>
 
   <!-- DIA 3 -->
   <div id="day-3" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
-      <h1>Dia 3 · Quarta, 27/05</h1>
-      <p>NOB-RH/SUAS — Equipe de Referência do CRAS e CREAS (Onde Entra o Psicólogo)</p>
+      <div class="dbadge">Semana 3 · Aprofundamento Tipificação</div>
+      <h1>Dia 3 · Sábado, 06/06 (dia longo de casa)</h1>
+      <p>CREAS + PAEFI + SCFV — violação de direitos e fortalecimento de vínculos</p>
     </div>
-    <div class="slot carro-manha">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"NOB-RH SUAS equipe de referência"</em> ou <em>"trabalhadores SUAS CRAS CREAS"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> entender a NOB-RH/SUAS (Res. CNAS 269/2006) e a composição mínima das equipes do CRAS e do CREAS — é onde a prova encaixa o cargo de psicólogo.</p>
-      <div class="tip">⚡ Este é o tópico mais "seu" da semana. A vaga é justamente para compor essa equipe de referência. Entender o papel = entender o que vai cobrar de você.</div>
-    </div>
-    <div class="slot carro-volta">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
-      <p><strong>O que fazer:</strong> recita em voz alta:</p>
-      <p>— <em>"Qual a equipe mínima do CRAS para 2.500 famílias referenciadas?"</em><br/>— <em>"E para 3.500? E para 5.000?"</em><br/>— <em>"Quantos psicólogos no CREAS?"</em><br/>— <em>"Quais profissionais são de nível superior obrigatório?"</em></p>
-      <div class="tip">⚡ A banca adora trocar quantitativos (2 técnicos × 3 técnicos) e títulos profissionais (assistente social × psicólogo).</div>
-    </div>
+    <div class="info-box" style="margin-top:0"><strong>Sem deslocamento ao consultório:</strong> hoje os 4 blocos acontecem em casa, divididos entre manhã e tarde. Carga maior (3–4h) — aproveite o intervalo de almoço para descansar antes do bloco da tarde.</div>
     <div class="slot pomodoro-1">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> lê no PDF da NOB-RH/SUAS as tabelas de equipe de referência do CRAS e do CREAS. Faz uma tabela própria comparando os dois.</p>
-      <div class="tip">⚡ Decorar tabela só com leitura não funciona — copia a tabela à mão. A memória motora ajuda a fixar os números.</div>
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1 (manhã)</div><div class="slot-time">30 minutos · CREAS + PAEFI — leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF da Tipificação e lê a ficha do <strong>PAEFI</strong> — Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos. Em paralelo, anote: o que diferencia o PAEFI do PAIF na <em>natureza do caso</em> (violação × prevenção) e na <em>unidade</em> (CREAS × CRAS).</p>
+      <div class="tip">⚡ PAEFI atende quem teve <strong>direito violado mas com vínculo familiar/comunitário preservado</strong>. Se o vínculo está rompido (acolhimento), já é PSE Alta — outro serviço.</div>
     </div>
     <div class="slot pomodoro-2">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
-      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2 (manhã)</div><div class="slot-time">30 minutos · Recall CREAS/PAEFI</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar.</p>
       <div class="recall-card">
-        <div class="recall-title">📋 Cartão de Recall — Dia 3</div>
-        <strong>NOB-RH/SUAS — Resolução e ano:</strong><br/>
-        Res. CNAS nº ___/____<span class="cl">&nbsp;</span>
-        <strong>CRAS — até 2.500 famílias:</strong><br/>
-        ___ coordenador(a) +<span class="cl">&nbsp;</span>
-        ___ técnicos nível superior (mínimo)<span class="cl">&nbsp;</span>
-        ___ técnicos nível médio<span class="cl">&nbsp;</span>
-        <strong>CRAS — até 3.500 famílias:</strong><br/>
-        ___ técnicos nível superior<span class="cl">&nbsp;</span>
-        <strong>CRAS — até 5.000 famílias:</strong><br/>
-        ___ técnicos nível superior<span class="cl">&nbsp;</span>
-        <strong>CREAS — capacidade até 80 casos/mês:</strong><br/>
-        ___ coordenador +<span class="cl">&nbsp;</span>
-        ___ assistentes sociais<span class="cl">&nbsp;</span>
-        ___ psicólogo(s)<span class="cl">&nbsp;</span>
-        ___ advogado(a)<span class="cl">&nbsp;</span>
-        ___ nível médio<span class="cl">&nbsp;</span>
-        <strong>3 categorias de nível superior obrigatórias na PSE:</strong><br/>
+        <div class="recall-title">📋 Cartão de Recall — CREAS + PAEFI</div>
+        <strong>CREAS — sigla completa:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>PAEFI — sigla completa:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>Público do PAEFI (3 grupos típicos):</strong><br/>
         1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
+        <strong>O psicólogo no PAEFI faz (cite 3):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
+        <strong>Vínculo familiar no PAEFI:</strong> ( ) preservado  ( ) rompido<br/>
+        <strong>PAIF × PAEFI — uma diferença chave:</strong><br/>
+        <span class="cl">&nbsp;</span>
+      </div>
+    </div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 3 (tarde)</div><div class="slot-time">30 minutos · SCFV — leitura ativa</div></div></div>
+      <p><strong>O que fazer:</strong> volta ao PDF e lê a ficha do <strong>SCFV</strong> — Serviço de Convivência e Fortalecimento de Vínculos. Atenção aos <strong>3 ciclos de vida</strong> atendidos (criança até 6 anos, criança/adolescente 6–15 anos, jovens 15–17, adultos, idosos) e à <strong>complementaridade com o PAIF</strong>.</p>
+      <div class="tip">⚡ SCFV é PSB (ofertado no CRAS ou em entidade conveniada), <strong>complementa</strong> o PAIF mas <em>não substitui</em>. Pegadinha: dizer que SCFV é "atividade recreativa" — ERRADO, é serviço continuado de convivência.</div>
+    </div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 4 (tarde)</div><div class="slot-time">30 minutos · Recall SCFV + comparativo</div></div></div>
+      <p><strong>Fecha o PDF.</strong> Preenche e depois compara com a referência.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Cartão de Recall — SCFV + Comparativo</div>
+        <strong>SCFV — sigla completa:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>Nível de proteção:</strong> ( ) PSB  ( ) PSE Média  ( ) PSE Alta<br/>
+        <strong>Onde acontece:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>3 ciclos de vida que pode atender:</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
+        <strong>Tabela comparativa — preencher (P/N — Público × Nível × Unidade):</strong><br/>
+        PAIF → <span class="cl">&nbsp;</span><br/>
+        PAEFI → <span class="cl">&nbsp;</span><br/>
+        SCFV → <span class="cl">&nbsp;</span>
       </div>
     </div>
     <div class="ref-box">
       <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">NOB-RH/SUAS</span><p><strong>Resolução CNAS nº 269, de 13/12/2006.</strong> Define os trabalhadores do SUAS, equipes de referência, princípios éticos e diretrizes para gestão do trabalho.</p></div>
-      <div class="artigo"><span class="art-num">Equipe de Referência — CRAS</span><ul><li><strong>Até 2.500 famílias:</strong> 1 coordenador + 2 técnicos nível superior (sendo 1 assistente social e outro preferencialmente psicólogo) + 2 técnicos nível médio</li><li><strong>Até 3.500 famílias:</strong> 1 coordenador + 3 técnicos nível superior (2 assistentes sociais + 1 psicólogo) + 3 nível médio</li><li><strong>Até 5.000 famílias:</strong> 1 coordenador + 4 técnicos nível superior (2 assistentes sociais + 1 psicólogo + 1 outro, ex.: pedagogo, antropólogo) + 4 nível médio</li></ul></div>
-      <div class="artigo"><span class="art-num">Equipe de Referência — CREAS (até 80 casos/mês)</span><ul><li>1 coordenador</li><li>1 assistente social</li><li>1 psicólogo</li><li>1 advogado</li><li>2 profissionais de nível superior ou médio (abordagem)</li><li>1 auxiliar administrativo</li></ul></div>
-      <div class="artigo"><span class="art-num">Categorias de Nível Superior na PSE</span><p>A NOB-RH lista categorias de nível superior obrigatórias no SUAS, incluindo: <strong>assistente social, psicólogo, advogado</strong>, pedagogo, antropólogo, economista doméstico, sociólogo, terapeuta ocupacional, musicoterapeuta.</p></div>
-      <div class="atencao"><strong>Atenção:</strong> a expressão correta é <em>"equipe de referência"</em>, não "equipe mínima". Banca usa as duas, mas tecnicamente é a primeira.</div>
-      <div class="ancora"><strong>Âncora:</strong> CRAS = família + território (psicólogo &gt;= 1). CREAS = violação + casos individualizados (psicólogo + advogado obrigatórios).</div>
+      <div class="artigo"><span class="art-num">CREAS</span><p><strong>Centro de Referência Especializado de Assistência Social.</strong> Unidade pública estatal de PSE Média Complexidade. Atende famílias e indivíduos em situação de <strong>risco pessoal e social por violação de direitos</strong>, com vínculo familiar/comunitário preservado.</p></div>
+      <div class="artigo"><span class="art-num">PAEFI</span><p><strong>Serviço de Proteção e Atendimento Especializado a Famílias e Indivíduos</strong>. Ofertado <strong>obrigatoriamente</strong> no CREAS.</p><ul><li><strong>Público:</strong> vítimas de violência (física, psicológica, sexual, negligência); crianças/adolescentes em situação de trabalho infantil; vítimas de tráfico; afastados do convívio familiar por aplicação de medida; em situação de rua; com direitos violados por discriminação.</li><li><strong>Objetivo:</strong> fortalecer a função protetiva da família, reduzir agravos, romper o ciclo de violência.</li></ul></div>
+      <div class="artigo"><span class="art-num">Psicólogo no PAEFI — ações típicas</span><ul><li>Acolhida especializada e escuta protegida</li><li>Atendimento psicossocial individual e familiar</li><li>Construção do PIA com a família</li><li>Acompanhamento de medidas protetivas (Lei Maria da Penha, ECA)</li><li>Articulação com Conselho Tutelar, Vara da Infância, MP, Defensoria</li><li>Encaminhamento e contrarreferência para saúde mental e rede de proteção</li></ul></div>
+      <div class="artigo"><span class="art-num">SCFV</span><p><strong>Serviço de Convivência e Fortalecimento de Vínculos</strong> (PSB). Serviço continuado, ofertado no CRAS ou em entidade conveniada referenciada ao CRAS. Complementar ao PAIF. <strong>Não é recreação</strong> — é trabalho social com grupos, organizado por ciclos de vida.</p><ul><li>Crianças até 6 anos</li><li>Crianças e adolescentes de 6 a 15 anos</li><li>Adolescentes e jovens de 15 a 17 anos</li><li>Adultos</li><li>Pessoas idosas</li></ul></div>
+      <div class="artigo"><span class="art-num">Tabela comparativa — os 3 serviços do dia</span><table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:8px"><tr style="background:#e8e4ff"><th style="padding:6px;text-align:left;border:1px solid #cbb9ff">Serviço</th><th style="padding:6px;border:1px solid #cbb9ff">Nível</th><th style="padding:6px;border:1px solid #cbb9ff">Unidade</th><th style="padding:6px;border:1px solid #cbb9ff">Vínculo</th><th style="padding:6px;border:1px solid #cbb9ff">Lógica</th></tr><tr><td style="padding:6px;border:1px solid #cbb9ff"><strong>PAIF</strong></td><td style="padding:6px;border:1px solid #cbb9ff">PSB</td><td style="padding:6px;border:1px solid #cbb9ff">CRAS</td><td style="padding:6px;border:1px solid #cbb9ff">Preservado</td><td style="padding:6px;border:1px solid #cbb9ff">Prevenir</td></tr><tr><td style="padding:6px;border:1px solid #cbb9ff"><strong>PAEFI</strong></td><td style="padding:6px;border:1px solid #cbb9ff">PSE Média</td><td style="padding:6px;border:1px solid #cbb9ff">CREAS</td><td style="padding:6px;border:1px solid #cbb9ff">Preservado (com violação)</td><td style="padding:6px;border:1px solid #cbb9ff">Proteger</td></tr><tr><td style="padding:6px;border:1px solid #cbb9ff"><strong>SCFV</strong></td><td style="padding:6px;border:1px solid #cbb9ff">PSB</td><td style="padding:6px;border:1px solid #cbb9ff">CRAS (ou entidade)</td><td style="padding:6px;border:1px solid #cbb9ff">Preservado</td><td style="padding:6px;border:1px solid #cbb9ff">Fortalecer</td></tr></table></div>
+      <div class="atencao"><strong>Pegadinha Quadrix:</strong> "O PAEFI é ofertado no CRAS por equipe especializada" — ERRADO. PAEFI é <strong>exclusivo do CREAS</strong>. Outra: "SCFV substitui o PAIF para famílias com adolescentes" — ERRADO, é <em>complementar</em>.</div>
+      <div class="ancora"><strong>Âncora:</strong> PAIF previne (CRAS) · PAEFI protege quem teve direito violado (CREAS) · SCFV fortalece vínculos por convivência grupal (CRAS). Os 3 com vínculo familiar preservado.</div>
     </div>
   </div>
 
   <!-- DIA 4 -->
   <div id="day-4" class="day-content">
     <div class="day-header">
-      <div class="dbadge bonus">Dia Bônus ⭐ · Quinta é seu sábado · Última quinta = Manutenção mensal</div>
-      <h1>Dia 4 · Quinta, 28/05</h1>
-      <p>Revisão NOB (dias 1–3) + Manutenção mensal: Português · Código de Ética · Lei Orgânica</p>
+      <div class="dbadge bonus">Dia 4 ⭐ · Domingo funciona como Quinta · 1ª sessão de questões da semana</div>
+      <h1>Dia 4 · Domingo, 07/06 (sem trabalho)</h1>
+      <p>Acolhimento + Centro POP + Instâncias + Sessão de questões (20 q SUAS + Ret. 1 NOB)</p>
     </div>
-    <div class="slot carro-manha">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio novo</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"Tipificação Nacional de Serviços Socioassistenciais"</em> ou <em>"Resolução CNAS 109/2009"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> primeiro contato com a Tipificação — entender que ela lista <strong>todos</strong> os serviços do SUAS organizados por nível de proteção.</p>
+    <div class="info-box" style="margin-top:0"><strong>Dia mais carregado da semana:</strong> 3 blocos de conteúdo + 1 sessão de questões no app. Distribua: manhã (2h) = Acolhimento + Centro POP, tarde (2h–2h30) = Instâncias + questões. Almoço com descanso real entre os dois turnos.</div>
+    <div class="slot pomodoro-1">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1 (manhã)</div><div class="slot-time">30 minutos · Acolhimento Institucional + Família Acolhedora</div></div></div>
+      <p><strong>O que fazer:</strong> abre o PDF da Tipificação na seção <strong>PSE Alta Complexidade</strong>. Lê as fichas do <strong>Acolhimento Institucional</strong> (abrigo, casa-lar) e do <strong>Acolhimento em Família Acolhedora</strong>. Foco: quando aplicar cada modalidade, faixa etária, papel do psicólogo.</p>
+      <div class="tip">⚡ Acolhimento é <strong>medida excepcional e provisória</strong> (LOAS + ECA Art. 101). Nunca é a primeira opção — é último recurso quando a família de origem não pode/não tem condições de proteger.</div>
     </div>
-    <div class="slot revisao">
-      <div class="slot-header"><span class="slot-icon">🔁</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão ativa dos dias 1–3</div></div></div>
-      <p><strong>O que fazer:</strong> sem áudio. Recita em voz alta tudo que lembra dos 3 primeiros dias — princípios organizativos do SUAS, níveis de gestão municipal, competências dos entes, equipe de referência do CRAS e CREAS.</p>
-      <div class="tip">⚡ Recall falado é mais eficiente do que reler. O que não conseguir lembrar = ponto fraco para focar amanhã.</div>
-    </div>
-    <div class="slot revisao">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Manutenção mensal (30 questões)</div></div></div>
-      <p><strong>O que fazer:</strong> resolve <strong>30 questões mistas</strong> no QConcursos (10 Português + 10 Código de Ética do Psicólogo + 10 Lei Orgânica do DF). Marca a hora — 1min por questão.</p>
-      <div class="tip">⚡ Se acertar &gt;70% em cada matéria: mantém. Se ficar abaixo de 70%: relê o resumo da matéria fraca na semana seguinte (slot extra de 15min).</div>
-      <div class="atencao"><strong>Atenção:</strong> esta é a manutenção de maio. Próximas: 26/06, 31/07, 28/08.</div>
+    <div class="slot pomodoro-2">
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2 (manhã)</div><div class="slot-time">30 minutos · Centro POP + Abordagem Social</div></div></div>
+      <p><strong>O que fazer:</strong> ainda no PDF da Tipificação, vai em <strong>PSE Média Complexidade</strong> e lê: <strong>Serviço Especializado para Pessoas em Situação de Rua</strong> (ofertado no Centro POP) + <strong>Serviço Especializado em Abordagem Social</strong>. Anote: Centro POP <em>não é albergue</em> — é unidade de referência da PSE Média para população em situação de rua.</p>
+      <div class="recall-card">
+        <div class="recall-title">📋 Recall rápido — PSE Alta + Pop. Rua</div>
+        <strong>3 modalidades de Acolhimento (PSE Alta):</strong><br/>
+        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
+        <strong>Centro POP — sigla completa:</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>O Centro POP é PSE de qual complexidade?</strong> ( ) Média  ( ) Alta<br/>
+        <strong>Abordagem Social — onde é feita?</strong><br/>
+        <span class="cl">&nbsp;</span>
+      </div>
     </div>
     <div class="slot pomodoro-1">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Revisão escrita dias 1–3 da NOB</div></div></div>
-      <p><strong>O que fazer:</strong> fecha todos os resumos. Numa folha em branco, escreve de memória os pontos principais dos dias 1, 2 e 3. Depois abre e marca em vermelho o que faltou.</p>
-      <div class="tip">⚡ Compare com o cartão de recall do dia 6 (checklist da semana). O que faltar aqui = foco amanhã.</div>
+      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 3 (tarde)</div><div class="slot-time">30 minutos · Instâncias de pactuação e deliberação</div></div></div>
+      <p><strong>O que fazer:</strong> agora abre a NOB/SUAS 2012 + LOAS Arts. 16–19. Lê o capítulo das <strong>instâncias</strong>: CIT, CIB, CNAS, CEAS, CMAS + Conferências. Diferencia o que é <em>pactuação</em> (gestor com gestor) de <em>deliberação/controle social</em> (gestor com sociedade civil — paritário).</p>
+      <div class="tip">⚡ <strong>CNAS é deliberativo, não consultivo.</strong> Composição paritária: 9 governo + 9 sociedade civil = 18. Mandato 2 anos, uma recondução. Conferência Nacional a cada 4 anos.</div>
+      <div class="recall-card">
+        <div class="recall-title">📋 Recall rápido — Instâncias</div>
+        <strong>CIT — quem compõe?</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>CIB — quem compõe?</strong><br/>
+        <span class="cl">&nbsp;</span>
+        <strong>CNAS — caráter:</strong> ( ) consultivo  ( ) deliberativo<br/>
+        <strong>Composição CNAS:</strong> ___ gov + ___ soc. civil = ___ total<span class="cl">&nbsp;</span>
+        <strong>Conferência Nacional — periodicidade:</strong> ___ anos<span class="cl">&nbsp;</span>
+      </div>
     </div>
     <div class="slot bonus-slot">
-      <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Tempo extra (se tiver)</div><div class="slot-time">Opcional · Tabela CRAS × CREAS</div></div></div>
-      <p>Monta uma tabela única com tudo do CRAS e CREAS: público, serviço principal (PAIF/PAEFI), equipe mínima, capacidade. Cola na geladeira ou no carro. Vira sua âncora visual.</p>
+      <div class="slot-header"><span class="slot-icon">⭐</span><div><div class="slot-title">Sessão de Questões (tarde)</div><div class="slot-time">~45 minutos · App SEDES — aba ❓ Questões</div></div></div>
+      <p><strong>O que fazer:</strong> abre a aba <strong>❓ Questões</strong> deste app e roda uma sessão de <strong>20 questões</strong> filtradas por SUAS/Tipificação. Depois pega <strong>10 questões adicionais de NOB</strong> como <strong>Retenção 1</strong> (revisão dos conteúdos da Semana 2). Anote o % de acerto por bloco — entrada no protocolo de calibração.</p>
+      <p><strong>Calibração rápida:</strong><br/>— Acerto &lt;50% → para. Re-estuda o tópico antes de avançar.<br/>— 50–65% → continua, mas adiciona Ret. extra na Semana 4.<br/>— 65–80% → no caminho. Segue.<br/>— &gt;80% → sólido. Reduz tempo nesse tópico depois.</p>
+      <div class="tip">⚡ A sessão de questões é a primeira da semana — não cobra perfeição. Cobra <em>medição</em>. Sem número anotado, não dá pra calibrar.</div>
     </div>
     <div class="ref-box">
-      <h2>Referência — Tipificação (intro) + Manutenção</h2>
-      <div class="artigo"><span class="art-num">Tipificação Nacional</span><p><strong>Resolução CNAS nº 109, de 11/11/2009.</strong> Padronizou nacionalmente os serviços socioassistenciais em 3 níveis: <strong>Proteção Social Básica (PSB), Especial de Média Complexidade e Especial de Alta Complexidade</strong>.</p></div>
-      <div class="artigo"><span class="art-num">Os 14 serviços tipificados</span><ul><li><strong>PSB (3):</strong> PAIF · SCFV · Proteção Social Básica no Domicílio (PCD/idosos)</li><li><strong>Média Complexidade (5):</strong> PAEFI · Serviço Especializado de Abordagem Social · Serviço para Adolescentes em MSE · Serviço para PCD/idosos e suas famílias · Serviço Especializado para Pessoas em Situação de Rua</li><li><strong>Alta Complexidade (6):</strong> Acolhimento Institucional · Acolhimento em República · Acolhimento em Família Acolhedora · Proteção em Situações de Calamidades Públicas e de Emergências (mais 2 detalhamentos)</li></ul></div>
-      <div class="artigo"><span class="art-num">Por que isso importa?</span><p>Decora o nome certo de cada serviço — a banca Quadrix cobra muito a nomenclatura literal. <em>"Atendimento"</em> e <em>"Acompanhamento"</em> têm diferença técnica no SUAS.</p></div>
-      <div class="ancora"><strong>Âncora:</strong> 3 + 5 + 6 = 14 serviços tipificados. PAIF (PSB) e PAEFI (Média) são os 2 que sempre caem.</div>
-      <div class="info-box"><strong>Manutenção mensal — checklist rápido:</strong><br/>✓ Português (interpretação + concordância + crase) — 10 questões<br/>✓ Código de Ética do Psicólogo (Res. CFP 10/2005) — 10 questões<br/>✓ Lei Orgânica do DF — 10 questões<br/><strong>Próxima manutenção:</strong> 26/06 (quinta da semana 6).</div>
+      <h2>Referência — confere após o dia</h2>
+      <div class="artigo"><span class="art-num">Acolhimento — PSE Alta (Tipificação 2009 + ECA Art. 101)</span><ul><li><strong>Acolhimento Institucional:</strong> abrigo ou casa-lar para crianças/adolescentes, jovens (18–21 com vínculo precário), adultos/famílias, mulheres em violência, idosos.</li><li><strong>Acolhimento em República:</strong> jovens 18–21 anos egressos de acolhimento, adultos em processo de saída das ruas, idosos com autonomia.</li><li><strong>Acolhimento em Família Acolhedora:</strong> crianças/adolescentes em famílias previamente cadastradas, capacitadas e acompanhadas.</li></ul><p><strong>Princípio-guia:</strong> excepcionalidade + provisoriedade + preservação de vínculos sempre que possível.</p></div>
+      <div class="artigo"><span class="art-num">Centro POP</span><p><strong>Centro de Referência Especializado para População em Situação de Rua.</strong> Unidade pública estatal de PSE Média. Diferente do CREAS — atende exclusivamente pop. em situação de rua. Oferta o <em>Serviço Especializado para Pessoas em Situação de Rua</em>.</p></div>
+      <div class="artigo"><span class="art-num">Serviço Especializado em Abordagem Social</span><p>Trabalho social <strong>de rua</strong> (territorial), feito por equipes que vão até onde estão pessoas em situação de risco — pop. em situação de rua, crianças/adolescentes em situação de trabalho, vítimas de exploração sexual. Ofertado no Centro POP ou no CREAS.</p></div>
+      <div class="artigo"><span class="art-num">Instâncias de PACTUAÇÃO</span><ul><li><strong>CIT — Comissão Intergestores Tripartite (nacional):</strong> União (MDS) + Estados (FONSEAS) + Municípios (CONGEMAS).</li><li><strong>CIB — Comissão Intergestores Bipartite (estadual):</strong> Estado + Municípios (COEGEMAS). Habilita níveis de gestão municipal.</li></ul></div>
+      <div class="artigo"><span class="art-num">Instâncias de DELIBERAÇÃO / Controle Social</span><ul><li><strong>CNAS</strong> — Nacional, paritário, deliberativo, 18 membros, mandato 2 anos.</li><li><strong>CEAS / CAS-DF</strong> — Estadual / DF.</li><li><strong>CMAS</strong> — Municipal.</li></ul><p>Todos paritários (50% gov + 50% soc. civil) e deliberativos.</p></div>
+      <div class="artigo"><span class="art-num">Conferências</span><p>Conferência Nacional de Assistência Social: <strong>a cada 4 anos</strong>, convocada pelo CNAS, precedida por conferências municipais e estaduais.</p></div>
+      <div class="atencao"><strong>Registro obrigatório do dia:</strong> anote o % de acerto da sessão de 20 questões SUAS + 10 questões NOB (Ret. 1). Sem registro, sem calibração na Semana 4.</div>
+      <div class="ancora"><strong>Âncora do dia:</strong> Acolhimento = vínculo rompido (PSE Alta). Centro POP = pop. rua (PSE Média). Pactua = gestor com gestor (CIT/CIB). Delibera = gestor com sociedade civil (CNAS/CEAS/CMAS).</div>
     </div>
   </div>
 
   <!-- DIA 5 -->
   <div id="day-5" class="day-content">
     <div class="day-header">
-      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
-      <h1>Dia 5 · Sexta, 29/05</h1>
-      <p>Instâncias de Pactuação e Deliberação — CIT, CIB, CNAS, CEAS, CMAS e Conferências</p>
+      <div class="dbadge">Semana 3 · Aprofundamento Tipificação</div>
+      <h1>Dia 5 · Segunda, 08/06</h1>
+      <p>Consolidação semanal — fechar Tipificação + checklist sem consulta + próximos passos</p>
     </div>
     <div class="slot carro-manha">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio</div></div></div>
-      <p><strong>O que fazer:</strong> busca no GranCursos <em>"CIT CIB pactuação SUAS"</em> ou <em>"CNAS controle social assistência social"</em>. Ouve os primeiros 30min.</p>
-      <p><strong>Objetivo:</strong> diferenciar instâncias de <strong>pactuação</strong> (CIT/CIB — gestores) de instâncias de <strong>deliberação/controle social</strong> (CNAS/CEAS/CMAS — gestores + sociedade civil paritários).</p>
+      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Manhã</div><div class="slot-time">30 minutos · Áudio de recapitulação</div></div></div>
+      <p><strong>O que fazer:</strong> sem áudio novo. Coloca a playlist dos roteiros próprios (Speechify ou áudios já gerados da Semana 2) — qualquer trecho da Tipificação ou NOB. Objetivo: <strong>reconhecer</strong> e <em>antecipar</em> o que vem antes de cada frase chave.</p>
+      <div class="tip">⚡ Se você consegue completar mentalmente a frase antes do áudio falar = consolidado. Se não, marca o tópico pra revisar mais tarde.</div>
     </div>
     <div class="slot carro-volta">
-      <div class="slot-header"><span class="slot-icon">🚗</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Revisão falada</div></div></div>
-      <p>— <em>"O que é a CIT? E a CIB?"</em><br/>— <em>"Quem compõe o CNAS? É paritário?"</em><br/>— <em>"Qual a diferença entre pactuar e deliberar?"</em><br/>— <em>"De quanto em quanto tempo acontecem as Conferências de Assistência Social?"</em></p>
-      <div class="tip">⚡ Paridade no SUAS = metade governo, metade sociedade civil. Cai muito.</div>
+      <div class="slot-header"><span class="slot-icon">🔁</span><div><div class="slot-title">Carro — Volta 13h</div><div class="slot-time">30 minutos · Recall falado dos 14 serviços</div></div></div>
+      <p><strong>O que fazer:</strong> sem áudio. Fala em voz alta os 14 serviços tipificados por nível:</p>
+      <p>— <em>"PSB tem 3 serviços: ___, ___ e ___"</em><br/>— <em>"PSE Média tem 5 serviços: ___, ___, ___, ___ e ___"</em><br/>— <em>"PSE Alta tem 6 serviços: ___, ___, ___, ___, ___ e ___"</em></p>
+      <p>Depois fala onde o psicólogo atua e qual sua ação principal em cada equipamento (CRAS, CREAS, Centro POP, Acolhimento).</p>
+      <div class="tip">⚡ Recall falado &gt; reler. O que travar agora = ponto fraco. Marca pra reler no Pomodoro 2.</div>
     </div>
     <div class="slot pomodoro-1">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · Leitura ativa</div></div></div>
-      <p><strong>O que fazer:</strong> lê na NOB/SUAS o capítulo de <strong>Instâncias de Pactuação</strong> + LOAS Arts. 16 a 19 (CNAS). Sublinha quem pactua, quem delibera, periodicidade das Conferências.</p>
-      <div class="tip">⚡ Cuidado: o CNAS é vinculado ao MDS, mas não é "subordinado". É órgão <em>colegiado</em> de caráter <strong>deliberativo</strong>.</div>
+      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · 1 página integrada (sem consulta)</div></div></div>
+      <p><strong>Fecha tudo.</strong> Em folha em branco, escreve livremente:</p>
+      <p style="background:#f9f8ff;border-left:3px solid #5b3fd9;padding:10px 14px;font-style:italic;font-size:13px;margin:8px 0">"Como o SUAS opera no território — quem coordena, quem executa, com qual equipe, através de quais serviços (por nível), e qual é o papel específico do psicólogo em cada equipamento."</p>
+      <div class="tip">⚡ Se conseguir escrever 1 página coerente integrando NOB + NOB-RH + Tipificação + Instâncias + atuação do psicólogo — Semana 3 absorvida. Se não chegou em 1 página, marca os pontos fracos.</div>
     </div>
     <div class="slot pomodoro-2">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Recall ativo</div></div></div>
-      <p><strong>Fecha o PDF.</strong> Preenche o cartão sem consultar nada.</p>
-      <div class="recall-card">
-        <div class="recall-title">📋 Cartão de Recall — Dia 5</div>
-        <strong>CIT — o que é, quem compõe:</strong><br/>
-        <span class="cl">&nbsp;</span>
-        <strong>CIB — o que é, quem compõe:</strong><br/>
-        <span class="cl">&nbsp;</span>
-        <strong>CNAS — caráter:</strong> ( ) consultivo  ( ) deliberativo  ( ) executivo<br/>
-        Composição: ___ governo + ___ sociedade civil = ___ total<span class="cl">&nbsp;</span>
-        Mandato: <span class="cl">&nbsp;</span>
-        <strong>3 instâncias de deliberação/controle social:</strong><br/>
-        1.<span class="cl">&nbsp;</span>2.<span class="cl">&nbsp;</span>3.<span class="cl">&nbsp;</span>
-        <strong>Conferência Nacional de Assistência Social — a cada ___ anos:</strong><br/>
-        <span class="cl">&nbsp;</span>
-        <strong>Quem convoca a Conferência Nacional?</strong><br/>
-        <span class="cl">&nbsp;</span>
-      </div>
-    </div>
-    <div class="ref-box">
-      <h2>Referência — confere após o recall</h2>
-      <div class="artigo"><span class="art-num">Instâncias de PACTUAÇÃO (gestores)</span><ul><li><strong>CIT — Comissão Intergestores Tripartite:</strong> nacional. Representantes da União (MDS), Estados (FONSEAS) e Municípios (CONGEMAS). Pactua a operacionalização nacional do SUAS.</li><li><strong>CIB — Comissão Intergestores Bipartite:</strong> estadual. Estado + Municípios (COEGEMAS). Pactua a operacionalização regional, habilita níveis de gestão municipal.</li></ul></div>
-      <div class="artigo"><span class="art-num">Instâncias de DELIBERAÇÃO / CONTROLE SOCIAL</span><ul><li><strong>CNAS — Conselho Nacional de Assistência Social:</strong> caráter <em>deliberativo</em>, composição paritária (9 governo + 9 sociedade civil = 18), mandato 2 anos (uma recondução). Vinculado ao MDS.</li><li><strong>CEAS — Conselho Estadual / CAS-DF — Conselho de Assistência Social do DF</strong></li><li><strong>CMAS — Conselho Municipal</strong></li></ul><p>Todos paritários e deliberativos.</p></div>
-      <div class="artigo"><span class="art-num">Conferências</span><p>A <strong>Conferência Nacional</strong> de Assistência Social ocorre <strong>a cada 4 anos</strong> (convocada pelo CNAS), precedida pelas conferências municipais e estaduais. Avaliam a situação e propõem diretrizes para a PNAS.</p></div>
-      <div class="atencao"><strong>Pegadinha Quadrix:</strong> trocar CIT × CIB (qual é nacional?), trocar "deliberativo" por "consultivo" no CNAS, ou dizer que o CNAS é "subordinado ao Ministro" — tudo errado.</div>
-      <div class="ancora"><strong>Âncora:</strong> Pactua = gestor com gestor (CIT/CIB). Delibera = gestor com sociedade civil (CNAS/CEAS/CMAS). Conferência = a cada 4 anos.</div>
-    </div>
-  </div>
-
-  <!-- DIA 6 -->
-  <div id="day-6" class="day-content">
-    <div class="day-header">
-      <div class="dbadge">Semana 2 · NOB/SUAS + Tipificação</div>
-      <h1>Dia 6 · Sábado, 30/05</h1>
-      <p>Consolidação semanal + Tipificação aprofundada (PAIF e PAEFI)</p>
-    </div>
-    <div class="slot revisao">
-      <div class="slot-header"><span class="slot-icon">📖</span><div><div class="slot-title">Casa · Pomodoro 1</div><div class="slot-time">30 minutos · PAIF + PAEFI (Tipificação detalhada)</div></div></div>
-      <p><strong>O que fazer:</strong> abre o PDF da Tipificação Nacional (Res. CNAS 109/2009). Lê <strong>apenas</strong> as fichas do <strong>PAIF</strong> (Proteção Social Básica) e do <strong>PAEFI</strong> (Média Complexidade). Compara objetivos, público, aquisições, unidade.</p>
-      <div class="tip">⚡ PAIF e PAEFI são os 2 serviços mais cobrados em qualquer prova de psicólogo do SUAS. Decore objetivos e diferenças.</div>
-    </div>
-    <div class="slot pomodoro-2">
-      <div class="slot-header"><span class="slot-icon">✍️</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Teste final da semana</div></div></div>
-      <p><strong>Fecha tudo.</strong> Escreve livremente, sem olhar nada: <em>"Como o SUAS se organiza operacionalmente — quem coordena, quem executa, com qual equipe e por meio de quais serviços."</em></p>
-      <div class="tip">⚡ Se conseguir escrever 1 página coerente integrando NOB + NOB-RH + Tipificação + instâncias — a semana 2 foi bem absorvida.</div>
+      <div class="slot-header"><span class="slot-icon">📋</span><div><div class="slot-title">Casa · Pomodoro 2</div><div class="slot-time">30 minutos · Checklist + próximos passos</div></div></div>
+      <p>Responde o checklist abaixo sem consultar. Depois marca o que faltou — esses pontos voltam como Ret. 1 na Semana 4.</p>
     </div>
     <div class="checklist">
-      <h2>Checklist da semana — responda sem consultar</h2>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é a <strong>NOB/SUAS 2012</strong>? Qual a Resolução do CNAS?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>3 níveis de gestão municipal</strong> (inicial, básica, plena)?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Quais os <strong>3 instrumentos obrigatórios</strong> (Art. 30 LOAS) para receber repasse federal?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Competências da <strong>União, Estados, Municípios e DF</strong> — quem coordena, apoia, executa?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Equipe de referência</strong> do CRAS para 2.500 / 3.500 / 5.000 famílias.</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Equipe de referência</strong> do CREAS — quais profissionais de nível superior obrigatórios?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Diferença entre <strong>CIT e CIB</strong> (pactuação) e <strong>CNAS / CEAS / CMAS</strong> (deliberação).</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Conferência Nacional</strong> de Assistência Social — periodicidade e quem convoca.</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>O que é a <strong>Tipificação Nacional</strong> (Res. CNAS 109/2009)? Quantos serviços ela lista?</span></div>
-      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>PAIF × PAEFI</strong> — qual é PSB, qual é PSE? Onde acontecem? Público de cada um?</span></div>
+      <h2>Checklist da Semana 3 — responda sem consultar</h2>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Qual é a Resolução e o ano da <strong>Tipificação Nacional</strong>? Quantos serviços ela lista no total?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Distribuição dos <strong>14 serviços por nível</strong> de proteção (PSB · PSE Média · PSE Alta)?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>CRAS × PAIF</strong> — qual é a unidade e qual é o serviço? São sinônimos?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Matricialidade sociofamiliar</strong> — definição em 1 frase.</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Diferença entre <strong>Atendimento e Acompanhamento</strong> familiar no PAIF (instrumento PIA).</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>PAEFI</strong> — onde é ofertado (exclusivamente)? Qual o critério de público (violação × vínculo)?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>SCFV</strong> — nível, unidade, ciclos de vida atendidos. Substitui ou complementa o PAIF?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>3 modalidades de Acolhimento</strong> (PSE Alta) — quando aplicar cada uma?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>Centro POP × CREAS</strong> — qual atende exclusivamente pop. em situação de rua?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span><strong>CIT × CIB</strong> (pactuação) e <strong>CNAS × CEAS × CMAS</strong> (deliberação) — quem compõe cada um?</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Periodicidade da <strong>Conferência Nacional</strong> + quem convoca + caráter do CNAS.</span></div>
+      <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span>Ações típicas do <strong>psicólogo</strong> no CRAS, CREAS, Centro POP e Acolhimento (1 por equipamento).</span></div>
     </div>
     <div class="ref-box">
-      <h2>Próximos passos — Semana 3</h2>
-      <p style="font-size:14px;color:#444">Na semana 3 você fecha o bloco de SUAS Fundamentos com o <strong>aprofundamento da Tipificação Nacional</strong> (todos os 14 serviços) + início das <strong>questões temáticas</strong> sobre SUAS no QConcursos (primeira quinta com questões: 04/06).</p>
-      <div class="ancora" style="margin-top:12px"><strong>Domingo 31/05 → DESCANSO.</strong> Nenhum estudo. Você acumulou 12 dias de carga (semanas 1 + 2). O descanso consolida o que foi aprendido.</div>
+      <h2>Próximos passos — Semana 4 (Lei Maria da Penha + Política Nacional de Enfrentamento à Violência contra as Mulheres)</h2>
+      <p style="font-size:14px;color:#444">Na Semana 4 (Qui 11/06 → Qua 17/06 — ritmo padrão restaurado) você inicia o bloco <strong>Lei 11.340/2006 + Política Nacional + Plano Distrital (PDPM)</strong>. Mínimo de 3 questões garantidas na prova (Lei Maria da Penha + Art. 6º Lei Distrital 7.462/2024). Primeira quinta da Semana 4: 11/06 — sessão de questões Lei Maria da Penha + <strong>Ret. 2 NOB</strong>.</p>
+      <div class="ancora" style="margin-top:12px"><strong>Ter 09/06 + Qua 10/06 → FOLGA TOTAL.</strong> Nenhum estudo. Você acumulou 5 dias de carga puxada (incluindo sáb e dom). A folga consolida o que foi aprendido e protege contra fadiga fibro.</div>
+      <p style="margin-top:10px;font-size:14px"><strong>Antes de fechar a aba:</strong> registra os 3 % de acerto da sessão de questões do Dia 4 na nota do celular (SUAS / NOB Ret.1 / total) para calibrar a Semana 4.</p>
     </div>
   </div>
 
@@ -1409,7 +1509,7 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 
     <div id="qz-loading-box" class="qz-loading">
       <div class="spin"></div>
-      <div>Carregando 2.547 questões...</div>
+      <div>Carregando 1.978 questões...</div>
     </div>
 
     <div id="qz-setup-form" hidden>
@@ -1566,15 +1666,152 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     <tr><td>28/08/2026 (quinta da semana 15)</td><td style="color:#94a3b8">⏳ Agendada</td><td>—</td></tr>
   </table>
 
+  <h2 class="plano-h2">Semana 3 · 04/06 a 08/06 · em andamento (remapeada)</h2>
+  <div class="semana-card" style="border-left-color:#f97316">
+    <div class="semana-badge" style="background:#fff7ed;color:#9a3412">🔄 EM CURSO · Semana 3 remapeada · Aprofundamento Tipificação</div>
+    <h4>5 dias úteis (Qui→Seg) com sáb e dom como dias longos de casa</h4>
+    <p><strong>Por que remapeada:</strong> Clarissa viajou seg/ter/qua e voltou hoje (qui 04/06) à tarde. Em vez de fazer "Semana 3 incompleta" ou empurrar tudo pra Semana 4, redistribuímos o conteúdo em 5 dias (Qui→Seg) usando sáb e dom — sem deslocamento ao consultório — como dias longos de estudo em casa.</p>
+    <ul style="margin-top:8px;font-size:13px;color:#444;padding-left:20px">
+      <li><strong>Dia 1 · Qui 04/06 (tarde):</strong> Visão geral Tipificação + 3 níveis de proteção</li>
+      <li><strong>Dia 2 · Sex 05/06:</strong> CRAS + PAIF (matricialidade sociofamiliar)</li>
+      <li><strong>Dia 3 · Sáb 06/06 (sem trabalho):</strong> CREAS + PAEFI + SCFV</li>
+      <li><strong>Dia 4 · Dom 07/06 (sem trabalho):</strong> Acolhimento + Centro POP + Instâncias + 1ª sessão de questões (20 q SUAS + Ret. 1 NOB)</li>
+      <li><strong>Dia 5 · Seg 08/06:</strong> Consolidação + 1 página integrada + checklist sem consulta</li>
+    </ul>
+    <p style="margin-top:8px;font-size:13px;color:#6b7280"><strong>Folga:</strong> Ter 09/06 e Qua 10/06 sem estudo (proteção fibro + consolidação por descanso).</p>
+    <p style="margin-top:8px;font-size:14px"><strong>Aba ativa:</strong> <a onclick="showMain('semana1')" style="color:#2563eb;cursor:pointer;text-decoration:underline">📖 Semana 3</a> (5 dias detalhados)</p>
+  </div>
+
   <h2 class="plano-h2">Próxima semana — o que vem aí</h2>
   <div class="semana-card">
-    <div class="semana-badge">📅 Semana 3 · 01/06 a 06/06</div>
-    <h4>Aprofundamento da Tipificação + início das questões temáticas no QConcursos</h4>
-    <p>Detalhamento dos 14 serviços tipificados (especialmente PAIF, PAEFI, SCFV, Acolhimento) e da abordagem do psicólogo em cada um. <strong>Primeira quinta com questões:</strong> 04/06 (20 questões SUAS Fundamentos + Ret. 1 NOB).</p>
-    <p style="margin-top:8px;font-size:13px;color:#6b7280">Quando a semana 3 começar, a aba "Semana 2" da nav principal será substituída por "Semana 3". Esta aba <strong>📊 Estudado</strong> preserva tudo.</p>
+    <div class="semana-badge">📅 Semana 4 · 11/06 a 17/06 (ritmo padrão restaurado)</div>
+    <h4>Lei Maria da Penha + Política Nacional de Enfrentamento à Violência contra as Mulheres</h4>
+    <p>Lei 11.340/2006: formas de violência, medidas protetivas, rede de atendimento, papel do psicólogo. Política Nacional de Enfrentamento à Violência contra Mulheres (cobrança explícita no edital). Plano Distrital de Política para Mulheres (PDPM). <strong>Mínimo de 3 questões garantidas na prova</strong> sobre esses tópicos (Lei Maria da Penha + Art. 6º Lei Distrital 7.462/2024).</p>
+    <p style="margin-top:8px;font-size:13px;color:#6b7280"><strong>Primeira quinta com questões:</strong> 11/06 — Lei Maria da Penha + <strong>Ret. 2 NOB</strong> (que foi Ret. 1 no Dia 4 da Semana 3) + Ret. 1 Tipificação/Aprofundamento.</p>
   </div>
 
 </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 7: FIBROMODE — Check-in tridimensional de energia
+══════════════════════════════════════════════════════════ -->
+<section id="tab-fibromode" class="tab-section">
+<div class="fm-wrap">
+
+  <div class="fm-rule">
+    <span class="fm-rule-icon">⚖️</span>
+    <span><strong>Regra de Ouro:</strong> Dia bom não autoriza exagerar. Dia ruim não autoriza abandonar.</span>
+  </div>
+
+  <h2 class="fm-h2">💪 Check-in FibroMode</h2>
+  <p class="fm-sub">Avalie como você está agora. O sistema decide quanto e o quê estudar.</p>
+
+  <div class="fm-card">
+    <div class="fm-slider-block">
+      <div class="fm-slider-head">
+        <label>🔥 Dor</label>
+        <span class="fm-val" id="fm-val-dor">5</span>
+      </div>
+      <input type="range" min="0" max="10" value="5" id="fm-dor" class="fm-slider" oninput="fmUpdate()">
+      <div class="fm-scale"><span>0 = sem dor</span><span>10 = insuportável</span></div>
+    </div>
+
+    <div class="fm-slider-block">
+      <div class="fm-slider-head">
+        <label>😴 Fadiga</label>
+        <span class="fm-val" id="fm-val-fadiga">5</span>
+      </div>
+      <input type="range" min="0" max="10" value="5" id="fm-fadiga" class="fm-slider" oninput="fmUpdate()">
+      <div class="fm-scale"><span>0 = energia plena</span><span>10 = exausta</span></div>
+    </div>
+
+    <div class="fm-slider-block">
+      <div class="fm-slider-head">
+        <label>🛌 Sono (qualidade da noite)</label>
+        <span class="fm-val" id="fm-val-sono">5</span>
+      </div>
+      <input type="range" min="0" max="10" value="5" id="fm-sono" class="fm-slider" oninput="fmUpdate()">
+      <div class="fm-scale"><span>0 = não dormi</span><span>10 = sono restaurador</span></div>
+    </div>
+
+    <div class="fm-slider-block">
+      <div class="fm-slider-head">
+        <label>🌫️ Neblina mental</label>
+        <span class="fm-val" id="fm-val-neblina">5</span>
+      </div>
+      <input type="range" min="0" max="10" value="5" id="fm-neblina" class="fm-slider" oninput="fmUpdate()">
+      <div class="fm-scale"><span>0 = clara</span><span>10 = enevoada</span></div>
+    </div>
+
+    <div class="fm-slider-block">
+      <div class="fm-slider-head">
+        <label>⏱️ Tempo disponível hoje</label>
+        <span class="fm-val" id="fm-val-tempo">120 min</span>
+      </div>
+      <input type="range" min="20" max="240" step="10" value="120" id="fm-tempo" class="fm-slider" oninput="fmUpdate()">
+      <div class="fm-scale"><span>20 min</span><span>4 h</span></div>
+    </div>
+
+    <button class="fm-btn-save" onclick="fmSalvar()">💾 Salvar check-in de hoje</button>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="fm-resultado" id="fm-resultado">
+    <div class="fm-zona-card" id="fm-zona-card">
+      <div class="fm-zona-emoji" id="fm-zona-emoji">🟡</div>
+      <div class="fm-zona-info">
+        <div class="fm-zona-nome" id="fm-zona-nome">Zona Amarela</div>
+        <div class="fm-zona-score">Score: <strong id="fm-zona-score">5.0</strong> / 10</div>
+      </div>
+    </div>
+
+    <div class="fm-plano">
+      <h3>🎯 Plano recomendado para hoje</h3>
+      <div id="fm-plano-conteudo"></div>
+    </div>
+
+    <div class="fm-checklist" id="fm-checklist"></div>
+  </div>
+
+  <!-- HISTÓRICO -->
+  <h2 class="fm-h2" style="margin-top:32px">📈 Últimos 14 dias</h2>
+  <div class="fm-historico" id="fm-historico">
+    <div style="color:#94a3b8;padding:20px;text-align:center;font-size:13px">Nenhum registro ainda. Faça o primeiro check-in acima.</div>
+  </div>
+
+</div><!-- /fm-wrap -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TAB 8: ESTRATÉGIA — Como a Quadrix cobra cada tópico
+══════════════════════════════════════════════════════════ -->
+<section id="tab-estrategia" class="tab-section">
+<div class="es-wrap">
+
+  <h2 class="es-h2">🎯 Estratégia · Como a Quadrix cobra</h2>
+  <p class="es-sub">Análise estatística de <strong id="es-total">—</strong> questões reais da banca para extrair padrões por tópico.</p>
+
+  <!-- VISÃO GERAL DA BANCA -->
+  <div class="es-overview" id="es-overview"></div>
+
+  <!-- FILTRO POR DISCIPLINA -->
+  <div class="es-disc-chips" id="es-disc-chips"></div>
+
+  <!-- TABELA DE TÓPICOS -->
+  <h3 class="es-h3" id="es-tabela-titulo">📊 Tópicos ranqueados por frequência de cobrança</h3>
+  <p class="es-dica">Os tópicos no topo da lista são os que mais caem. Clica num tópico pra ver o dossiê completo.</p>
+  <div class="es-tabela-wrap">
+    <div class="es-tabela" id="es-tabela"></div>
+  </div>
+
+  <!-- DOSSIÊ DO TÓPICO -->
+  <div class="es-dossie" id="es-dossie" hidden>
+    <button class="es-dossie-close" onclick="esFechaDossie()">← Voltar à lista</button>
+    <div id="es-dossie-conteudo"></div>
+  </div>
+
+</div><!-- /es-wrap -->
 </section>
 
 <footer>SEDES-DF 2026 · Cargo 409 · Psicologia · 112 dias até a prova</footer>
@@ -1595,6 +1832,511 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     }
     window.scrollTo({top: 0, behavior: 'smooth'});
     if (tab === 'questoes') qzInit();
+    if (tab === 'fibromode') fmInit();
+    if (tab === 'estrategia') esInit();
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // ESTRATÉGIA — Análise meta da banca Quadrix por tópico
+  // ═══════════════════════════════════════════════════════════
+  const ES = { discFiltro: 'todas', cache: null };
+  const ES_NOMES_DISC = {
+    psicologia: '🧠 Psicologia',
+    servico_social: '🤝 Serviço Social',
+    direito_constitucional: '📜 Constitucional',
+    portugues: '✍️ Português',
+  };
+
+  // STOP WORDS para análise de conceitos-chave
+  const ES_STOP = new Set([
+    'a','o','as','os','um','uma','uns','umas','de','do','da','dos','das','para','por','pelo','pela','pelos','pelas',
+    'e','ou','que','se','com','sem','no','na','nos','nas','em','é','são','foi','ser','sua','seu','suas','seus','este',
+    'esse','essa','esta','estas','estes','isso','aquilo','aos','às','ao','também','ainda','já','não','sim','muito',
+    'mais','menos','quando','onde','como','assim','sobre','entre','até','mas','porém','contudo','todavia','sendo',
+    'pode','podem','deve','devem','possui','possuem','tem','têm','há','julgue','itens','seguintes','seguir','com','base',
+    'considerando','acerca','respeito','assinale','alternativa','correta','incorreta','única','apenas','somente','seguinte',
+    'questão','afirmativas','assertivas','informação','informações','seguintes','julgar','marca','marque','aponte','indique',
+    'analise','analisar','enunciado','texto','frase','i','ii','iii','iv','v','vi','vii','viii','ix','x','art','arts','lei',
+    'pela','seguir.','seguinte:','assinale:','seguintes:','seguintes,'
+  ]);
+
+  function esAnalisar() {
+    if (ES.cache) return ES.cache;
+    const todas = window.QZ_DATA.questoes;
+    const porTopico = {};
+    const totalGeral = todas.length;
+
+    for (const q of todas) {
+      const ano = q.ano || '';
+      const disc = q.d || '';
+      const assuntos = q.a || [];
+      const enun = (q.e || '').toLowerCase();
+
+      // Formato
+      const formato = esFormato(q.e || '');
+
+      // Armadilhas
+      const arms = esArmadilhas(q.e || '');
+
+      for (const a of assuntos) {
+        if (!porTopico[a]) {
+          porTopico[a] = {
+            topico: a, disc, n: 0,
+            anos: {},
+            gabaritos: {A:0,B:0,C:0,D:0,E:0},
+            formatos: {simples:0, julgue:0, exceto:0, incorreta:0, completar:0},
+            armadilhas: 0,
+            armadilha_palavras: {},
+            palavras: {},
+            ids: [],
+          };
+        }
+        const t = porTopico[a];
+        t.n++;
+        t.anos[ano] = (t.anos[ano] || 0) + 1;
+        if (q.g && t.gabaritos[q.g] !== undefined) t.gabaritos[q.g]++;
+        t.formatos[formato] = (t.formatos[formato] || 0) + 1;
+        if (arms.length) {
+          t.armadilhas++;
+          for (const ar of arms) t.armadilha_palavras[ar] = (t.armadilha_palavras[ar] || 0) + 1;
+        }
+        t.ids.push(q.id);
+        // Conceitos-chave (palavras frequentes no enunciado, excluindo stop-words)
+        const palavras = enun.replace(/[^\wáàâãéêíóôõúçñ ]/gi, ' ').split(/\s+/).filter(w => w.length > 4 && !ES_STOP.has(w));
+        const seen = new Set();
+        for (const w of palavras) {
+          if (seen.has(w)) continue;
+          seen.add(w);
+          t.palavras[w] = (t.palavras[w] || 0) + 1;
+        }
+      }
+    }
+    // Calcular prioridade relativa: top 25% = alta, 25-60% = media, restante = baixa
+    const arr = Object.values(porTopico).sort((a,b) => b.n - a.n);
+    const total = arr.length;
+    arr.forEach((t, i) => {
+      const pct = i / total;
+      t.prioridade = pct < 0.20 ? 'alta' : pct < 0.55 ? 'media' : 'baixa';
+      t.maxBarra = arr[0].n; // pra escala da barra
+    });
+    ES.cache = { porTopico: arr, totalGeral };
+    return ES.cache;
+  }
+
+  function esFormato(enun) {
+    const e = enun.toLowerCase();
+    if (/\bincorreta|\bnão se aplica|\bnão é|\bexceto/.test(e) && !/julgue|itens/.test(e)) return 'incorreta';
+    if (/julgue.*itens|julgue.*assertivas|assinale.*itens|julgue.*seguintes/i.test(e)) return 'julgue';
+    if (/exceto|salvo|ressalvad/i.test(e)) return 'exceto';
+    if (/preench|complet/i.test(e)) return 'completar';
+    return 'simples';
+  }
+
+  function esArmadilhas(enun) {
+    const e = enun.toLowerCase();
+    const lista = [];
+    const padroes = {
+      'incorreta': /incorreta|incorreto/,
+      'exceto': /\bexceto\b/,
+      'salvo': /\bsalvo\b/,
+      'jamais': /\bjamais\b/,
+      'sempre': /\bsempre\b/,
+      'nunca': /\bnunca\b/,
+      'apenas': /\bapenas\b/,
+      'somente': /\bsomente\b/,
+      'todos': /\btodos os\b/,
+      'qualquer': /\bqualquer\b/,
+    };
+    for (const [k, re] of Object.entries(padroes)) {
+      if (re.test(e)) lista.push(k);
+    }
+    return lista;
+  }
+
+  function esRenderOverview() {
+    const an = esAnalisar();
+    const todas = window.QZ_DATA.questoes;
+    document.getElementById('es-total').textContent = todas.length.toLocaleString('pt-BR');
+
+    // Stats gerais
+    const gab = {A:0,B:0,C:0,D:0,E:0};
+    const fmtCount = {};
+    let comArmad = 0;
+    for (const q of todas) {
+      if (q.g && gab[q.g] !== undefined) gab[q.g]++;
+      const f = esFormato(q.e || '');
+      fmtCount[f] = (fmtCount[f] || 0) + 1;
+      if (esArmadilhas(q.e || '').length) comArmad++;
+    }
+    const totalG = Object.values(gab).reduce((a,b)=>a+b,0);
+    const gabMaior = Object.entries(gab).sort((a,b)=>b[1]-a[1])[0];
+    const fmtMaior = Object.entries(fmtCount).sort((a,b)=>b[1]-a[1])[0];
+
+    const ov = document.getElementById('es-overview');
+    ov.innerHTML = `
+      <div class="es-ovbox"><div class="v">${an.porTopico.length}</div><div class="l">Tópicos únicos</div></div>
+      <div class="es-ovbox"><div class="v">${gabMaior[0]} (${Math.round(gabMaior[1]*100/totalG)}%)</div><div class="l">Letra mais frequente</div></div>
+      <div class="es-ovbox"><div class="v">${fmtMaior[0]}</div><div class="l">Formato dominante</div></div>
+      <div class="es-ovbox"><div class="v">${Math.round(comArmad*100/todas.length)}%</div><div class="l">Têm palavra-armadilha</div></div>
+    `;
+  }
+
+  function esRenderChips() {
+    const chips = document.getElementById('es-disc-chips');
+    const discs = ['todas','psicologia','servico_social','direito_constitucional','portugues'];
+    chips.innerHTML = discs.map(d => {
+      const label = d === 'todas' ? '🎲 Todas' : ES_NOMES_DISC[d];
+      const on = (ES.discFiltro === d) ? 'on' : '';
+      return `<button class="es-disc-chip ${on}" data-d="${d}" onclick="esFiltrar('${d}')">${label}</button>`;
+    }).join('');
+  }
+
+  function esFiltrar(disc) {
+    ES.discFiltro = disc;
+    esRenderChips();
+    esRenderTabela();
+  }
+
+  function esRenderTabela() {
+    const an = esAnalisar();
+    let arr = an.porTopico;
+    if (ES.discFiltro !== 'todas') arr = arr.filter(t => t.disc === ES.discFiltro);
+    arr = arr.slice(0, 60); // top 60
+    const maxN = arr.length ? arr[0].n : 1;
+
+    document.getElementById('es-tabela-titulo').textContent =
+      ES.discFiltro === 'todas'
+        ? '📊 Top 60 tópicos por frequência'
+        : `📊 Top tópicos · ${ES_NOMES_DISC[ES.discFiltro]}`;
+
+    const head = `<div class="es-row head"><div>Tópico</div><div># questões</div><div>Prioridade</div><div>Frequência</div></div>`;
+    const rows = arr.map(t => `
+      <div class="es-row" onclick="esAbrirDossie('${t.topico.replace(/'/g, "\\'")}')">
+        <div class="es-topico">${t.topico}</div>
+        <div><strong>${t.n}</strong></div>
+        <div><span class="es-row-prio ${t.prioridade}">${t.prioridade}</span></div>
+        <div><div class="es-bar"><div class="es-bar-fill" style="width:${Math.round(t.n*100/maxN)}%"></div></div></div>
+      </div>
+    `).join('');
+    document.getElementById('es-tabela').innerHTML = head + rows;
+  }
+
+  function esAbrirDossie(topico) {
+    const an = esAnalisar();
+    const t = an.porTopico.find(x => x.topico === topico);
+    if (!t) return;
+
+    // Anos ordenados
+    const anos = Object.entries(t.anos).filter(([a]) => /^\d{4}$/.test(a)).sort((a,b) => a[0].localeCompare(b[0]));
+    const maxAnos = Math.max(...anos.map(x => x[1]), 1);
+    const totalG = Object.values(t.gabaritos).reduce((a,b)=>a+b,0) || 1;
+    const fmtTop = Object.entries(t.formatos).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]);
+    const armTop = Object.entries(t.armadilha_palavras).sort((a,b)=>b[1]-a[1]).slice(0, 8);
+    const conceitos = Object.entries(t.palavras).sort((a,b)=>b[1]-a[1]).slice(0, 15);
+
+    const c = document.getElementById('es-dossie-conteudo');
+    c.innerHTML = `
+      <h3>${t.topico}</h3>
+      <div style="color:#64748b;font-size:13px;margin-bottom:14px">Disciplina: <strong>${ES_NOMES_DISC[t.disc] || t.disc}</strong> · Prioridade: <span class="es-row-prio ${t.prioridade}">${t.prioridade}</span></div>
+
+      <div class="es-stats">
+        <div class="es-stat"><div class="v">${t.n}</div><div class="l">questões no banco</div></div>
+        <div class="es-stat"><div class="v">${anos.length}</div><div class="l">anos diferentes</div></div>
+        <div class="es-stat"><div class="v">${Math.round(t.armadilhas*100/t.n)}%</div><div class="l">com armadilha</div></div>
+        <div class="es-stat"><div class="v">${fmtTop[0] ? fmtTop[0][0] : '—'}</div><div class="l">formato dominante</div></div>
+      </div>
+
+      ${anos.length > 1 ? `
+      <div class="es-block">
+        <h4>📅 Cobrança por ano</h4>
+        <div class="es-mini-grafico" style="margin-top:18px">
+          ${anos.map(([a, n]) => `
+            <div class="es-bar-col" style="height:${Math.round(n*100/maxAnos)}%">
+              <span class="bn">${n}</span>
+              <span class="bl">${a}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>` : ''}
+
+      <div class="es-block">
+        <h4>🅰️ Distribuição de gabarito (preferência da banca)</h4>
+        <div class="es-gab-dist">
+          ${['A','B','C','D','E'].map(L => `
+            <div class="es-gab-item">
+              <div class="es-gab-letra">${L}</div>
+              <div style="font-weight:700">${t.gabaritos[L]}</div>
+              <div class="es-gab-pct">${Math.round(t.gabaritos[L]*100/totalG)}%</div>
+            </div>
+          `).join('')}
+        </div>
+        <p style="font-size:12px;color:#64748b;margin:4px 0 0">
+          ${(() => {
+            const max = Object.entries(t.gabaritos).sort((a,b)=>b[1]-a[1])[0];
+            const pct = Math.round(max[1]*100/totalG);
+            return pct >= 30 ? `<strong>Preferência detectada:</strong> letra <strong>${max[0]}</strong> aparece ${pct}% das vezes — quando em dúvida, considere.` : 'Distribuição equilibrada — sem viés claro de letra.';
+          })()}
+        </p>
+      </div>
+
+      <div class="es-block">
+        <h4>🎭 Formato das questões</h4>
+        <div class="es-tags">
+          ${fmtTop.map(([f, n]) => `<span class="es-tag">${f}<span class="n">${n}</span></span>`).join('')}
+        </div>
+        <p style="font-size:12px;color:#64748b;margin:8px 0 0">
+          ${(() => {
+            const dom = fmtTop[0];
+            if (!dom) return '';
+            const pct = Math.round(dom[1]*100/t.n);
+            const dicas = {
+              simples: 'Atenção à alternativa MAIS correta entre verdades parciais.',
+              julgue: 'Conte com cuidado os itens corretos. Banca adora pegadinha de contagem.',
+              incorreta: 'Tópico de pegadinha: a banca pede a INCORRETA. Risque mentalmente quem está certo.',
+              exceto: 'Procure a "ovelha negra": 4 corretas + 1 incorreta. Marque a fora do padrão.',
+              completar: 'Lê o enunciado inteiro antes de buscar o termo; concordância manda.',
+            };
+            return `<strong>${pct}%</strong> das questões são "${dom[0]}". ${dicas[dom[0]] || ''}`;
+          })()}
+        </p>
+      </div>
+
+      ${armTop.length ? `
+      <div class="es-block" style="border-left-color:#d97706">
+        <h4>⚠️ Armadilhas favoritas da banca neste tópico</h4>
+        <div class="es-tags">
+          ${armTop.map(([w, n]) => `<span class="es-tag" style="background:#fef3c7;color:#92400e">${w}<span class="n" style="background:#d97706">${n}</span></span>`).join('')}
+        </div>
+        <p style="font-size:12px;color:#64748b;margin:8px 0 0">
+          Sublinhe essas palavras no enunciado. "Incorreta/exceto/salvo" inverte a lógica. "Sempre/nunca/jamais/somente" são quase sempre falsos.
+        </p>
+      </div>` : ''}
+
+      ${conceitos.length ? `
+      <div class="es-block">
+        <h4>🔑 Conceitos-chave mais frequentes nos enunciados</h4>
+        <div class="es-tags">
+          ${conceitos.map(([w, n]) => `<span class="es-tag">${w}<span class="n">${n}</span></span>`).join('')}
+        </div>
+        <p style="font-size:12px;color:#64748b;margin:8px 0 0">Palavras que aparecem em ≥${Math.ceil(t.n/4)} questões. Se você não domina essas, você não domina o tópico.</p>
+      </div>` : ''}
+
+      <button class="es-praticar" onclick="esPraticar('${t.topico.replace(/'/g, "\\'")}')">▶️ Praticar essas ${t.n} questões agora</button>
+    `;
+    document.getElementById('es-dossie').hidden = false;
+    document.getElementById('es-dossie').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  function esFechaDossie() {
+    document.getElementById('es-dossie').hidden = true;
+    document.querySelector('.es-tabela').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  function esPraticar(topico) {
+    // Vai para aba Questões e pré-seleciona o assunto
+    showMain('questoes');
+    setTimeout(() => {
+      const sel = document.getElementById('qz-assunto-sel');
+      if (sel) {
+        // Verifica se a opção existe
+        const opt = Array.from(sel.options).find(o => o.value === topico || o.textContent === topico);
+        if (opt) {
+          sel.value = opt.value;
+        }
+      }
+    }, 200);
+  }
+
+  function esInit() {
+    esAnalisar();
+    esRenderOverview();
+    esRenderChips();
+    esRenderTabela();
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // FIBROMODE — Check-in tridimensional de energia (feature #6)
+  // ═══════════════════════════════════════════════════════════
+  const FM_KEY = 'sedes_fibromode_v1';
+
+  function fmLoad() {
+    try { return JSON.parse(localStorage.getItem(FM_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+
+  function fmSave(arr) {
+    localStorage.setItem(FM_KEY, JSON.stringify(arr));
+  }
+
+  function fmHoje() { return new Date().toISOString().slice(0, 10); }
+
+  function fmCalcScore(dor, fadiga, sono, neblina) {
+    // Fórmula do plano v2 (item #6):
+    // score = (10-dor)*0.3 + (10-fadiga)*0.3 + sono*0.2 + (10-neblina)*0.2
+    return (10 - dor) * 0.3 + (10 - fadiga) * 0.3 + sono * 0.2 + (10 - neblina) * 0.2;
+  }
+
+  function fmZona(score) {
+    if (score >= 7) return 'verde';
+    if (score >= 4) return 'amarela';
+    return 'vermelha';
+  }
+
+  const FM_PLANOS = {
+    verde: {
+      emoji: '🟢',
+      nome: 'Zona Verde — Dia bom',
+      tempo: '2h completas (até 4h)',
+      conteudo: 'Sessão plena autorizada. Atacar conteúdo NOVO + alta densidade técnica.',
+      checklist: [
+        'Conteúdo novo do plano da semana (Pomodoro 1+2)',
+        'Treino de discursiva (estudo de caso completo)',
+        'Simulado autorizado (20-30 questões mistas)',
+        'Revisão SM-2 das questões devidas',
+        'Fechar com cartão de erros do dia',
+      ],
+      regra: '⚠️ Dia bom NÃO autoriza exagerar. Pare quando atingir o tempo planejado.',
+    },
+    amarela: {
+      emoji: '🟡',
+      nome: 'Zona Amarela — Dia médio',
+      tempo: '60-90 minutos',
+      conteudo: 'Só revisão (sem conteúdo novo pesado). Foco em manter o já aprendido.',
+      checklist: [
+        'Revisão SM-2 das questões devidas (máx 30 min)',
+        '10 questões dirigidas (não simulado cego)',
+        'Flashcards de mnemônicos LOAS/NOB/Ética (15 min)',
+        'Áudio de 20-30 min (Modo Trânsito) se quiser estender',
+        'NÃO abrir tópico novo do edital hoje',
+      ],
+      regra: '⚖️ Mantenha o ritmo mínimo. Sem culpa por não fazer mais.',
+    },
+    vermelha: {
+      emoji: '🔴',
+      nome: 'Zona Vermelha — Dia ruim',
+      tempo: '20-40 minutos (encerrar ao limite)',
+      conteudo: 'Só áudio + revisão leve. NÃO abrir conteúdo novo. NÃO fazer simulado.',
+      checklist: [
+        'Modo Trânsito (áudio do dia) — passivo, no carro/deitada',
+        '3 questões comentadas (devagar, sem cronometrar)',
+        'Hidratação + analgésico se preciso',
+        'Encerrar antes dos 40 min, mesmo sentindo que dá pra mais',
+        'NÃO compensar amanhã — siga o FibroMode amanhã',
+      ],
+      regra: '🛑 Dia ruim NÃO autoriza abandonar. Mantenha o mínimo (áudio) e encerre.',
+    },
+  };
+
+  function fmUpdate() {
+    const dor = +document.getElementById('fm-dor').value;
+    const fadiga = +document.getElementById('fm-fadiga').value;
+    const sono = +document.getElementById('fm-sono').value;
+    const neblina = +document.getElementById('fm-neblina').value;
+    const tempo = +document.getElementById('fm-tempo').value;
+    document.getElementById('fm-val-dor').textContent = dor;
+    document.getElementById('fm-val-fadiga').textContent = fadiga;
+    document.getElementById('fm-val-sono').textContent = sono;
+    document.getElementById('fm-val-neblina').textContent = neblina;
+    document.getElementById('fm-val-tempo').textContent = (tempo >= 60)
+      ? (Math.floor(tempo/60) + 'h' + (tempo%60 ? ' ' + (tempo%60) + 'min' : ''))
+      : (tempo + ' min');
+  }
+
+  function fmSalvar() {
+    const dor = +document.getElementById('fm-dor').value;
+    const fadiga = +document.getElementById('fm-fadiga').value;
+    const sono = +document.getElementById('fm-sono').value;
+    const neblina = +document.getElementById('fm-neblina').value;
+    const tempo = +document.getElementById('fm-tempo').value;
+    const score = fmCalcScore(dor, fadiga, sono, neblina);
+    const zona = fmZona(score);
+
+    const registro = {
+      data: fmHoje(),
+      ts: Date.now(),
+      dor, fadiga, sono, neblina, tempo,
+      score: +score.toFixed(2),
+      zona,
+    };
+
+    // Substituir se já tem registro do mesmo dia, senão adicionar
+    const arr = fmLoad();
+    const idx = arr.findIndex(r => r.data === registro.data);
+    if (idx >= 0) arr[idx] = registro; else arr.push(registro);
+    arr.sort((a, b) => b.ts - a.ts);
+    fmSave(arr);
+
+    fmRender(registro);
+    fmRenderHistorico();
+  }
+
+  function fmRender(reg) {
+    const plano = FM_PLANOS[reg.zona];
+    const card = document.getElementById('fm-zona-card');
+    card.className = 'fm-zona-card ' + reg.zona;
+    document.getElementById('fm-zona-emoji').textContent = plano.emoji;
+    document.getElementById('fm-zona-nome').textContent = plano.nome;
+    document.getElementById('fm-zona-score').textContent = reg.score.toFixed(1);
+
+    const cont = document.getElementById('fm-plano-conteudo');
+    cont.innerHTML = `
+      <div class="fm-plano-tempo">⏱️ ${plano.tempo}</div>
+      <p style="margin:0;color:#475569;font-size:14px;line-height:1.5">${plano.conteudo}</p>
+      <p style="margin-top:10px;font-size:13px;color:#78350f;background:#fef3c7;padding:8px 12px;border-radius:8px">${plano.regra}</p>
+    `;
+
+    const ck = document.getElementById('fm-checklist');
+    ck.innerHTML = `
+      <h3>✅ Checklist do dia</h3>
+      <ul>${plano.checklist.map(c => '<li>' + c + '</li>').join('')}</ul>
+    `;
+
+    document.getElementById('fm-resultado').classList.add('show');
+  }
+
+  function fmRenderHistorico() {
+    const hist = document.getElementById('fm-historico');
+    const arr = fmLoad().slice(0, 14);
+    if (!arr.length) {
+      hist.innerHTML = '<div style="color:#94a3b8;padding:20px;text-align:center;font-size:13px">Nenhum registro ainda. Faça o primeiro check-in acima.</div>';
+      return;
+    }
+    const formatData = (d) => {
+      const [y, m, dd] = d.split('-');
+      return `${dd}/${m}`;
+    };
+    const head = `<div class="fm-hist-row head"><div>Data</div><div>Dor</div><div>Fadiga</div><div>Sono</div><div>Neblina</div><div>Score</div><div>Zona</div></div>`;
+    const rows = arr.map(r => `
+      <div class="fm-hist-row">
+        <div><strong>${formatData(r.data)}</strong></div>
+        <div>${r.dor}</div>
+        <div>${r.fadiga}</div>
+        <div>${r.sono}</div>
+        <div>${r.neblina}</div>
+        <div><strong>${r.score.toFixed(1)}</strong></div>
+        <div><span class="fm-hist-zona ${r.zona}">${FM_PLANOS[r.zona].emoji.slice(0,2)}</span></div>
+      </div>
+    `).join('');
+    hist.innerHTML = head + rows;
+  }
+
+  function fmInit() {
+    // Se já há check-in de hoje, pré-carregar sliders e mostrar resultado
+    const arr = fmLoad();
+    const hoje = arr.find(r => r.data === fmHoje());
+    if (hoje) {
+      document.getElementById('fm-dor').value = hoje.dor;
+      document.getElementById('fm-fadiga').value = hoje.fadiga;
+      document.getElementById('fm-sono').value = hoje.sono;
+      document.getElementById('fm-neblina').value = hoje.neblina;
+      document.getElementById('fm-tempo').value = hoje.tempo;
+      fmUpdate();
+      fmRender(hoje);
+    } else {
+      fmUpdate();
+      document.getElementById('fm-resultado').classList.remove('show');
+    }
+    fmRenderHistorico();
   }
 
   function showDay(n) {
@@ -1634,8 +2376,37 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
     ra.style.color = ra.style.color === 'rgb(96, 165, 250)' ? '#334155' : 'rgb(96, 165, 250)';
   }
 
+  // ═══════════════════════════════════════════════════════════
+  // CHECKS DE RECALL — checklists "sem consulta" (agora persistem)
+  // Os check-box não têm id no HTML, então a chave é derivada do
+  // texto do item + a seção (.tab-section) onde ele está. Isso
+  // sobrevive a recarregar a página e a reordenar/adicionar itens.
+  // ═══════════════════════════════════════════════════════════
+  const RECALL_KEY = 'clarissa_recall_checks';
+  function _checkId(el) {
+    const span = el.nextElementSibling;
+    const txt = ((span ? span.textContent : el.textContent) || '').replace(/\s+/g, ' ').trim();
+    const sec = el.closest('.tab-section');
+    const s = (sec ? sec.id : 'global') + '::' + txt;
+    let h = 5381;
+    for (let i = 0; i < s.length; i++) h = (((h << 5) + h) + s.charCodeAt(i)) | 0;
+    return 'c' + (h >>> 0).toString(36);
+  }
+  function _loadRecall() {
+    try { return JSON.parse(localStorage.getItem(RECALL_KEY) || '{}'); } catch (e) { return {}; }
+  }
   function toggleCheck(el) {
     el.classList.toggle('checked');
+    const store = _loadRecall();
+    const id = _checkId(el);
+    if (el.classList.contains('checked')) store[id] = 1; else delete store[id];
+    try { localStorage.setItem(RECALL_KEY, JSON.stringify(store)); } catch (e) {}
+  }
+  function restoreChecks() {
+    const store = _loadRecall();
+    document.querySelectorAll('.check-box').forEach(el => {
+      if (store[_checkId(el)]) el.classList.add('checked');
+    });
   }
 
   /* ═══════════════════════════════════════════════════════════
@@ -1889,6 +2660,12 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
       <div class="qz-enunciado">${ESC(q.e)}</div>
       <div class="qz-alts">${altsHTML}</div>
       <div class="qz-feedback" id="qz-feedback"></div>
+      <div class="qz-explica" id="qz-explica" hidden>
+        <button class="qz-explica-toggle" id="qz-explica-toggle" onclick="qzToggleExplica()">
+          💡 <span>Por que essa é a resposta?</span>
+        </button>
+        <div class="qz-explica-body" id="qz-explica-body" hidden></div>
+      </div>
     `;
     document.getElementById('qz-btn-prox').hidden = true;
   }
@@ -1936,8 +2713,28 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
       fb.className = 'qz-feedback show bad';
       fb.textContent = `✗ Errada. Gabarito: ${q.g}. Volta amanhã pra revisar.`;
     }
+    // Painel de explicação (justificativa técnica embarcada)
+    const exp = document.getElementById('qz-explica');
+    const expBody = document.getElementById('qz-explica-body');
+    const expToggle = document.getElementById('qz-explica-toggle');
+    if (q.j && q.j.length > 5) {
+      exp.hidden = false;
+      expBody.innerHTML = ESC(q.j).replace(/\n/g, '<br>');
+      expBody.hidden = true;
+      expToggle.querySelector('span').textContent = correto ? 'Ver a justificativa técnica' : 'Por que a resposta correta é ' + q.g + '?';
+    } else {
+      exp.hidden = true;
+    }
+
     document.getElementById('qz-btn-prox').hidden = false;
     document.getElementById('qz-btn-prox').textContent = (QZ.idx + 1 >= QZ.fila.length) ? '🏁 Ver resultado' : 'Próxima →';
+  }
+
+  function qzToggleExplica() {
+    const body = document.getElementById('qz-explica-body');
+    const toggle = document.getElementById('qz-explica-toggle');
+    body.hidden = !body.hidden;
+    toggle.classList.toggle('open', !body.hidden);
   }
 
   function qzProxima() {
@@ -2004,6 +2801,69 @@ Manutenção:   29/05 · 26/06 · 31/07 · 28/08          ← Português + Étic
 
     qzMostrarTela('result');
   }
+
+  // ═══════════════════════════════════════════════════════════
+  // CHECKS DE ETAPA — marcar slots (carro manhã, casa tarde, etc.) como concluídos
+  // ═══════════════════════════════════════════════════════════
+  function slotChecksInit() {
+    const KEY = 'clarissa_slot_done';
+    let done = {};
+    try { done = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { done = {}; }
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} };
+
+    document.querySelectorAll('.day-content').forEach(day => {
+      const dayId = day.id;                       // ex.: "day-2"
+      const slots = day.querySelectorAll('.slot');
+      if (!slots.length) return;
+
+      // contador de progresso no cabeçalho do dia
+      let prog = day.querySelector('.day-progress');
+      if (!prog) {
+        prog = document.createElement('div');
+        prog.className = 'day-progress';
+        prog.innerHTML = '<span class="dp-bar"><i></i></span><span class="dp-txt"></span>';
+        const header = day.querySelector('.day-header');
+        if (header) header.appendChild(prog);
+      }
+      const refreshProg = () => {
+        const total = slots.length;
+        const feitos = Array.from(slots).filter(s => s.classList.contains('slot-done')).length;
+        prog.classList.toggle('zero', feitos === 0);
+        prog.querySelector('.dp-bar i').style.width = (feitos / total * 100) + '%';
+        prog.querySelector('.dp-txt').textContent =
+          feitos === total ? '✅ Dia concluído!' : feitos + '/' + total + ' etapas concluídas';
+      };
+
+      slots.forEach((slot, i) => {
+        const header = slot.querySelector('.slot-header');
+        if (!header || header.querySelector('.slot-check')) return;
+        const id = dayId + '_slot' + i;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'slot-check';
+
+        const apply = () => {
+          const ok = !!done[id];
+          slot.classList.toggle('slot-done', ok);
+          btn.classList.toggle('on', ok);
+          btn.textContent = ok ? '✓ Concluído' : 'Concluir';
+        };
+
+        btn.addEventListener('click', () => {
+          if (done[id]) { delete done[id]; } else { done[id] = 1; }
+          save(); apply(); refreshProg();
+        });
+
+        header.appendChild(btn);
+        apply();
+      });
+
+      refreshProg();
+    });
+  }
+  slotChecksInit();
+  restoreChecks();
 </script>
 <script src="explicar/explicar.js"></script>
 </body>
