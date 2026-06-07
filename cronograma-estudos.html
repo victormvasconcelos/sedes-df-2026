@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cronograma de Estudos — Concurso</title>
+  <style>
+    :root {
+      --roxo: #7c3aed;
+      --roxo-claro: #ede9fe;
+      --rosa: #db2777;
+      --rosa-claro: #fce7f3;
+      --azul: #2563eb;
+      --azul-claro: #dbeafe;
+      --verde: #059669;
+      --verde-claro: #d1fae5;
+      --amarelo: #d97706;
+      --amarelo-claro: #fef3c7;
+      --cinza: #6b7280;
+      --cinza-claro: #f3f4f6;
+      --fundo: #fafafa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--fundo);
+      color: #1f2937;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header .emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--roxo);
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin-top: 0.4rem;
+      color: var(--cinza);
+      font-size: 0.95rem;
+    }
+
+    .legenda {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .legenda span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-weight: 500;
+    }
+
+    .legenda .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .semana {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .dia-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .dia-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .dia-header {
+      padding: 0.85rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .dia-header .dia-emoji { font-size: 1.4rem; }
+
+    .dia-header h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .dia-header .badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .bloco {
+      padding: 0.8rem 1.1rem;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .bloco-titulo {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .bloco-titulo .icone { font-size: 1rem; }
+
+    .bloco h3 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.2rem;
+    }
+
+    .bloco p {
+      font-size: 0.82rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+
+    .tag-ferramenta {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+      background: var(--cinza-claro);
+      color: #374151;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* Cores por dia */
+    .segunda .dia-header { background: var(--roxo-claro); color: var(--roxo); }
+    .segunda .bloco-titulo { color: var(--roxo); }
+    .segunda .badge { background: var(--roxo); color: white; }
+
+    .terca .dia-header { background: var(--azul-claro); color: var(--azul); }
+    .terca .bloco-titulo { color: var(--azul); }
+    .terca .badge { background: var(--azul); color: white; }
+
+    .quarta .dia-header { background: #e0f2fe; color: #0369a1; }
+    .quarta .bloco-titulo { color: #0369a1; }
+    .quarta .badge { background: #0369a1; color: white; }
+
+    .quinta .dia-header { background: var(--amarelo-claro); color: var(--amarelo); }
+    .quinta .bloco-titulo { color: var(--amarelo); }
+    .quinta .badge { background: var(--amarelo); color: white; }
+
+    .sexta .dia-header { background: var(--rosa-claro); color: var(--rosa); }
+    .sexta .bloco-titulo { color: var(--rosa); }
+    .sexta .badge { background: var(--rosa); color: white; }
+
+    .sabado .dia-header { background: var(--verde-claro); color: var(--verde); }
+    .sabado .bloco-titulo { color: var(--verde); }
+    .sabado .badge { background: var(--verde); color: white; }
+
+    .domingo .dia-header { background: #f1f5f9; color: #64748b; }
+    .domingo .bloco-titulo { color: #64748b; }
+    .domingo .badge { background: #64748b; color: white; }
+
+    .bonus .dia-header { background: #fdf4ff; color: #9333ea; }
+    .bonus .bloco-titulo { color: #9333ea; }
+    .bonus .badge { background: #9333ea; color: white; }
+
+    /* Card especial: domingo */
+    .domingo {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .domingo .bloco {
+      text-align: center;
+      padding: 1.2rem;
+    }
+
+    .domingo .descanso-emoji {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .domingo .bloco h3 {
+      font-size: 1rem;
+      color: #64748b;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    footer strong {
+      color: var(--roxo);
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.4rem; }
+      .semana { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="emoji">📚</span>
+    <h1>Cronograma Semanal de Estudos</h1>
+    <p>Concurso Público — Psicologia &amp; Legislação Social</p>
+  </header>
+
+  <div class="legenda">
+    <span><span class="dot" style="background:#7c3aed"></span>Segunda</span>
+    <span><span class="dot" style="background:#2563eb"></span>Terça</span>
+    <span><span class="dot" style="background:#0369a1"></span>Quarta</span>
+    <span><span class="dot" style="background:#d97706"></span>Quinta Turbinada</span>
+    <span><span class="dot" style="background:#db2777"></span>Sexta</span>
+    <span><span class="dot" style="background:#059669"></span>Sábado</span>
+    <span><span class="dot" style="background:#64748b"></span>Domingo</span>
+    <span><span class="dot" style="background:#9333ea"></span>Bônus</span>
+  </div>
+
+  <div class="semana">
+
+    <!-- Segunda -->
+    <div class="dia-card segunda">
+      <div class="dia-header">
+        <span class="dia-emoji">🟣</span>
+        <h2>Segunda-feira</h2>
+        <span class="badge">2 × 30 min carro + mesa</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🚗</span> Carro (2× 30min)
+        </div>
+        <h3>Legislação de Assistência Social</h3>
+        <p>SUAS, LOAS</p>
+        <span class="tag-ferramenta">🎧 Videoaulas Gran Cursos — só áudio via Bluetooth</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa (2× 30min)
+        </div>
+        <h3>Específicas de Psicologia — Teoria</h3>
+        <p>Foco em conteúdo teórico aprofundado</p>
+        <span class="tag-ferramenta">📄 Leitura ativa de PDFs resumidos por IA + Anotações</span>
+      </div>
+    </div>
+
+    <!-- Terça -->
+    <div class="dia-card terca">
+      <div class="dia-header">
+        <span class="dia-emoji">🔵</span>
+        <h2>Terça-feira</h2>
+        <span class="badge">2 × 30 min carro + mesa</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🚗</span> Carro (2× 30min)
+        </div>
+        <h3>Legislação Especial</h3>
+        <p>ECA, Lei Maria da Penha, Estatuto do Idoso</p>
+        <span class="tag-ferramenta">🎧 Legislação em áudio ou Videoaulas Gran Cursos</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa (2× 30min)
+        </div>
+        <h3>Específicas de Psicologia — Prática</h3>
+        <p>Resolução de questões comentadas</p>
+        <span class="tag-ferramenta">✅ Banco de Questões Gran (filtrar cargo/banca)</span>
+      </div>
+    </div>
+
+    <!-- Quarta -->
+    <div class="dia-card quarta">
+      <div class="dia-header">
+        <span class="dia-emoji">🔷</span>
+        <h2>Quarta-feira</h2>
+        <span class="badge">2 × 30 min carro + mesa</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🚗</span> Carro (2× 30min)
+        </div>
+        <h3>Português / LODF — Revisão Passiva</h3>
+        <p>Consolidação do conteúdo já estudado</p>
+        <span class="tag-ferramenta">🎧 Áudio das aulas de resolução de questões</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa (2× 30min)
+        </div>
+        <h3>Específicas de Psicologia — Teoria</h3>
+        <p>Aprofundamento teórico</p>
+        <span class="tag-ferramenta">📄 Leitura ativa de PDFs resumidos por IA + Anotações</span>
+      </div>
+    </div>
+
+    <!-- Quinta Turbinada -->
+    <div class="dia-card quinta">
+      <div class="dia-header">
+        <span class="dia-emoji">⚡</span>
+        <h2>Quinta Turbinada</h2>
+        <span class="badge">Dia intensivo</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🚗</span> Carro (2× 30min)
+        </div>
+        <h3>Tema de Maior Dificuldade da Semana</h3>
+        <p>Revisitar o ponto mais difícil para fixação</p>
+        <span class="tag-ferramenta">🎧 Áudio de videoaula repetida para fixação</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa (Extensivo — 2 a 4 ciclos Pomodoro)
+        </div>
+        <h3>Específicas de Psicologia + Básicas</h3>
+        <p>Simulados curtos + estudo intensivo em bloco</p>
+        <span class="tag-ferramenta">🍅 Simulados curtos + 2–4 Pomodoros com PDFs</span>
+      </div>
+    </div>
+
+    <!-- Sexta -->
+    <div class="dia-card sexta">
+      <div class="dia-header">
+        <span class="dia-emoji">🌸</span>
+        <h2>Sexta-feira</h2>
+        <span class="badge">2 × 30 min carro + mesa</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🚗</span> Carro (2× 30min)
+        </div>
+        <h3>Programas e Benefícios do DF</h3>
+        <p>Políticas públicas e assistência no Distrito Federal</p>
+        <span class="tag-ferramenta">🎧 Videoaulas Gran Cursos — só áudio via Bluetooth</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa (2× 30min)
+        </div>
+        <h3>Fechamento da Semana</h3>
+        <p>Consolidar o que foi estudado e registrar dúvidas</p>
+        <span class="tag-ferramenta">📝 Revisão das anotações + Caderno de Erros no Gran</span>
+      </div>
+    </div>
+
+    <!-- Sábado -->
+    <div class="dia-card sabado">
+      <div class="dia-header">
+        <span class="dia-emoji">🌿</span>
+        <h2>Sábado</h2>
+        <span class="badge">Flexível</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">☀️</span> Horário Flexível
+        </div>
+        <h3>Livre / Reposição Leve</h3>
+        <p>Sem obrigação de cumprir horário fixo</p>
+        <span class="tag-ferramenta">📖 Leitura relaxada ou questões no app deitada no sofá</span>
+      </div>
+    </div>
+
+    <!-- Domingo -->
+    <div class="dia-card domingo">
+      <div class="dia-header">
+        <span class="dia-emoji">😴</span>
+        <h2>Domingo</h2>
+        <span class="badge">Descanso</span>
+      </div>
+      <div class="bloco">
+        <span class="descanso-emoji">🛌</span>
+        <h3>Regeneração 100%</h3>
+        <p style="color:#94a3b8; font-size:0.82rem; margin-top:0.3rem;">
+          Nenhum contato com material de estudo.
+          <br>O cérebro consolida a memória enquanto descansa.
+        </p>
+      </div>
+    </div>
+
+    <!-- Bônus -->
+    <div class="dia-card bonus">
+      <div class="dia-header">
+        <span class="dia-emoji">🎯</span>
+        <h2>Bônus — Se Faltar Algum Dia</h2>
+        <span class="badge">Reposição</span>
+      </div>
+      <div class="bloco">
+        <div class="bloco-titulo">
+          <span class="icone">🖥️</span> Mesa extra (1 hora)
+        </div>
+        <h3>Questões de Conhecimentos Específicos</h3>
+        <p>Compensar dias perdidos sem alterar o ritmo semanal</p>
+        <span class="tag-ferramenta">⚡ Bateria rápida de 15–20 questões no Gran</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Criado com carinho para a sua jornada 💜 &nbsp;|&nbsp; <strong>Bora, você consegue!</strong></p>
+  </footer>
+
+</body>
+</html>

@@ -14,3 +14,19 @@ api_keys/
 # Outputs de validação (regeneráveis, podem ser grandes)
 q concursos/validacao/output/
 q concursos/validacao/checkpoint*.json
+
+# Pasta de trabalho/desenvolvimento — NÃO faz parte do site (não publicar)
+Sedes - Clarissa app/
+.playwright-mcp/
+.claude/
+
+# Backups e lixo regeneráveis
+*.bak
+*.bak_*
+questoes-data.js.bak_*
+_lixo/
+_backup_*/
+
+# Material de trabalho pesado / privado (adicionar manualmente se quiser publicar)
+*.xlsx
+Captura de Tela*.png
